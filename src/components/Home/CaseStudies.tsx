@@ -1,0 +1,20 @@
+"use client";
+import CaseStudiesCarousel from "../common/CaseStudiesCarousel";
+import Reveal from "../common/Reveal";
+
+const CaseStudies = () => {
+  return (
+    <section className="w-screen relative overflow-x-hidden bg-primary-bg px-[100px] pt-[100px]">
+      <Reveal>
+        <h2 className="font-semibold text-primary text-[70px] mb-[50px]">
+          Case Studies
+        </h2>
+      </Reveal>
+      <Reveal delay={0.3}>
+        <CaseStudiesCarousel />
+      </Reveal>
+    </section>
+  );
+};
+
+export default CaseStudies;

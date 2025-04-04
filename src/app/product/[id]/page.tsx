@@ -1,0 +1,176 @@
+"use client";
+import Button from "@/components/common/Button";
+import ContactUs from "@/components/common/ContactUs";
+import Footer from "@/components/common/Footer";
+import Navbar from "@/components/common/Navbar";
+import Calculator from "@/components/Home/Calculator";
+import { PRODUCT_KEY_INFO, PRODUCTS } from "@/utils/constants";
+import Image from "next/image";
+import { useParams } from "next/navigation";
+
+const ProductKeyInfo = () => {
+  return (
+    <div className="border border-black px-[50px] pt-[150px] pb-[50px] rounded-[20px] mt-[300px] mx-[100px] relative">
+      <div className="rounded-[20px] bg-primary p-6 absolute -top-20 left-10">
+        <p className="font-semibold font-league-spartan text-[70px] text-white">
+          Key Information For You
+        </p>
+      </div>
+      <div className="grid grid-cols-3 gap-y-10">
+        {PRODUCT_KEY_INFO.map((item) => (
+          <div
+            key={item.id}
+            className={`pl-10 ${
+              item.id % 3 === 0 ? "border-none" : "border-r-[0.5px]"
+            } border-r-[#8B8B8B]`}
+          >
+            <Image
+              src={item.img}
+              width={75}
+              height={75}
+              alt="item"
+              className="w-[75px] h-[75px] object-contain"
+            />
+            <p className="font-league-spartan font-semibold text-[20px] text-black mt-5">
+              {item.title}
+            </p>
+            <div className="max-w-[70%]">
+              <p className="font-gilroy-regular font-extralight text-[18px] my-5">
+                {item.content}
+              </p>
+              <p className="font-gilroy-regular font-extralight text-[18px] my-5">
+                {item.quote}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="text-center mt-10 w-full">
+        <p className="text-[70px] font-semibold font-league-spartan text-primary">
+          One Deal, One Manager!
+        </p>
+        <p className="mt-5 text-[24px] font-gilroy-regular max-w-[50%] mx-auto">
+          We make it simple! Talk to one account manager from enquiry to
+          completion for all your queries! No hassle and extremely simple to
+          follow{" "}
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const ProductHighlights = () => {
+  return (
+    <div className="bg-primary-bg">
+      <h2 className="font-semibold text-center font-league-spartan text-primary text-[70px] mb-[50px]">
+        Highlights Of The Product
+      </h2>
+      <div className="flex flex-row items-center justify-center space-x-12">
+        <div className="w-[225px] h-[225px] bg-white rounded-[32px] flex items-center justify-center flex-col">
+          <Image
+            src="/gif/discount.gif"
+            width={120}
+            height={120}
+            alt="discount"
+            className="w-[120px] h-[120px] object-contain"
+          />
+          <p className="font-gilroy-regular text-[16px] font-extralight mt-[6px] text-center">
+            Up to 70% LTV
+          </p>
+        </div>
+        <div className="w-[225px] h-[225px] bg-white rounded-[32px] flex items-center justify-center flex-col">
+          <Image
+            src="/gif/analytics.gif"
+            width={120}
+            height={120}
+            alt="analytics"
+            className="w-[120px] h-[120px] object-contain"
+          />
+          <p className="font-gilroy-regular text-[16px] font-extralight mt-[6px] text-center">
+            Rates starting from 0.99%
+          </p>
+        </div>
+        <div className="w-[225px] h-[225px] bg-white rounded-[32px] flex items-center justify-center flex-col">
+          <Image
+            src="/gif/money.gif"
+            width={120}
+            height={120}
+            alt="money"
+            className="w-[120px] h-[120px] object-contain"
+          />
+          <p className="font-gilroy-regular text-[16px] font-extralight mt-[6px] text-center">
+            Minimum loan size £150,000
+          </p>
+        </div>
+        <div className="w-[225px] h-[225px] bg-white rounded-[32px] flex items-center justify-center flex-col">
+          <Image
+            src="/gif/home.gif"
+            width={120}
+            height={120}
+            alt="home"
+            className="w-[120px] h-[120px] object-contain"
+          />
+          <p className="font-gilroy-regular text-[16px] font-extralight mt-[6px] text-center max-w-[90%]">
+            AVM Valuations accepted for properties valued up to 700K.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ProductHero = ({ id }: { id: string }) => {
+  const product = PRODUCTS.find((item) => `${item.id}` === id);
+
+  return (
+    <section className="relative w-screen min-h-dvh overflow-x-hidden bg-primary-bg px-[100px] pt-[100px]">
+      <div className="flex flex-row items-center justify-between">
+        <div>
+          <h1 className="text-[50px] 2xl:text-[75px] font-bold text-primary font-league-spartan max-w-[60%]">
+            {product?.title}
+          </h1>
+          <p className="my-[50px] text-[16px] 2xl:text-[25px] font-gilroy-regular font-extralight max-w-[60%]">
+            {product?.content}
+          </p>
+          <div className="flex flex-row items-center space-x-5">
+            <Button className="bg-transparent border border-primary">
+              <p className="font-bold text-primary text-[20px] uppercase">
+                Enquire Now
+              </p>
+            </Button>
+            <Button>
+              <p className="font-bold text-white text-[20px] uppercase">
+                Calculate Now
+              </p>
+            </Button>
+          </div>
+        </div>
+        <Image
+          src={product?.img as string}
+          width={200}
+          height={200}
+          alt="hero"
+          className="w-[460px] h-[302px] 2xl:w-[560px] 2xl:h-[402px] object-cover"
+        />
+      </div>
+    </section>
+  );
+};
+
+const ProductPage = () => {
+  const params = useParams<{ id: string }>();
+
+  return (
+    <main className="bg-primary-bg">
+      <Navbar />
+      <ProductHero id={params.id} />
+      <ProductHighlights />
+      <ProductKeyInfo />
+      <Calculator />
+      <ContactUs />
+      <Footer />
+    </main>
+  );
+};
+
+export default ProductPage;

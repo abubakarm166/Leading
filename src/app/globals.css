@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@layer base {
+  @font-face {
+    font-family: "gilroy-bold";
+    src: url("/fonts/Gilroy-Bold.ttf") format("ttf");
+  }
+
+  @font-face {
+    font-family: "gilroy-medium";
+    src: url("/fonts/Gilroy-Medium.ttf") format("ttf");
+  }
+
+  @font-face {
+    font-family: "gilroy-regular";
+    src: url("/fonts/Gilroy-Regular.ttf") format("ttf");
+  }
+}
+
+@theme {
+  --color-primary: #21558a;
+  --color-primary-bg: #ebeff1;
+
+  --font-league-spartan: "League Spartan", sans-serif;
+  --font-gilroy-regular: "gilroy-regular", sans-serif;
+  --font-gilroy-medium: "gilroy-medium", sans-serif;
+  --font-gilroy-bold: "gilroy-bold", sans-serif;
+  --font-nunito-sans: "Nunito Sans", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}

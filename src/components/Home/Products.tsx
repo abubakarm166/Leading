@@ -1,0 +1,62 @@
+import { PRODUCTS } from "@/utils/constants";
+import Image from "next/image";
+import Button from "../common/Button";
+import Reveal from "../common/Reveal";
+
+const Products = () => {
+  return (
+    <section className="relative w-screen bg-primary-bg pt-[100px] px-[100px] overflow-x-hidden">
+      <Reveal>
+        <h2 className="font-semibold text-primary text-[70px] text-center mb-[50px]">
+          Explore Our Products
+        </h2>
+      </Reveal>
+      <div className="flex flex-row items-center justify-between">
+        <Reveal delay={0.3}>
+          <Image
+            src="/svg/explore-products.svg"
+            width={200}
+            height={200}
+            alt="explore"
+            className="w-[220px] h-[280px] 2xl:w-[340px] 2xl:h-[380px]"
+          />
+        </Reveal>
+        <div className="max-w-[70%]">
+          <Reveal delay={0.5}>
+            <p className="text-[18px] mb-5">
+              Discover our diverse range of products designed to meet the most
+              complex needs. Our product range is crafted to suit every
+              situation.
+            </p>
+          </Reveal>
+          <Reveal delay={0.7}>
+            <p className="text-[18px] mb-5">
+              We also want to add a point that mentions how we custom-make
+              products based on very complex situations. We are determined to
+              find the perfect solution for you!
+            </p>
+          </Reveal>
+          <Reveal delay={1}>
+            <div className="w-full border border-black rounded-[20px] p-5 overflow-x-scroll overflow-y-hidden flex flex-row items-center space-x-5">
+              {PRODUCTS.map((item) => (
+                <div
+                  key={item.id}
+                  className="min-w-[350px] h-[133px] rounded-[10px] bg-white p-5 flex flex-col justify-between"
+                >
+                  <p className="text-[20px] font-league-spartan font-medium">
+                    {item.title}
+                  </p>
+                  <Button className="w-[200px] h-[50px] p-0">
+                    <p className="uppercase text-white">Read More</p>
+                  </Button>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Products;
