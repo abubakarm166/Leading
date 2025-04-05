@@ -32,3 +32,19 @@ export type INewsLetter = {
   name: string;
   email: string;
 };
+
+export type TCreateContact = {
+  name: string;
+  number: string;
+  email: string;
+  message: string;
+};
+
+export type TCreateRegistration = {
+  name: string;
+  number: string;
+  email: string;
+  company: string;
+  postCode: string;
+  marketingMaterial: boolean;
+};

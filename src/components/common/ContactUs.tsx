@@ -1,5 +1,9 @@
+"use client";
+import { addContact } from "@/utils/api/contact";
+import { useFormik } from "formik";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
 import Button from "./Button";
 import Input from "./Input";
 
@@ -8,6 +12,29 @@ interface Props {
 }
 
 const ContactUsForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const formikProps = useFormik({
+    initialValues: {
+      name: "",
+      number: "",
+      email: "",
+      message: "",
+    },
+    onSubmit: async (values, helpers) => {
+      if (!values.name || !values.email || !values.message || !values.number) {
+        return toast.error("Please enter all the details");
+      }
+
+      setIsLoading(true);
+      await addContact(values);
+      helpers.resetForm();
+      setIsLoading(false);
+    },
+  });
+
+  const { values, handleChange, handleSubmit } = formikProps;
+
   return (
     <div className="px-6 py-9 rounded-[8px] border border-black bg-white w-full lg:w-[40%]">
       <p className="font-league-spartan text-[24px] font-bold">Get In Touch</p>
@@ -17,6 +44,8 @@ const ContactUsForm = () => {
           <Input
             placeholder="Enter Full Name"
             className="border border-black px-3 py-[10px]"
+            value={values.name}
+            onChange={handleChange("name")}
           />
         </div>
         <div>
@@ -26,6 +55,8 @@ const ContactUsForm = () => {
           <Input
             placeholder="Enter Phone Number"
             className="border border-black px-3 py-[10px]"
+            value={values.number}
+            onChange={handleChange("number")}
           />
         </div>
         <div>
@@ -33,6 +64,8 @@ const ContactUsForm = () => {
           <Input
             placeholder="Enter Mail"
             className="border border-black px-3 py-[10px]"
+            value={values.email}
+            onChange={handleChange("email")}
           />
         </div>
         <div>
@@ -41,10 +74,12 @@ const ContactUsForm = () => {
             rows={5}
             placeholder="Enter Message"
             className="w-full rounded-[4px] border border-black px-3 py-[10px]"
+            value={values.message}
+            onChange={handleChange("message")}
           />
         </div>
         <div>
-          <Button>
+          <Button isLoading={isLoading} onClick={() => handleSubmit()}>
             <p className="uppercase text-white text-[15px]">Submit</p>
           </Button>
         </div>

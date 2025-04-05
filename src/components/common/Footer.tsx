@@ -9,7 +9,7 @@ const Footer = () => {
             <p className="font-league-spartan font-semibold text-white text-[44px]">
               Lending Bridge
             </p>
-            <p className="font-gilroy-regular font-extralight text-[18px] text-white mt-5 lg:my-10 w-full lg:max-w-[60%] 2xl:max-w-[40%]">
+            <p className="font-gilroy-regular font-extralight text-[18px] text-white mt-5 lg:my-10 w-full lg:max-w-[60%] 2xl:max-w-[70%]">
               At Lending Bridge we specialize in bridge loans on buy-to-let and
               commercial properties. Our fast, efficient and reliable short-term
               financial solutions are made simple and stress-free.

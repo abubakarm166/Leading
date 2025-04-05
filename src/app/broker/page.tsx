@@ -1,3 +1,4 @@
+"use client";
 import Button from "@/components/common/Button";
 import ContactUs from "@/components/common/ContactUs";
 import Footer from "@/components/common/Footer";
@@ -5,10 +6,55 @@ import Input from "@/components/common/Input";
 import Navbar from "@/components/common/Navbar";
 import Reveal from "@/components/common/Reveal";
 import LoanProcess from "@/components/Home/LoanProcess";
+import { addRegistration } from "@/utils/api/registration";
 import { BROKER_INFO } from "@/utils/constants";
+import { useFormik } from "formik";
 import Image from "next/image";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 const BrokerRegistrationForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const formikProps = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      number: "",
+      company: "",
+      postCode: "",
+      jobTitle: "",
+      marketingMaterial: true,
+    },
+    onSubmit: async (values, helpers) => {
+      const fieldsMissing = Object.values(values).some((item) => {
+        if (!item) {
+          return true;
+        }
+      });
+
+      if (fieldsMissing) {
+        return toast.error("Please enter all the fields");
+      }
+
+      setIsLoading(true);
+      await addRegistration({
+        name: `${values.firstName} ${values.lastName}`,
+        number: values.number,
+        email: values.email,
+        company: values.company,
+        postCode: values.postCode,
+        marketingMaterial: values.marketingMaterial,
+      });
+      setIsLoading(false);
+
+      helpers.resetForm();
+    },
+  });
+
+  const { values, handleChange, handleSubmit, setFieldValue } = formikProps;
+
   return (
     <div className="flex flex-row items-center bg-white rounded-[20px] space-x-[52px] overflow-hidden">
       <Image
@@ -29,6 +75,8 @@ const BrokerRegistrationForm = () => {
               <Input
                 placeholder="Enter your first name"
                 className="border border-[#B7B7B7] rounded-[8px] px-3 py-[10px] mt-[7px]"
+                value={values.firstName}
+                onChange={handleChange("firstName")}
               />
             </div>
             <div className="w-[45%]">
@@ -36,6 +84,8 @@ const BrokerRegistrationForm = () => {
               <Input
                 placeholder="Enter your last name"
                 className="border border-[#B7B7B7] rounded-[8px] px-3 py-[10px] mt-[7px]"
+                value={values.lastName}
+                onChange={handleChange("lastName")}
               />
             </div>
           </div>
@@ -45,6 +95,8 @@ const BrokerRegistrationForm = () => {
               <Input
                 placeholder="Enter your email"
                 className="border border-[#B7B7B7] rounded-[8px] px-3 py-[10px] mt-[7px]"
+                value={values.email}
+                onChange={handleChange("email")}
               />
             </div>
             <div className="w-[45%]">
@@ -52,6 +104,8 @@ const BrokerRegistrationForm = () => {
               <Input
                 placeholder="+0000000000"
                 className="border border-[#B7B7B7] rounded-[8px] px-3 py-[10px] mt-[7px]"
+                value={values.number}
+                onChange={handleChange("number")}
               />
             </div>
           </div>
@@ -61,6 +115,8 @@ const BrokerRegistrationForm = () => {
               <Input
                 placeholder="Enter your company name"
                 className="border border-[#B7B7B7] rounded-[8px] px-3 py-[10px] mt-[7px]"
+                value={values.company}
+                onChange={handleChange("company")}
               />
             </div>
             <div className="w-[45%]">
@@ -68,6 +124,8 @@ const BrokerRegistrationForm = () => {
               <Input
                 placeholder="Enter your post code"
                 className="border border-[#B7B7B7] rounded-[8px] px-3 py-[10px] mt-[7px]"
+                value={values.postCode}
+                onChange={handleChange("postCode")}
               />
             </div>
           </div>
@@ -76,15 +134,24 @@ const BrokerRegistrationForm = () => {
             <Input
               placeholder="Enter your job title"
               className="border border-[#B7B7B7] rounded-[8px] px-3 py-[10px] mt-[7px]"
+              value={values.jobTitle}
+              onChange={handleChange("jobTitle")}
             />
           </div>
           <div className="flex flex-row items-center space-x-[10px]">
-            <Input type="checkbox" className="w-min" />
+            <Input
+              type="checkbox"
+              className="w-min"
+              checked={values.marketingMaterial}
+              onChange={(e) =>
+                setFieldValue("marketingMaterial", e.target.checked)
+              }
+            />
             <p className="font-gilroy-medium text-[16px] text-[#797979]">
               I agree to receive all marketing material
             </p>
           </div>
-          <Button>
+          <Button isLoading={isLoading} onClick={() => handleSubmit()}>
             <p className="text-white uppercase">Submit</p>
           </Button>
         </div>
