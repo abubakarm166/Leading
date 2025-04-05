@@ -10,9 +10,9 @@ const BlogsPage = () => {
   return (
     <main className="bg-primary-bg">
       <Navbar />
-      <div className="px-[100px] my-[50px]">
+      <div className="px-[50px] lg:px-[100px] py-[50px]">
         <Reveal>
-          <h1 className="font-league-spartan font-semibold text-primary text-[70px]">
+          <h1 className="font-league-spartan font-semibold text-primary text-[40px] lg:text-[70px]">
             Blogs, News And Updates
           </h1>
         </Reveal>

@@ -48,3 +48,28 @@ export type TCreateRegistration = {
   postCode: string;
   marketingMaterial: boolean;
 };
+
+export type Availability = {
+  id: number;
+  person: string;
+  from: string;
+  to: string;
+  type: "leave" | "available";
+};
+
+export type TCreateAppointment = {
+  fullName: string;
+  email: string;
+  appointmentWith: string;
+  date: string;
+  time: string;
+  type: "borrower" | "broker";
+};
+
+export type Resource = {
+  id: number;
+  title: string;
+  file: string;
+  fileName: string;
+  createdAt: string;
+};

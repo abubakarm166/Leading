@@ -236,3 +236,130 @@ export const BROKER_INFO = [
     img: "/svg/broker-info-nine.svg",
   },
 ];
+
+export const APPOINTMENT_TIME_SLOTS = [
+  "09:30 AM",
+  "10:30 AM",
+  "11:30 AM",
+  "12:30 PM",
+  "01:30 PM",
+  "02:30 PM",
+  "03:30 PM",
+  "04:30 PM",
+  "05:30 PM",
+];
+
+export const BROKER_FAQ = [
+  {
+    question: "How do I submit a deal to Lending Bridge?",
+    answer:
+      "Simply reach out to us via phone, email, or our online enquiry form. Our team will review the case and provide terms swiftly. Let’s work together to find the best funding solutions for your clients!",
+  },
+  {
+    question: "What commissions do brokers receive?",
+    answer: "Minimum 1% fee",
+  },
+  {
+    question: "When do brokers get paid?",
+    answer: "Same day as loan completion",
+  },
+  {
+    question: "Do you have a minimum and maximum loan size?",
+    answer:
+      "Our minimum loan size is £100,000 and we do not have a maximum loan size.",
+  },
+  {
+    question: "Can you lend to foreign nationals or complex structures?",
+    answer:
+      "Yes! We assess cases individually and can lend to foreign nationals, expats, trusts, offshore companies, and complex borrower structures.",
+  },
+  {
+    question: "How quickly can Lending Bridge complete a deal?",
+    answer:
+      "We pride ourselves on speed, with completions possible in as little as 24 hours, depending on the case. Our in-house legal team ensures a smooth and efficient process.",
+  },
+  {
+    question: "Can you help if my client has adverse credit?",
+    answer:
+      "Yes! We are flexible. We assess the deal on a case-by-case basis and focus on the asset and exit strategy rather than just credit history.",
+  },
+];
+
+export const GENERAL_FAQ = [
+  {
+    question: "What is a bridging loan?",
+    answer:
+      "A bridging loan is a short-term finance solution used to bridge the gap between purchasing a property and securing long-term funding or selling an existing asset.",
+  },
+  {
+    question: "Who can apply for a bridging loan?",
+    answer:
+      "Our bridging loans are available to individuals, investors, developers, and businesses looking for fast and flexible funding.",
+  },
+  {
+    question: "How quickly can I receive funds?",
+    answer:
+      "We specialise in rapid funding, with loans completed in as little as 24–48 hours, depending on the case and legal requirements.",
+  },
+  {
+    question: "What types of properties can be used as security?",
+    answer:
+      "We lend against a variety of property types, including residential, commercial, HMOs, and mixed-use properties.",
+  },
+  {
+    question: "How do I apply for a bridging loan?",
+    answer:
+      "Applying is simple:\n• Get in touch early –\n  o For property purchases (including auctions): Contact us as early as possible, ideally before the auction or as soon as you secure the deal.\n  o For refinancing an existing bridge and/or capital raise: Contact us with details of your current loan, including outstanding balance, lender terms, and preferred exit strategy.\n• Fast approval – We provide a same-day decision in principle.\n• Legal and valuation process – We work swiftly to complete legal checks and valuation.\n• Funding within days – With our in-house solicitors and streamlined process, we aim to complete in 5–7 days.",
+  },
+  {
+    question: "Why choose Lending Bridge?",
+    answer:
+      "• Fast & flexible funding – We complete in days, not weeks.\n• Direct access to decision-makers – Immediate answers, faster approvals and flexible solutions\n• Tailored solutions – Every deal is structured to fit your needs.\n• Reliable & transparent – We deliver exactly what we promise.",
+  },
+  {
+    question: "Can I repay my loan early?",
+    answer:
+      "Yes, early repayment is allowed without penalties. Early repayment can reduce the overall interest payable.",
+  },
+  {
+    question: "What is the typical term length for a bridging loan?",
+    answer:
+      "Our bridging loans have flexible terms ranging from 1 to 18 months, depending on your specific needs and exit strategy.",
+  },
+  {
+    question: "What is an exit strategy, and why is it important?",
+    answer:
+      "An exit strategy is a plan for repaying your bridging loan, typically through property sale or refinancing. A clear exit strategy is crucial as it outlines how you intend to repay the loan at the end of the term.",
+  },
+  {
+    question: "Do I need a deposit for a bridging loan?",
+    answer:
+      "While traditional deposits aren't always required, having equity in the property or additional assets can strengthen your application and may influence loan terms.",
+  },
+  {
+    question: "How does adverse credit affect my application?",
+    answer:
+      "We assess each application on its merits, focusing on the property's value and your exit strategy. While adverse credit may influence terms, it doesn't automatically disqualify you from obtaining a loan.",
+  },
+  {
+    question:
+      "Are there any properties or situations Lending Bridge won't consider?",
+    answer:
+      "We evaluate each case individually. However, certain property types, like operational care homes or places of worship, may fall outside our lending criteria.",
+  },
+  {
+    question: "How does Lending Bridge handle interest payments?",
+    answer:
+      "Interest can be serviced monthly or retained and paid at the start of the loan term, depending on your preference and the loan agreement.",
+  },
+  {
+    question: "Can I use multiple properties as security for one loan?",
+    answer:
+      "Yes, we can consider multiple properties as collateral to support a single loan application, potentially allowing you to access more funds.",
+  },
+  {
+    question: "What happens if I can't repay the loan on time?",
+    answer:
+      "If you're unable to repay the loan at the end of the term, it's essential to contact us immediately. We aim to work collaboratively to find a solution, which may include extending the loan term or exploring alternative repayment options.",
+  },
+];

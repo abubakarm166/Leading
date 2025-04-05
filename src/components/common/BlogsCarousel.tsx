@@ -3,6 +3,7 @@ import { TBlog } from "@/types";
 import { listBlogs } from "@/utils/api/blogs";
 import { useEffectAsync } from "@/utils/hooks";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import Slider from "react-slick";
 
@@ -14,6 +15,8 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow }) => {
   const [blogs, setBlogs] = useState<TBlog[]>([]);
 
   const sliderRef = useRef<Slider>(null);
+
+  const router = useRouter();
 
   useEffectAsync(async () => {
     const res = await listBlogs();
@@ -44,6 +47,7 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow }) => {
             <div
               key={item.id}
               className="max-w-[90%] 2xl:max-w-[80%] h-[480px] bg-white rounded-[20px] overflow-hidden cursor-pointer relative"
+              onClick={() => router.push(`/blogs/${item.id}`)}
             >
               <Image
                 src={item.img}

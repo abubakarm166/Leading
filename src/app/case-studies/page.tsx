@@ -9,8 +9,8 @@ const CaseStudiesPage = () => {
   return (
     <main className="bg-primary-bg">
       <Navbar />
-      <div className="px-[100px]">
-        <h2 className="font-league-spartan font-semibold text-primary text-[70px] my-[50px]">
+      <div className="px-[50px] lg:px-[100px]">
+        <h2 className="font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px] py-[50px]">
           Case Studies
         </h2>
         <CaseStudiesCarousel />

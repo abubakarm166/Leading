@@ -11,3 +11,14 @@ export const listTeam = async () => {
     return [];
   }
 };
+
+export const getTeamMemberAvailability = async (id: string) => {
+  try {
+    const res = await axiosInstance.get(`/availability/${id}`);
+    if (res.data?.status === "SUCCESS") {
+      return res.data?.data;
+    }
+  } catch (err) {
+    console.log("ERROR: ", err);
+  }
+};

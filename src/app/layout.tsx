@@ -7,7 +7,9 @@ import {
   League_Spartan,
   Nunito_Sans,
 } from "next/font/google";
+import "react-calendar/dist/Calendar.css";
 import { Toaster } from "react-hot-toast";
+import "react-responsive-modal/styles.css";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import "./globals.css";

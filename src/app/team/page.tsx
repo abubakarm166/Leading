@@ -4,6 +4,7 @@ import ContactUs from "@/components/common/ContactUs";
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
 import Reveal from "@/components/common/Reveal";
+import BookAppointmentModal from "@/components/Team/BookAppointmentModal";
 import { TeamMember } from "@/types";
 import { listTeam } from "@/utils/api/team";
 import { useEffectAsync } from "@/utils/hooks";
@@ -42,6 +43,8 @@ const TeamList = ({ team }: { team: TeamMember[] }) => {
 const TeamPage = () => {
   const [team, setTeam] = useState<TeamMember[]>([]);
   const [activeMember, setActiveMember] = useState<TeamMember>();
+  const [isBookAppointmentModalVisible, setIsBookAppointmentModalVisible] =
+    useState(false);
 
   useEffectAsync(async () => {
     const res = await listTeam();
@@ -72,19 +75,22 @@ const TeamPage = () => {
               {activeMember?.experience}
             </p>
             <div className="flex flex-row items-center space-x-[10px] mt-[18px]">
-              <Image
-                src="/svg/mail-blue.svg"
-                width={45}
-                height={45}
-                alt="mail"
-                className="w-[45px] h-[45px] cursor-pointer"
-              />
+              <a href={`mailto:${activeMember?.email}`}>
+                <Image
+                  src="/svg/mail-blue.svg"
+                  width={45}
+                  height={45}
+                  alt="mail"
+                  className="w-[45px] h-[45px] cursor-pointer"
+                />
+              </a>
               <Image
                 src="/svg/linkedin-blue.svg"
                 width={45}
                 height={45}
                 alt="linkedin"
                 className="w-[45px] h-[45px] cursor-pointer"
+                onClick={() => window.open(activeMember?.linkedIn, "_blank")}
               />
             </div>
           </div>
@@ -98,7 +104,10 @@ const TeamPage = () => {
                 className="w-[247px] h-[332px] object-cover"
               />
             )}
-            <Button className="absolute bottom-0 -left-[30%] w-[400px]">
+            <Button
+              className="absolute bottom-0 -left-[30%] w-[400px]"
+              onClick={() => setIsBookAppointmentModalVisible(true)}
+            >
               <p className="text-white font-bold uppercase text-[20px]">
                 Book an appointment
               </p>
@@ -109,6 +118,11 @@ const TeamPage = () => {
       <TeamList team={team} />
       <ContactUs />
       <Footer />
+      <BookAppointmentModal
+        isOpen={isBookAppointmentModalVisible}
+        member={activeMember as TeamMember}
+        onClose={() => setIsBookAppointmentModalVisible(false)}
+      />
     </main>
   );
 };

@@ -56,22 +56,27 @@ const BrokerRegistrationForm = () => {
   const { values, handleChange, handleSubmit, setFieldValue } = formikProps;
 
   return (
-    <div className="flex flex-row items-center bg-white rounded-[20px] space-x-[52px] overflow-hidden">
+    <div className="flex flex-col lg:flex-row items-center bg-white rounded-[20px] lg:space-x-[52px] overflow-hidden">
+      <p className="font-league-spartan text-center mt-5 w-full text-[40px] font-bold block lg:hidden">
+        Registration
+      </p>
       <Image
         src="/svg/broker-registration.svg"
         width={500}
         height={500}
         alt="broker"
-        className="w-[500px] h-[500px] object-cover"
+        className="w-[200px] h-[200px] lg:w-[500px] lg:h-[500px] object-cover"
       />
-      <div className="flex-1 pr-[100px] py-[50px]">
-        <p className="font-league-spartan text-[70px] font-bold">
+      <div className="flex-1 lg:pr-[100px] py-5 lg:py-[50px]">
+        <p className="font-league-spartan text-[70px] font-bold hidden lg:block">
           Registration
         </p>
-        <div className="mt-[26px] flex-col space-y-[26px]">
+        <div className="mt-[26px] flex-col space-y-[26px] px-5 lg:px-0">
           <div className="flex flex-row items-center justify-between">
             <div className="w-[45%]">
-              <p className="font-gilroy-medium text-[20px]">First Name</p>
+              <p className="font-gilroy-medium text-[14px] lg:text-[20px]">
+                First Name
+              </p>
               <Input
                 placeholder="Enter your first name"
                 className="border border-[#B7B7B7] rounded-[8px] px-3 py-[10px] mt-[7px]"
@@ -80,7 +85,9 @@ const BrokerRegistrationForm = () => {
               />
             </div>
             <div className="w-[45%]">
-              <p className="font-gilroy-medium text-[20px]">Last Name</p>
+              <p className="font-gilroy-medium text-[14px] lg:text-[20px]">
+                Last Name
+              </p>
               <Input
                 placeholder="Enter your last name"
                 className="border border-[#B7B7B7] rounded-[8px] px-3 py-[10px] mt-[7px]"
@@ -91,7 +98,9 @@ const BrokerRegistrationForm = () => {
           </div>
           <div className="flex flex-row items-center justify-between">
             <div className="w-[45%]">
-              <p className="font-gilroy-medium text-[20px]">Email Address</p>
+              <p className="font-gilroy-medium text-[14px] lg:text-[20px]">
+                Email Address
+              </p>
               <Input
                 placeholder="Enter your email"
                 className="border border-[#B7B7B7] rounded-[8px] px-3 py-[10px] mt-[7px]"
@@ -100,7 +109,9 @@ const BrokerRegistrationForm = () => {
               />
             </div>
             <div className="w-[45%]">
-              <p className="font-gilroy-medium text-[20px]">Phone Number</p>
+              <p className="font-gilroy-medium text-[14px] lg:text-[20px]">
+                Phone Number
+              </p>
               <Input
                 placeholder="+0000000000"
                 className="border border-[#B7B7B7] rounded-[8px] px-3 py-[10px] mt-[7px]"
@@ -111,7 +122,9 @@ const BrokerRegistrationForm = () => {
           </div>
           <div className="flex flex-row items-center justify-between">
             <div className="w-[45%]">
-              <p className="font-gilroy-medium text-[20px]">Company Name</p>
+              <p className="font-gilroy-medium text-[14px] lg:text-[20px]">
+                Company Name
+              </p>
               <Input
                 placeholder="Enter your company name"
                 className="border border-[#B7B7B7] rounded-[8px] px-3 py-[10px] mt-[7px]"
@@ -120,7 +133,9 @@ const BrokerRegistrationForm = () => {
               />
             </div>
             <div className="w-[45%]">
-              <p className="font-gilroy-medium text-[20px]">Post Code</p>
+              <p className="font-gilroy-medium text-[14px] lg:text-[20px]">
+                Post Code
+              </p>
               <Input
                 placeholder="Enter your post code"
                 className="border border-[#B7B7B7] rounded-[8px] px-3 py-[10px] mt-[7px]"
@@ -130,7 +145,9 @@ const BrokerRegistrationForm = () => {
             </div>
           </div>
           <div>
-            <p className="font-gilroy-medium text-[20px]">Job Title</p>
+            <p className="font-gilroy-medium text-[14px] lg:text-[20px]">
+              Job Title
+            </p>
             <Input
               placeholder="Enter your job title"
               className="border border-[#B7B7B7] rounded-[8px] px-3 py-[10px] mt-[7px]"
@@ -162,15 +179,14 @@ const BrokerRegistrationForm = () => {
 
 const BrokerInfo = () => {
   return (
-    <div className="flex flex-row items-start justify-between pb-[50px]">
-      <p className="font-league-spartan font-bold text-[70px] text-primary">
+    <div className="flex flex-col 2xl:flex-row items-start justify-between pb-[50px]">
+      <p className="font-league-spartan font-bold text-[40px] lg:text-[70px] text-primary mb-5 lg:mb-0">
         Information
-        <br />
-        You Need
-        <br />
+        <br className="hidden 2xl:block" />
+        You Need <br className="hidden 2xl:block" />
         To Know
       </p>
-      <div className="grid grid-cols-3 gap-[103px]">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-[103px] mx-auto 2xl:mx-0">
         {BROKER_INFO.map((item) => (
           <Reveal
             key={item.id}
@@ -200,18 +216,18 @@ const BrokerPage = () => {
   return (
     <main className="relative overflow-x-hidden bg-primary-bg">
       <Navbar />
-      <div className="px-[100px] mt-[50px]">
-        <div className="flex flex-row items-center justify-between">
-          <div>
+      <div className="px-[50px] 2xl:px-[100px] mt-[50px]">
+        <div className="flex flex-col lg:flex-row items-center justify-between">
+          <div className="order-2 lg:order-1 mt-10 lg:mt-0">
             <Reveal>
-              <h1 className="font-league-spartan font-semibold text-primary text-[70px]">
+              <h1 className="font-league-spartan font-semibold text-primary text-[40px] lg:text-[70px]">
                 Brokers At The Heart
                 <br />
                 Of Our Business
               </h1>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="text-[25px] font-extralight font-gilroy-regular mt-[30px] max-w-[60%]">
+              <p className="text-[18px] lg:text-[25px] font-extralight font-gilroy-regular mt-[30px] max-w-full lg:max-w-[60%]">
                 We place brokers at the core of everything we do. We keep you
                 updated on any changes in policies and rates, ensuring that
                 you&apos;re always in the loop. With Lending Bridge, brokers
@@ -220,7 +236,10 @@ const BrokerPage = () => {
               </p>
             </Reveal>
           </div>
-          <Reveal delay={0.4} className="w-[70%]">
+          <Reveal
+            delay={0.4}
+            className="order-2 lg:order-1 w-[90%] 2xl:w-[70%]"
+          >
             <Image
               src="/svg/broker-page.svg"
               width={360}
@@ -232,12 +251,12 @@ const BrokerPage = () => {
         </div>
         <div className="mt-[70px] mb-[60px]">
           <Reveal>
-            <p className="text-[70px] text-primary font-semibold font-league-spartan">
+            <p className="text-[40px] lg:text-[70px] text-primary font-semibold font-league-spartan">
               Why Partner With Lending Bridge?
             </p>
           </Reveal>
-          <div className="flex flex-row items-center justify-between mt-[60px]">
-            <Reveal delay={0.2} className="w-[45%]">
+          <div className="flex flex-col lg:flex-row items-center justify-between mt-5 lg:mt-[60px]">
+            <Reveal delay={0.2} className="w-full lg:w-[45%] mb-5 lg:mb-0">
               <div>
                 <p className="font-gilroy-bold text-[25px]">
                   Exclusive Access:
@@ -249,7 +268,7 @@ const BrokerPage = () => {
                 </p>
               </div>
             </Reveal>
-            <Reveal delay={0.4} className="w-[45%]">
+            <Reveal delay={0.4} className="w-full lg:w-[45%]">
               <div>
                 <p className="font-gilroy-bold text-[25px]">
                   Premium Benefits:

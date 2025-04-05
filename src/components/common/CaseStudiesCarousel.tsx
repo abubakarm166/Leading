@@ -37,7 +37,7 @@ const CaseStudiesCarousel = () => {
         >
           {caseStudies.map((item) => (
             <div
-              className="max-w-[400px] h-[400px] rounded-[20px] relative overflow-hidden cursor-pointer"
+              className="max-w-[90%] 2xl:max-w-[80%] h-[400px] rounded-[20px] relative overflow-hidden cursor-pointer"
               key={item.id}
             >
               <Image

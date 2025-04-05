@@ -11,18 +11,18 @@ import { useParams } from "next/navigation";
 
 const ProductKeyInfo = () => {
   return (
-    <div className="border border-black px-[50px] pt-[150px] pb-[50px] rounded-[20px] mt-[300px] mx-[100px] relative">
-      <div className="rounded-[20px] bg-primary p-6 absolute -top-20 left-10">
-        <p className="font-semibold font-league-spartan text-[70px] text-white">
+    <div className="border border-black px-5 lg:px-[50px] pt-[50px] lg:pt-[150px] pb-[50px] rounded-[20px] mt-[100px] lg:mt-[300px] mx-[50px] lg:mx-[100px] relative">
+      <div className="rounded-[20px] bg-primary p-2 lg:p-6 absolute -top-10 lg:-top-20 left-0 lg:left-10">
+        <p className="font-semibold font-league-spartan text-[30px] lg:text-[70px] text-white">
           Key Information For You
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-y-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-10">
         {PRODUCT_KEY_INFO.map((item) => (
           <Reveal key={item.id} delay={0.2 * item.id}>
             <div
-              className={`pl-10 ${
-                item.id % 3 === 0 ? "border-none" : "border-r-[0.5px]"
+              className={`lg:pl-10 ${
+                item.id % 3 === 0 ? "border-none" : "lg:border-r-[0.5px]"
               } border-r-[#8B8B8B]`}
             >
               <Image
@@ -49,12 +49,12 @@ const ProductKeyInfo = () => {
       </div>
       <div className="text-center mt-10 w-full">
         <Reveal>
-          <p className="text-[70px] font-semibold font-league-spartan text-primary">
+          <p className="text-[40px] lg:text-[70px] font-semibold font-league-spartan text-primary">
             One Deal, One Manager!
           </p>
         </Reveal>
         <Reveal delay={0.3}>
-          <p className="mt-5 text-[24px] font-gilroy-regular max-w-[50%] lg:max-w-[80%] 2xl:max-w-[50%] mx-auto">
+          <p className="mt-5 text-[24px] font-gilroy-regular max-w-full lg:max-w-[80%] 2xl:max-w-[50%] mx-auto">
             We make it simple! Talk to one account manager from enquiry to
             completion for all your queries! No hassle and extremely simple to
             follow{" "}
@@ -69,11 +69,11 @@ const ProductHighlights = () => {
   return (
     <div className="bg-primary-bg">
       <Reveal>
-        <h2 className="font-semibold text-center font-league-spartan text-primary text-[70px] mb-[50px]">
+        <h2 className="font-semibold text-center font-league-spartan text-primary text-[40px] lg:text-[70px] mb-[50px]">
           Highlights Of The Product
         </h2>
       </Reveal>
-      <div className="flex flex-row items-center justify-center space-x-12">
+      <div className="flex flex-col lg:flex-row items-center justify-center space-y-5 lg:space-y-0 lg:space-x-12">
         <Reveal delay={0.2}>
           <div className="w-[225px] h-[225px] bg-white rounded-[32px] flex items-center justify-center flex-col">
             <Image
@@ -139,35 +139,35 @@ const ProductHero = ({ id }: { id: string }) => {
   const product = PRODUCTS.find((item) => `${item.id}` === id);
 
   return (
-    <section className="relative w-screen min-h-dvh overflow-x-hidden bg-primary-bg px-[100px] pt-[100px]">
-      <div className="flex flex-row items-center justify-between">
-        <div>
+    <section className="relative w-screen min-h-dvh overflow-x-hidden bg-primary-bg px-[50px] lg:px-[100px] pt-[100px]">
+      <div className="flex flex-col lg:flex-row items-center justify-between">
+        <div className="order-2 lg:order-1 mt-5 lg:mt-0">
           <Reveal>
-            <h1 className="text-[50px] 2xl:text-[75px] font-bold text-primary font-league-spartan max-w-[60%]">
+            <h1 className="text-[40px] lg:text-[50px] 2xl:text-[75px] font-bold text-primary font-league-spartan max-w-full lg:max-w-[60%]">
               {product?.title}
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="my-[50px] text-[16px] 2xl:text-[25px] font-gilroy-regular font-extralight max-w-[60%]">
+            <p className="my-[50px] text-[16px] 2xl:text-[25px] font-gilroy-regular font-extralight max-w-full lg:max-w-[60%]">
               {product?.content}
             </p>
           </Reveal>
           <Reveal delay={0.4}>
             <div className="flex flex-row items-center space-x-5">
               <Button className="bg-transparent border border-primary">
-                <p className="font-bold text-primary text-[20px] uppercase">
+                <p className="font-bold text-primary text-[14px] lg:text-[20px] uppercase">
                   Enquire Now
                 </p>
               </Button>
               <Button>
-                <p className="font-bold text-white text-[20px] uppercase">
+                <p className="font-bold text-white text-[14px] lg:text-[20px] uppercase">
                   Calculate Now
                 </p>
               </Button>
             </div>
           </Reveal>
         </div>
-        <Reveal delay={0.6} className="w-full">
+        <Reveal delay={0.6} className="order-1 lg:order-2 w-full">
           <Image
             src={product?.img as string}
             width={200}

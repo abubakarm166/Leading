@@ -1,8 +1,17 @@
+"use client";
 import Image from "next/image";
 import Button from "../common/Button";
 import Reveal from "../common/Reveal";
 
 const Hero = () => {
+  const handleOnCalculate = () => {
+    const calculator = document.getElementById("calculator");
+
+    if (calculator) {
+      calculator.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative w-screen overflow-x-hidden bg-primary-bg px-[20px] lg:px-[100px] pb-[100px]">
       <div className="flex flex-col lg:flex-row items-center justify-between">
@@ -22,7 +31,7 @@ const Hero = () => {
             </p>
           </Reveal>
           <Reveal delay={0.5}>
-            <Button>
+            <Button onClick={handleOnCalculate}>
               <p className="font-bold text-white text-[20px] uppercase">
                 Calculate Now
               </p>

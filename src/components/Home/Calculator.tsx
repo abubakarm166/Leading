@@ -4,7 +4,10 @@ import Reveal from "../common/Reveal";
 
 const Calculator = () => {
   return (
-    <section className="relative w-screen overflow-x-hidden bg-primary-bg pt-[100px] lg:pt-[350px] px-5 lg:px-[100px]">
+    <section
+      className="relative w-screen overflow-x-hidden bg-primary-bg pt-[100px] lg:pt-[350px] px-5 lg:px-[100px]"
+      id="calculator"
+    >
       <Image
         src="/svg/calculator-man.svg"
         width={200}

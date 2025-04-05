@@ -35,3 +35,15 @@ body {
   overflow-x: hidden;
   box-sizing: border-box;
 }
+
+.react-calendar {
+  width: 500px;
+}
+
+.react-calendar__navigation {
+  margin-bottom: 0px;
+}
+
+.react-calendar__viewContainer {
+  background-color: #f4f9ff;
+}
