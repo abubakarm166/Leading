@@ -6,5 +6,5 @@ export const useEffectAsync = (
 ) => {
   useEffect(() => {
     effect();
-  }, [deps]);
+  }, deps);
 };

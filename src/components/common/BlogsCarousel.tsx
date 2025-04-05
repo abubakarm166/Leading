@@ -30,11 +30,20 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow }) => {
           dots={false}
           infinite={false}
           arrows={false}
+          responsive={[
+            {
+              breakpoint: 500,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              },
+            },
+          ]}
         >
           {blogs.map((item) => (
             <div
               key={item.id}
-              className="max-w-[300px] 2xl:max-w-[336px] h-[480px] bg-white rounded-[20px] overflow-hidden cursor-pointer relative"
+              className="max-w-[90%] 2xl:max-w-[80%] h-[480px] bg-white rounded-[20px] overflow-hidden cursor-pointer relative"
             >
               <Image
                 src={item.img}

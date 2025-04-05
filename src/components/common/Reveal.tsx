@@ -1,18 +1,22 @@
 "use client";
+import { cn } from "@/utils/helpers";
 import { motion, useAnimation, useInView } from "motion/react";
 import React, { useEffect, useRef } from "react";
 
 interface Props {
   children: React.ReactNode;
   delay?: number;
+  className?: string;
 }
 
-const Reveal: React.FC<Props> = ({ children, delay }) => {
+const Reveal: React.FC<Props> = ({ children, delay, className }) => {
   const ref = useRef(null);
 
   const isInView = useInView(ref, { once: true });
 
   const mainControls = useAnimation();
+
+  const combinedCls = cn("relative overflow-hidden", className);
 
   useEffect(() => {
     if (isInView) {
@@ -25,7 +29,7 @@ const Reveal: React.FC<Props> = ({ children, delay }) => {
   }, [isInView]);
 
   return (
-    <div ref={ref} className="relative overflow-hidden">
+    <div ref={ref} className={combinedCls}>
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 100 },

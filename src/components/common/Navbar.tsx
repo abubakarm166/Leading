@@ -1,8 +1,14 @@
+"use client";
+import { PRODUCTS } from "@/utils/constants";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import NavItem from "./NavItem";
 
 const Navbar = () => {
+  const router = useRouter();
+
   return (
-    <div className="px-[50px] pt-[50px] bg-primary-bg">
+    <div className="px-[50px] pt-[50px] bg-primary-bg hidden lg:block">
       <nav className="bg-white rounded-[15px] px-[50px] py-6 h-[116px]">
         <div className="flex flex-row items-center justify-between h-full">
           <Image
@@ -10,14 +16,33 @@ const Navbar = () => {
             width={200}
             height={200}
             alt="logo"
-            className="w-[160px] h-[32px]"
+            className="w-[160px] h-[32px] cursor-pointer"
+            onClick={() => router.push("/")}
           />
-          <div className="flex flex-row items-center justify-between w-[70%] font-league-spartan font-medium text-[18px]">
-            <p>Our Product</p>
-            <p>Our Work</p>
-            <p>Team</p>
-            <p>Intermediaries</p>
-            <a href="/contact-us">Contact Us</a>
+          <div className="flex flex-row items-center justify-between w-[70%] lg:w-[80%] 2xl:w-[70%] font-league-spartan font-medium text-[18px]">
+            <NavItem
+              title="Our Product"
+              options={PRODUCTS.map((item) => ({
+                title: item.title,
+                href: `/product/${item.id}`,
+              }))}
+            />
+            <NavItem
+              title="Our Work"
+              options={[
+                { title: "Blogs", href: "/blogs" },
+                { title: "Case Studies", href: "/case-studies" },
+              ]}
+            />
+            <NavItem title="Team" href="/team" />
+            <NavItem
+              title="Intermediaries"
+              options={[
+                { title: "Intermediaries", href: "/broker" },
+                { title: "Resources", href: "/resources" },
+              ]}
+            />
+            <NavItem title="Contact Us" href="/contact-us" />
             <div>
               <div className="flex flex-row space-x-[10px] items-center">
                 <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center">

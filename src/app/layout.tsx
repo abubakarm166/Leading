@@ -1,3 +1,5 @@
+import "@szhsin/react-menu/dist/index.css";
+import "@szhsin/react-menu/dist/transitions/zoom.css";
 import type { Metadata } from "next";
 import {
   Geist,
@@ -5,6 +7,7 @@ import {
   League_Spartan,
   Nunito_Sans,
 } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import "./globals.css";
@@ -46,6 +49,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${leagueSpartan.variable} ${nunitoSans.variable} antialiased`}
       >
+        <Toaster position="bottom-center" />
         {children}
       </body>
     </html>

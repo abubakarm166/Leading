@@ -5,9 +5,9 @@ import Reveal from "../common/Reveal";
 
 const Awards = () => {
   return (
-    <section className="relative w-screen px-[100px] py-[100px] overflow-x-hidden bg-primary-bg">
+    <section className="relative w-screen px-5 lg:px-[100px] py-[100px] overflow-x-hidden bg-primary-bg">
       <Reveal>
-        <h2 className="font-semibold text-primary text-[70px] text-center font-league-spartan">
+        <h2 className="font-semibold text-primary text-[50px] lg:text-[70px] text-center font-league-spartan">
           Awards
         </h2>
       </Reveal>

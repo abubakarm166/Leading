@@ -24,10 +24,20 @@ const CaseStudiesCarousel = () => {
           slidesToScroll={1}
           dots={false}
           infinite={false}
+          arrows={false}
+          responsive={[
+            {
+              breakpoint: 500,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              },
+            },
+          ]}
         >
           {caseStudies.map((item) => (
             <div
-              className="w-[400px] h-[400px] rounded-[20px] relative overflow-hidden cursor-pointer"
+              className="max-w-[400px] h-[400px] rounded-[20px] relative overflow-hidden cursor-pointer"
               key={item.id}
             >
               <Image

@@ -4,21 +4,30 @@ import ClientBroker from "@/components/common/ClientBroker";
 import ContactUs from "@/components/common/ContactUs";
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
+import Reveal from "@/components/common/Reveal";
 
 const BlogsPage = () => {
   return (
     <main className="bg-primary-bg">
       <Navbar />
-      <div className="px-[100px] mt-[50px]">
-        <h1 className="font-league-spartan font-semibold text-primary text-[70px]">
-          Blogs, News And Updates
-        </h1>
-        <p className="font-gilroy-regular font-extralight text-[24px] mb-[50px]">
-          “Stay informed with the latest updates, news, and insights.”
-        </p>
-        <BlogsCarousel slidesToShow={4} />
+      <div className="px-[100px] my-[50px]">
+        <Reveal>
+          <h1 className="font-league-spartan font-semibold text-primary text-[70px]">
+            Blogs, News And Updates
+          </h1>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="font-gilroy-regular font-extralight text-[24px] mb-[50px]">
+            “Stay informed with the latest updates, news, and insights.”
+          </p>
+        </Reveal>
+        <Reveal delay={0.4}>
+          <BlogsCarousel slidesToShow={4} />
+        </Reveal>
       </div>
-      <ClientBroker />
+      <Reveal delay={0.6}>
+        <ClientBroker />
+      </Reveal>
       <ContactUs />
       <Footer />
     </main>

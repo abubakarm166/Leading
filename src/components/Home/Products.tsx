@@ -1,27 +1,31 @@
+"use client";
 import { PRODUCTS } from "@/utils/constants";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import Button from "../common/Button";
 import Reveal from "../common/Reveal";
 
 const Products = () => {
+  const router = useRouter();
+
   return (
-    <section className="relative w-screen bg-primary-bg pt-[100px] px-[100px] overflow-x-hidden">
+    <section className="relative w-screen bg-primary-bg pt-[100px] px-5 lg:px-[100px] overflow-x-hidden">
       <Reveal>
-        <h2 className="font-semibold text-primary text-[70px] text-center mb-[50px]">
+        <h2 className="font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px] text-center mb-[50px]">
           Explore Our Products
         </h2>
       </Reveal>
-      <div className="flex flex-row items-center justify-between">
+      <div className="flex flex-col lg:flex-row items-center justify-between">
         <Reveal delay={0.3}>
           <Image
             src="/svg/explore-products.svg"
             width={200}
             height={200}
             alt="explore"
-            className="w-[220px] h-[280px] 2xl:w-[340px] 2xl:h-[380px]"
+            className="w-[280px] h-[280px] 2xl:w-[340px] 2xl:h-[380px] object-cover"
           />
         </Reveal>
-        <div className="max-w-[70%]">
+        <div className="max-w-full mt-10 lg:mt-0 lg:max-w-[70%]">
           <Reveal delay={0.5}>
             <p className="text-[18px] mb-5">
               Discover our diverse range of products designed to meet the most
@@ -46,7 +50,10 @@ const Products = () => {
                   <p className="text-[20px] font-league-spartan font-medium">
                     {item.title}
                   </p>
-                  <Button className="w-[200px] h-[50px] p-0">
+                  <Button
+                    className="w-[200px] h-[50px] p-0"
+                    onClick={() => router.push(`/product/${item.id}`)}
+                  >
                     <p className="uppercase text-white">Read More</p>
                   </Button>
                 </div>

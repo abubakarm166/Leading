@@ -1,4 +1,5 @@
-export const BASE_URL = "https://dev-api.lendingbridge.co.uk";
+// export const BASE_URL = "https://dev-api.lendingbridge.co.uk";
+export const BASE_URL = "http://localhost:8080";
 
 export const ABOUT_ITEMS = [
   {
@@ -185,5 +186,53 @@ export const PRODUCT_KEY_INFO = [
     quote:
       "As principle lenders, we use our own funds and our underwriters make decisions in house.",
     img: "/svg/about-man.svg",
+  },
+];
+
+export const BROKER_INFO = [
+  {
+    id: 1,
+    title: "3-Month Minimum Term",
+    img: "/svg/broker-info-one.svg",
+  },
+  {
+    id: 2,
+    title: "No Maximum Loan Sizes",
+    img: "/svg/broker-info-two.svg",
+  },
+  {
+    id: 3,
+    title: "12-Month Standard Term",
+    img: "/svg/broker-info-three.svg",
+  },
+  {
+    id: 4,
+    title: "18-Month Term Available Subject to Application",
+    img: "/svg/broker-info-four.svg",
+  },
+  {
+    id: 5,
+    title: "Broker and Proc Fee paid on the same day as completion.",
+    img: "/svg/broker-info-five.svg",
+  },
+  {
+    id: 6,
+    title: "Interest Rates Starting from 0.99%",
+    img: "/svg/broker-info-six.svg",
+  },
+  {
+    id: 7,
+    title: "First Charge Properties Only",
+    img: "/svg/broker-info-seven.svg",
+  },
+  {
+    id: 8,
+    title: "Attractive Fees for Introducers",
+    img: "/svg/broker-info-eight.svg",
+  },
+  {
+    id: 9,
+    title: "Arrangement Fees Starting from 1%",
+    img: "/svg/broker-info-nine.svg",
   },
 ];

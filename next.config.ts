@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
       {
         hostname: "lending-bridge.s3.eu-north-1.amazonaws.com",
       },
+      {
+        hostname: "images.unsplash.com",
+      },
     ],
   },
 };

@@ -3,23 +3,22 @@ import BlogsCarousel from "../common/BlogsCarousel";
 
 const Blogs = () => {
   return (
-    <section className="w-screen relative overflow-x-hidden bg-primary px-[50px] 2xl:px-[100px] py-10">
-      <div className="flex flex-row items-center">
-        <div>
+    <section className="w-screen relative overflow-x-hidden bg-primary px-5 lg:px-[50px] 2xl:px-[100px] py-10">
+      <div className="flex flex-col lg:flex-row items-center">
+        <div className="flex flex-row lg:flex-col items-center w-full lg:w-auto mb-5 lg:mb-0">
           <Image
             src="/svg/calendar.svg"
             width={200}
             height={200}
             alt="calendar"
-            className="w-[150px] h-[150px] 2xl:w-[200px] 2xl:h-[200px] object-cover"
+            className="w-[100px] h-[100px] lg:w-[200px] lg:h-[200px] 2xl:w-[200px] 2xl:h-[200px] object-cover"
           />
-          <h2 className="font-bold text-white text-[50px] 2xl:text-[70px] font-league-spartan">
+          <h2 className="font-bold text-white text-[40px] lg:text-[50px] 2xl:text-[70px] font-league-spartan">
             Latest
-            <br />
-            Insights
+            <br className="hidden lg:block" /> Insights
           </h2>
         </div>
-        <div className="w-[80%] ml-auto">
+        <div className="w-full lg:w-[80%] ml-auto">
           <BlogsCarousel />
         </div>
       </div>

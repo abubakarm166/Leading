@@ -9,7 +9,7 @@ interface Props {
 
 const ContactUsForm = () => {
   return (
-    <div className="px-6 py-9 rounded-[8px] border border-black bg-white w-[40%]">
+    <div className="px-6 py-9 rounded-[8px] border border-black bg-white w-full lg:w-[40%]">
       <p className="font-league-spartan text-[24px] font-bold">Get In Touch</p>
       <div className="mt-8 flex flex-col space-y-5">
         <div>
@@ -55,20 +55,20 @@ const ContactUsForm = () => {
 
 const ContactUs: React.FC<Props> = ({ noBorder }) => {
   return (
-    <section className="w-screen px-[50px] 2xl:px-[100px] py-[60px] relative overflow-hidden bg-primary-bg">
+    <section className="w-screen px-5 lg:px-[50px] 2xl:px-[100px] py-[60px] relative overflow-hidden bg-primary-bg">
       <Image
         src="/svg/contact-us.svg"
         width={200}
         height={200}
         alt="contact-us"
-        className="w-[500px] h-[260px] 2xl:w-[660px] 2xl:h-[420px] object-cover absolute bottom-0 right-1/2"
+        className="w-[550px] h-[300px] 2xl:w-[660px] 2xl:h-[420px] object-cover absolute bottom-0 right-1/2 hidden lg:block"
       />
       <div
-        className={`flex flex-row items-center justify-between ${
+        className={`flex flex-col lg:flex-row items-center justify-between ${
           !noBorder ? "border-t" : "border-none"
         } border-t-primary pt-[60px]`}
       >
-        <div>
+        <div className="w-full lg:w-auto mb-6 lg:mb-0">
           <p className="text-[32px] font-bold font-league-spartan">
             Contact Us
           </p>

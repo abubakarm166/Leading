@@ -14,3 +14,21 @@ export type TBlog = {
   content: string;
   createdAt: string;
 };
+
+export type TeamMember = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  quote: string;
+  role: string;
+  experience: string;
+  email: string;
+  linkedIn: string;
+  img: string;
+  createdAt: string;
+};
+
+export type INewsLetter = {
+  name: string;
+  email: string;
+};
