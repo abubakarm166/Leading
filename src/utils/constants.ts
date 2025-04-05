@@ -1,5 +1,5 @@
-// export const BASE_URL = "https://dev-api.lendingbridge.co.uk";
-export const BASE_URL = "http://localhost:8080";
+export const BASE_URL = "https://dev-api.lendingbridge.co.uk";
+// export const BASE_URL = "http://localhost:8080";
 
 export const ABOUT_ITEMS = [
   {
