@@ -187,7 +187,7 @@ const ProductPage = () => {
   return (
     <main className="bg-primary-bg">
       <Navbar />
-      <ProductHero id={params.id} />
+      {params?.id && <ProductHero id={params.id} />}
       <ProductHighlights />
       <ProductKeyInfo />
       <Calculator />

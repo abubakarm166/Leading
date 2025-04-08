@@ -13,17 +13,17 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative w-screen overflow-x-hidden bg-primary-bg px-[20px] lg:px-[100px] pb-[100px]">
+    <section className="relative w-screen min-h-dvh overflow-x-hidden bg-primary-bg px-[20px] lg:px-[100px] pb-[100px]">
       <div className="flex flex-col lg:flex-row items-center justify-between">
         <div className="order-1 lg:order-0">
           <Reveal>
-            <h1 className="text-[50px] 2xl:text-[75px] font-bold text-primary font-league-spartan">
+            <h1 className="text-[50px] 2xl:text-[75px] font-extrabold text-primary font-league-spartan">
               Bridging Now <br />
               Made Simple
             </h1>
           </Reveal>
           <Reveal delay={0.3}>
-            <p className="my-5 lg:my-[50px] text-[16px] 2xl:text-[25px] font-gilroy-regular">
+            <p className="my-5 lg:my-[50px] text-[16px] 2xl:text-[25px] font-gilroy-regular font-extralight">
               Connecting you to decision makers to give <br />
               you full transparency of the complete end-
               <br />

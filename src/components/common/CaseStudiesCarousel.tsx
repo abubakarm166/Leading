@@ -17,7 +17,7 @@ const CaseStudiesCarousel = () => {
 
   return (
     <div>
-      {caseStudies.length > 0 && (
+      {caseStudies?.length > 0 && (
         <Slider
           ref={sliderRef}
           slidesToShow={3}
@@ -35,7 +35,7 @@ const CaseStudiesCarousel = () => {
             },
           ]}
         >
-          {caseStudies.map((item) => (
+          {caseStudies?.map((item) => (
             <div
               className="max-w-[90%] 2xl:max-w-[80%] h-[400px] rounded-[20px] relative overflow-hidden cursor-pointer"
               key={item.id}

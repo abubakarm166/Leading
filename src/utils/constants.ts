@@ -1,5 +1,4 @@
-export const BASE_URL = "https://dev-api.lendingbridge.co.uk";
-// export const BASE_URL = "http://localhost:8080";
+export const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const ABOUT_ITEMS = [
   {
@@ -127,13 +126,13 @@ export const PRODUCTS = [
       "Looking for a Bridge Loan to help you repay your initial loan for a development project? Our Product is the right fit for your needs. We understand that to maximise the value of your projects, sometimes you require the extra time to finalise your plans.",
     img: "/svg/product-six.svg",
   },
-  {
-    id: 9,
-    title: "Development Exit Finance",
-    content:
-      "Looking for a Bridge Loan to help you repay your initial loan for a development project? Our Product is the right fit for your needs. We understand that to maximise the value of your projects, sometimes you require the extra time to finalise your plans.",
-    img: "/svg/product-six.svg",
-  },
+  // {
+  //   id: 9,
+  //   title: "Development Exit Finance",
+  //   content:
+  //     "Looking for a Bridge Loan to help you repay your initial loan for a development project? Our Product is the right fit for your needs. We understand that to maximise the value of your projects, sometimes you require the extra time to finalise your plans.",
+  //   img: "/svg/product-six.svg",
+  // },
 ];
 
 export const PRODUCT_KEY_INFO = [
@@ -363,3 +362,10 @@ export const GENERAL_FAQ = [
       "If you're unable to repay the loan at the end of the term, it's essential to contact us immediately. We aim to work collaboratively to find a solution, which may include extending the loan term or exploring alternative repayment options.",
   },
 ];
+
+export const INTEREST_RATES = {
+  residential: 1.25,
+  "semi-commercial": 1.5,
+  commercial: 1.5,
+  land: 1.75,
+};

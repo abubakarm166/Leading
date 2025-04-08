@@ -26,7 +26,6 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   (err) => {
-    toast.error("Failed to submit details");
     return err;
   }
 );

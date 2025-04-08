@@ -2,6 +2,7 @@
 import { TBlog } from "@/types";
 import { listBlogs } from "@/utils/api/blogs";
 import { useEffectAsync } from "@/utils/hooks";
+import moment from "moment";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
@@ -25,7 +26,7 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow }) => {
 
   return (
     <div className="w-full">
-      {blogs.length > 0 && (
+      {blogs?.length > 0 && (
         <Slider
           ref={sliderRef}
           slidesToShow={slidesToShow || 3}
@@ -43,7 +44,7 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow }) => {
             },
           ]}
         >
-          {blogs.map((item) => (
+          {blogs?.map((item) => (
             <div
               key={item.id}
               className="max-w-[90%] 2xl:max-w-[80%] h-[480px] bg-white rounded-[20px] overflow-hidden cursor-pointer relative"
@@ -61,7 +62,7 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow }) => {
                   {item.title}
                 </p>
                 <p className="text-[#7D7C7C] mt-[10px] mb-5 text-[16px]">
-                  {item.createdAt}
+                  {moment(item.createdAt).format("MMM-DD-YYYY")}
                 </p>
                 <p className="font-gilroy-regular text-[16px]">
                   {item.content.slice(0, 150)}...

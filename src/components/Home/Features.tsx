@@ -43,7 +43,9 @@ const Features = () => {
       <div className="relative mt-[100px] flex flex-col lg:flex-row items-center">
         <Reveal className="max-w-full 2xl:max-w-[70%] order-1 lg:order-0">
           <div>
-            <p className="font-semibold text-[32px]">{activeItem.subTitle}</p>
+            <p className="font-semibold text-[32px] font-league-spartan">
+              {activeItem.subTitle}
+            </p>
             <p className="mt-10 text-[18px] max-w-full lg:max-w-[50%]">
               {activeItem.content}
             </p>
