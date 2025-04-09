@@ -281,7 +281,7 @@ const Calculator = () => {
           width={200}
           height={200}
           alt="man"
-          className="w-[250px] h-[250px] lg:w-[500px] lg:h-[500px] object-cover -mt-[100px] ml-[50px] lg:ml-0 lg:-mt-[200px] 2xl:ml-[550px]"
+          className="w-[250px] h-[250px] lg:w-[500px] lg:h-[500px] object-cover -mt-[100px] ml-[50px] lg:ml-[300px] lg:-mt-[200px] 2xl:ml-[550px]"
         />
         <Reveal>
           <h2 className="font-league-spartan font-semibold text-primary text-[50px] 2xl:text-[70px] text-left lg:text-center">

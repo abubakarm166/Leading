@@ -11,7 +11,7 @@ const About = () => {
       <div className="w-[390px] h-[390px] rounded-full bg-[#F4F8FD] absolute top-[20%] -right-32 hidden lg:block" />
       <div className="bg-primary rounded-[20px] lg:rounded-[20px] absolute top-[5%] lg:top-[40%] left-10 lg:left-42 w-[80%] lg:w-[40%] h-[110px] lg:h-[80px] z-[20] block 2xl:hidden px-5">
         <p className="text-[35px] lg:text-[50px] font-league-spartan font-bold text-white text-left">
-          About <br />
+          About <br className="lg:hidden" />
           Lending Bridge
         </p>
       </div>

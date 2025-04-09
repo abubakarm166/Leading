@@ -3,7 +3,7 @@ import Reveal from "../common/Reveal";
 
 const Affiliations = () => {
   return (
-    <section className="relative overflow-x-hidden bg-primary-bg -mt-10 lg:-mt-0">
+    <section className="relative overflow-x-hidden bg-primary-bg -mt-10 lg:-mt-10 2xl:-mt-0">
       <Reveal>
         <div className="bg-white w-full py-[50px] flex flex-col lg:flex-row items-center justify-center border-y border-y-primary">
           <p className="font-medium text-[30px] text-primary lg:mr-[165px] mb-6 lg:mb-0">

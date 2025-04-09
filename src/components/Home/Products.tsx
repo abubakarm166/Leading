@@ -9,7 +9,7 @@ const Products = () => {
   const router = useRouter();
 
   return (
-    <section className="relative w-screen bg-primary-bg pt-[50px] px-5 lg:px-[100px] overflow-x-hidden">
+    <section className="relative w-screen bg-primary-bg pt-[50px] lg:pt-[100px] px-5 lg:px-[100px] overflow-x-hidden">
       <Reveal>
         <h2 className="font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px] text-left lg:text-center lg:mb-[50px]">
           Explore Our Products

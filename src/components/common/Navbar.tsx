@@ -79,7 +79,7 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
-      <div className="p-5 bg-primary-bg">
+      <div className="p-5 bg-primary-bg block lg:hidden">
         <div className="bg-white rounded-[15px] flex flex-row items-center justify-between p-5">
           <div className="flex flex-row items-center space-x-5">
             <Image
