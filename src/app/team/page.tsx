@@ -1,5 +1,4 @@
 "use client";
-import Button from "@/components/common/Button";
 import ContactUs from "@/components/common/ContactUs";
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
@@ -57,13 +56,61 @@ const TeamPage = () => {
   return (
     <main className="bg-primary-bg">
       <Navbar />
-      <div className="pl-[100px] pr-[150px] mt-[50px]">
-        <h1 className="font-league-spartan font-bold text-[70px] text-primary">
-          A Team Of Lending
-          <br />
-          Bridge Experts
-        </h1>
-        <div className="flex flex-row items-center justify-between mt-[50px]">
+      <div className="px-[100px] mt-[50px]">
+        <div className="flex flex-row items-center justify-between">
+          <h1 className="font-league-spartan font-bold text-[70px] text-primary">
+            A Team <br />
+            Of Lending
+            <br />
+            Bridge Experts
+          </h1>
+          <div className="w-[40%]">
+            <div className="flex flex-row items-center space-x-3">
+              {activeMember && activeMember?.img && (
+                <div className="w-[150px] h-[140px] rounded-[20px] overflow-hidden bg-white relative">
+                  <Image
+                    src={activeMember.img}
+                    width={107}
+                    height={138}
+                    alt="img"
+                    className="w-[107px] h-[138px] object-contain absolute -bottom-5 left-1/2 -translate-x-1/2"
+                  />
+                </div>
+              )}
+              <div className="flex flex-col space-y-2">
+                <a href={`mailto:${activeMember?.email}`}>
+                  <Image
+                    src="/svg/mail-blue.svg"
+                    width={45}
+                    height={45}
+                    alt="mail"
+                    className="w-[45px] h-[45px] cursor-pointer"
+                  />
+                </a>
+                <Image
+                  src="/svg/linkedin-blue.svg"
+                  width={45}
+                  height={45}
+                  alt="linkedin"
+                  className="w-[45px] h-[45px] cursor-pointer"
+                  onClick={() => window.open(activeMember?.linkedIn, "_blank")}
+                />
+              </div>
+            </div>
+            <div>
+              <p className="font-league-spartan font-semibold text-[50px]">
+                {activeMember?.firstName}
+              </p>
+              <p className="font-league-spartan font-semibold text-primary text-[25px]">
+                {activeMember?.role}
+              </p>
+              <p className="mt-[10px] font-gilroy-regular font-extralight">
+                {activeMember?.experience}
+              </p>
+            </div>
+          </div>
+        </div>
+        {/* <div className="flex flex-row items-center justify-between mt-[50px]">
           <div>
             <p className="font-league-spartan font-semibold text-[50px]">
               {activeMember?.firstName}
@@ -113,7 +160,7 @@ const TeamPage = () => {
               </p>
             </Button>
           </div>
-        </div>
+        </div> */}
       </div>
       <TeamList team={team} />
       <ContactUs />

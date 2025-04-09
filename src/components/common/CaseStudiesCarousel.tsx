@@ -37,7 +37,7 @@ const CaseStudiesCarousel = () => {
         >
           {caseStudies?.map((item) => (
             <div
-              className="max-w-[90%] 2xl:max-w-[80%] h-[400px] rounded-[20px] relative overflow-hidden cursor-pointer"
+              className="max-w-full lg:max-w-[90%] 2xl:max-w-[80%] h-[400px] rounded-[20px] relative overflow-hidden cursor-pointer"
               key={item.id}
             >
               <Image
@@ -49,17 +49,17 @@ const CaseStudiesCarousel = () => {
               />
               <div className="bg-primary-bg rounded-[10px] flex flex-col space-y-[5px] p-5 absolute bottom-12 2xl:bottom-5 left-1/2 -translate-x-1/2 w-[80%]">
                 <div className="flex flex-row items-center space-x-10 text-[16px]">
-                  <p className="w-[30%]">Location</p>
+                  <p className="w-[40%] lg:w-[30%]">Location</p>
                   <p>:</p>
                   <p className="text-primary">{item.location}</p>
                 </div>
                 <div className="flex flex-row items-center space-x-10 text-[16px]">
-                  <p className="w-[30%]">Value of Loan</p>
+                  <p className="w-[40%] lg:w-[30%]">Value of Loan</p>
                   <p>:</p>
                   <p className="text-primary">{item.loan}</p>
                 </div>
                 <div className="flex flex-row items-center space-x-10 text-[16px]">
-                  <p className="w-[30%]">LTV</p>
+                  <p className="w-[40%] lg:w-[30%]">LTV</p>
                   <p>:</p>
                   <p className="text-primary">{item.ltv}%</p>
                 </div>

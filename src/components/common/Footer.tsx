@@ -1,6 +1,15 @@
+"use client";
 import Image from "next/image";
 
 const Footer = () => {
+  const handleOnAboutClick = () => {
+    const about = document.getElementById("about");
+
+    if (about) {
+      about.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <section className="w-screen rounded-t-[20px] bg-primary px-5 lg:px-[100px] py-[60px] pb-[35px]">
@@ -14,7 +23,7 @@ const Footer = () => {
               commercial properties. Our fast, efficient and reliable short-term
               financial solutions are made simple and stress-free.
             </p>
-            <div className="flex-row space-x-5 hidden lg:flex">
+            <div className="flex-row space-x-5 flex mt-6 lg:mt-0">
               <Image
                 src="/svg/footer-google.svg"
                 width={35}
@@ -41,36 +50,41 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex flex-row items-center justify-between w-full mt-10">
-            <div className="flex flex-col items-start lg:items-end space-y-5 w-[30%] lg:ml-auto">
+            <div className="flex flex-col items-start lg:items-end space-y-5 lg:w-[30%] lg:ml-auto">
               <p className="font-league-spartan text-[18px] text-white font-bold">
                 Quick Links
               </p>
-              <a className="font-gilroy-regular font-extralight text-[16px] text-white">
-                About Us
-              </a>
-              <a className="font-gilroy-regular font-extralight text-[16px] text-white">
+              <div className="flex flex-row lg:flex-col space-x-5 lg:space-x-0 lg:space-y-5">
+                <p
+                  className="font-gilroy-regular font-extralight text-[16px] text-white cursor-pointer"
+                  onClick={handleOnAboutClick}
+                >
+                  About Us
+                </p>
+                {/* <a className="font-gilroy-regular font-extralight text-[16px] text-white">
                 Process
-              </a>
-              <a
-                href="/team"
-                className="font-gilroy-regular font-extralight text-[16px] text-white"
-              >
-                Team
-              </a>
-              <a
-                href="/resources"
-                className="font-gilroy-regular font-extralight text-[16px] text-white"
-              >
-                Resources
-              </a>
-              <a
-                href="/case-studies"
-                className="font-gilroy-regular font-extralight text-[16px] text-white"
-              >
-                Case Studies
-              </a>
+              </a> */}
+                <a
+                  href="/team"
+                  className="font-gilroy-regular font-extralight text-[16px] text-white"
+                >
+                  Team
+                </a>
+                <a
+                  href="/resources"
+                  className="font-gilroy-regular font-extralight text-[16px] text-white"
+                >
+                  Resources
+                </a>
+                <a
+                  href="/case-studies"
+                  className="font-gilroy-regular font-extralight text-[16px] text-white"
+                >
+                  Case Studies
+                </a>
+              </div>
             </div>
-            <div className="flex-row space-x-5 flex lg:hidden">
+            {/* <div className="flex-row space-x-5 flex lg:hidden">
               <Image
                 src="/svg/footer-google.svg"
                 width={35}
@@ -94,7 +108,7 @@ const Footer = () => {
                 alt="insta"
                 className="w-[35px] h-[35px] cursor-pointer"
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -108,8 +122,9 @@ const Footer = () => {
             Innovations
           </p>
         </div>
-        <p className="text-[14px] block lg:hidden">
-          © 2025 Lending Bridge | Powered by Tech
+        <p className="font-gilroy-regular mx-auto text-center font-extralight text-[18px] block lg:hidden">
+          © 2025 Lending Bridge all rights reserved <br />
+          Powered by Tech
           <span className="text-[#FF0000]">G</span>y Innovations
         </p>
       </div>

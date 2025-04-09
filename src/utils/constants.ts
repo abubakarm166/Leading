@@ -27,7 +27,7 @@ export const FEATURES = [
     title: "Speak to decision makers directly",
     subTitle: "Speak to decision makers directly",
     content:
-      "Decision makers of the business at your disposal at any time to tackle any queries.Our Clients are able to talk to decision-makers of the business atany time to tackle any queries or issues they might have regarding the terms & conditions.",
+      "Decision makers of the business at your disposal at any time to tackle any queries. Our Clients are able to talk to decision-makers of the business atany time to tackle any queries or issues they might have regarding the terms & conditions.",
     img: "/gif/talk.gif",
     contentImg: "/svg/feature-one.svg",
   },

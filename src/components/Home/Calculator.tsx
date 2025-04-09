@@ -272,7 +272,7 @@ const Calculator = () => {
 
   return (
     <section
-      className="relative w-screen overflow-x-hidden bg-primary-bg pt-[100px] lg:pt-[350px] px-5 lg:px-[100px]"
+      className="relative w-screen overflow-x-hidden bg-primary-bg pt-[150px] lg:pt-[350px] px-5 lg:px-[100px]"
       id="calculator"
     >
       <div className="w-full min-h-[550px] rounded-[20px] bg-linear-to-b from-[#A7B3C0] to-[#C5D3DD] flex flex-col justify-end pb-[50px] px-5">
@@ -281,18 +281,18 @@ const Calculator = () => {
           width={200}
           height={200}
           alt="man"
-          className="w-[500px] h-[500px] object-cover -mt-[200px] 2xl:ml-[550px] hidden lg:block"
+          className="w-[250px] h-[250px] lg:w-[500px] lg:h-[500px] object-cover -mt-[100px] ml-[50px] lg:ml-0 lg:-mt-[200px] 2xl:ml-[550px]"
         />
         <Reveal>
-          <h2 className="font-league-spartan font-semibold text-primary text-[50px] 2xl:text-[70px] text-center">
+          <h2 className="font-league-spartan font-semibold text-primary text-[50px] 2xl:text-[70px] text-left lg:text-center">
             Calculate how much you can borrow?
           </h2>
         </Reveal>
         <Reveal delay={0.3}>
-          <p className="font-gilroy-regular font-extralight text-center text-[18px] mt-5 mb-[50px]">
+          <p className="font-gilroy-regular font-extralight text-left lg:text-center text-[18px] mt-5 mb-[50px]">
             A bridging calculator estimates short-term loan costs, including
             monthly interest and total
-            <br />
+            <br className="hidden lg:block" />
             repayment, using inputs like loan amount, interest rate, and term.
           </p>
         </Reveal>

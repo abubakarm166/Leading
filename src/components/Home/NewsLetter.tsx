@@ -27,11 +27,11 @@ const NewsLetter = () => {
   };
 
   return (
-    <section className="w-screen relative bg-primary-bg px-5 lg:px-[50px] 2xl:px-[100px] py-[100px]">
-      <div className="flex flex-row items-stretch rounded-[20px] overflow-hidden">
-        <div className="bg-[#C5D3DD] p-5 lg:p-[50px] w-full lg:w-[60%] 2xl:w-[70%]">
-          <div className="w-full bg-primary p-10 lg:p-[50px] rounded-[20px]">
-            <p className="font-league-spartan text-white font-semibold text-[20px] lg:text-[40px]">
+    <section className="w-screen relative bg-primary-bg px-0 lg:px-[50px] 2xl:px-[100px] lg:py-[100px]">
+      <div className="flex flex-row items-stretch lg:rounded-[20px] overflow-hidden">
+        <div className="bg-[#C5D3DD] px-5 py-[50px] lg:p-[50px] w-full lg:w-[60%] 2xl:w-[70%]">
+          <div className="w-full bg-primary px-5 py-[30px] lg:p-[50px] rounded-[20px]">
+            <p className="font-league-spartan text-white font-semibold text-[40px]">
               Subscibe to Our Newsletter
             </p>
             <Input

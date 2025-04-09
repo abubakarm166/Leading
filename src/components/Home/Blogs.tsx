@@ -11,9 +11,9 @@ const Blogs = () => {
             width={200}
             height={200}
             alt="calendar"
-            className="w-[100px] h-[100px] lg:w-[200px] lg:h-[200px] 2xl:w-[200px] 2xl:h-[200px] object-cover"
+            className="w-[100px] h-[100px] lg:w-[200px] lg:h-[200px] 2xl:w-[200px] 2xl:h-[200px] object-cover hidden lg:block"
           />
-          <h2 className="font-bold text-white text-[40px] lg:text-[50px] 2xl:text-[70px] font-league-spartan">
+          <h2 className="font-bold text-white mx-auto lg:mx-0 text-[50px] 2xl:text-[70px] font-league-spartan">
             Latest
             <br className="hidden lg:block" /> Insights
           </h2>

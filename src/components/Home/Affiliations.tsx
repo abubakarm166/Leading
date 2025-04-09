@@ -3,7 +3,7 @@ import Reveal from "../common/Reveal";
 
 const Affiliations = () => {
   return (
-    <section className="relative overflow-x-hidden bg-primary-bg">
+    <section className="relative overflow-x-hidden bg-primary-bg -mt-10 lg:-mt-0">
       <Reveal>
         <div className="bg-white w-full py-[50px] flex flex-col lg:flex-row items-center justify-center border-y border-y-primary">
           <p className="font-medium text-[30px] text-primary lg:mr-[165px] mb-6 lg:mb-0">
@@ -15,21 +15,21 @@ const Affiliations = () => {
               width={200}
               height={200}
               alt="one"
-              className="w-[56px] lg:w-[122px] h-[21px] lg:h-[45px] object-contain"
+              className="w-[122px] h-[46px] lg:h-[45px] object-contain"
             />
             <Image
               src="/svg/affiliation-two.svg"
               width={200}
               height={200}
               alt="two"
-              className="w-[41px] lg:w-[80px] h-[41px] lg:h-[80px] object-contain"
+              className="w-[80px] lg:w-[80px] h-[80px] lg:h-[80px] object-contain"
             />
             <Image
               src="/svg/affiliation-three.svg"
               width={200}
               height={200}
               alt="three"
-              className="w-[45px] lg:w-[85px] h-[30px] lg:h-[56px] object-contain"
+              className="w-[85px] h-[56px] object-contain"
             />
           </div>
         </div>

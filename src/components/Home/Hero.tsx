@@ -13,7 +13,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative w-screen min-h-dvh overflow-x-hidden bg-primary-bg px-[20px] lg:px-[100px] pb-[100px]">
+    <section className="relative w-screen lg:min-h-dvh overflow-x-hidden bg-primary-bg px-[20px] lg:px-[100px]">
       <div className="flex flex-col lg:flex-row items-center justify-between">
         <div className="order-1 lg:order-0">
           <Reveal>
@@ -44,7 +44,7 @@ const Hero = () => {
             width={200}
             height={200}
             alt="hero"
-            className="w-[500px] h-[500px] 2xl:w-[750px] 2xl:h-[700px] object-contain lg:object-cover"
+            className="w-[366px] h-[340px] lg:w-[500px] lg:h-[500px] 2xl:w-[750px] 2xl:h-[700px] object-cover lg:object-cover"
           />
         </Reveal>
       </div>

@@ -8,12 +8,12 @@ const Features = () => {
   const [activeItem, setActiveItem] = useState(FEATURES[0]);
 
   return (
-    <section className="relative w-screen overflow-x-hidden bg-primary-bg px-5 lg:px-[100px]">
-      <div className="grid grid-cols-5 justify-items-center">
+    <section className="relative w-screen overflow-x-hidden bg-primary-bg px-5 lg:px-[100px] pt-[50px] lg:pt-0">
+      <div className="grid grid-cols-3 gap-y-5 lg:gap-y-0 lg:grid-cols-5 justify-items-center">
         {FEATURES.map((item) => (
           <Reveal key={item.id} delay={item.id * 0.2}>
             <div
-              className={`w-[55px] h-[55px] lg:w-[175px] lg:h-[175px] 2xl:w-[225px] 2xl:h-[225px] rounded-[10px] lg:rounded-[32px] flex flex-col items-center justify-center px-[10px] 2xl:px-[33px] py-6 bg-white border border-dashed cursor-pointer ${
+              className={`w-[110px] h-[122px] lg:w-[175px] lg:h-[175px] 2xl:w-[225px] 2xl:h-[225px] rounded-[10px] lg:rounded-[32px] flex flex-col items-center justify-center px-[10px] 2xl:px-[33px] py-6 bg-white border border-dashed cursor-pointer ${
                 item.id === activeItem.id
                   ? "opacity-100 border-primary"
                   : "opacity-70 border-transparent"
@@ -25,10 +25,10 @@ const Features = () => {
                 width={200}
                 height={200}
                 alt="img"
-                className="w-8 h-8 lg:w-[80px] 2xl:w-[120px] lg:h-[80px] 2xl:h-[120px] object-cover"
+                className="w-[60px] h-[60px] lg:w-[80px] 2xl:w-[120px] lg:h-[80px] 2xl:h-[120px] object-cover"
               />
               <p
-                className={`hidden lg:block text-[16px] text-center ${
+                className={`font-gilroy-bold font-medium hidden lg:block text-[16px] text-center ${
                   item.id === activeItem.id
                     ? "text-primary"
                     : "text-[#00000080]"
@@ -40,13 +40,13 @@ const Features = () => {
           </Reveal>
         ))}
       </div>
-      <div className="relative mt-[100px] flex flex-col lg:flex-row items-center">
-        <Reveal className="max-w-full 2xl:max-w-[70%] order-1 lg:order-0">
+      <div className="relative lg:ml-10 mt-10 lg:mt-[100px] flex flex-col lg:flex-row items-center">
+        <Reveal className="max-w-full lg:max-w-[60%] 2xl:max-w-[70%] order-1 lg:order-0">
           <div>
             <p className="font-semibold text-[32px] font-league-spartan">
               {activeItem.subTitle}
             </p>
-            <p className="mt-10 text-[18px] max-w-full lg:max-w-[50%]">
+            <p className="font-gilroy-regular font-extralight mt-5 lg:mt-10 text-[18px] max-w-full lg:max-w-[70%]">
               {activeItem.content}
             </p>
           </div>
@@ -57,7 +57,7 @@ const Features = () => {
             width={200}
             height={200}
             alt="img"
-            className="w-[380px] h-[300px] object-contain"
+            className="w-[380px] h-[300px] object-contain hidden lg:block"
           />
         </Reveal>
       </div>

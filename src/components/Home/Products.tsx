@@ -9,9 +9,9 @@ const Products = () => {
   const router = useRouter();
 
   return (
-    <section className="relative w-screen bg-primary-bg pt-[100px] px-5 lg:px-[100px] overflow-x-hidden">
+    <section className="relative w-screen bg-primary-bg pt-[50px] px-5 lg:px-[100px] overflow-x-hidden">
       <Reveal>
-        <h2 className="font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px] text-center mb-[50px]">
+        <h2 className="font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px] text-left lg:text-center lg:mb-[50px]">
           Explore Our Products
         </h2>
       </Reveal>
@@ -22,10 +22,10 @@ const Products = () => {
             width={200}
             height={200}
             alt="explore"
-            className="w-[280px] h-[280px] 2xl:w-[340px] 2xl:h-[380px] object-cover"
+            className="w-[280px] h-[280px] 2xl:w-[340px] 2xl:h-[380px] object-cover hidden lg:block"
           />
         </Reveal>
-        <div className="max-w-full mt-10 lg:mt-0 lg:max-w-[70%]">
+        <div className="font-gilroy-regular font-extralight max-w-full mt-5 lg:mt-0 lg:max-w-[70%]">
           <Reveal delay={0.5}>
             <p className="text-[18px] mb-5">
               Discover our diverse range of products designed to meet the most
