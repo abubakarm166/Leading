@@ -36,7 +36,7 @@ export const FEATURES = [
     title: "Fast",
     subTitle: "Fast",
     content:
-      "Decision makers of the business at your disposal at any time to tackle any queries.Our Clients are able to talk to decision-makers of the business atany time to tackle any queries or issues they might have regarding the terms & conditions.",
+      "Quick, East, and Stress- Free financing when you need it most. Our standard timeline to process a loan is much faster than others in the industry. We have turned around loans in less than 48 hours!",
     img: "/gif/timer.gif",
     contentImg: "/svg/feature-one.svg",
   },
@@ -45,7 +45,7 @@ export const FEATURES = [
     title: "Transparent",
     subTitle: "Transparent",
     content:
-      "Decision makers of the business at your disposal at any time to tackle any queries.Our Clients are able to talk to decision-makers of the business atany time to tackle any queries or issues they might have regarding the terms & conditions.",
+      "We'll let you know from the start! We send indicative terms within 2 hours of inquiry. Our team's ability to act quickly helps us make instant decisions, making the process quicker. Other lenders have a longer due diligence process when authorizing a loan.",
     img: "/gif/search.gif",
     contentImg: "/svg/feature-one.svg",
   },
@@ -54,7 +54,7 @@ export const FEATURES = [
     title: "Simple",
     subTitle: "Simple",
     content:
-      "Decision makers of the business at your disposal at any time to tackle any queries.Our Clients are able to talk to decision-makers of the business atany time to tackle any queries or issues they might have regarding the terms & conditions.",
+      "We understand that loan processes can get really time-consuming and detailed with most lenders. But with lending bridge, we keep it simple. Complete your application with your relationship managers assistance and we'll take care of the rest. We're here to help you every step of the way.",
     img: "/gif/happy.gif",
     contentImg: "/svg/feature-one.svg",
   },
@@ -63,7 +63,7 @@ export const FEATURES = [
     title: "Reliable",
     subTitle: "Reliable",
     content:
-      "Decision makers of the business at your disposal at any time to tackle any queries.Our Clients are able to talk to decision-makers of the business atany time to tackle any queries or issues they might have regarding the terms & conditions.",
+      "When we say we'll deliver, we mean it. Clients return to us because they trust us to get the job done, regardless of the complexity of the situation. We always let you know from the start.",
     img: "/gif/reliable.gif",
     contentImg: "/svg/feature-one.svg",
   },

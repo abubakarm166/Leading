@@ -54,7 +54,7 @@ const Footer = () => {
               <p className="font-league-spartan text-[18px] text-white font-bold">
                 Quick Links
               </p>
-              <div className="flex flex-row lg:flex-col space-x-5 lg:space-x-0 lg:space-y-5">
+              <div className="flex flex-row lg:flex-col items-end space-x-5 lg:space-x-0 lg:space-y-5">
                 <p
                   className="font-gilroy-regular font-extralight text-[16px] text-white cursor-pointer"
                   onClick={handleOnAboutClick}

@@ -216,11 +216,11 @@ const BrokerPage = () => {
   return (
     <main className="relative overflow-x-hidden bg-primary-bg">
       <Navbar />
-      <div className="px-[50px] 2xl:px-[100px] mt-[50px]">
+      <div className="px-5 2xl:px-[100px] mt-[50px]">
         <div className="flex flex-col lg:flex-row items-center justify-between">
           <div className="order-2 lg:order-1 mt-10 lg:mt-0">
             <Reveal>
-              <h1 className="font-league-spartan font-semibold text-primary text-[40px] lg:text-[70px]">
+              <h1 className="font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px]">
                 Brokers At The Heart
                 <br />
                 Of Our Business
@@ -238,7 +238,7 @@ const BrokerPage = () => {
           </div>
           <Reveal
             delay={0.4}
-            className="order-2 lg:order-1 w-[90%] 2xl:w-[70%]"
+            className="order-1 lg:order-2 w-[90%] 2xl:w-[70%]"
           >
             <Image
               src="/svg/broker-page.svg"

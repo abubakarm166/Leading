@@ -31,9 +31,9 @@ const ResourcesPage = () => {
   return (
     <main className="bg-primary-bg">
       <Navbar />
-      <div className="px-[50px] lg:px-[100px] pt-[50px]">
+      <div className="px-5 lg:px-[100px] pt-[50px]">
         <div className="flex flex-col lg:flex-row items-center justify-between">
-          <div>
+          <div className="order-2 lg:order-1 mt-10 lg:mt-0">
             <h1 className="font-league-spartan font-semibold text-[50px] lg:text-[70px] text-primary">
               Resources For Brokers
               <br />
@@ -50,7 +50,7 @@ const ResourcesPage = () => {
             width={200}
             height={200}
             alt="resources"
-            className="w-[400px] h-[300px] object-cover"
+            className="w-[400px] h-[300px] object-cover order-1 lg:order-2"
           />
         </div>
         <div className="flex flex-col lg:flex-row items-center justify-center lg:space-x-[50px] space-y-5 lg:space-y-0 mt-[70px] mb-[30px] lg:mb-[90px]">

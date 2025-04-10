@@ -96,12 +96,12 @@ const ContactUs: React.FC<Props> = ({ noBorder }) => {
         width={200}
         height={200}
         alt="contact-us"
-        className="w-[550px] h-[300px] 2xl:w-[660px] 2xl:h-[420px] object-cover absolute bottom-0 right-1/2 hidden lg:block"
+        className="w-[550px] h-[300px] 2xl:w-[660px] 2xl:h-[420px] object-cover absolute bottom-0 right-[45%] hidden lg:block"
       />
       <div
         className={`flex flex-col lg:flex-row items-center justify-between ${
           !noBorder ? "border-t" : "border-none"
-        } border-t-primary pt-[60px]`}
+        } border-t-primary pt-5 lg:pt-[60px]`}
       >
         <div className="w-full lg:w-auto mb-6 lg:mb-0">
           <p className="text-[32px] font-bold font-league-spartan">

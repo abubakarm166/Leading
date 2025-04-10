@@ -6,7 +6,7 @@ const Affiliations = () => {
     <section className="relative overflow-x-hidden bg-primary-bg -mt-10 lg:-mt-10 2xl:-mt-0">
       <Reveal>
         <div className="bg-white w-full py-[50px] flex flex-col lg:flex-row items-center justify-center border-y border-y-primary">
-          <p className="font-medium text-[30px] text-primary lg:mr-[165px] mb-6 lg:mb-0">
+          <p className="font-league-spartan font-medium text-[30px] text-primary lg:mr-[165px] mb-6 lg:mb-0">
             Our Affiliations:
           </p>
           <div className="flex flex-row items-center space-x-5 lg:space-x-20">

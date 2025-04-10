@@ -25,7 +25,7 @@ const BlogPage = () => {
   return (
     <main className="bg-primary-bg">
       <Navbar />
-      <div className="px-[100px] mt-[50px]">
+      <div className="px-5 lg:px-[100px] mt-[50px]">
         {blog && blog?.img && (
           <Image
             src={blog.img}
@@ -35,7 +35,7 @@ const BlogPage = () => {
             className="w-full h-[500px] object-cover rounded-[20px]"
           />
         )}
-        <h1 className="mt-[50px] font-league-spartan font-semibold text-primary text-[70px]">
+        <h1 className="mt-[50px] font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px]">
           {blog?.title}
         </h1>
         <p className="font-gilroy-medium font-extralight text-[18px] text-primary my-5">
@@ -48,7 +48,7 @@ const BlogPage = () => {
       <div className="mt-[50px]">
         <ClientBroker />
       </div>
-      <div className="mt-[100px]">
+      <div className="mt-5 lg:mt-[100px]">
         <ContactUs />
         <Footer />
       </div>

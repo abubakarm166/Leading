@@ -7,19 +7,23 @@ import Reveal from "@/components/common/Reveal";
 import Calculator from "@/components/Home/Calculator";
 import { PRODUCT_KEY_INFO, PRODUCTS } from "@/utils/constants";
 import Image from "next/image";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 const ProductKeyInfo = () => {
   return (
-    <div className="border border-black px-5 lg:px-[50px] pt-[50px] lg:pt-[150px] pb-[50px] rounded-[20px] mt-[100px] lg:mt-[300px] mx-[50px] lg:mx-[100px] relative">
-      <div className="rounded-[20px] bg-primary p-2 lg:p-6 absolute -top-10 lg:-top-20 left-0 lg:left-10">
+    <div className="border border-black px-5 lg:px-[50px] pt-[50px] lg:pt-[150px] pb-[50px] rounded-[20px] mt-[100px] lg:mt-[300px] mx-5 lg:mx-[100px] relative">
+      <div className="rounded-[20px] bg-primary p-2 lg:p-6 absolute -top-10 lg:-top-20 left-7 lg:left-10">
         <p className="font-semibold font-league-spartan text-[30px] lg:text-[70px] text-white">
           Key Information For You
         </p>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-10">
         {PRODUCT_KEY_INFO.map((item) => (
-          <Reveal key={item.id} delay={0.2 * item.id}>
+          <Reveal
+            key={item.id}
+            delay={0.2 * item.id}
+            motionContainerClassName="flex min-h-full"
+          >
             <div
               className={`lg:pl-10 ${
                 item.id % 3 === 0 ? "border-none" : "lg:border-r-[0.5px]"
@@ -138,8 +142,18 @@ const ProductHighlights = () => {
 const ProductHero = ({ id }: { id: string }) => {
   const product = PRODUCTS.find((item) => `${item.id}` === id);
 
+  const router = useRouter();
+
+  const handleOnCalculatorClick = () => {
+    const calc = document.getElementById("calculator");
+
+    if (calc) {
+      calc.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section className="relative w-screen min-h-dvh overflow-x-hidden bg-primary-bg px-[50px] lg:px-[100px] pt-[100px]">
+    <section className="relative w-screen min-h-dvh overflow-x-hidden bg-primary-bg px-5 lg:px-[100px] pt-5 lg:pt-[100px]">
       <div className="flex flex-col lg:flex-row items-center justify-between">
         <div className="order-2 lg:order-1 mt-5 lg:mt-0">
           <Reveal>
@@ -154,12 +168,18 @@ const ProductHero = ({ id }: { id: string }) => {
           </Reveal>
           <Reveal delay={0.4}>
             <div className="flex flex-row items-center space-x-5">
-              <Button className="bg-transparent border border-primary">
+              <Button
+                className="bg-transparent border border-primary w-[180px] lg:w-auto px-4 lg:px-[56px]"
+                onClick={() => router.push("/contact-us")}
+              >
                 <p className="font-bold text-primary text-[14px] lg:text-[20px] uppercase">
                   Enquire Now
                 </p>
               </Button>
-              <Button>
+              <Button
+                className="w-[180px] lg:w-auto px-4 lg:px-[56px]"
+                onClick={handleOnCalculatorClick}
+              >
                 <p className="font-bold text-white text-[14px] lg:text-[20px] uppercase">
                   Calculate Now
                 </p>
@@ -173,7 +193,7 @@ const ProductHero = ({ id }: { id: string }) => {
             width={200}
             height={200}
             alt="hero"
-            className="w-[460px] h-[302px] 2xl:w-[560px] 2xl:h-[402px] object-cover"
+            className="w-[460px] h-[302px] 2xl:w-[560px] 2xl:h-[402px] object-contain"
           />
         </Reveal>
       </div>

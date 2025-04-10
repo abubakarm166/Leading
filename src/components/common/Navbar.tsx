@@ -1,11 +1,14 @@
 "use client";
 import { PRODUCTS } from "@/utils/constants";
+import useNavStore from "@/utils/store/nav";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import NavItem from "./NavItem";
 
 const Navbar = () => {
   const router = useRouter();
+
+  const onNavChange = useNavStore((state) => state.onChange);
 
   return (
     <>
@@ -88,6 +91,7 @@ const Navbar = () => {
               height={36}
               alt="menu"
               className="w-9 h-9 object-cover"
+              onClick={() => onNavChange(true)}
             />
             <Image
               src="/svg/logo-mobile.svg"
@@ -95,6 +99,7 @@ const Navbar = () => {
               height={26}
               alt="logo"
               className="w-[131px] h-[26px] object-cover"
+              onClick={() => router.push("/")}
             />
           </div>
           <div className="flex flex-row items-center space-x-[10px]">

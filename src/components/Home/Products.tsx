@@ -9,10 +9,11 @@ const Products = () => {
   const router = useRouter();
 
   return (
-    <section className="relative w-screen bg-primary-bg pt-[50px] lg:pt-[100px] px-5 lg:px-[100px] overflow-x-hidden">
+    <section className="relative w-screen bg-primary-bg pt-[50px] lg:pt-[100px] px-5 lg:px-[80px] overflow-x-hidden">
       <Reveal>
         <h2 className="font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px] text-left lg:text-center lg:mb-[50px]">
-          Explore Our Products
+          Explore <br className="block lg:hidden" />
+          Our Products
         </h2>
       </Reveal>
       <div className="flex flex-col lg:flex-row items-center justify-between">
@@ -40,8 +41,14 @@ const Products = () => {
               find the perfect solution for you!
             </p>
           </Reveal>
-          <Reveal delay={1}>
-            <div className="w-full border border-black rounded-[20px] p-5 overflow-x-scroll overflow-y-hidden flex flex-row items-center space-x-5">
+          <Reveal
+            delay={1}
+            className="w-full border border-black rounded-[20px] p-5"
+          >
+            <div
+              className="overflow-x-scroll overflow-y-hidden flex flex-row items-center space-x-5"
+              id="products-container"
+            >
               {PRODUCTS.map((item) => (
                 <div
                   key={item.id}

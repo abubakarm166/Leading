@@ -5,11 +5,11 @@ const Highlights = () => {
   return (
     <section className="relative w-screen overflow-x-hidden pt-[50px] lg:pt-[100px] bg-primary-bg">
       <Reveal>
-        <h2 className="font-league-spartan font-semibold text-center lg:text-left text-primary text-[50px] lg:text-[70px] mb-[50px] px-5 lg:px-[100px]">
+        <h2 className="font-league-spartan font-semibold text-center lg:text-left text-primary text-[50px] lg:text-[70px] mb-[50px] px-5 lg:px-[80px]">
           Our Highlights
         </h2>
       </Reveal>
-      <div className="px-5 lg:px-[100px] flex flex-col lg:flex-row items-center justify-between space-y-10 lg:space-y-0">
+      <div className="px-5 lg:px-[80px] flex flex-col lg:flex-row items-center justify-between space-y-10 lg:space-y-0 font-league-spartan">
         <Reveal delay={0.2}>
           <div className="text-center">
             <p className="font-bold text-[30px] lg:text-[50px] mb-3">350</p>

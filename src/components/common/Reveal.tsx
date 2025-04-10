@@ -7,9 +7,15 @@ interface Props {
   children: React.ReactNode;
   delay?: number;
   className?: string;
+  motionContainerClassName?: string;
 }
 
-const Reveal: React.FC<Props> = ({ children, delay, className }) => {
+const Reveal: React.FC<Props> = ({
+  children,
+  delay,
+  className,
+  motionContainerClassName,
+}) => {
   const ref = useRef(null);
 
   const isInView = useInView(ref, { once: true });
@@ -38,6 +44,7 @@ const Reveal: React.FC<Props> = ({ children, delay, className }) => {
         initial="hidden"
         animate={mainControls}
         transition={{ duration: 0.3, delay }}
+        className={motionContainerClassName}
       >
         {children}
       </motion.div>

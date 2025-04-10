@@ -8,7 +8,7 @@ const Features = () => {
   const [activeItem, setActiveItem] = useState(FEATURES[0]);
 
   return (
-    <section className="relative w-screen overflow-x-hidden bg-primary-bg px-5 lg:px-[100px] pt-[50px] lg:pt-0">
+    <section className="relative w-screen overflow-x-hidden bg-primary-bg px-5 lg:px-[80px] pt-[50px] lg:pt-0">
       <div className="grid grid-cols-3 gap-y-5 lg:gap-y-0 lg:grid-cols-5 justify-items-center">
         {FEATURES.map((item) => (
           <Reveal key={item.id} delay={item.id * 0.2}>
@@ -28,7 +28,9 @@ const Features = () => {
                 className="w-[60px] h-[60px] lg:w-[80px] 2xl:w-[120px] lg:h-[80px] 2xl:h-[120px] object-cover"
               />
               <p
-                className={`font-gilroy-bold font-medium hidden lg:block text-[16px] text-center ${
+                className={`font-gilroy-bold ${
+                  item.id === activeItem.id ? "font-semibold" : "font-normal"
+                } hidden lg:block text-[16px] text-center ${
                   item.id === activeItem.id
                     ? "text-primary"
                     : "text-[#00000080]"

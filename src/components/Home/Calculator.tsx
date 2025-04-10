@@ -71,25 +71,25 @@ const Calc = () => {
   }, [values]);
 
   return (
-    <div className="px-[88px] mt-[50px]">
+    <div className="px-0 lg:px-[88px] mt-[50px]">
       <div className="text-center">
-        <p className="font-gilroy-medium font-normal text-[20px]">
+        <p className="font-gilroy-medium font-normal text-[20px] text-left lg:text-center">
           Find out how much you or your clients can borrow today with our Loan
           Calculators.
         </p>
-        <p className="font-gilroy-regular font-extralight text-[18px] mt-5">
+        <p className="font-gilroy-regular font-extralight text-[18px] mt-5 text-left lg:text-center">
           Note: &ldquo;Enter a few relevant details about your property and get
           a free instant quote with indicative terms estimating how much it may
           cost.&rdquo;
         </p>
       </div>
       <div className="flex flex-col lg:flex-row items-start justify-between pt-[50px] font-leagueSpartan">
-        <div className="w-[50%] font-gilroy-regular font-extralight">
-          <p className="text-[18px] text-center lg:text-left lg:text-[24px] font-semibold text-black font-league-spartan">
+        <div className="w-full lg:w-[50%] font-gilroy-regular font-extralight">
+          <p className="text-left text-[24px] font-semibold text-black font-league-spartan">
             Bridge Loan Calculator
           </p>
-          <div className="flex flex-row items-center mt-5">
-            <p className="text-black text-[14px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center mt-5 space-y-[10px] lg:space-y-0">
+            <p className="text-black text-[18px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
               Property Type
             </p>
             {/* <Input className="px-5 py-3 rounded-[8px] border border-[#D9D9D9]" /> */}
@@ -104,8 +104,8 @@ const Calc = () => {
               <option value="land">Land</option>
             </select>
           </div>
-          <div className="flex flex-row items-center mt-5">
-            <p className="text-black text-[14px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center mt-5 space-y-[10px] lg:space-y-0">
+            <p className="text-black text-[18px] lg:text-[20px] mr-5 w-full lg:w-[60%]">
               Number of Properties
             </p>
             <Input
@@ -115,8 +115,8 @@ const Calc = () => {
               onChange={handleChange("noOfProperties")}
             />
           </div>
-          <div className="flex flex-row items-center mt-5">
-            <p className="text-black text-[14px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center mt-5 space-y-[10px] lg:space-y-0">
+            <p className="text-black text-[18px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
               Property Value
             </p>
             <Input
@@ -126,8 +126,8 @@ const Calc = () => {
               onChange={handleChange("propertyValue")}
             />
           </div>
-          <div className="flex flex-row items-center mt-5">
-            <p className="text-black text-[14px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center mt-5 space-y-[10px] lg:space-y-0">
+            <p className="text-black text-[18px] lg:text-[20px] mr-5 w-full lg:w-[60%]">
               Loan Amount Required
             </p>
             <Input
@@ -137,8 +137,8 @@ const Calc = () => {
               onChange={handleChange("loanAmount")}
             />
           </div>
-          <div className="flex flex-row items-center mt-5">
-            <p className="text-black text-[14px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center mt-5 space-y-[10px] lg:space-y-0">
+            <p className="text-black text-[18px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
               Security Type
             </p>
             <Input
@@ -149,11 +149,11 @@ const Calc = () => {
               onChange={() => {}}
             />
           </div>
-          <div className="flex flex-row items-center mt-5">
-            <p className="text-black text-[14px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center mt-5 space-y-[10px] lg:space-y-0">
+            <p className="text-black text-[18px] lg:text-[20px] mr-5 w-full lg:w-[60%]">
               Repayment Type
             </p>
-            <div className="flex flex-col lg:flex-row items-center w-full">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center w-full">
               <div className="flex flex-row items-center space-x-[10px] w-1/2">
                 <Input
                   type="radio"
@@ -180,8 +180,8 @@ const Calc = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-row items-center mt-5">
-            <p className="text-black text-[14px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
+          <div className="flex flex-col lg:flex-row item-start lg:items-center space-y-[10px] lg:space-y-0 mt-5">
+            <p className="text-black text-[18px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
               Loan Term
             </p>
             <TooltipSlider
@@ -192,8 +192,8 @@ const Calc = () => {
               tipFormatter={(val) => `${val} Months`}
             />
           </div>
-          <div className="flex flex-row items-center mt-5">
-            <p className="text-black text-[14px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
+          <div className="flex flex-col lg:flex-row item-start lg:items-center space-y-[10px] lg:space-y-0 mt-5">
+            <p className="text-black text-[18px] lg:text-[20px] mr-5 w-full lg:w-[60%]">
               Loan-to-Value{" "}
               <span className="text-xs text-[#939393]">(Max {ltvMax}%)</span>
             </p>
@@ -209,8 +209,8 @@ const Calc = () => {
           <p className="text-[24px] font-semibold text-black font-league-spartan">
             Loan Estimate
           </p>
-          <div className="flex flex-row items-center mt-5">
-            <p className="text-black text-[14px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center space-y-[10px] lg:space-y-0 mt-5">
+            <p className="text-black text-[18px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
               Gross Loan
             </p>
             <Input
@@ -219,8 +219,8 @@ const Calc = () => {
               value={`£ ${grossLoan || 0}`}
             />
           </div>
-          <div className="flex flex-row items-center mt-5">
-            <p className="text-black text-[14px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center space-y-[10px] lg:space-y-0 mt-5">
+            <p className="text-black text-[18px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
               Net Loan
             </p>
             <Input
@@ -229,8 +229,8 @@ const Calc = () => {
               value={`£ ${netLoan || 0}`}
             />
           </div>
-          <div className="flex flex-row items-center mt-5">
-            <p className="text-black text-[14px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center space-y-[10px] lg:space-y-0 mt-5">
+            <p className="text-black text-[18px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
               Interest Rate
             </p>
             <Input
@@ -243,17 +243,17 @@ const Calc = () => {
               }%`}
             />
           </div>
-          <p className="text-[12px] lg:text-[16px] text-black mt-5 lg:mt-[100px]">
+          <p className="text-[18px] lg:text-[16px] text-black mt-5 lg:mt-[100px]">
             This is an estimate only and is used to give you a basic
             understanding of our terms. To get a precise quote, contact us now.
           </p>
-          <div className="flex flex-row justify-end mt-5 lg:mt-[200px] relative">
+          <div className="flex flex-row justify-center lg:justify-end mt-[30px] lg:mt-[200px] relative">
             <Image
               src="/svg/calc-man.svg"
               width={129}
               height={129}
               alt="man"
-              className="w-[129px] h-[129px] object-cover absolute bottom-[100%] right-0"
+              className="w-[129px] h-[129px] object-cover absolute bottom-[100%] right-0 hidden lg:block"
             />
             <Button>
               <p className="text-[20px] uppercase text-white">
@@ -272,7 +272,7 @@ const Calculator = () => {
 
   return (
     <section
-      className="relative w-screen overflow-x-hidden bg-primary-bg pt-[150px] lg:pt-[350px] px-5 lg:px-[100px]"
+      className="relative w-screen overflow-x-hidden bg-primary-bg pt-[150px] lg:pt-[350px] px-5 lg:px-[80px]"
       id="calculator"
     >
       <div className="w-full min-h-[550px] rounded-[20px] bg-linear-to-b from-[#A7B3C0] to-[#C5D3DD] flex flex-col justify-end pb-[50px] px-5">
@@ -281,11 +281,11 @@ const Calculator = () => {
           width={200}
           height={200}
           alt="man"
-          className="w-[250px] h-[250px] lg:w-[500px] lg:h-[500px] object-cover -mt-[100px] ml-[50px] lg:ml-[300px] lg:-mt-[200px] 2xl:ml-[550px]"
+          className="w-[250px] h-[250px] lg:w-[500px] lg:h-[500px] object-cover -mt-[100px] mx-auto lg:-mt-[200px]"
         />
         <Reveal>
           <h2 className="font-league-spartan font-semibold text-primary text-[50px] 2xl:text-[70px] text-left lg:text-center">
-            Calculate how much you can borrow?
+            Calculate How Much You Can Borrow?
           </h2>
         </Reveal>
         <Reveal delay={0.3}>

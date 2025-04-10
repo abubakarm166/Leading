@@ -1,4 +1,6 @@
+"use client";
 import { BROKER_FAQ, GENERAL_FAQ } from "@/utils/constants";
+import Image from "next/image";
 import { useMemo, useState } from "react";
 
 const FAQItem = ({
@@ -37,6 +39,17 @@ const FAQItem = ({
         >
           {item.question}
         </p>
+        <Image
+          src={
+            isOpen
+              ? "/svg/chevron-up-normal-white.svg"
+              : "/svg/chevron-down-black.svg"
+          }
+          width={24}
+          height={24}
+          alt="arrow"
+          className={`${isOpen ? "w-4 h-4" : "w-2 h-2"} object-contain`}
+        />
       </div>
       {isOpen && (
         <p className="text-white text-[18px] font-gilroy-regular font-extralight mt-3">

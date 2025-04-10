@@ -1,3 +1,4 @@
+import MobileNav from "@/components/common/MobileNav";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/zoom.css";
 import type { Metadata } from "next";
@@ -55,6 +56,7 @@ export default function RootLayout({
       >
         <Toaster position="bottom-center" />
         {children}
+        <MobileNav />
       </body>
     </html>
   );

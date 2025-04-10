@@ -47,3 +47,16 @@ body {
 .react-calendar__viewContainer {
   background-color: #f4f9ff;
 }
+
+#products-container {
+  &::-webkit-scrollbar {
+    height: 20px;
+    background-color: var(--color-primary-bg);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    background-clip: content-box;
+    border-top: 14px solid transparent;
+  }
+}

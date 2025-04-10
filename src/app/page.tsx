@@ -1,4 +1,5 @@
 import ContactUs from "@/components/common/ContactUs";
+import FAQ from "@/components/common/FAQ";
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
 import About from "@/components/Home/About";
@@ -17,13 +18,6 @@ import Products from "@/components/Home/Products";
 const HomePage = () => {
   return (
     <main className="relative">
-      {/* <Image
-        src="/svg/blue-blur.svg"
-        width={200}
-        height={200}
-        alt="blue-blur"
-        className="w-[800px] h-[800px] object-cover absolute -top-24 -right-[25%]"
-      /> */}
       <Navbar />
       <Hero />
       <Features />
@@ -37,6 +31,9 @@ const HomePage = () => {
       <Awards />
       <Blogs />
       <NewsLetter />
+      <div className="px-5 lg:px-[80px] mt-10 lg:mt-20">
+        <FAQ type="general" />
+      </div>
       <ContactUs />
       <Footer />
     </main>

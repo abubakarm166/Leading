@@ -9,7 +9,7 @@ const CaseStudiesPage = () => {
   return (
     <main className="bg-primary-bg">
       <Navbar />
-      <div className="px-[50px] lg:px-[100px]">
+      <div className="px-5 lg:px-[100px]">
         <h2 className="font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px] py-[50px]">
           Case Studies
         </h2>

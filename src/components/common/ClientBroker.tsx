@@ -3,7 +3,7 @@ import Button from "./Button";
 
 const ClientBroker = () => {
   return (
-    <div className="flex flex-row items-center w-full px-[50px] lg:px-[100px] h-[350px] rounded-[20px] overflow-hidden">
+    <div className="flex flex-row items-center w-full px-5 lg:px-[100px] h-[350px] rounded-[20px] overflow-hidden">
       <div className="w-[50%] h-full bg-white relative flex flex-col items-center justify-center rounded-l-[20px]">
         <p className="text-[18px] lg:text-[24px] font-gilroy-regular font-extralight mb-5">
           Are you a

@@ -1,12 +1,16 @@
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import Button from "../common/Button";
 import Reveal from "../common/Reveal";
 
 const LoanProcess = () => {
+  const router = useRouter();
+
   return (
-    <section className="relative w-screen overflow-hidden pt-[60px] px-5 lg:px-[100px] bg-primary-bg">
+    <section className="relative w-screen overflow-hidden pt-[60px] px-5 lg:px-[80px] bg-primary-bg">
       <Reveal>
-        <h2 className="font-league-spartan font-semibold text-[50px] lg:text-[70px] text-primary mb-[50px]">
+        <h2 className="font-league-spartan font-semibold text-[50px] lg:text-[70px] text-primary mb-[50px] text-center lg:text-left">
           Loan Process
         </h2>
       </Reveal>
@@ -16,11 +20,18 @@ const LoanProcess = () => {
           width={200}
           height={200}
           alt="loan-process"
-          className="w-screen h-full object-cover"
+          className="w-screen h-full object-cover hidden lg:block"
+        />
+        <Image
+          src="/svg/loan-process-mobile.svg"
+          width={200}
+          height={200}
+          alt="loan-process"
+          className="w-full h-[980px] object-contain block lg:hidden"
         />
       </Reveal>
       <div className="flex items-center justify-center mt-[90px]">
-        <Button>
+        <Button onClick={() => router.push("/products")}>
           <p className="font-bold text-white text-[16px] lg:text-[20px] uppercase">
             View our products
           </p>
