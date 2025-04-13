@@ -110,6 +110,9 @@ const Navbar = () => {
                 height={200}
                 alt="mail-white"
                 className="w-3 h-3"
+                onClick={() =>
+                  window.open("mailto:enquires@lendingbridge.co.uk", "_blank")
+                }
               />
             </div>
             <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center">
@@ -119,6 +122,7 @@ const Navbar = () => {
                 height={200}
                 alt="phone-white"
                 className="w-3 h-3 object-cover"
+                onClick={() => window.open("tel:02037250589", "_blank")}
               />
             </div>
           </div>
