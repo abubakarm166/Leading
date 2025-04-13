@@ -40,6 +40,12 @@ body {
   width: 500px;
 }
 
+@media only screen and (max-width: 450px) {
+  .react-calendar {
+    width: 100%;
+  }
+}
+
 .react-calendar__navigation {
   margin-bottom: 0px;
 }

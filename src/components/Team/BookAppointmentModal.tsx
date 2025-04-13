@@ -25,7 +25,7 @@ const BookAppointmentModal: React.FC<Props> = ({ isOpen, member, onClose }) => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [typeSelected, setTypeSelected] = useState<"borrower" | "broker">(
-    "borrower"
+    "borrower",
   );
 
   const handleBookAppointment = async () => {
@@ -53,10 +53,10 @@ const BookAppointmentModal: React.FC<Props> = ({ isOpen, member, onClose }) => {
     <Modal
       open={isOpen}
       onClose={onClose}
-      classNames={{ modal: "min-w-[960px] bg-white rounded-[20px]" }}
+      classNames={{ modal: "w-[90%] lg:min-w-[960px] bg-white rounded-[20px]" }}
     >
-      <div className="px-[25px] py-[30px]">
-        <div className="flex flex-row items-start space-x-[30px]">
+      <div className="px-4 lg:px-[25px] py-[30px]">
+        <div className="flex flex-col lg:flex-row items-start lg:space-x-[30px] space-y-[30px] lg:space-y-0">
           <div>
             <Calendar
               value={activeDate}
@@ -73,11 +73,11 @@ const BookAppointmentModal: React.FC<Props> = ({ isOpen, member, onClose }) => {
                 return true;
               }}
             />
-            <div className="grid grid-cols-4 mt-3 gap-5">
+            <div className="grid grid-cols-3 lg:grid-cols-4 mt-3 gap-3 lg:gap-5 w-[90%] lg:w-full">
               {APPOINTMENT_TIME_SLOTS.map((item) => (
                 <div
                   key={item}
-                  className={`w-[112px] h-[34px] flex items-center justify-center ${
+                  className={`w-[80px] lg:w-[112px] h-[34px] flex items-center justify-center ${
                     selectedTime === item ? "bg-primary" : "bg-[#F4F9FF]"
                   } cursor-pointer`}
                   onClick={() => setSelectedTime(item)}
@@ -121,7 +121,7 @@ const BookAppointmentModal: React.FC<Props> = ({ isOpen, member, onClose }) => {
             <p className="font-gilroy-regular font-extralight text-[16px]">
               {member?.role}
             </p>
-            <p className="mt-10 font-league-spartan font-semibold text-[20px]">
+            <p className="mt-2 lg:mt-10 font-league-spartan font-semibold text-[20px]">
               You are
             </p>
             <div className="flex flex-col items-center space-y-[30px] mt-5 w-full">
