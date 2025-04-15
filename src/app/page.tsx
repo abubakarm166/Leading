@@ -31,7 +31,7 @@ const HomePage = () => {
       <Awards />
       <Blogs />
       <NewsLetter />
-      <div className="px-5 lg:px-[80px] mt-10 lg:mt-20">
+      <div className="px-5 lg:px-[80px] pt-10 lg:pt-20 bg-primary-bg">
         <FAQ type="general" />
       </div>
       <ContactUs />

@@ -178,11 +178,14 @@ const BrokerRegistrationForm = () => {
 };
 
 const BrokerInfo = () => {
+  const [activeHoveredItem, setActiveHoveredItem] = useState<
+    (typeof BROKER_INFO)[0] | null
+  >(null);
+
   return (
     <div className="flex flex-col 2xl:flex-row items-start justify-between pb-[50px]">
       <p className="font-league-spartan font-bold text-[40px] lg:text-[70px] text-primary mb-5 lg:mb-0">
-        Information
-        <br className="hidden 2xl:block" />
+        Information <br className="hidden 2xl:block" />
         You Need <br className="hidden 2xl:block" />
         To Know
       </p>
@@ -193,9 +196,17 @@ const BrokerInfo = () => {
             delay={0.2 * item.id}
             className="overflow-visible"
           >
-            <div className="group w-[260px] h-[177px] rounded-[20px] border border-primary flex flex-col items-center justify-center px-[34px] space-y-[20px] hover:scale-125 hover:bg-primary transition-all">
+            <div
+              className="group w-[260px] h-[177px] rounded-[20px] border border-primary flex flex-col items-center justify-center px-[34px] space-y-[20px] hover:scale-125 hover:bg-primary transition-all"
+              onMouseEnter={() => setActiveHoveredItem(item)}
+              onMouseLeave={() => setActiveHoveredItem(null)}
+            >
               <Image
-                src={item.img}
+                src={
+                  activeHoveredItem && activeHoveredItem?.id === item.id
+                    ? item.activeImg
+                    : item.img
+                }
                 width={70}
                 height={70}
                 alt="img"
@@ -216,7 +227,7 @@ const BrokerPage = () => {
   return (
     <main className="relative overflow-x-hidden bg-primary-bg">
       <Navbar />
-      <div className="px-5 2xl:px-[100px] mt-[50px]">
+      <div className="px-5 lg:px-[100px] mt-[50px]">
         <div className="flex flex-col lg:flex-row items-center justify-between">
           <div className="order-2 lg:order-1 mt-10 lg:mt-0">
             <Reveal>

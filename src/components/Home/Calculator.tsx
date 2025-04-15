@@ -14,7 +14,7 @@ const Calc = () => {
 
   const formikProps = useFormik({
     initialValues: {
-      propertyType: "",
+      propertyType: "residential",
       noOfProperties: "",
       propertyValue: "",
       loanAmount: "",
@@ -289,7 +289,7 @@ const Calculator = () => {
           </h2>
         </Reveal>
         <Reveal delay={0.3}>
-          <p className="font-gilroy-regular font-extralight text-left lg:text-center text-[18px] mt-5 mb-[50px]">
+          <p className="font-gilroy-regular text-left lg:text-center text-[18px] mt-5 mb-[50px]">
             A bridging calculator estimates short-term loan costs, including
             monthly interest and total
             <br className="hidden lg:block" />

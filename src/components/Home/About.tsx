@@ -41,7 +41,9 @@ const About = () => {
                     alt="img"
                     className="w-[74px] h-[74px] object-contain self-start lg:ml-10"
                   />
-                  <p className="text-[18px] mt-6 max-w-[80%]">{item.content}</p>
+                  <p className="text-[18px] mt-6 max-w-[80%] font-gilroy-regular">
+                    {item.content}
+                  </p>
                 </div>
               </Reveal>
             ))}

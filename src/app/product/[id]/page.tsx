@@ -12,7 +12,7 @@ import { useParams, useRouter } from "next/navigation";
 const ProductKeyInfo = () => {
   return (
     <div className="border border-black px-5 lg:px-[50px] pt-[50px] lg:pt-[150px] pb-[50px] rounded-[20px] mt-[100px] lg:mt-[300px] mx-5 lg:mx-[100px] relative">
-      <div className="rounded-[20px] bg-primary p-2 lg:p-6 absolute -top-10 lg:-top-20 left-7 lg:left-10">
+      <div className="rounded-[20px] bg-primary p-2 lg:p-6 absolute -top-10 lg:-top-20 left-1/2 -translate-x-1/2 lg:-translate-x-0 w-[350px] lg:w-auto text-center lg:left-10">
         <p className="font-semibold font-league-spartan text-[30px] lg:text-[70px] text-white">
           Key Information For You
         </p>
@@ -69,7 +69,9 @@ const ProductKeyInfo = () => {
   );
 };
 
-const ProductHighlights = () => {
+const ProductHighlights = ({ id }: { id: string }) => {
+  const product = PRODUCTS.find((item) => `${item.slug}` === id);
+
   return (
     <div className="bg-primary-bg">
       <Reveal>
@@ -77,70 +79,38 @@ const ProductHighlights = () => {
           Highlights Of The Product
         </h2>
       </Reveal>
-      <div className="flex flex-col lg:flex-row items-center justify-center space-y-5 lg:space-y-0 lg:space-x-12">
-        <Reveal delay={0.2}>
-          <div className="w-[225px] h-[225px] bg-white rounded-[32px] flex items-center justify-center flex-col">
-            <Image
-              src="/gif/discount.gif"
-              width={120}
-              height={120}
-              alt="discount"
-              className="w-[120px] h-[120px] object-contain"
-            />
-            <p className="font-gilroy-regular text-[16px] font-extralight mt-[6px] text-center">
-              Up to 70% LTV
-            </p>
-          </div>
-        </Reveal>
-        <Reveal delay={0.4}>
-          <div className="w-[225px] h-[225px] bg-white rounded-[32px] flex items-center justify-center flex-col">
-            <Image
-              src="/gif/analytics.gif"
-              width={120}
-              height={120}
-              alt="analytics"
-              className="w-[120px] h-[120px] object-contain"
-            />
-            <p className="font-gilroy-regular text-[16px] font-extralight mt-[6px] text-center">
-              Rates starting from 0.99%
-            </p>
-          </div>
-        </Reveal>
-        <Reveal delay={0.6}>
-          <div className="w-[225px] h-[225px] bg-white rounded-[32px] flex items-center justify-center flex-col">
-            <Image
-              src="/gif/money.gif"
-              width={120}
-              height={120}
-              alt="money"
-              className="w-[120px] h-[120px] object-contain"
-            />
-            <p className="font-gilroy-regular text-[16px] font-extralight mt-[6px] text-center">
-              Minimum loan size £150,000
-            </p>
-          </div>
-        </Reveal>
-        <Reveal delay={0.8}>
-          <div className="w-[225px] h-[225px] bg-white rounded-[32px] flex items-center justify-center flex-col">
-            <Image
-              src="/gif/home.gif"
-              width={120}
-              height={120}
-              alt="home"
-              className="w-[120px] h-[120px] object-contain"
-            />
-            <p className="font-gilroy-regular text-[16px] font-extralight mt-[6px] text-center max-w-[90%]">
-              AVM Valuations accepted for properties valued up to 700K.
-            </p>
-          </div>
-        </Reveal>
+      <div
+        className={`flex flex-col lg:flex-row items-center justify-center space-y-5 ${
+          product?.highlights && product?.highlights?.length > 4
+            ? "lg:space-y-[100px]"
+            : "lg:space-y-0"
+        } lg:space-x-12 flex-wrap px-10`}
+      >
+        {product &&
+          product?.highlights?.length > 0 &&
+          product.highlights.map((el, idx) => (
+            <Reveal delay={0.2} key={idx}>
+              <div className="w-[225px] h-[225px] bg-white rounded-[32px] flex items-center justify-center flex-col px-5">
+                <Image
+                  src={el.img}
+                  width={120}
+                  height={120}
+                  alt="discount"
+                  className="w-[120px] h-[120px] object-contain"
+                />
+                <p className="font-gilroy-regular text-[14px] font-extralight mt-[6px] text-center">
+                  {el.title}
+                </p>
+              </div>
+            </Reveal>
+          ))}
       </div>
     </div>
   );
 };
 
 const ProductHero = ({ id }: { id: string }) => {
-  const product = PRODUCTS.find((item) => `${item.id}` === id);
+  const product = PRODUCTS.find((item) => `${item.slug}` === id);
 
   const router = useRouter();
 
@@ -208,7 +178,7 @@ const ProductPage = () => {
     <main className="bg-primary-bg">
       <Navbar />
       {params?.id && <ProductHero id={params.id} />}
-      <ProductHighlights />
+      {params?.id && <ProductHighlights id={params.id} />}
       <ProductKeyInfo />
       <Calculator />
       <ContactUs />

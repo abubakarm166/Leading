@@ -1,3 +1,5 @@
+import slugify from "slugify";
+
 export const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const ABOUT_ITEMS = [
@@ -76,6 +78,25 @@ export const PRODUCTS = [
     content:
       "Our Residential Bridging Product can help you provide the immediate capital you might need to secure a Residential OR BTL Property seeking assistance with an auction purchase or addressing a short-term gap in your cash shortage. Our tailored solutions are designed to meet your needs seamlessly.",
     img: "/svg/product-one.svg",
+    slug: slugify("Residential Bridges & BTL Bridges".toLowerCase()),
+    highlights: [
+      {
+        title: "Up to 70% LTV",
+        img: "/gif/discount.gif",
+      },
+      {
+        title: "Rates starting from 0.99%",
+        img: "/gif/analytics.gif",
+      },
+      {
+        title: "Minimum loan size £150,000",
+        img: "/gif/money.gif",
+      },
+      {
+        title: "AVM Valuations accepted for properties valued up to 700K.",
+        img: "/gif/home.gif",
+      },
+    ],
   },
   {
     id: 2,
@@ -83,6 +104,21 @@ export const PRODUCTS = [
     content:
       "Our Bridging Loans for Commercial Properties cater to both, individuals and businesses with a versatile funding option. Whether you're acquiring property, financing redevelopment projects, navigating changes in use, or leveraging existing assets to raise capital, we're here to assist every step of the way.",
     img: "/svg/product-two.svg",
+    slug: slugify("Commercial Bridge Loans".toLowerCase()),
+    highlights: [
+      {
+        title: "Up to 70% LTV",
+        img: "/gif/discount.gif",
+      },
+      {
+        title: "Rates starting from 0.99%",
+        img: "/gif/analytics.gif",
+      },
+      {
+        title: "Minimum loan size £150,000",
+        img: "/gif/money.gif",
+      },
+    ],
   },
   {
     id: 3,
@@ -90,6 +126,21 @@ export const PRODUCTS = [
     content:
       "Our Semi-commercial Bridging Products can help you seamlessly cover purchase or refinance any semi-commercial properties. Whether you're acquiring a property, funding light refurb, or raising capital from existing assets, we're here to help every step of the way.",
     img: "/svg/product-three.svg",
+    slug: slugify("Semi-Commercial Bridges".toLowerCase()),
+    highlights: [
+      {
+        title: "Up to 70% LTV",
+        img: "/gif/discount.gif",
+      },
+      {
+        title: "Rates starting from 0.99%",
+        img: "/gif/analytics.gif",
+      },
+      {
+        title: "Minimum loan size £150,000",
+        img: "/gif/money.gif",
+      },
+    ],
   },
   {
     id: 4,
@@ -97,6 +148,29 @@ export const PRODUCTS = [
     content:
       "Sometimes, small upgrades on your property is everything you need to maximise the value of your projects. Our Light Refurbs Bridging Product is the right fit to help you execute your conversion plans.",
     img: "/svg/product-four.svg",
+    slug: slugify("Light Refurbs Bridges".toLowerCase()),
+    highlights: [
+      {
+        title: "First and Second Charges Accepted",
+        img: "/gif/credit-card.gif",
+      },
+      {
+        title: "Up to 70% LTV",
+        img: "/gif/discount.gif",
+      },
+      {
+        title: "Rates starting from 0.99%",
+        img: "/gif/analytics.gif",
+      },
+      {
+        title: "Minimum loan size £150,000",
+        img: "/gif/money.gif",
+      },
+      {
+        title: "AVM Valuations accepted for properties valued up to 700K.",
+        img: "/gif/home.gif",
+      },
+    ],
   },
   {
     id: 5,
@@ -104,6 +178,25 @@ export const PRODUCTS = [
     content:
       "We understand that Properties bought at an Auction requires very quick processing times because of the standard 28-day payment term. Our Specialty of Fast Processing makes us the perfect partner to handle these loans for you or your clients.",
     img: "/svg/product-five.svg",
+    slug: slugify("Auction Bridging Finance".toLowerCase()),
+    highlights: [
+      {
+        title: "Up to 70% LTV",
+        img: "/gif/discount.gif",
+      },
+      {
+        title: "Rates starting from 0.99%",
+        img: "/gif/analytics.gif",
+      },
+      {
+        title: "Minimum loan size £150,000",
+        img: "/gif/money.gif",
+      },
+      {
+        title: "5 Day Completions",
+        img: "/gif/calendar.gif",
+      },
+    ],
   },
   {
     id: 6,
@@ -111,6 +204,25 @@ export const PRODUCTS = [
     content:
       "At Lending Bridge, we help you overcome these hurdles. Our Bridging Product for Bad Credit and CCJ's helps clients facing these issues so they can still execute their property plans without a hitch.",
     img: "/svg/product-six.svg",
+    slug: slugify("Refinance Bridge Loans".toLowerCase()),
+    highlights: [
+      {
+        title: "Up to 70% LTV",
+        img: "/gif/discount.gif",
+      },
+      {
+        title: "Rates starting from 0.99%",
+        img: "/gif/analytics.gif",
+      },
+      {
+        title: "Minimum loan size £150,000",
+        img: "/gif/money.gif",
+      },
+      {
+        title: "Re-bridge is also considered",
+        img: "/gif/wallet.gif",
+      },
+    ],
   },
   {
     id: 7,
@@ -118,6 +230,46 @@ export const PRODUCTS = [
     content:
       "Are you an overseas buyer who wants to buy property in the UK or you are stuck in an impossible situation that requires extremely fast turn-around times? Lending Bridge is your solution! Mastering impossible situations and creating tailored finance solutions is where we shine and our extremely easy process makes it possible for everyone to follow.",
     img: "/svg/product-six.svg",
+    slug: slugify("Bridging Finance for Complex Cases".toLowerCase()),
+    highlights: [
+      {
+        title: "Up to 70% LTV",
+        img: "/gif/discount.gif",
+      },
+      {
+        title: "Rates starting from 0.99%",
+        img: "/gif/analytics.gif",
+      },
+      {
+        title: "Minimum loan size £150,000",
+        img: "/gif/money.gif",
+      },
+      {
+        title: "Adverse Credit History Accepted",
+        img: "/gif/wallet.gif",
+      },
+      {
+        title: "Senior-Citizens can also appy",
+        img: "/gif/caring.gif",
+      },
+      {
+        title: "Expats and Foreign Nationals are also accepted",
+        img: "/gif/strategic-alliance.gif",
+      },
+      {
+        title: "Complex Company Structure",
+        img: "/gif/office-building.gif",
+      },
+      {
+        title: "Very tight Deadlines",
+        img: "/gif/deadline.gif",
+      },
+      {
+        title:
+          "Commercial Properties like Pubs, Hotels & Care Homes also considered.",
+        img: "/gif/hostel.gif",
+      },
+    ],
   },
   {
     id: 8,
@@ -125,14 +277,26 @@ export const PRODUCTS = [
     content:
       "Looking for a Bridge Loan to help you repay your initial loan for a development project? Our Product is the right fit for your needs. We understand that to maximise the value of your projects, sometimes you require the extra time to finalise your plans.",
     img: "/svg/product-six.svg",
+    slug: slugify("Development Exit Finance".toLowerCase()),
+    highlights: [
+      {
+        title: "No Physical Valuation Required",
+        img: "/gif/house.gif",
+      },
+      {
+        title: "Up to 70% LTV",
+        img: "/gif/discount.gif",
+      },
+      {
+        title: "Rates starting from 0.99%",
+        img: "/gif/analytics.gif",
+      },
+      {
+        title: "Minimum loan size £150,000",
+        img: "/gif/money.gif",
+      },
+    ],
   },
-  // {
-  //   id: 9,
-  //   title: "Development Exit Finance",
-  //   content:
-  //     "Looking for a Bridge Loan to help you repay your initial loan for a development project? Our Product is the right fit for your needs. We understand that to maximise the value of your projects, sometimes you require the extra time to finalise your plans.",
-  //   img: "/svg/product-six.svg",
-  // },
 ];
 
 export const PRODUCT_KEY_INFO = [
@@ -193,46 +357,55 @@ export const BROKER_INFO = [
     id: 1,
     title: "3-Month Minimum Term",
     img: "/svg/broker-info-one.svg",
+    activeImg: "/svg/broker-info-one-active.svg",
   },
   {
     id: 2,
     title: "No Maximum Loan Sizes",
     img: "/svg/broker-info-two.svg",
+    activeImg: "/svg/broker-info-two-active.svg",
   },
   {
     id: 3,
     title: "12-Month Standard Term",
     img: "/svg/broker-info-three.svg",
+    activeImg: "/svg/broker-info-three-active.svg",
   },
   {
     id: 4,
     title: "18-Month Term Available Subject to Application",
     img: "/svg/broker-info-four.svg",
+    activeImg: "/svg/broker-info-four-active.svg",
   },
   {
     id: 5,
     title: "Broker and Proc Fee paid on the same day as completion.",
     img: "/svg/broker-info-five.svg",
+    activeImg: "/svg/broker-info-five-active.svg",
   },
   {
     id: 6,
     title: "Interest Rates Starting from 0.99%",
     img: "/svg/broker-info-six.svg",
+    activeImg: "/svg/broker-info-six-active.svg",
   },
   {
     id: 7,
     title: "First Charge Properties Only",
     img: "/svg/broker-info-seven.svg",
+    activeImg: "/svg/broker-info-seven-active.svg",
   },
   {
     id: 8,
     title: "Attractive Fees for Introducers",
     img: "/svg/broker-info-eight.svg",
+    activeImg: "/svg/broker-info-eight-active.svg",
   },
   {
     id: 9,
     title: "Arrangement Fees Starting from 1%",
     img: "/svg/broker-info-nine.svg",
+    activeImg: "/svg/broker-info-nine-active.svg",
   },
 ];
 

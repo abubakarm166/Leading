@@ -48,7 +48,7 @@ const Features = () => {
             <p className="font-semibold text-[32px] font-league-spartan">
               {activeItem.subTitle}
             </p>
-            <p className="font-gilroy-regular font-extralight mt-5 lg:mt-10 text-[18px] max-w-full lg:max-w-[70%]">
+            <p className="font-gilroy-regular mt-5 lg:mt-10 text-[18px] max-w-full lg:max-w-[70%]">
               {activeItem.content}
             </p>
           </div>

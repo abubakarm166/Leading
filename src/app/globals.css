@@ -2,18 +2,18 @@
 
 @layer base {
   @font-face {
-    font-family: "Gilroy-Bold";
-    src: url("/fonts/Gilroy-Bold.ttf") format("ttf");
+    font-family: "gilroy-bold";
+    src: url("/fonts/Gilroy-Bold.woff") format("woff");
   }
 
   @font-face {
-    font-family: "Gilroy-Medium";
-    src: url("/fonts/Gilroy-Medium.ttf") format("ttf");
+    font-family: "gilroy-medium";
+    src: url("/fonts/Gilroy-Medium.woff") format("woff");
   }
 
   @font-face {
-    font-family: "Gilroy-Regular";
-    src: url("/fonts/Gilroy-Regular.ttf") format("ttf");
+    font-family: "gilroy-regular";
+    src: url("/fonts/Gilroy-Regular.woff") format("woff");
   }
 }
 
@@ -22,9 +22,9 @@
   --color-primary-bg: #ebeff1;
 
   --font-league-spartan: "League Spartan", sans-serif;
-  --font-gilroy-regular: "Gilroy-Regular", poppins;
-  --font-gilroy-medium: "Gilroy-Medium", poppins;
-  --font-gilroy-bold: "Gilroy-Bold", poppins;
+  --font-gilroy-regular: "gilroy-regular", "Geist Mono";
+  --font-gilroy-medium: "gilroy-medium", "Geist Mono";
+  --font-gilroy-bold: "gilroy-bold", "Geist Mono";
   --font-nunito-sans: "Nunito Sans", sans-serif;
 }
 

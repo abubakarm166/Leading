@@ -1,11 +1,11 @@
 "use client";
+import { PRODUCTS } from "@/utils/constants";
 import useNavStore from "@/utils/store/nav";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Reveal from "./Reveal";
-import { PRODUCTS } from "@/utils/constants";
 
 const WORK_OPTIONS = [
   { title: "Blogs", href: "/blogs" },
@@ -13,7 +13,7 @@ const WORK_OPTIONS = [
 ];
 
 const BROKER_OPTIONS = [
-  { title: "Intermediaries", href: "/broker" },
+  { title: "Intermediaries", href: "/intermediaries" },
   { title: "Resources", href: "/resources" },
 ];
 
@@ -44,41 +44,41 @@ const MobileNav = () => {
                   setMenuItemSelected("");
                   setIsSubMenuOpen(false);
                   onNavChange(false);
-                  router.push(`/product/${item.id}`);
+                  router.push(`/product/${item.slug}`);
                 }}
               >
                 {item.title}
               </p>
             ))
           : menuItemSelected === "work"
-            ? WORK_OPTIONS.map((item) => (
-                <p
-                  key={item.title}
-                  className="font-semibold font-league-spartan text-[25px]"
-                  onClick={() => {
-                    setMenuItemSelected("");
-                    setIsSubMenuOpen(false);
-                    onNavChange(false);
-                    router.push(item.href);
-                  }}
-                >
-                  {item.title}
-                </p>
-              ))
-            : BROKER_OPTIONS.map((item) => (
-                <p
-                  key={item.title}
-                  className="font-semibold font-league-spartan text-[25px]"
-                  onClick={() => {
-                    setMenuItemSelected("");
-                    setIsSubMenuOpen(false);
-                    onNavChange(false);
-                    router.push(item.href);
-                  }}
-                >
-                  {item.title}
-                </p>
-              ))}
+          ? WORK_OPTIONS.map((item) => (
+              <p
+                key={item.title}
+                className="font-semibold font-league-spartan text-[25px]"
+                onClick={() => {
+                  setMenuItemSelected("");
+                  setIsSubMenuOpen(false);
+                  onNavChange(false);
+                  router.push(item.href);
+                }}
+              >
+                {item.title}
+              </p>
+            ))
+          : BROKER_OPTIONS.map((item) => (
+              <p
+                key={item.title}
+                className="font-semibold font-league-spartan text-[25px]"
+                onClick={() => {
+                  setMenuItemSelected("");
+                  setIsSubMenuOpen(false);
+                  onNavChange(false);
+                  router.push(item.href);
+                }}
+              >
+                {item.title}
+              </p>
+            ))}
       </div>
     );
   };

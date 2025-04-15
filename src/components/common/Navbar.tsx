@@ -28,7 +28,7 @@ const Navbar = () => {
                 title="Our Product"
                 options={PRODUCTS.map((item) => ({
                   title: item.title,
-                  href: `/product/${item.id}`,
+                  href: `/product/${item.slug}`,
                 }))}
               />
               <NavItem
@@ -42,7 +42,7 @@ const Navbar = () => {
               <NavItem
                 title="Intermediaries"
                 options={[
-                  { title: "Intermediaries", href: "/broker" },
+                  { title: "Intermediaries", href: "/intermediaries" },
                   { title: "Resources", href: "/resources" },
                 ]}
               />
