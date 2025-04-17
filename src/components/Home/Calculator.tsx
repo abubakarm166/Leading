@@ -1,16 +1,22 @@
 "use client";
-import { INTEREST_RATES } from "@/utils/constants";
+import { INTEREST_RATES, LTV_RATES } from "@/utils/constants";
 import { useFormik } from "formik";
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import Button from "../common/Button";
 import Input from "../common/Input";
 import Reveal from "../common/Reveal";
 import TooltipSlider from "../common/TooltipSlider";
+import UserDetailsModal from "../common/UserDetailsModal";
 
-const Calc = () => {
+const Calc = ({
+  openUserDetailsModal,
+}: {
+  openUserDetailsModal: (values: never) => void;
+}) => {
   const [grossLoan, setGrossLoan] = useState<null | number>(null);
-  const [netLoan, setNetLoan] = useState<null | number>(null);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const formikProps = useFormik({
     initialValues: {
@@ -30,21 +36,57 @@ const Calc = () => {
 
   const { values, handleChange, setFieldValue } = formikProps;
 
-  const ltvMax = useMemo(() => {
-    if (values.propertyType) {
-      if (values.propertyType === "residential") {
-        return 70;
-      } else if (values.propertyType === "semi-commercial") {
-        return 65;
-      } else if (values.propertyType === "commercial") {
-        return 65;
-      } else {
-        return 70;
-      }
+  const handleOnLoanAmountChange = (val: string) => {
+    if (!values.propertyValue) {
+      return toast.error("Please enter property value");
     }
 
-    return 70;
-  }, [values.propertyType]);
+    const maxRate = LTV_RATES[values.propertyType as never];
+    const maxAmount = Number(values.propertyValue) * (maxRate / 100);
+
+    if (Number(val) > maxAmount) {
+      return setErrorMsg(`The max amount is ${maxAmount}`);
+    } else {
+      setErrorMsg("");
+    }
+
+    setFieldValue("loanAmount", val);
+  };
+
+  const handleOnLTVChange = (val: number) => {
+    const maxRate = LTV_RATES[values.propertyType as never];
+
+    toast.dismiss();
+    if (!values.propertyValue) {
+      return toast.error("Please enter property value");
+    }
+
+    if ((val as number) > maxRate) {
+      return toast.error(`The maximum percentage is ${maxRate}`);
+    }
+    setFieldValue("ltv", val);
+    setFieldValue(
+      "loanAmount",
+      (Number(values.propertyValue) * (val / 100)).toString()
+    );
+  };
+
+  const handleOpenUserDetailsModal = () => {
+    if (
+      !values.propertyType ||
+      !values.noOfProperties ||
+      !values.propertyValue ||
+      !values.loanAmount ||
+      !values.securityType ||
+      !values.repaymentType ||
+      !values.loanTerm ||
+      !values.ltv
+    ) {
+      return toast.error("Please enter all the details");
+    }
+
+    openUserDetailsModal(values as never);
+  };
 
   useEffect(() => {
     if (
@@ -60,13 +102,6 @@ const Calc = () => {
 
       const gLoan = Number(values.propertyValue) * interest;
       setGrossLoan(gLoan);
-
-      const fees = 3290;
-      const term =
-        values.repaymentType === "monthly" ? 12 : Number(values.loanTerm);
-      const nLoan =
-        Number(values.loanAmount) * term * interest - fees - term * interest;
-      setNetLoan(nLoan);
     }
   }, [values]);
 
@@ -92,7 +127,6 @@ const Calc = () => {
             <p className="text-black text-[18px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
               Property Type
             </p>
-            {/* <Input className="px-5 py-3 rounded-[8px] border border-[#D9D9D9]" /> */}
             <select
               value={values.propertyType}
               onChange={handleChange("propertyType")}
@@ -130,12 +164,17 @@ const Calc = () => {
             <p className="text-black text-[18px] lg:text-[20px] mr-5 w-full lg:w-[60%]">
               Loan Amount Required
             </p>
-            <Input
-              className="px-5 py-3 rounded-full"
-              type="number"
-              value={values.loanAmount}
-              onChange={handleChange("loanAmount")}
-            />
+            <div className="w-full">
+              <Input
+                className="px-5 py-3 rounded-full"
+                type="number"
+                value={values.loanAmount}
+                onChange={(e) => handleOnLoanAmountChange(e.target.value)}
+              />
+              {errorMsg && (
+                <p className="mt-2 text-red-600 text-sm">*{errorMsg}</p>
+              )}
+            </div>
           </div>
           <div className="flex flex-col lg:flex-row items-start lg:items-center mt-5 space-y-[10px] lg:space-y-0">
             <p className="text-black text-[18px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
@@ -195,13 +234,13 @@ const Calc = () => {
           <div className="flex flex-col lg:flex-row item-start lg:items-center space-y-[10px] lg:space-y-0 mt-5">
             <p className="text-black text-[18px] lg:text-[20px] mr-5 w-full lg:w-[60%]">
               Loan-to-Value{" "}
-              <span className="text-xs text-[#939393]">(Max {ltvMax}%)</span>
+              {/* <span className="text-xs text-[#939393]">(Max {ltvMax}%)</span> */}
             </p>
             <TooltipSlider
               min={1}
-              max={ltvMax}
+              max={100}
               value={Number(values.ltv)}
-              onChange={(val) => setFieldValue("ltv", val)}
+              onChange={(val) => handleOnLTVChange(val as number)}
             />
           </div>
         </div>
@@ -217,16 +256,6 @@ const Calc = () => {
               className="px-5 py-3 rounded-full bg-white"
               disabled
               value={`£ ${grossLoan || 0}`}
-            />
-          </div>
-          <div className="flex flex-col lg:flex-row items-start lg:items-center space-y-[10px] lg:space-y-0 mt-5">
-            <p className="text-black text-[18px] lg:text-[20px] mr-5 w-[40%] lg:w-[60%]">
-              Net Loan
-            </p>
-            <Input
-              className="px-5 py-3 rounded-full bg-white"
-              disabled
-              value={`£ ${netLoan || 0}`}
             />
           </div>
           <div className="flex flex-col lg:flex-row items-start lg:items-center space-y-[10px] lg:space-y-0 mt-5">
@@ -255,9 +284,9 @@ const Calc = () => {
               alt="man"
               className="w-[129px] h-[129px] object-cover absolute bottom-[100%] right-0 hidden lg:block"
             />
-            <Button>
+            <Button onClick={handleOpenUserDetailsModal}>
               <p className="text-[20px] uppercase text-white">
-                Talk To A Expert
+                Talk To An Expert
               </p>
             </Button>
           </div>
@@ -269,6 +298,17 @@ const Calc = () => {
 
 const Calculator = () => {
   const [isCalcVisible, setIsCalcVisible] = useState(false);
+  const [isUserDetailsModalVisible, setIsUserDetailsModalVisible] =
+    useState(false);
+  const [msgObject, setMsgObject] = useState<{
+    propertyType: string;
+    noOfProperties: string;
+    loanAmount: string;
+    securityType: string;
+    repaymentType: string;
+    loanTerm: string;
+    ltv: string;
+  }>();
 
   return (
     <section
@@ -318,8 +358,26 @@ const Calculator = () => {
             </Button>
           </div>
         </Reveal>
-        {isCalcVisible && <Calc />}
+        {isCalcVisible && (
+          <Calc
+            openUserDetailsModal={(values) => {
+              setIsUserDetailsModalVisible(true);
+              setMsgObject(values);
+            }}
+          />
+        )}
       </div>
+      <UserDetailsModal
+        isOpen={isUserDetailsModalVisible}
+        onClose={() => setIsUserDetailsModalVisible(false)}
+        propertyType={msgObject?.propertyType as string}
+        noOfProperties={msgObject?.noOfProperties as string}
+        loanAmount={msgObject?.loanAmount as string}
+        ltv={msgObject?.ltv as string}
+        loanTerm={msgObject?.loanTerm as string}
+        repaymentType={msgObject?.repaymentType as string}
+        securityType={msgObject?.securityType as string}
+      />
     </section>
   );
 };

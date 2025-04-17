@@ -1,4 +1,5 @@
 "use client";
+import { SOCIAL_LINKS } from "@/utils/constants";
 import Image from "next/image";
 
 const Footer = () => {
@@ -19,9 +20,10 @@ const Footer = () => {
               Lending Bridge
             </p>
             <p className="font-gilroy-regular font-extralight text-[18px] text-white mt-5 lg:my-10 w-full lg:max-w-[60%] 2xl:max-w-[70%]">
-              At Lending Bridge we specialize in bridge loans on buy-to-let and
-              commercial properties. Our fast, efficient and reliable short-term
-              financial solutions are made simple and stress-free.
+              At Lending Bridge we specialize in bridge loans on buy-to-let,
+              residential, commercial and semi-commercial properties.. Our fast,
+              efficient and reliable short-term financial solutions are made
+              simple and stress-free.
             </p>
             <div className="flex-row space-x-5 flex mt-6 lg:mt-0">
               <Image
@@ -30,8 +32,12 @@ const Footer = () => {
                 height={35}
                 alt="google"
                 className="w-[35px] h-[35px] cursor-pointer"
+                onClick={() => window.open(SOCIAL_LINKS.google, "_blank")}
               />
-              <div className="w-[35px] h-[35px] flex items-center justify-center bg-white rounded-[4px] cursor-pointer">
+              <div
+                className="w-[35px] h-[35px] flex items-center justify-center bg-white rounded-[4px] cursor-pointer"
+                onClick={() => window.open(SOCIAL_LINKS.facebook, "_blank")}
+              >
                 <Image
                   src="/svg/footer-fb.svg"
                   width={18}
@@ -46,6 +52,7 @@ const Footer = () => {
                 height={35}
                 alt="insta"
                 className="w-[35px] h-[35px] cursor-pointer"
+                onClick={() => window.open(SOCIAL_LINKS.instagram, "_blank")}
               />
             </div>
           </div>
@@ -84,31 +91,6 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-            {/* <div className="flex-row space-x-5 flex lg:hidden">
-              <Image
-                src="/svg/footer-google.svg"
-                width={35}
-                height={35}
-                alt="google"
-                className="w-[35px] h-[35px] cursor-pointer"
-              />
-              <div className="w-[35px] h-[35px] flex items-center justify-center bg-white rounded-[4px] cursor-pointer">
-                <Image
-                  src="/svg/footer-fb.svg"
-                  width={18}
-                  height={18}
-                  alt="fb"
-                  className="w-[18px] h-[18px] cursor-pointer"
-                />
-              </div>
-              <Image
-                src="/svg/footer-insta.svg"
-                width={35}
-                height={35}
-                alt="insta"
-                className="w-[35px] h-[35px] cursor-pointer"
-              />
-            </div> */}
           </div>
         </div>
       </section>

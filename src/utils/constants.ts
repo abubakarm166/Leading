@@ -38,9 +38,9 @@ export const FEATURES = [
     title: "Fast",
     subTitle: "Fast",
     content:
-      "Quick, East, and Stress- Free financing when you need it most. Our standard timeline to process a loan is much faster than others in the industry. We have turned around loans in less than 48 hours!",
+      "Quick, Easy, and Stress- Free financing when you need it most. Our standard timeline to process a loan is much faster than others in the industry. We have turned around loans in less than 48 hours!",
     img: "/gif/timer.gif",
-    contentImg: "/svg/feature-one.svg",
+    contentImg: "/svg/feature-two.svg",
   },
   {
     id: 3,
@@ -49,16 +49,16 @@ export const FEATURES = [
     content:
       "We'll let you know from the start! We send indicative terms within 2 hours of inquiry. Our team's ability to act quickly helps us make instant decisions, making the process quicker. Other lenders have a longer due diligence process when authorizing a loan.",
     img: "/gif/search.gif",
-    contentImg: "/svg/feature-one.svg",
+    contentImg: "/svg/feature-three.svg",
   },
   {
     id: 4,
     title: "Simple",
     subTitle: "Simple",
     content:
-      "We understand that loan processes can get really time-consuming and detailed with most lenders. But with lending bridge, we keep it simple. Complete your application with your relationship managers assistance and we'll take care of the rest. We're here to help you every step of the way.",
+      "We understand that loan processes can get really time-consuming and detailed with most lenders. But with lending bridge, we keep it simple. Complete your application with your relationship manager's assistance and we'll take care of the rest. We're here to help you every step of the way.",
     img: "/gif/happy.gif",
-    contentImg: "/svg/feature-one.svg",
+    contentImg: "/svg/feature-four.svg",
   },
   {
     id: 5,
@@ -67,7 +67,7 @@ export const FEATURES = [
     content:
       "When we say we'll deliver, we mean it. Clients return to us because they trust us to get the job done, regardless of the complexity of the situation. We always let you know from the start.",
     img: "/gif/reliable.gif",
-    contentImg: "/svg/feature-one.svg",
+    contentImg: "/svg/feature-five.svg",
   },
 ];
 
@@ -177,7 +177,7 @@ export const PRODUCTS = [
     title: "Auction Bridging Finance",
     content:
       "We understand that Properties bought at an Auction requires very quick processing times because of the standard 28-day payment term. Our Specialty of Fast Processing makes us the perfect partner to handle these loans for you or your clients.",
-    img: "/svg/product-five.svg",
+    img: "/svg/product-five-updated.svg",
     slug: slugify("Auction Bridging Finance".toLowerCase()),
     highlights: [
       {
@@ -229,7 +229,7 @@ export const PRODUCTS = [
     title: "Bridging Finance for Complex Cases",
     content:
       "Are you an overseas buyer who wants to buy property in the UK or you are stuck in an impossible situation that requires extremely fast turn-around times? Lending Bridge is your solution! Mastering impossible situations and creating tailored finance solutions is where we shine and our extremely easy process makes it possible for everyone to follow.",
-    img: "/svg/product-six.svg",
+    img: "/svg/product-one.svg",
     slug: slugify("Bridging Finance for Complex Cases".toLowerCase()),
     highlights: [
       {
@@ -276,7 +276,7 @@ export const PRODUCTS = [
     title: "Development Exit Finance",
     content:
       "Looking for a Bridge Loan to help you repay your initial loan for a development project? Our Product is the right fit for your needs. We understand that to maximise the value of your projects, sometimes you require the extra time to finalise your plans.",
-    img: "/svg/product-six.svg",
+    img: "/svg/product-eight.svg",
     slug: slugify("Development Exit Finance".toLowerCase()),
     highlights: [
       {
@@ -536,9 +536,23 @@ export const GENERAL_FAQ = [
   },
 ];
 
+export const SOCIAL_LINKS = {
+  google:
+    "https://www.google.com/search?q=lending+bridge+uk&sca_esv=1610bf8db0cd784a&sxsrf=AHTn8zpsZOp2H97GtmeCoT-wa0UVSE21oQ%3A1744813956548&ei=hL__Z62MIc-N4-EP7NTM0As&ved=0ahUKEwit3tDA4tyMAxXPxjgGHWwqE7oQ4dUDCBE&uact=5&oq=lending+bridge+uk&gs_lp=Egxnd3Mtd2l6LXNlcnAiEWxlbmRpbmcgYnJpZGdlIHVrMgQQIxgnMgQQIxgnMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHkjBNVCeLVjvMnADeACQAQCYAYwBoAHyAqoBAzAuM7gBA8gBAPgBAZgCBaAChwLCAggQABiwAxjvBcICCxAAGLADGKIEGIkFwgILEAAYgAQYsAMYogTCAgsQABiABBiGAxiKBcICBRAAGO8FmAMAiAYBkAYFkgcDMy4yoAfgE7IHAzAuMrgHgAI&sclient=gws-wiz-serp",
+  instagram: "https://www.instagram.com/lending.bridge/?hl=en",
+  facebook: "https://www.facebook.com/p/Lending-Bridge-100092390863207/",
+};
+
 export const INTEREST_RATES = {
-  residential: 1.25,
-  "semi-commercial": 1.5,
-  commercial: 1.5,
-  land: 1.75,
+  residential: 1.05,
+  "semi-commercial": 1.25,
+  commercial: 1.25,
+  land: 1.5,
+};
+
+export const LTV_RATES = {
+  residential: 75,
+  "semi-commercial": 65,
+  commercial: 65,
+  land: 65,
 };

@@ -16,7 +16,7 @@ const About = () => {
         </p>
       </div>
       <div className="lg:w-[300px] 2xl:w-[350px] h-[370px] rounded-[20px] bg-primary px-7 py-10 items-end absolute top-[35%] 2xl:top-[30%] left-[120px] z-10 hidden lg:flex">
-        <p className="font-semibold text-white text-[50px]">
+        <p className="font-semibold text-white text-[50px] font-league-spartan">
           About
           <br />
           Lending

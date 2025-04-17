@@ -80,16 +80,12 @@ const ProductHighlights = ({ id }: { id: string }) => {
         </h2>
       </Reveal>
       <div
-        className={`flex flex-col lg:flex-row items-center justify-center space-y-5 ${
-          product?.highlights && product?.highlights?.length > 4
-            ? "lg:space-y-[100px]"
-            : "lg:space-y-0"
-        } lg:space-x-12 flex-wrap px-10`}
+        className={`flex flex-col lg:flex-row items-center justify-center space-y-5 lg:space-y-0 lg:space-x-12 flex-wrap px-10`}
       >
         {product &&
           product?.highlights?.length > 0 &&
           product.highlights.map((el, idx) => (
-            <Reveal delay={0.2} key={idx}>
+            <Reveal delay={0.2} key={idx} className="lg:mt-10">
               <div className="w-[225px] h-[225px] bg-white rounded-[32px] flex items-center justify-center flex-col px-5">
                 <Image
                   src={el.img}

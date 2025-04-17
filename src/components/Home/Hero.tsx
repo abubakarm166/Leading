@@ -23,7 +23,7 @@ const Hero = () => {
             </h1>
           </Reveal>
           <Reveal delay={0.3}>
-            <p className="my-5 lg:my-[50px] text-[18px] lg:text-[25px] font-gilroy-regular font-extralight">
+            <p className="my-5 lg:my-[20px] text-[18px] lg:text-[25px] font-gilroy-regular font-extralight">
               Connecting you to decision makers to give <br />
               you full transparency of the complete end-
               <br />
@@ -31,20 +31,33 @@ const Hero = () => {
             </p>
           </Reveal>
           <Reveal delay={0.5}>
+            <p className="font-gilroy-medium mb-4 text-[20px] lg:text-[30px] text-primary">
+              How much do you want to borrow?{" "}
+              <span className="inline-block lg:hidden">&darr;</span>
+            </p>
+          </Reveal>
+          <Reveal delay={0.7} className="relative lg:pt-[70px]">
             <Button onClick={handleOnCalculate}>
               <p className="font-bold text-white text-[20px] uppercase">
                 Calculate Now
               </p>
             </Button>
+            <Image
+              src="/svg/hero-arrow.svg"
+              width={98}
+              height={98}
+              alt="arrow"
+              className="lg:w-[98px] lg:h-[98px] object-cover absolute right-10 lg:top-0 hidden lg:block"
+            />
           </Reveal>
         </div>
         <Reveal delay={0.7}>
           <Image
-            src="/svg/hero.svg"
+            src="/svg/hero-updated.svg"
             width={200}
             height={200}
             alt="hero"
-            className="w-[366px] h-[340px] lg:w-[680px] lg:h-[700px] object-cover lg:object-contain lg:-mr-20"
+            className="w-[366px] h-[340px] lg:w-[680px] lg:h-[700px] object-contain lg:-mr-20"
           />
         </Reveal>
       </div>

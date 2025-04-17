@@ -25,7 +25,7 @@ const Navbar = () => {
             />
             <div className="flex flex-row items-center justify-between w-[70%] lg:w-[80%] 2xl:w-[70%] font-league-spartan font-medium text-[18px]">
               <NavItem
-                title="Our Product"
+                title="Our Products"
                 options={PRODUCTS.map((item) => ({
                   title: item.title,
                   href: `/product/${item.slug}`,
@@ -59,10 +59,10 @@ const Navbar = () => {
                     />
                   </div>
                   <a
-                    href="mailto:enquires@lendingbridge.co.uk"
+                    href="mailto:enquiries@lendingbridge.co.uk"
                     className="underline"
                   >
-                    enquires@lendingbridge.co.uk
+                    enquiries@lendingbridge.co.uk
                   </a>
                 </div>
                 <div className="flex flex-row space-x-[10px] items-center mt-[10px]">

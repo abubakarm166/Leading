@@ -137,7 +137,9 @@ const ContactUs: React.FC<Props> = ({ noBorder }) => {
               />
               <div>
                 <p className="font-gilroy-bold text-[16px]">Phone Number</p>
-                <p className="font-gilroy-regular text-[14px]">+020-37250589</p>
+                <p className="font-gilroy-regular text-[14px]">
+                  +020-3725-0589
+                </p>
               </div>
             </div>
             <div className="flex flex-row items-start space-x-[10px] mt-5">
@@ -157,10 +159,10 @@ const ContactUs: React.FC<Props> = ({ noBorder }) => {
                   info@lendingbridge.co.uk
                 </a>
                 <a
-                  href="mailto:enquries@lendingbridge.co.uk"
+                  href="mailto:enquiries@lendingbridge.co.uk"
                   className="font-gilroy-regular text-[14px] underline block"
                 >
-                  enquries@lendingbridge.co.uk
+                  enquiries@lendingbridge.co.uk
                 </a>
               </div>
             </div>
