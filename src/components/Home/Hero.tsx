@@ -32,8 +32,7 @@ const Hero = () => {
           </Reveal>
           <Reveal delay={0.5}>
             <p className="font-gilroy-medium mb-4 text-[20px] lg:text-[30px] text-primary">
-              How much do you want to borrow?{" "}
-              <span className="inline-block lg:hidden">&darr;</span>
+              How much do you want to borrow?
             </p>
           </Reveal>
           <Reveal delay={0.7} className="relative lg:pt-[70px]">
