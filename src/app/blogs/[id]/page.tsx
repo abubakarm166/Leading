@@ -41,7 +41,7 @@ const BlogPage = () => {
         <p className="font-gilroy-medium font-extralight text-[18px] text-primary my-5">
           {moment(blog?.createdAt).format("MMM-DD-YYYY")}
         </p>
-        <p className="font-gilroy-regular font-extralight text-[20px]">
+        <p className="font-gilroy-regular font-extralight text-[20px] whitespace-pre-line">
           {blog?.content}
         </p>
       </div>

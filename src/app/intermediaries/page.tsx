@@ -10,7 +10,8 @@ import { addRegistration } from "@/utils/api/registration";
 import { BROKER_INFO } from "@/utils/constants";
 import { useFormik } from "formik";
 import Image from "next/image";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const BrokerRegistrationForm = () => {
@@ -56,7 +57,7 @@ const BrokerRegistrationForm = () => {
   const { values, handleChange, handleSubmit, setFieldValue } = formikProps;
 
   return (
-    <div className="flex flex-col lg:flex-row items-center bg-white rounded-[20px] lg:space-x-[52px] overflow-hidden">
+    <div id='register' className="flex flex-col lg:flex-row items-center bg-white rounded-[20px] lg:space-x-[52px] overflow-hidden">
       <p className="font-league-spartan text-center mt-5 w-full text-[40px] font-bold block lg:hidden">
         Registration
       </p>
@@ -224,6 +225,20 @@ const BrokerInfo = () => {
 };
 
 const BrokerPage = () => {
+  const routeParams = useSearchParams();
+
+  const redirectParam = routeParams.get('redirect');
+
+  useEffect(() => {
+    if (redirectParam && redirectParam === 'register') {
+      const registerBlock = document.getElementById('register');
+
+      if (registerBlock) {
+        registerBlock.scrollIntoView({behavior: 'smooth'})
+      }
+    }
+  }, [redirectParam]);
+
   return (
     <main className="relative overflow-x-hidden bg-primary-bg">
       <Navbar />

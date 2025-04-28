@@ -19,12 +19,12 @@ const TeamList = ({
   setActiveMember: (item: TeamMember) => void;
 }) => {
   return (
-    <div className="bg-[#C5D3DD] flex flex-row items-start space-x-10 overscroll-x-scroll py-4 lg:py-[26px] px-5 lg:px-[100px] mt-[30px]">
+    <div className="bg-[#C5D3DD] flex flex-row items-start space-x-10 overflow-x-scroll py-4 lg:py-[26px] px-5 lg:px-[100px] mt-[30px]">
       {team.length > 0 &&
         team.map((item) => (
           <Reveal
             key={item.id}
-            className="max-w-[160px] cursor-pointer"
+            className="min-w-[160px] max-w-[160px] cursor-pointer"
             delay={0.2 * item.id}
           >
             <div onClick={() => setActiveMember(item)}>
@@ -55,6 +55,8 @@ const TeamPage = () => {
   const [activeMember, setActiveMember] = useState<TeamMember>();
   const [isBookAppointmentModalVisible, setIsBookAppointmentModalVisible] =
     useState(false);
+
+  console.log('TEAM LENGTH: ', team.length);
 
   useEffectAsync(async () => {
     const res = await listTeam();

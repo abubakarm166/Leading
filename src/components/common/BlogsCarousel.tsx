@@ -65,7 +65,7 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow }) => {
                   {moment(item.createdAt).format("MMM-DD-YYYY")}
                 </p>
                 <p className="font-gilroy-regular text-[16px]">
-                  {item.content.slice(0, 150)}...
+                  {item?.content?.length > 80 ? `${item.content.slice(0, 80)}...` : item?.content}
                 </p>
                 <p className="absolute bottom-5 left-5 font-gilroy-medium text-[16px]">
                   Read More...

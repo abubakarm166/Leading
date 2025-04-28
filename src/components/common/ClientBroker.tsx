@@ -1,7 +1,11 @@
+'use client';
 import Image from "next/image";
 import Button from "./Button";
+import { useRouter } from "next/navigation";
 
 const ClientBroker = () => {
+  const router = useRouter();
+
   return (
     <div className="flex flex-row items-center w-full px-5 lg:px-[100px] h-[350px] rounded-[20px] overflow-hidden">
       <div className="w-[50%] h-full bg-white relative flex flex-col items-center justify-center rounded-l-[20px]">
@@ -11,7 +15,7 @@ const ClientBroker = () => {
         <p className="text-[20px] lg:text-[50px] font-gilroy-bold font-bold mb-8">
           CLIENT?
         </p>
-        <Button className="px-5 lg:px-[56px]">
+        <Button className="px-5 lg:px-[56px]" onClick={() => router.push('/contact-us')}>
           <p className="uppercase text-white text-[12px] lg:text-[15px]">
             Get Assistance
           </p>
@@ -31,7 +35,7 @@ const ClientBroker = () => {
         <p className="text-[20px] lg:text-[50px] font-gilroy-bold font-bold mb-8 text-white">
           BROKER?
         </p>
-        <Button className="bg-white px-5 lg:px-[56px]">
+        <Button className="bg-white px-5 lg:px-[56px]" onClick={() => router.push('/intermediaries?redirect=register')}>
           <p className="uppercase text-primary text-[12px] lg:text-[15px]">
             Get Assistance
           </p>

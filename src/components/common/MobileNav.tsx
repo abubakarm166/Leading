@@ -145,7 +145,7 @@ const MobileNav = () => {
                     }}
                   >
                     <p className="font-semibold font-league-spartan text-[25px]">
-                      Our Product
+                      Our Products
                     </p>
                     <Image
                       src="/svg/chevron-down-black.svg"
