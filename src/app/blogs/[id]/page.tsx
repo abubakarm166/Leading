@@ -29,10 +29,10 @@ const BlogPage = () => {
         {blog && blog?.img && (
           <Image
             src={blog.img}
-            width={200}
-            height={200}
+            width={500}
+            height={500}
             alt="blog"
-            className="w-full h-[500px] object-cover rounded-[20px]"
+            className="w-full h-[190px] md:h-[500px] object-cover object-top-right rounded-[20px]"
           />
         )}
         <h1 className="mt-[50px] font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px]">

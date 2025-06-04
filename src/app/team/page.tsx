@@ -5,6 +5,7 @@ import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
 import Reveal from "@/components/common/Reveal";
 import BookAppointmentModal from "@/components/Team/BookAppointmentModal";
+import TeamDetailsModal from "@/components/Team/TeamDetailsModal";
 import { TeamMember } from "@/types";
 import { listTeam } from "@/utils/api/team";
 import { useEffectAsync } from "@/utils/hooks";
@@ -55,8 +56,7 @@ const TeamPage = () => {
   const [activeMember, setActiveMember] = useState<TeamMember>();
   const [isBookAppointmentModalVisible, setIsBookAppointmentModalVisible] =
     useState(false);
-
-  console.log('TEAM LENGTH: ', team.length);
+  const [isTeamDeatailsModalOpen, setIsTeamDetailsModalOpen] = useState(false);
 
   useEffectAsync(async () => {
     const res = await listTeam();
@@ -118,7 +118,13 @@ const TeamPage = () => {
                 {activeMember?.role}
               </p>
               <p className="mt-[10px] font-gilroy-regular font-extralight">
-                {activeMember?.experience}
+                {`${activeMember?.experience?.slice(0, 200)}... `}
+                <button
+                  className="cursor-pointer"
+                  onClick={() => setIsTeamDetailsModalOpen(true)}
+                >
+                  <p className="text-primary font-bold">Read More</p>
+                </button>
               </p>
               <Button
                 className="w-[370px] lg:w-[400px] mt-[30px]"
@@ -139,6 +145,12 @@ const TeamPage = () => {
         isOpen={isBookAppointmentModalVisible}
         member={activeMember as TeamMember}
         onClose={() => setIsBookAppointmentModalVisible(false)}
+      />
+      <TeamDetailsModal
+        isOpen={isTeamDeatailsModalOpen}
+        onClose={() => setIsTeamDetailsModalOpen(false)}
+        member={activeMember as TeamMember}
+        openBookAppointmentModal={() => setIsBookAppointmentModalVisible(true)}
       />
     </main>
   );

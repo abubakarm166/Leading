@@ -55,7 +55,7 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow }) => {
                 width={200}
                 height={200}
                 alt={item.title}
-                className="w-full h-[190px] object-cover"
+                className="w-full h-[190px] object-cover object-top-right"
               />
               <div className="p-5">
                 <p className="font-semibold text-[20px] font-league-spartan">
@@ -65,7 +65,9 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow }) => {
                   {moment(item.createdAt).format("MMM-DD-YYYY")}
                 </p>
                 <p className="font-gilroy-regular text-[16px]">
-                  {item?.content?.length > 80 ? `${item.content.slice(0, 80)}...` : item?.content}
+                  {item?.content?.length > 80
+                    ? `${item.content.slice(0, 80)}...`
+                    : item?.content}
                 </p>
                 <p className="absolute bottom-5 left-5 font-gilroy-medium text-[16px]">
                   Read More...

@@ -4,6 +4,7 @@ export type TCaseStudy = {
   location: string;
   loan: string;
   ltv: string;
+  description: string;
   createdAt: string;
 };
 
