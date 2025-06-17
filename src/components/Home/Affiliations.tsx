@@ -18,11 +18,11 @@ const Affiliations = () => {
               className="w-[122px] h-[46px] lg:h-[45px] object-contain"
             />
             <Image
-              src="/svg/affiliation-two.svg"
+              src="/images/fiba-logo.png"
               width={200}
               height={200}
               alt="two"
-              className="w-[80px] lg:w-[80px] h-[80px] lg:h-[80px] object-contain"
+              className="w-[80px] lg:w-[200px] h-[80px] lg:h-[80px] object-contain"
             />
             <Image
               src="/svg/affiliation-three.svg"

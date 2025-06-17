@@ -4,8 +4,15 @@ import { useEffectAsync } from "@/utils/hooks";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import Slider from "react-slick";
+import CaseStudiesModal from "../CaseStudies/CaseStudiesModal";
 
-const CastStudyItem = ({ item }: { item: TCaseStudy }) => {
+const CastStudyItem = ({
+  item,
+  openViewMoreModal,
+}: {
+  item: TCaseStudy;
+  openViewMoreModal: (item: TCaseStudy) => void;
+}) => {
   return (
     <div className="max-w-full lg:max-w-[90%] 2xl:max-w-[90%] h-[535px] rounded-[10px] overflow-hidden border border-black relative">
       <Image
@@ -43,7 +50,16 @@ const CastStudyItem = ({ item }: { item: TCaseStudy }) => {
             </p>
           </div>
           <p className="mt-5 font-gilroy-regular text-[16px]">
-            {item?.description}
+            {item?.description?.slice(0, 180)}
+            {item?.description?.length > 200 ? "..." : ""}{" "}
+            {item?.description?.length > 200 && (
+              <button
+                className="text-primary font-gilroy-medium cursor-pointer inline"
+                onClick={() => openViewMoreModal(item)}
+              >
+                <p>Read More</p>
+              </button>
+            )}
           </p>
         </div>
         <div className="flex flex-row items-center justify-between mt-auto">
@@ -77,8 +93,17 @@ const CastStudyItem = ({ item }: { item: TCaseStudy }) => {
 
 const CaseStudiesCarousel = () => {
   const [caseStudies, setCaseStudies] = useState<TCaseStudy[]>([]);
+  const [activeCaseStudy, setActiveCaseStudy] = useState<TCaseStudy | null>(
+    null,
+  );
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const sliderRef = useRef<Slider>(null);
+
+  const handleOpenViewMoreModal = (item: TCaseStudy) => {
+    setActiveCaseStudy(item);
+    setIsModalOpen(true);
+  };
 
   useEffectAsync(async () => {
     const res = await listCaseStudies();
@@ -105,38 +130,12 @@ const CaseStudiesCarousel = () => {
             },
           ]}
         >
-          {/* {caseStudies?.map((item) => <CastStudyItem item={item} />)} */}
           {caseStudies?.map((item) => (
-            <CastStudyItem key={item.id} item={item} />
-            /*<div
-              className="max-w-full lg:max-w-[90%] 2xl:max-w-[80%] h-[400px] rounded-[20px] relative overflow-hidden cursor-pointer"
+            <CastStudyItem
               key={item.id}
-            >
-              <Image
-                src={item.img}
-                width={200}
-                height={200}
-                alt={item.location}
-                className="w-full h-full object-cover rounded-[20px]"
-              />
-              <div className="bg-primary-bg rounded-[10px] flex flex-col space-y-[5px] p-5 absolute bottom-12 2xl:bottom-5 left-1/2 -translate-x-1/2 w-[80%]">
-                <div className="flex flex-row items-center space-x-10 text-[16px]">
-                  <p className="w-[40%] lg:w-[30%]">Location</p>
-                  <p>:</p>
-                  <p className="text-primary">{item.location}</p>
-                </div>
-                <div className="flex flex-row items-center space-x-10 text-[16px]">
-                  <p className="w-[40%] lg:w-[30%]">Value of Loan</p>
-                  <p>:</p>
-                  <p className="text-primary">{item.loan}</p>
-                </div>
-                <div className="flex flex-row items-center space-x-10 text-[16px]">
-                  <p className="w-[40%] lg:w-[30%]">LTV</p>
-                  <p>:</p>
-                  <p className="text-primary">{item.ltv}%</p>
-                </div>
-              </div>
-            </div>*/
+              item={item}
+              openViewMoreModal={handleOpenViewMoreModal}
+            />
           ))}
         </Slider>
       )}
@@ -158,6 +157,11 @@ const CaseStudiesCarousel = () => {
           onClick={() => sliderRef.current?.slickNext()}
         />
       </div>
+      <CaseStudiesModal
+        isOpen={isModalOpen}
+        activeCaseStudy={activeCaseStudy}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };
