@@ -9,12 +9,20 @@ import { useEffectAsync } from "@/utils/hooks";
 import moment from "moment";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 const BlogPage = () => {
   const [blog, setBlog] = useState<TBlog>();
 
   const params = useParams<{ id: string }>();
+
+  const formattedContent = useMemo(() => {
+    if (blog && blog?.content) {
+      return blog.content.replace(/<p><\/p>/g, "<br />");
+    }
+
+    return "";
+  }, [blog]);
 
   useEffectAsync(async () => {
     const res = await getBlog(params.id);
@@ -41,9 +49,10 @@ const BlogPage = () => {
         <p className="font-gilroy-medium font-extralight text-[18px] text-primary my-5">
           {moment(blog?.createdAt).format("MMM-DD-YYYY")}
         </p>
-        <p className="font-gilroy-regular font-extralight text-[20px] whitespace-pre-line">
-          {blog?.content}
-        </p>
+        <p
+          className="font-gilroy-regular font-extralight text-[20px] whitespace-pre-line"
+          dangerouslySetInnerHTML={{ __html: formattedContent }}
+        />
       </div>
       <div className="mt-[50px]">
         <ClientBroker />

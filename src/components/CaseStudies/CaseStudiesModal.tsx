@@ -8,14 +8,13 @@ interface Props {
   activeCaseStudy: TCaseStudy | null;
 }
 
-const CaseStudiesModal: React.FC<Props> = ({
-  isOpen,
-  activeCaseStudy,
-  onClose,
-}) => {
+const CaseStudiesModal: React.FC<Props> = ({ isOpen, activeCaseStudy, onClose }) => {
   if (!activeCaseStudy) {
     return <div />;
   }
+
+  const formattedContent =
+    activeCaseStudy && activeCaseStudy?.description ? activeCaseStudy.description.replace(/<p><\/p>/g, "<br />") : "";
 
   return (
     <Modal
@@ -42,57 +41,50 @@ const CaseStudiesModal: React.FC<Props> = ({
             <div className="flex flex-row items-center">
               <p className="font-gilroy-medium text-[20px] w-[30%]">Location</p>
               <p className="w-[20%]">:</p>
-              <p className="text-[20px] text-primary">
-                {activeCaseStudy?.location}
-              </p>
+              <p className="text-[20px] text-primary">{activeCaseStudy?.location}</p>
             </div>
             <div className="flex flex-row items-center">
-              <p className="font-gilroy-medium text-[20px] w-[30%]">
-                Value of Loan
-              </p>
+              <p className="font-gilroy-medium text-[20px] w-[30%]">Value of Loan</p>
               <p className="w-[20%]">:</p>
-              <p className="text-[20px] text-primary">
-                {activeCaseStudy?.loan}
-              </p>
+              <p className="text-[20px] text-primary">{activeCaseStudy?.loan}</p>
             </div>
             <div className="flex flex-row items-center">
               <p className="font-gilroy-medium text-[20px] w-[30%]">LTV</p>
               <p className="w-[20%]">:</p>
-              <p className="text-[20px] text-primary">
-                {activeCaseStudy?.ltv}%
-              </p>
+              <p className="text-[20px] text-primary">{activeCaseStudy?.ltv}%</p>
             </div>
+            {activeCaseStudy?.propertyType && (
+              <div className="flex flex-row items-center">
+                <p className="font-gilroy-medium text-[20px] w-[30%]">Property Type</p>
+                <p className="w-[20%]">:</p>
+                <p className="text-[20px] text-primary">{activeCaseStudy?.propertyType}</p>
+              </div>
+            )}
+            {activeCaseStudy?.dealType && (
+              <div className="flex flex-row items-center">
+                <p className="font-gilroy-medium text-[20px] w-[30%]">Type of Deal</p>
+                <p className="w-[20%]">:</p>
+                <p className="text-[20px] text-primary">{activeCaseStudy?.dealType}</p>
+              </div>
+            )}
           </div>
-          <div className="flex flex-row items-center space-x-10 mt-5">
+          {/* <div className="flex flex-col md:flex-row items-center md:space-x-10 mt-5">
             <div className="flex flex-row items-center gap-[5px]">
-              <Image
-                src="/svg/check-black.svg"
-                width={16}
-                height={16}
-                alt="check"
-              />
-              <p className="font-gilroy-regular text-[18px] text-primary">
-                Commercial
-              </p>
+              <Image src="/svg/check-black.svg" width={16} height={16} alt="check" />
+              <p className="font-gilroy-regular text-[18px] text-primary">Commercial</p>
             </div>
             <div className="flex flex-row items-center gap-[5px]">
-              <Image
-                src="/svg/check-black.svg"
-                width={16}
-                height={16}
-                alt="check"
-              />
-              <p className="font-gilroy-regular text-[18px] text-primary">
-                Property Purchase
-              </p>
+              <Image src="/svg/check-black.svg" width={16} height={16} alt="check" />
+              <p className="font-gilroy-regular text-[18px] text-primary">Property Purchase</p>
             </div>
-          </div>
-          <p className="text-[20px] font-gilroy-bold mt-10">
-            {activeCaseStudy?.location}
-          </p>
-          <p className="font-gilroy-regular text-[16px]">
-            {activeCaseStudy?.description}
-          </p>
+          </div> */}
+          <p className="text-[20px] font-gilroy-bold mt-10">{activeCaseStudy?.location}</p>
+          <p
+            className="font-gilroy-regular text-[16px] whitespace-pre-line"
+            dangerouslySetInnerHTML={{
+              __html: formattedContent,
+            }}
+          />
         </div>
       </div>
     </Modal>

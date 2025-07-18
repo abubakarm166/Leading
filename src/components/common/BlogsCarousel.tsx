@@ -64,11 +64,20 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow }) => {
                 <p className="text-[#7D7C7C] mt-[10px] mb-5 text-[16px]">
                   {moment(item.createdAt).format("MMM-DD-YYYY")}
                 </p>
-                <p className="font-gilroy-regular text-[16px]">
-                  {item?.content?.length > 80
-                    ? `${item.content.slice(0, 80)}...`
-                    : item?.content}
-                </p>
+                <p
+                  className="font-gilroy-regular text-[16px]"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      item.content.length > 80
+                        ? `${item.content.slice(0, 80)}...`
+                        : item.content,
+                  }}
+                />
+                {/* <p className="font-gilroy-regular text-[16px]"> */}
+                {/*   {item?.content?.length > 80 */}
+                {/*     ? `${item.content.slice(0, 80)}...` */}
+                {/*     : item?.content} */}
+                {/* </p> */}
                 <p className="absolute bottom-5 left-5 font-gilroy-medium text-[16px]">
                   Read More...
                 </p>

@@ -10,7 +10,7 @@ const Affiliations = () => {
             Our Affiliations:
           </p>
           <div className="flex flex-row items-center space-x-5 lg:space-x-20">
-            <Image
+            {/* <Image
               src="/svg/affiliation-one.svg"
               width={200}
               height={200}
@@ -23,7 +23,7 @@ const Affiliations = () => {
               height={200}
               alt="two"
               className="w-[80px] lg:w-[200px] h-[80px] lg:h-[80px] object-contain"
-            />
+            /> */}
             <Image
               src="/svg/affiliation-three.svg"
               width={200}

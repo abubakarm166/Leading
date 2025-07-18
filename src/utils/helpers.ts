@@ -59,11 +59,9 @@ export const sendMail = async ({
         name,
         email,
         phone: number,
-        message: `This user has entered the following details - ${JSON.stringify(
-          msgObject
-        )}`,
-        from: "archish99@gmail.com",
-        to: "archish99@gmail.com",
+        message: `This user has entered the following details - ${JSON.stringify(msgObject)}`,
+        from: process.env.NEXT_PUBLIC_MAIL_ADDRESS,
+        to: process.env.NEXT_PUBLIC_MAIL_ADDRESS,
       },
       headers: {
         Authorization: process.env.NEXT_PUBLIC_MAIL_AUTH,

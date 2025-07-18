@@ -66,3 +66,7 @@ body {
     border-top: 14px solid transparent;
   }
 }
+
+strong {
+  font-weight: bold;
+}

@@ -130,11 +130,11 @@ const TeamPage = () => {
                 <p className="font-league-spartan font-semibold text-primary text-[25px]">
                   {activeMember?.role}
                 </p>
-                <p className="mt-[10px] font-gilroy-regular font-extralight">
+                <p className="mt-[10px] font-gilroy-regular font-extralight hidden md:block">
                   {activeMember?.experience}
                 </p>
                 <Button
-                  className="w-[370px] lg:w-[400px] mt-[30px]"
+                  className="w-[370px] lg:w-[400px] mt-[30px] hidden md:block"
                   onClick={() => setIsBookAppointmentModalVisible(true)}
                 >
                   <p className="text-white font-bold uppercase text-[20px]">
@@ -143,6 +143,17 @@ const TeamPage = () => {
                 </Button>
               </div>
             </div>
+            <p className="mt-[10px] font-gilroy-regular font-extralight block md:hidden">
+              {activeMember?.experience}
+            </p>
+            <Button
+              className="w-[370px] lg:w-[400px] mt-[30px] block md:hidden"
+              onClick={() => setIsBookAppointmentModalVisible(true)}
+            >
+              <p className="text-white font-bold uppercase text-[20px]">
+                Book an appointment
+              </p>
+            </Button>
           </div>
         </div>
       </div>

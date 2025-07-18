@@ -2,17 +2,19 @@ import { TCaseStudy } from "@/types";
 import { listCaseStudies } from "@/utils/api/caseStudy";
 import { useEffectAsync } from "@/utils/hooks";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import Slider from "react-slick";
 import CaseStudiesModal from "../CaseStudies/CaseStudiesModal";
 
-const CastStudyItem = ({
-  item,
-  openViewMoreModal,
-}: {
-  item: TCaseStudy;
-  openViewMoreModal: (item: TCaseStudy) => void;
-}) => {
+const CastStudyItem = ({ item, openViewMoreModal }: { item: TCaseStudy; openViewMoreModal: (item: TCaseStudy) => void }) => {
+  const formattedContent = useMemo(() => {
+    if (item && item?.description) {
+      return item.description.replace(/<p><\/p>/g, "");
+    }
+
+    return "";
+  }, [item]);
+
   return (
     <div className="max-w-full lg:max-w-[90%] 2xl:max-w-[90%] h-[535px] rounded-[10px] overflow-hidden border border-black relative">
       <Image
@@ -22,21 +24,17 @@ const CastStudyItem = ({
         alt="case-study"
         className="w-full h-[200px] object-cover object-top-right"
       />
-      <div className="bg-primary-bg overflow-hidden w-full h-[65%] border-t border-t-black rounded-t-[10px] px-10 py-5 flex flex-col justify-between">
+      <div className="bg-primary-bg overflow-hidden w-full h-[65%] border-t border-t-black rounded-t-[10px] px-4 md:px-5 py-5 flex flex-col justify-between">
         <div>
           <div className="flex flex-row items-center">
             <p className="font-gilroy-bold text-[18px] w-[50%]">Location</p>
             <p className="w-[15%]">:</p>
             <p className="font-gilroy-regular text-[18px] text-primary">
-              {item?.location?.length > 9
-                ? `${item?.location?.slice(0, 9)}...`
-                : item?.location}
+              {item?.location?.length > 9 ? `${item?.location?.slice(0, 9)}...` : item?.location}
             </p>
           </div>
           <div className="flex flex-row items-center">
-            <p className="font-gilroy-bold text-[18px] w-[50%]">
-              Value of loan
-            </p>
+            <p className="font-gilroy-bold text-[18px] w-[50%]">Value of loan</p>
             <p className="w-[15%]">:</p>
             <p className="font-gilroy-regular text-[18px] text-primary">
               {new Intl.NumberFormat("en-us").format(Number(item?.loan || 0))}
@@ -45,47 +43,58 @@ const CastStudyItem = ({
           <div className="flex flex-row items-center">
             <p className="font-gilroy-bold text-[18px] w-[50%]">LTV</p>
             <p className="w-[15%]">:</p>
-            <p className="font-gilroy-regular text-[18px] text-primary">
-              {item?.ltv}%
-            </p>
+            <p className="font-gilroy-regular text-[18px] text-primary">{item?.ltv}%</p>
           </div>
-          <p className="mt-5 font-gilroy-regular text-[16px]">
-            {item?.description?.slice(0, 180)}
-            {item?.description?.length > 200 ? "..." : ""}{" "}
-            {item?.description?.length > 200 && (
-              <button
-                className="text-primary font-gilroy-medium cursor-pointer inline"
-                onClick={() => openViewMoreModal(item)}
-              >
+          {item?.propertyType && (
+            <div className="flex flex-row items-center">
+              <p className="font-gilroy-bold text-[18px] w-[50%]">Property Type</p>
+              <p className="w-[15%]">:</p>
+              <p className="font-gilroy-regular text-[18px] text-primary">{item?.propertyType}</p>
+            </div>
+          )}
+          {item?.dealType && (
+            <div className="flex flex-row items-center">
+              <p className="font-gilroy-bold text-[18px] w-[50%]">Type of Deal</p>
+              <p className="w-[15%]">:</p>
+              <p className="font-gilroy-regular text-[18px] text-primary">{item?.dealType}</p>
+            </div>
+          )}
+          {formattedContent.length > 0 ? (
+            <div>
+              <p
+                className="mt-5 font-gilroy-regular text-[16px]"
+                dangerouslySetInnerHTML={{
+                  __html: `${item?.description?.slice(0, 200)}${item?.description?.length > 200 ? "..." : ""}`,
+                }}
+              />
+              <button className="text-primary font-gilroy-medium cursor-pointer inline" onClick={() => openViewMoreModal(item)}>
                 <p>Read More</p>
               </button>
-            )}
-          </p>
+            </div>
+          ) : null}
+          {/* <p className="mt-5 font-gilroy-regular text-[16px]"> */}
+          {/*   {item?.description?.slice(0, 180)} */}
+          {/*   {item?.description?.length > 200 ? "..." : ""}{" "} */}
+          {/*   {item?.description?.length > 200 && ( */}
+          {/*     <button */}
+          {/*       className="text-primary font-gilroy-medium cursor-pointer inline" */}
+          {/*       onClick={() => openViewMoreModal(item)} */}
+          {/*     > */}
+          {/*       <p>Read More</p> */}
+          {/*     </button> */}
+          {/*   )} */}
+          {/* </p> */}
         </div>
-        <div className="flex flex-row items-center justify-between mt-auto">
+        {/* <div className="flex flex-row items-center justify-between mt-auto">
           <div className="flex flex-row items-center gap-[5px]">
-            <Image
-              src="/svg/check-black.svg"
-              width={16}
-              height={16}
-              alt="check"
-            />
-            <p className="font-gilroy-regular text-[18px] text-primary">
-              Commercial
-            </p>
+            <Image src="/svg/check-black.svg" width={16} height={16} alt="check" />
+            <p className="font-gilroy-regular text-[18px] text-primary">Commercial</p>
           </div>
           <div className="flex flex-row items-center gap-[5px]">
-            <Image
-              src="/svg/check-black.svg"
-              width={16}
-              height={16}
-              alt="check"
-            />
-            <p className="font-gilroy-regular text-[18px] text-primary">
-              Property Purchase
-            </p>
+            <Image src="/svg/check-black.svg" width={16} height={16} alt="check" />
+            <p className="font-gilroy-regular text-[18px] text-primary">Property Purchase</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -93,9 +102,7 @@ const CastStudyItem = ({
 
 const CaseStudiesCarousel = () => {
   const [caseStudies, setCaseStudies] = useState<TCaseStudy[]>([]);
-  const [activeCaseStudy, setActiveCaseStudy] = useState<TCaseStudy | null>(
-    null,
-  );
+  const [activeCaseStudy, setActiveCaseStudy] = useState<TCaseStudy | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const sliderRef = useRef<Slider>(null);
@@ -131,11 +138,7 @@ const CaseStudiesCarousel = () => {
           ]}
         >
           {caseStudies?.map((item) => (
-            <CastStudyItem
-              key={item.id}
-              item={item}
-              openViewMoreModal={handleOpenViewMoreModal}
-            />
+            <CastStudyItem key={item.id} item={item} openViewMoreModal={handleOpenViewMoreModal} />
           ))}
         </Slider>
       )}
@@ -157,11 +160,7 @@ const CaseStudiesCarousel = () => {
           onClick={() => sliderRef.current?.slickNext()}
         />
       </div>
-      <CaseStudiesModal
-        isOpen={isModalOpen}
-        activeCaseStudy={activeCaseStudy}
-        onClose={() => setIsModalOpen(false)}
-      />
+      <CaseStudiesModal isOpen={isModalOpen} activeCaseStudy={activeCaseStudy} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };
