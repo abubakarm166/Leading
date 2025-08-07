@@ -27,34 +27,34 @@ const CastStudyItem = ({ item, openViewMoreModal }: { item: TCaseStudy; openView
       <div className="bg-primary-bg overflow-hidden w-full h-[65%] border-t border-t-black rounded-t-[10px] px-4 md:px-5 py-5 flex flex-col justify-between">
         <div>
           <div className="flex flex-row items-center">
-            <p className="font-gilroy-bold text-[18px] w-[50%]">Location</p>
+            <p className="font-gilroy-bold text-[18px] w-[40%]">Location</p>
             <p className="w-[15%]">:</p>
             <p className="font-gilroy-regular text-[18px] text-primary">
-              {item?.location?.length > 9 ? `${item?.location?.slice(0, 9)}...` : item?.location}
+              {item?.location?.length > 20 ? `${item?.location?.slice(0, 20)}...` : item?.location}
             </p>
           </div>
           <div className="flex flex-row items-center">
-            <p className="font-gilroy-bold text-[18px] w-[50%]">Value of loan</p>
+            <p className="font-gilroy-bold text-[18px] w-[40%]">Value of loan</p>
             <p className="w-[15%]">:</p>
             <p className="font-gilroy-regular text-[18px] text-primary">
               {new Intl.NumberFormat("en-us").format(Number(item?.loan || 0))}
             </p>
           </div>
           <div className="flex flex-row items-center">
-            <p className="font-gilroy-bold text-[18px] w-[50%]">LTV</p>
+            <p className="font-gilroy-bold text-[18px] w-[40%]">LTV</p>
             <p className="w-[15%]">:</p>
             <p className="font-gilroy-regular text-[18px] text-primary">{item?.ltv}%</p>
           </div>
           {item?.propertyType && (
             <div className="flex flex-row items-center">
-              <p className="font-gilroy-bold text-[18px] w-[50%]">Property Type</p>
+              <p className="font-gilroy-bold text-[18px] w-[40%]">Property Type</p>
               <p className="w-[15%]">:</p>
               <p className="font-gilroy-regular text-[18px] text-primary">{item?.propertyType}</p>
             </div>
           )}
           {item?.dealType && (
             <div className="flex flex-row items-center">
-              <p className="font-gilroy-bold text-[18px] w-[50%]">Type of Deal</p>
+              <p className="font-gilroy-bold text-[18px] w-[40%]">Type of Deal</p>
               <p className="w-[15%]">:</p>
               <p className="font-gilroy-regular text-[18px] text-primary">{item?.dealType}</p>
             </div>

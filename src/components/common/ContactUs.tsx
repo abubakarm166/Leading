@@ -49,9 +49,7 @@ const ContactUsForm = () => {
           />
         </div>
         <div>
-          <p className="font-gilroy-medium text-[16px] mb-[6px]">
-            Phone Number
-          </p>
+          <p className="font-gilroy-medium text-[16px] mb-[6px]">Phone Number</p>
           <Input
             placeholder="Enter Phone Number"
             className="border border-black px-3 py-[10px]"
@@ -104,18 +102,10 @@ const ContactUs: React.FC<Props> = ({ noBorder }) => {
         } border-t-primary pt-5 lg:pt-[60px]`}
       >
         <div className="w-full lg:w-auto mb-6 lg:mb-0">
-          <p className="text-[32px] font-bold font-league-spartan">
-            Contact Us
-          </p>
+          <p className="text-[32px] font-bold font-league-spartan">Contact Us</p>
           <div className="mt-12">
             <div className="flex flex-row items-start space-x-[10px]">
-              <Image
-                src="/svg/location-black.svg"
-                width={24}
-                height={24}
-                alt="location"
-                className="w-6 h-6"
-              />
+              <Image src="/svg/location-black.svg" width={24} height={24} alt="location" className="w-6 h-6" />
               <div>
                 <p className="font-gilroy-bold text-[16px]">Location</p>
                 <p className="font-gilroy-regular text-[14px]">
@@ -128,40 +118,20 @@ const ContactUs: React.FC<Props> = ({ noBorder }) => {
               </div>
             </div>
             <div className="flex flex-row items-start space-x-[10px] mt-5">
-              <Image
-                src="/svg/phone-black.svg"
-                width={24}
-                height={24}
-                alt="location"
-                className="w-6 h-6"
-              />
+              <Image src="/svg/phone-black.svg" width={24} height={24} alt="location" className="w-6 h-6" />
               <div>
                 <p className="font-gilroy-bold text-[16px]">Phone Number</p>
-                <p className="font-gilroy-regular text-[14px]">
-                  +020-3725-0589
-                </p>
+                <p className="font-gilroy-regular text-[14px]">020 3725 0589</p>
               </div>
             </div>
             <div className="flex flex-row items-start space-x-[10px] mt-5">
-              <Image
-                src="/svg/mail-black.svg"
-                width={24}
-                height={24}
-                alt="location"
-                className="w-6 h-6"
-              />
+              <Image src="/svg/mail-black.svg" width={24} height={24} alt="location" className="w-6 h-6" />
               <div>
                 <p className="font-gilroy-bold text-[16px]">Mail</p>
-                <a
-                  href="mailto:info@lendingbridge.co.uk"
-                  className="font-gilroy-regular text-[14px] underline block"
-                >
+                <a href="mailto:info@lendingbridge.co.uk" className="font-gilroy-regular text-[14px] underline block">
                   info@lendingbridge.co.uk
                 </a>
-                <a
-                  href="mailto:enquiries@lendingbridge.co.uk"
-                  className="font-gilroy-regular text-[14px] underline block"
-                >
+                <a href="mailto:enquiries@lendingbridge.co.uk" className="font-gilroy-regular text-[14px] underline block">
                   enquiries@lendingbridge.co.uk
                 </a>
               </div>

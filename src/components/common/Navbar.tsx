@@ -16,11 +16,11 @@ const Navbar = () => {
         <nav className="bg-white rounded-[15px] px-[50px] py-6 h-[116px]">
           <div className="flex flex-row items-center justify-between h-full">
             <Image
-              src="/svg/logo.svg"
+              src="/images/logo.png"
               width={200}
               height={200}
               alt="logo"
-              className="w-[160px] h-[32px] cursor-pointer"
+              className="w-[200px] h-[64px] cursor-pointer object-contain"
               onClick={() => router.push("/")}
             />
             <div className="flex flex-row items-center justify-between w-[70%] lg:w-[80%] 2xl:w-[70%] font-league-spartan font-medium text-[18px]">
@@ -50,30 +50,15 @@ const Navbar = () => {
               <div>
                 <div className="flex flex-row space-x-[10px] items-center">
                   <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center">
-                    <Image
-                      src="/svg/mail-white.svg"
-                      width={200}
-                      height={200}
-                      alt="mail-white"
-                      className="w-3 h-3"
-                    />
+                    <Image src="/svg/mail-white.svg" width={200} height={200} alt="mail-white" className="w-3 h-3" />
                   </div>
-                  <a
-                    href="mailto:enquiries@lendingbridge.co.uk"
-                    className="underline"
-                  >
+                  <a href="mailto:enquiries@lendingbridge.co.uk" className="underline">
                     enquiries@lendingbridge.co.uk
                   </a>
                 </div>
                 <div className="flex flex-row space-x-[10px] items-center mt-[10px]">
                   <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center">
-                    <Image
-                      src="/svg/phone-white.svg"
-                      width={200}
-                      height={200}
-                      alt="phone-white"
-                      className="w-3 h-3"
-                    />
+                    <Image src="/svg/phone-white.svg" width={200} height={200} alt="phone-white" className="w-3 h-3" />
                   </div>
                   <a href="tel:02037250589">020 3725 0589</a>
                 </div>
@@ -110,9 +95,7 @@ const Navbar = () => {
                 height={200}
                 alt="mail-white"
                 className="w-3 h-3"
-                onClick={() =>
-                  window.open("mailto:enquires@lendingbridge.co.uk", "_blank")
-                }
+                onClick={() => window.open("mailto:enquires@lendingbridge.co.uk", "_blank")}
               />
             </div>
             <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center">
