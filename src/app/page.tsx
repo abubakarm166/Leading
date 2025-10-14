@@ -14,7 +14,34 @@ import Highlights from "@/components/Home/Highlights";
 import LoanProcess from "@/components/Home/LoanProcess";
 import NewsLetter from "@/components/Home/NewsLetter";
 import Products from "@/components/Home/Products";
+export const metadata = {
+  title: 'Bridging Finance Experts | Lending Bridge',
+  description:
+    'Get quick, reliable bridging loans for residential & commercial properties in the UK. Expert support, fast approvals.',
+  keywords: [
+    'bridging loan',
+    'property finance',
+    'latest news',
+    'insights',
+    'market trends',
+    'investment opportunities',
+  ],
 
+  // ✅ Robots meta
+robots: "INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1",
+
+  // ✅ Canonical URL
+  alternates: {
+    canonical: 'https://www.lendingbridge.co.uk/',
+  },
+
+  openGraph: {
+    title: 'Latest News & Insights on Bridging Loans | Lending Bridge',
+      description:
+        'Discover the latest insights, tips, and market news on bridging loans and property finance from Lending Bridge.',
+    // images: [{ url: '/og-about.jpg', width: 1200, height: 630 }],
+  },
+};
 const HomePage = () => {
   return (
     <main className="relative">

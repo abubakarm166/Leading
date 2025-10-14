@@ -1,37 +1,32 @@
-"use client";
-import BlogsCarousel from "@/components/common/BlogsCarousel";
-import ClientBroker from "@/components/common/ClientBroker";
-import ContactUs from "@/components/common/ContactUs";
-import Footer from "@/components/common/Footer";
-import Navbar from "@/components/common/Navbar";
-import Reveal from "@/components/common/Reveal";
+import BlogsClient from "./BlogsClient";
 
-const BlogsPage = () => {
-  return (
-    <main className="bg-primary-bg">
-      <Navbar />
-      <div className="px-5 lg:px-[100px] py-[50px]">
-        <Reveal>
-          <h1 className="font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px]">
-            Blogs, News And Updates
-          </h1>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="font-gilroy-regular font-extralight text-[24px] mb-[50px]">
-            “Stay informed with the latest updates, news, and insights.”
-          </p>
-        </Reveal>
-        <Reveal delay={0.4}>
-          <BlogsCarousel slidesToShow={4} />
-        </Reveal>
-      </div>
-      <Reveal delay={0.6}>
-        <ClientBroker />
-      </Reveal>
-      <ContactUs />
-      <Footer />
-    </main>
-  );
+export const metadata = {
+  title: " Latest News & Insights on Bridging Loans | Lending Bridge",
+  description:
+    "Discover the latest insights, tips, and market news on bridging loans and property finance from Lending Bridge.",
+  keywords: [
+    "bridging loan",
+    "property finance",
+    "latest news",
+    "insights",
+    "market trends",
+    "investment opportunities",
+  ],
+  robots:
+    "INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1",
+  alternates: {
+    canonical: "https://www.lendingbridge.co.uk/blogs",
+  },
+  openGraph: {
+    title: "Latest News & Insights on Bridging Loans | Lending Bridge",
+    description:
+      "Discover the latest insights, tips, and market news on bridging loans and property finance from Lending Bridge.",
+    url: "https://www.lendingbridge.co.uk/blogs",
+    siteName: "Lending Bridge",
+    type: "website",
+  },
 };
 
-export default BlogsPage;
+export default function BlogsPage() {
+  return <BlogsClient />;
+}

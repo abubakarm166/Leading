@@ -9,7 +9,6 @@ import { listFiles } from "@/utils/api/files";
 import { useEffectAsync } from "@/utils/hooks";
 import Image from "next/image";
 import { useState } from "react";
-
 const ResourcesPage = () => {
   const [resources, setResources] = useState<Resource[]>([]);
 

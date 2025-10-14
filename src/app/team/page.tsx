@@ -10,7 +10,6 @@ import { listTeam } from "@/utils/api/team";
 import { useEffectAsync } from "@/utils/hooks";
 import Image from "next/image";
 import { useState } from "react";
-
 const TeamList = ({
   activeMember,
   team,

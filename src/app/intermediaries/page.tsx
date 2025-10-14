@@ -13,7 +13,6 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-
 const BrokerRegistrationForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 

@@ -59,7 +59,7 @@ const Products = () => {
                   </p>
                   <Button
                     className="w-[200px] h-[50px] p-0"
-                    onClick={() => router.push(`/product/${item.slug}`)}
+                    onClick={() => router.push(`/products/${item.slug}`)}
                   >
                     <p className="uppercase text-white">Read More</p>
                   </Button>
