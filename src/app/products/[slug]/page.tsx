@@ -7,7 +7,7 @@ import ContactUs from "@/components/common/ContactUs";
 import Calculator from "@/components/Home/Calculator";
 import Reveal from "@/components/common/Reveal";
 
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata } from 'next'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -20,8 +20,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
+  { params }: Props
 ): Promise<Metadata> {
   const { slug } = await params
   const product = PRODUCTS.find((p) => p.slug === slug)
@@ -60,7 +59,7 @@ export async function generateMetadata(
   }
 }
 
-export default async function ProductPage({ params }) {
+export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
   const product = PRODUCTS.find((p) => p.slug === slug);
   if (!product) return notFound();

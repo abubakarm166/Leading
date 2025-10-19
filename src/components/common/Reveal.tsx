@@ -32,7 +32,7 @@ const Reveal: React.FC<Props> = ({
 
       return () => clearTimeout(timeout);
     }
-  }, [isInView]);
+  }, [isInView, mainControls]);
 
   return (
     <div ref={ref} className={combinedCls}>

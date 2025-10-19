@@ -15,6 +15,8 @@ export type TBlog = {
   img: string;
   title: string;
   content: string;
+  slug: string;
+  metaDescription?: string;
   createdAt: string;
 };
 

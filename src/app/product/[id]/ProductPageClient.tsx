@@ -1,13 +1,9 @@
 "use client";
 import Button from "@/components/common/Button";
-import ContactUs from "@/components/common/ContactUs";
-import Footer from "@/components/common/Footer";
-import Navbar from "@/components/common/Navbar";
 import Reveal from "@/components/common/Reveal";
-import Calculator from "@/components/Home/Calculator";
 import { PRODUCT_KEY_INFO, PRODUCTS } from "@/utils/constants";
 import Image from "next/image";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const ProductKeyInfo = () => {
   return (
@@ -105,9 +101,8 @@ const ProductHighlights = ({ id }: { id: string }) => {
   );
 };
 
-const const ProductHero = ({ id }: { id: string }) => {
-        const router = useRouter();
-        const product = PRODUCTS.find(p => p.slug === id);
+const ProductHero = ({ id }: { id: string }) => {
+  const product = PRODUCTS.find((item) => `${item.slug}` === id);
 
   const router = useRouter();
 
@@ -168,20 +163,13 @@ const const ProductHero = ({ id }: { id: string }) => {
   );
 };
 
-const ProductPage = () => {
-  const params = useParams<{ id: string }>();
-
+export default function ProductPageClient({ productSlug }: { productSlug: string }) {
   return (
-    <main className="bg-primary-bg">
-      <Navbar />
-      {params?.id && <ProductHero id={params.id} />}
-      {params?.id && <ProductHighlights id={params.id} />}
+    <>
+      <ProductHero id={productSlug} />
+      <ProductHighlights id={productSlug} />
       <ProductKeyInfo />
-      <Calculator />
-      <ContactUs />
-      <Footer />
-    </main>
+    </>
   );
-};
+}
 
-export default ProductPage;

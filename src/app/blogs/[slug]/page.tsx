@@ -7,12 +7,13 @@ import moment from "moment";
 import Image from "next/image";
 
 interface BlogPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 // ✅ Generate SEO metadata dynamically
 export async function generateMetadata({ params }: BlogPageProps) {
-  const blog = await getBlog(params.slug);
+  const { slug } = await params;
+  const blog = await getBlog(slug);
 
   if (!blog) {
     return {
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: BlogPageProps) {
     };
   }
 
-  const url = `https://www.lendingbridge.co.uk/blogs/${params.slug}`;
+  const url = `https://www.lendingbridge.co.uk/blogs/${slug}`;
 
   return {
     title: `${blog.title} | Lending Bridge`,
@@ -41,7 +42,8 @@ export async function generateMetadata({ params }: BlogPageProps) {
 }
 
 export default async function BlogPage({ params }: BlogPageProps) {
-  const blog = await getBlog(params.slug);
+  const { slug } = await params;
+  const blog = await getBlog(slug);
 
   if (!blog) {
     return <div className="px-5 py-10 text-center">Blog not found.</div>;
@@ -86,6 +88,11 @@ export default async function BlogPage({ params }: BlogPageProps) {
 
 // ✅ (Optional) For static site generation
 export async function generateStaticParams() {
-  const blogs = await getAllBlogs();
-  return blogs.map((b: any) => ({ slug: b.slug }));
+  try {
+    const blogs = await getAllBlogs();
+    return blogs.filter((b) => b.slug).map((b) => ({ slug: b.slug }));
+  } catch (error) {
+    console.error("Error generating static params for blogs:", error);
+    return [];
+  }
 }

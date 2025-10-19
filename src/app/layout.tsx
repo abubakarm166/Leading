@@ -1,7 +1,6 @@
 import MobileNav from "@/components/common/MobileNav";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/zoom.css";
-import type { Metadata } from "next";
 import {
   Geist,
   Geist_Mono,
