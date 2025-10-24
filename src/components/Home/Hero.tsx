@@ -16,10 +16,10 @@ const Hero = () => {
       <div className="flex flex-col lg:flex-row items-center justify-between max-w-[1800px] mx-auto">
         <div className="order-1 lg:order-0">
           <Reveal>
-            <h1 className="text-[42px] sm:text-[50px] lg:text-[70px] font-extrabold text-primary font-league-spartan leading-tight">
+            <h2 className="text-[42px] sm:text-[50px] lg:text-[70px] font-extrabold text-primary font-league-spartan leading-tight">
               Bridging Now <br />
               Made Simple
-            </h1>
+            </h2>
           </Reveal>
 
           <Reveal delay={0.3}>
@@ -39,9 +39,7 @@ const Hero = () => {
 
           <Reveal delay={0.7} className="relative lg:pt-[70px]">
             <Button onClick={handleOnCalculate}>
-              <p className="font-bold text-white text-[18px] sm:text-[20px] uppercase">
-                Calculate Now
-              </p>
+              <p className="font-bold text-white text-[18px] sm:text-[20px] uppercase">Calculate Now</p>
             </Button>
             <Image
               src="/svg/hero-arrow.svg"
