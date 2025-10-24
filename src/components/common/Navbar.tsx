@@ -7,12 +7,12 @@ import NavItem from "./NavItem";
 
 const Navbar = () => {
   const router = useRouter();
-
   const onNavChange = useNavStore((state) => state.onChange);
 
   return (
     <>
-      <div className="px-[50px] pt-[50px] bg-primary-bg hidden lg:block">
+      {/* ===== Desktop Navbar ===== */}
+      <div className="hidden xl:block px-[50px] pt-[50px] bg-primary-bg">
         <nav className="bg-white rounded-[15px] px-[50px] py-6 h-[116px]">
           <div className="flex flex-row items-center justify-between h-full">
             <Image
@@ -23,7 +23,7 @@ const Navbar = () => {
               className="w-[200px] h-[64px] cursor-pointer object-contain"
               onClick={() => router.push("/")}
             />
-            <div className="flex flex-row items-center justify-between w-[70%] lg:w-[80%] 2xl:w-[70%] font-league-spartan font-medium text-[18px]">
+            <div className="flex flex-row items-center justify-between w-[70%] font-league-spartan font-medium text-[18px]">
               <NavItem
                 title="Our Products"
                 options={PRODUCTS.map((item) => ({
@@ -50,7 +50,13 @@ const Navbar = () => {
               <div>
                 <div className="flex flex-row space-x-[10px] items-center">
                   <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center">
-                    <Image src="/svg/mail-white.svg" width={200} height={200} alt="mail-white" className="w-3 h-3" />
+                    <Image
+                      src="/svg/mail-white.svg"
+                      width={200}
+                      height={200}
+                      alt="mail"
+                      className="w-3 h-3"
+                    />
                   </div>
                   <a href="mailto:enquiries@lendingbridge.co.uk" className="underline">
                     enquiries@lendingbridge.co.uk
@@ -58,7 +64,13 @@ const Navbar = () => {
                 </div>
                 <div className="flex flex-row space-x-[10px] items-center mt-[10px]">
                   <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center">
-                    <Image src="/svg/phone-white.svg" width={200} height={200} alt="phone-white" className="w-3 h-3" />
+                    <Image
+                      src="/svg/phone-white.svg"
+                      width={200}
+                      height={200}
+                      alt="phone"
+                      className="w-3 h-3"
+                    />
                   </div>
                   <a href="tel:02037250589">020 3725 0589</a>
                 </div>
@@ -67,7 +79,64 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
-      <div className="p-5 bg-primary-bg block lg:hidden">
+
+      {/* ===== Tablet Navbar (md–xl) ===== */}
+      <div className="hidden md:block xl:hidden px-[30px] pt-[30px] bg-primary-bg">
+        <nav className="bg-white rounded-[15px] px-[30px] py-4 shadow-sm">
+          <div className="flex flex-row items-center justify-between">
+            {/* Left: Logo */}
+            <Image
+              src="/images/logo.png"
+              width={160}
+              height={50}
+              alt="logo"
+              className="w-[160px] h-[50px] cursor-pointer object-contain"
+              onClick={() => router.push("/")}
+            />
+
+
+
+            {/* Right: Contact icons + Menu */}
+            <div className="flex flex-row items-center space-x-[10px]">
+              <div
+                className="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer"
+                onClick={() => window.open("mailto:enquiries@lendingbridge.co.uk")}
+              >
+                <Image
+                  src="/svg/mail-white.svg"
+                  width={200}
+                  height={200}
+                  alt="mail"
+                  className="w-4 h-4"
+                />
+              </div>
+              <div
+                className="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer"
+                onClick={() => window.open("tel:02037250589")}
+              >
+                <Image
+                  src="/svg/phone-white.svg"
+                  width={200}
+                  height={200}
+                  alt="phone"
+                  className="w-4 h-4"
+                />
+              </div>
+              <Image
+                src="/svg/burger-menu.svg"
+                width={36}
+                height={36}
+                alt="menu"
+                className="w-8 h-8 cursor-pointer"
+                onClick={() => onNavChange(true)}
+              />
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      {/* ===== Mobile Navbar (below md) ===== */}
+      <div className="block md:hidden p-5 bg-primary-bg">
         <div className="bg-white rounded-[15px] flex flex-row items-center justify-between p-5">
           <div className="flex flex-row items-center space-x-5">
             <Image
@@ -93,9 +162,11 @@ const Navbar = () => {
                 src="/svg/mail-white.svg"
                 width={200}
                 height={200}
-                alt="mail-white"
+                alt="mail"
                 className="w-3 h-3"
-                onClick={() => window.open("mailto:enquires@lendingbridge.co.uk", "_blank")}
+                onClick={() =>
+                  window.open("mailto:enquiries@lendingbridge.co.uk", "_blank")
+                }
               />
             </div>
             <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center">
@@ -103,7 +174,7 @@ const Navbar = () => {
                 src="/svg/phone-white.svg"
                 width={200}
                 height={200}
-                alt="phone-white"
+                alt="phone"
                 className="w-3 h-3 object-cover"
                 onClick={() => window.open("tel:02037250589", "_blank")}
               />

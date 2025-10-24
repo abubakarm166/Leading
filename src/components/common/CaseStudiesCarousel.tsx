@@ -16,7 +16,7 @@ const CastStudyItem = ({ item, openViewMoreModal }: { item: TCaseStudy; openView
   }, [item]);
 
   return (
-    <div className="max-w-full lg:max-w-[90%] 2xl:max-w-[90%] h-[535px] rounded-[10px] overflow-hidden border border-black relative">
+    <div className="max-w-full lg:max-w-[90%] 2xl:max-w-[90%] lg:h-[700px] 2xl:h-[535px] rounded-[10px] overflow-hidden border border-black relative">
       <Image
         src={item.img}
         width={500}
