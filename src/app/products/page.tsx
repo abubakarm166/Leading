@@ -6,18 +6,20 @@ import ContactUs from "@/components/common/ContactUs";
 import Calculator from "@/components/Home/Calculator";
 import Reveal from "@/components/common/Reveal";
 import Link from "next/link";
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Our Products | Lending Bridge",
-  description: "Explore our diverse range of bridging finance products designed to meet your needs, from residential to commercial properties.",
+  description:
+    "Explore our diverse range of bridging finance products designed to meet your needs, from residential to commercial properties.",
   robots: "INDEX, FOLLOW",
   alternates: {
-    canonical: "https://www.lendingbridge.co.uk/products"
+    canonical: "https://www.lendingbridge.co.uk/products",
   },
   openGraph: {
     title: "Our Products | Lending Bridge",
-    description: "Explore our diverse range of bridging finance products designed to meet your needs, from residential to commercial properties.",
+    description:
+      "Explore our diverse range of bridging finance products designed to meet your needs, from residential to commercial properties.",
     images: [
       {
         url: "https://www.lendingbridge.co.uk/svg/product-one.svg", // or a general image
@@ -30,10 +32,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Our Products | Lending Bridge",
-    description: "Explore our diverse range of bridging finance products designed to meet your needs, from residential to commercial properties.",
+    description:
+      "Explore our diverse range of bridging finance products designed to meet your needs, from residential to commercial properties.",
     images: ["https://www.lendingbridge.co.uk/svg/product-one.svg"],
   },
-}
+};
 
 export default function ProductsPage() {
   return (
@@ -47,18 +50,15 @@ export default function ProductsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {PRODUCTS.map((product) => (
               <Link key={product.id} href={`/products/${product.slug}`}>
-                <div className="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                  <div className="relative aspect-square mb-4">
-                    <Image
-                      src={product.img}
-                      alt={product.title}
-                      fill
-                      className="object-contain rounded-lg"
-                    />
+                <div className="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow h-[700px] flex flex-col justify-between">
+                  <div>
+                    <div className="relative aspect-square mb-4">
+                      <Image src={product.img} alt={product.title} fill className="object-contain rounded-lg" />
+                    </div>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-2">{product.title}</h2>
+                    <p className="text-gray-700 text-sm leading-relaxed">{product.content}</p>
                   </div>
-                  <h2 className="text-xl font-semibold text-gray-900 mb-2">{product.title}</h2>
-                  <p className="text-gray-700 text-sm leading-relaxed">{product.content}</p>
-                  <div className="mt-4">
+                  <div>
                     <span className="text-primary font-medium">Read More →</span>
                   </div>
                 </div>

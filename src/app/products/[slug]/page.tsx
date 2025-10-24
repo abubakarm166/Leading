@@ -7,11 +7,11 @@ import ContactUs from "@/components/common/ContactUs";
 import Calculator from "@/components/Home/Calculator";
 import Reveal from "@/components/common/Reveal";
 
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 
 type Props = {
-  params: Promise<{ slug: string }>
-}
+  params: Promise<{ slug: string }>;
+};
 
 export async function generateStaticParams() {
   return PRODUCTS.map((product) => ({
@@ -19,16 +19,14 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata(
-  { params }: Props
-): Promise<Metadata> {
-  const { slug } = await params
-  const product = PRODUCTS.find((p) => p.slug === slug)
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const product = PRODUCTS.find((p) => p.slug === slug);
 
   if (!product) {
     return {
       title: "Not Found",
-    }
+    };
   }
 
   return {
@@ -36,7 +34,7 @@ export async function generateMetadata(
     description: product.content,
     robots: "INDEX, FOLLOW",
     alternates: {
-      canonical: `https://www.lendingbridge.co.uk/products/${product.slug}`
+      canonical: `https://www.lendingbridge.co.uk/products/${product.slug}`,
     },
     openGraph: {
       title: product.title,
@@ -56,7 +54,7 @@ export async function generateMetadata(
       description: product.content,
       images: [`https://www.lendingbridge.co.uk${product.img}`],
     },
-  }
+  };
 }
 
 export default async function ProductPage({ params }: Props) {
@@ -70,12 +68,7 @@ export default async function ProductPage({ params }: Props) {
       <section className="py-16 px-4 sm:px-8 md:px-16 lg:px-24 bg-white">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 items-start">
           <div className="w-full lg:w-1/2 relative aspect-square">
-            <Image
-              src={product.img}
-              alt={product.title}
-              fill
-              className="object-contain rounded-2xl shadow-md"
-            />
+            <Image src={product.img} alt={product.title} fill className="object-contain rounded-2xl shadow-md" />
           </div>
           <div className="w-full lg:w-1/2 space-y-6">
             <Reveal>
@@ -88,13 +81,7 @@ export default async function ProductPage({ params }: Props) {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
                 {product.highlights.map((highlight, index) => (
                   <div key={index} className="flex items-center space-x-3 bg-gray-50 p-4 rounded-lg">
-                    <Image
-                      src={highlight.img}
-                      alt={highlight.title}
-                      width={40}
-                      height={40}
-                      className="object-contain"
-                    />
+                    <Image src={highlight.img} alt={highlight.title} width={40} height={40} className="object-contain" />
                     <span className="text-gray-600">{highlight.title}</span>
                   </div>
                 ))}

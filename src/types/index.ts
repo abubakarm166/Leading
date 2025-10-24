@@ -15,9 +15,9 @@ export type TBlog = {
   img: string;
   title: string;
   content: string;
+  createdAt: string;
   slug: string;
   metaDescription?: string;
-  createdAt: string;
 };
 
 export type TeamMember = {

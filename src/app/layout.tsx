@@ -1,12 +1,7 @@
 import MobileNav from "@/components/common/MobileNav";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/zoom.css";
-import {
-  Geist,
-  Geist_Mono,
-  League_Spartan,
-  Nunito_Sans,
-} from "next/font/google";
+import { Geist, Geist_Mono, League_Spartan, Nunito_Sans } from "next/font/google";
 import "rc-slider/assets/index.css";
 import "rc-tooltip/assets/bootstrap.css";
 import "react-calendar/dist/Calendar.css";
@@ -37,8 +32,6 @@ const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
   weight: ["900"],
 });
-
-
 
 export default function RootLayout({
   children,

@@ -13,8 +13,8 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative w-screen lg:min-h-dvh overflow-x-hidden bg-primary-bg px-[20px] lg:px-[80px]">
-      <div className="flex flex-col lg:flex-row items-start justify-between">
+    <section className="relative max-w-[1800px] mx-auto lg:min-h-dvh overflow-x-hidden bg-primary-bg px-[20px] lg:px-[80px]">
+      <div className="flex flex-col lg:flex-row items-center justify-between">
         <div className="order-1 lg:order-0 lg:mt-20">
           <Reveal>
             <h1 className="text-[50px] lg:text-[70px] font-extrabold text-primary font-league-spartan">
@@ -31,15 +31,11 @@ const Hero = () => {
             </p>
           </Reveal>
           <Reveal delay={0.5}>
-            <p className="font-gilroy-medium mb-4 text-[20px] lg:text-[30px] text-primary">
-              How much do you want to borrow?
-            </p>
+            <p className="font-gilroy-medium mb-4 text-[20px] lg:text-[30px] text-primary">How much do you want to borrow?</p>
           </Reveal>
           <Reveal delay={0.7} className="relative lg:pt-[70px]">
             <Button onClick={handleOnCalculate}>
-              <p className="font-bold text-white text-[20px] uppercase">
-                Calculate Now
-              </p>
+              <p className="font-bold text-white text-[20px] uppercase">Calculate Now</p>
             </Button>
             <Image
               src="/svg/hero-arrow.svg"
