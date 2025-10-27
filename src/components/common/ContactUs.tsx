@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import Button from "./Button";
 import Input from "./Input";
+import { validateFormInputs } from "@/utils/helpers";
 
 interface Props {
   noBorder?: boolean;
@@ -22,8 +23,16 @@ const ContactUsForm = () => {
       message: "",
     },
     onSubmit: async (values, helpers) => {
+      const errors = validateFormInputs(values);
+
       if (!values.name || !values.email || !values.message || !values.number) {
         return toast.error("Please enter all the details");
+      }
+
+      if (errors.email.length > 0) {
+        return toast.error(errors.email);
+      } else if (errors.number.length > 0) {
+        return toast.error(errors.number);
       }
 
       setIsLoading(true);

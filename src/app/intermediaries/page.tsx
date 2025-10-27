@@ -210,8 +210,8 @@ const BrokerPage = () => {
   return (
     <main className="relative overflow-x-hidden bg-primary-bg">
       <Navbar />
-      <div className="px-5 lg:px-[100px] mt-[50px]">
-        <div className="flex flex-col lg:flex-row items-center justify-between">
+      <div className="px-5 md:px-14 xl:px-[100px] mt-[50px]">
+        <div className="flex flex-col lg:flex-row items-center lg:justify-between">
           <div className="order-2 lg:order-1 mt-10 lg:mt-0">
             <Reveal>
               <h1 className="font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px]">
@@ -234,7 +234,7 @@ const BrokerPage = () => {
               width={360}
               height={360}
               alt="broker"
-              className="w-[360px] h-[360px] object-cover"
+              className="w-[360px] h-[360px] object-cover mx-auto"
             />
           </Reveal>
         </div>

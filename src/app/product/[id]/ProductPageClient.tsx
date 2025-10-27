@@ -81,7 +81,7 @@ const ProductHero = ({ id }: { id: string }) => {
   };
 
   return (
-    <section className="relative w-screen xl:min-h-dvh overflow-x-hidden bg-primary-bg px-5 lg:px-[100px] pt-5 lg:pt-[100px] mb-20 xl:mb-0">
+    <section className="relative w-screen xl:min-h-dvh overflow-x-hidden bg-primary-bg px-8 lg:px-[100px] pt-5 lg:pt-[100px] mb-20 xl:mb-0">
       <div className="flex flex-col lg:flex-row items-center justify-between">
         <div className="order-2 lg:order-1 mt-5 lg:mt-0">
           <Reveal>

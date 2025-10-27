@@ -16,7 +16,7 @@ const CastStudyItem = ({ item, openViewMoreModal }: { item: TCaseStudy; openView
   }, [item]);
 
   return (
-    <div className="max-w-full lg:max-w-[90%] 2xl:max-w-[90%] lg:h-[700px] 2xl:h-[535px] rounded-[10px] overflow-hidden border border-black relative">
+    <div className="max-w-full lg:max-w-[90%] h-[535px] rounded-[10px] overflow-hidden border border-black relative mr-2">
       <Image
         src={item.img}
         width={500}
@@ -24,12 +24,12 @@ const CastStudyItem = ({ item, openViewMoreModal }: { item: TCaseStudy; openView
         alt="case-study"
         className="w-full h-[200px] object-cover object-top-right"
       />
-      <div className="bg-primary-bg overflow-hidden w-full h-[65%] border-t border-t-black rounded-t-[10px] px-4 md:px-5 py-5 flex flex-col justify-between">
+      <div className="bg-primary-bg overflow-hidden w-full h-[65%] border-t border-t-black rounded-t-[10px] px-4 md:px-5 py-5 flex flex-col gap-y-1">
         <div className="flex flex-row items-center">
           <p className="font-gilroy-bold text-[18px] w-[40%]">Location</p>
           <p className="w-[15%]">:</p>
           <p className="font-gilroy-regular text-[18px] text-primary">
-            {item?.location?.length > 20 ? `${item?.location?.slice(0, 20)}...` : item?.location}
+            {item?.location?.length > 10 ? `${item?.location?.slice(0, 10)}...` : item?.location}
           </p>
         </div>
         <div className="flex flex-row items-center">
@@ -59,11 +59,11 @@ const CastStudyItem = ({ item, openViewMoreModal }: { item: TCaseStudy; openView
           </div>
         )}
         {formattedContent.length > 0 ? (
-          <div>
+          <div className="flex-1 flex flex-col items-start">
             <p
               className="mt-5 font-gilroy-regular text-[16px]"
               dangerouslySetInnerHTML={{
-                __html: `${item?.description?.slice(0, 200)}${item?.description?.length > 200 ? "..." : ""}`,
+                __html: `${item?.description?.slice(0, 160)}${item?.description?.length > 160 ? "..." : ""}`,
               }}
             />
             <button
@@ -118,6 +118,13 @@ const CaseStudiesCarousel = () => {
               breakpoint: 500,
               settings: {
                 slidesToShow: 1,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 1000,
+              settings: {
+                slidesToShow: 2,
                 slidesToScroll: 1,
               },
             },

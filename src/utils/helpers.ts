@@ -74,3 +74,22 @@ export const sendMail = async ({
     return false;
   }
 };
+
+export const validateFormInputs = (values: { name: string; number: string; email: string; message: string }) => {
+  const errors: typeof values = {
+    name: "",
+    number: "",
+    email: "",
+    message: "",
+  };
+
+  if (!values.number.match(/^[+]?[1-9]\d{1,14}$/)) {
+    errors.number = "Please enter a valid number";
+  }
+
+  if (!values.email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+    errors.email = "Please enter a valid email";
+  }
+
+  return errors;
+};

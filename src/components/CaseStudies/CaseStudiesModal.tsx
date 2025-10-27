@@ -26,7 +26,7 @@ const CaseStudiesModal: React.FC<Props> = ({ isOpen, activeCaseStudy, onClose })
         modal: "w-[90%] md:min-w-[95vw] md:min-h-[90vh] rounded-[10px]",
       }}
     >
-      <div className="min-h-[90vh] flex flex-col md:flex-row items-center justify-center gap-y-10 md:gap-x-[50px] mt-10 md:mt-0">
+      <div className="min-h-[90vh] flex flex-col lg:flex-row items-center justify-center gap-y-10 md:gap-x-[50px] mt-14 lg:mt-0">
         {activeCaseStudy && (
           <Image
             src={activeCaseStudy?.img}
@@ -36,7 +36,7 @@ const CaseStudiesModal: React.FC<Props> = ({ isOpen, activeCaseStudy, onClose })
             className="w-full md:w-[500px] h-[380px] rounded-[20px] object-cover -mt-14"
           />
         )}
-        <div className="w-full md:w-[50%]">
+        <div className="w-full lg:w-[50%]">
           <div className="font-gilroy-regular flex flex-col space-y-2">
             <div className="flex flex-row items-center">
               <p className="font-gilroy-medium text-[20px] w-[40%] md:w-[30%]">Location</p>

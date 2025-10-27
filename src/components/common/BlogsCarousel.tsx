@@ -47,12 +47,19 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow = 3 }) => {
                 slidesToScroll: 1,
               },
             },
+            {
+              breakpoint: 1000,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+              },
+            },
           ]}
         >
           {blogs?.map((item) => (
             <div
               key={item.id}
-              className="max-w-full lg:max-w-[90%] 2xl:max-w-[80%] h-[480px] bg-white rounded-[20px] overflow-hidden cursor-pointer relative"
+              className="max-w-full md:max-w-[95%] lg:max-w-[90%] 2xl:max-w-[80%] h-[480px] bg-white rounded-[20px] overflow-hidden cursor-pointer relative"
               onClick={() => router.push(`/blogs/${item.slug || item.id}`)}
             >
               <img

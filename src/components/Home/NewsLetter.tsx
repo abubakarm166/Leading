@@ -5,6 +5,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import Button from "../common/Button";
 import Input from "../common/Input";
+import { validateEmail } from "@/utils/helpers";
 
 const NewsLetter = () => {
   const [name, setName] = useState("");
@@ -14,6 +15,10 @@ const NewsLetter = () => {
   const handleAddSubscription = async () => {
     if (!name || !email) {
       return toast.error("Please enter your name and email");
+    }
+
+    if (!validateEmail(email)) {
+      return toast.error("Please enter a valid email");
     }
 
     setIsLoading(true);
@@ -31,29 +36,11 @@ const NewsLetter = () => {
       <div className="flex flex-row items-stretch lg:rounded-[20px] overflow-hidden">
         <div className="bg-[#C5D3DD] px-5 py-[50px] lg:p-[50px] w-full lg:w-[60%] 2xl:w-[70%]">
           <div className="w-full bg-primary px-5 py-[30px] lg:p-[50px] rounded-[20px]">
-            <p className="font-league-spartan text-white font-semibold text-[40px]">
-              Subscibe to Our Newsletter
-            </p>
-            <Input
-              placeholder="Full Name"
-              className="mt-[30px]"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <Input
-              placeholder="Email Address"
-              className="mt-5"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Button
-              className="bg-white mt-[30px] w-full lg:w-auto"
-              isLoading={isLoading}
-              onClick={handleAddSubscription}
-            >
-              <p className="text-primary text-[16px] font-bold uppercase">
-                Subscribe
-              </p>
+            <p className="font-league-spartan text-white font-semibold text-[40px]">Subscibe to Our Newsletter</p>
+            <Input placeholder="Full Name" className="mt-[30px]" value={name} onChange={(e) => setName(e.target.value)} />
+            <Input placeholder="Email Address" className="mt-5" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <Button className="bg-white mt-[30px] w-full lg:w-auto" isLoading={isLoading} onClick={handleAddSubscription}>
+              <p className="text-primary text-[16px] font-bold uppercase">Subscribe</p>
             </Button>
           </div>
         </div>

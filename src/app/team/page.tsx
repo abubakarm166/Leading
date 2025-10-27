@@ -36,7 +36,7 @@ const TeamList = ({
             className={`min-w-[160px] max-w-[160px] cursor-pointer ${
               item?.id === activeMember?.id ? "opacity-100" : "opacity-50"
             }`}
-            delay={0.2 * item.id}
+            delay={0.02 * item.id}
           >
             <div onClick={() => handleOnClick(item)}>
               <div
