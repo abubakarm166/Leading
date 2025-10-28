@@ -9,7 +9,6 @@ import LoanProcess from "@/components/Home/LoanProcess";
 import { addRegistration } from "@/utils/api/registration";
 import { BROKER_INFO } from "@/utils/constants";
 import { useFormik } from "formik";
-import Head from "next/head";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -210,20 +209,6 @@ const BrokerPage = () => {
 
   return (
     <>
-      <Head>
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D1MK5GB75"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-0D1MK5GB75');
-            `,
-          }}
-        />
-      </Head>
       <main className="relative overflow-x-hidden bg-primary-bg">
         <Navbar />
         <div className="px-5 md:px-14 xl:px-[100px] mt-[50px]">

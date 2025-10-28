@@ -6,7 +6,6 @@ import { PRODUCTS } from "@/utils/constants";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import ProductPageClient from "./ProductPageClient";
-import Head from "next/head";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -68,20 +67,6 @@ export default async function ProductPage({ params }: Props) {
 
   return (
     <>
-      <Head>
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D1MK5GB75"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-0D1MK5GB75');
-            `,
-          }}
-        />
-      </Head>
       <main className="bg-primary-bg">
         <Navbar />
         <ProductPageClient productSlug={id} />

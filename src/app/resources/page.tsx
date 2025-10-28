@@ -7,7 +7,6 @@ import Navbar from "@/components/common/Navbar";
 import { Resource } from "@/types";
 import { listFiles } from "@/utils/api/files";
 import { useEffectAsync } from "@/utils/hooks";
-import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 const ResourcesPage = () => {
@@ -30,20 +29,6 @@ const ResourcesPage = () => {
 
   return (
     <>
-      <Head>
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D1MK5GB75"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-0D1MK5GB75');
-            `,
-          }}
-        />
-      </Head>
       <main className="bg-primary-bg">
         <Navbar />
         <div className="px-5 lg:px-[100px] pt-[50px]">

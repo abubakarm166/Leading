@@ -5,7 +5,6 @@ import Navbar from "@/components/common/Navbar";
 import { TBlog } from "@/types";
 import { getBlog, listBlogs } from "@/utils/api/blogs";
 import moment from "moment";
-import Head from "next/head";
 
 type BlogPageProps = Promise<{ slug: string }>;
 
@@ -52,20 +51,6 @@ export default async function BlogPage(props: { params: BlogPageProps }) {
 
   return (
     <>
-      <Head>
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D1MK5GB75"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-0D1MK5GB75');
-            `,
-          }}
-        />
-      </Head>
       <main className="bg-primary-bg">
         <Navbar />
         <div className="px-5 lg:px-[100px] mt-[50px]">

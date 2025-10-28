@@ -1,4 +1,3 @@
-import Head from "next/head";
 import BlogsClient from "./BlogsClient";
 
 export const metadata = {
@@ -22,20 +21,6 @@ export const metadata = {
 export default function BlogsPage() {
   return (
     <>
-      <Head>
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D1MK5GB75"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-0D1MK5GB75');
-            `,
-          }}
-        />
-      </Head>
       <BlogsClient />
     </>
   );
