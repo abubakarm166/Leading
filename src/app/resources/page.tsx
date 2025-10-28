@@ -7,6 +7,7 @@ import Navbar from "@/components/common/Navbar";
 import { Resource } from "@/types";
 import { listFiles } from "@/utils/api/files";
 import { useEffectAsync } from "@/utils/hooks";
+import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 const ResourcesPage = () => {
@@ -28,82 +29,92 @@ const ResourcesPage = () => {
   }, []);
 
   return (
-    <main className="bg-primary-bg">
-      <Navbar />
-      <div className="px-5 lg:px-[100px] pt-[50px]">
-        <div className="flex flex-col lg:flex-row items-center justify-between">
-          <div className="order-2 lg:order-1 mt-10 lg:mt-0">
-            <h1 className="font-league-spartan font-semibold text-[50px] lg:text-[70px] text-primary">
-              Resources For Brokers
-              <br />
-              And Clients
-            </h1>
-            <p className="font-gilroy-regular font-extralight text-[24px] mt-5 lg:mt-[50px]">
-              Access our essential resources below to help guide you
-              <br />
-              through our processes, products, and more.
-            </p>
+    <>
+      <Head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D1MK5GB75"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-0D1MK5GB75');
+            `,
+          }}
+        />
+      </Head>
+      <main className="bg-primary-bg">
+        <Navbar />
+        <div className="px-5 lg:px-[100px] pt-[50px]">
+          <div className="flex flex-col lg:flex-row items-center justify-between">
+            <div className="order-2 lg:order-1 mt-10 lg:mt-0">
+              <h1 className="font-league-spartan font-semibold text-[50px] lg:text-[70px] text-primary">
+                Resources For Brokers
+                <br />
+                And Clients
+              </h1>
+              <p className="font-gilroy-regular font-extralight text-[24px] mt-5 lg:mt-[50px]">
+                Access our essential resources below to help guide you
+                <br />
+                through our processes, products, and more.
+              </p>
+            </div>
+            <Image
+              src="/svg/resources.svg"
+              width={200}
+              height={200}
+              alt="resources"
+              className="w-[400px] h-[300px] object-cover order-1 lg:order-2"
+            />
           </div>
-          <Image
-            src="/svg/resources.svg"
-            width={200}
-            height={200}
-            alt="resources"
-            className="w-[400px] h-[300px] object-cover order-1 lg:order-2"
-          />
+          <div className="flex flex-col lg:flex-row items-center justify-center lg:space-x-[50px] space-y-5 lg:space-y-0 mt-[70px] mb-[30px] lg:mb-[90px]">
+            <div className="w-[350px] h-[300px] bg-white rounded-[32px] flex flex-col items-center justify-center">
+              <Image
+                src="/gif/introducer-agreement.gif"
+                width={120}
+                height={120}
+                alt="gif"
+                className="w-[120px] h-[120px] object-contain"
+              />
+              <p className="font-gilroy-bold font-bold text-[20px] mt-[10px] mb-[30px]">Introducer&apos;s Agreement</p>
+              <Button onClick={() => handleDownload("introAgreement")}>
+                <p className="text-white text-[15px]">DOWNLOAD</p>
+              </Button>
+            </div>
+            <div className="w-[350px] h-[300px] bg-white rounded-[32px] flex flex-col items-center justify-center">
+              <Image
+                src="/gif/introducer-guide.gif"
+                width={120}
+                height={120}
+                alt="gif"
+                className="w-[120px] h-[120px] object-contain"
+              />
+              <p className="font-gilroy-bold font-bold text-[20px] mt-[10px] mb-[30px]">Product Guide</p>
+              <Button onClick={() => handleDownload("productGuide")}>
+                <p className="text-white text-[15px]">DOWNLOAD</p>
+              </Button>
+            </div>
+            <div className="w-[350px] h-[300px] bg-white rounded-[32px] flex flex-col items-center justify-center">
+              <Image
+                src="/gif/introducer-form.gif"
+                width={120}
+                height={120}
+                alt="gif"
+                className="w-[120px] h-[120px] object-contain"
+              />
+              <p className="font-gilroy-bold font-bold text-[20px] mt-[10px] mb-[30px]">Application Form</p>
+              <Button onClick={() => handleDownload("applicationForm")}>
+                <p className="text-white text-[15px]">DOWNLOAD</p>
+              </Button>
+            </div>
+          </div>
+          <FAQ type="general" />
         </div>
-        <div className="flex flex-col lg:flex-row items-center justify-center lg:space-x-[50px] space-y-5 lg:space-y-0 mt-[70px] mb-[30px] lg:mb-[90px]">
-          <div className="w-[350px] h-[300px] bg-white rounded-[32px] flex flex-col items-center justify-center">
-            <Image
-              src="/gif/introducer-agreement.gif"
-              width={120}
-              height={120}
-              alt="gif"
-              className="w-[120px] h-[120px] object-contain"
-            />
-            <p className="font-gilroy-bold font-bold text-[20px] mt-[10px] mb-[30px]">
-              Introducer&apos;s Agreement
-            </p>
-            <Button onClick={() => handleDownload("introAgreement")}>
-              <p className="text-white text-[15px]">DOWNLOAD</p>
-            </Button>
-          </div>
-          <div className="w-[350px] h-[300px] bg-white rounded-[32px] flex flex-col items-center justify-center">
-            <Image
-              src="/gif/introducer-guide.gif"
-              width={120}
-              height={120}
-              alt="gif"
-              className="w-[120px] h-[120px] object-contain"
-            />
-            <p className="font-gilroy-bold font-bold text-[20px] mt-[10px] mb-[30px]">
-              Product Guide
-            </p>
-            <Button onClick={() => handleDownload("productGuide")}>
-              <p className="text-white text-[15px]">DOWNLOAD</p>
-            </Button>
-          </div>
-          <div className="w-[350px] h-[300px] bg-white rounded-[32px] flex flex-col items-center justify-center">
-            <Image
-              src="/gif/introducer-form.gif"
-              width={120}
-              height={120}
-              alt="gif"
-              className="w-[120px] h-[120px] object-contain"
-            />
-            <p className="font-gilroy-bold font-bold text-[20px] mt-[10px] mb-[30px]">
-              Application Form
-            </p>
-            <Button onClick={() => handleDownload("applicationForm")}>
-              <p className="text-white text-[15px]">DOWNLOAD</p>
-            </Button>
-          </div>
-        </div>
-        <FAQ type="general" />
-      </div>
-      <ContactUs />
-      <Footer />
-    </main>
+        <ContactUs />
+        <Footer />
+      </main>
+    </>
   );
 };
 

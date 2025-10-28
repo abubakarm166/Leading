@@ -9,6 +9,7 @@ import LoanProcess from "@/components/Home/LoanProcess";
 import { addRegistration } from "@/utils/api/registration";
 import { BROKER_INFO } from "@/utils/constants";
 import { useFormik } from "formik";
+import Head from "next/head";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -208,78 +209,94 @@ const BrokerPage = () => {
   }, [redirectParam]);
 
   return (
-    <main className="relative overflow-x-hidden bg-primary-bg">
-      <Navbar />
-      <div className="px-5 md:px-14 xl:px-[100px] mt-[50px]">
-        <div className="flex flex-col lg:flex-row items-center lg:justify-between">
-          <div className="order-2 lg:order-1 mt-10 lg:mt-0">
-            <Reveal>
-              <h1 className="font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px]">
-                Brokers At The Heart
-                <br />
-                Of Our Business
-              </h1>
+    <>
+      <Head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D1MK5GB75"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-0D1MK5GB75');
+            `,
+          }}
+        />
+      </Head>
+      <main className="relative overflow-x-hidden bg-primary-bg">
+        <Navbar />
+        <div className="px-5 md:px-14 xl:px-[100px] mt-[50px]">
+          <div className="flex flex-col lg:flex-row items-center lg:justify-between">
+            <div className="order-2 lg:order-1 mt-10 lg:mt-0">
+              <Reveal>
+                <h1 className="font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px]">
+                  Brokers At The Heart
+                  <br />
+                  Of Our Business
+                </h1>
+              </Reveal>
+              <Reveal delay={0.2}>
+                <p className="text-[18px] lg:text-[25px] font-extralight font-gilroy-regular mt-[30px] max-w-full lg:max-w-[60%]">
+                  We place brokers at the core of everything we do. We keep you updated on any changes in policies and rates,
+                  ensuring that you&apos;re always in the loop. With Lending Bridge, brokers receive Introducer Fees and Proc Fees
+                  on the same day as completion, creating a seamless process from start to finish.
+                </p>
+              </Reveal>
+            </div>
+            <Reveal delay={0.4} className="order-1 lg:order-2 w-[90%] 2xl:w-[70%]">
+              <Image
+                src="/svg/broker-page.svg"
+                width={360}
+                height={360}
+                alt="broker"
+                className="w-[360px] h-[360px] object-cover mx-auto"
+              />
             </Reveal>
-            <Reveal delay={0.2}>
-              <p className="text-[18px] lg:text-[25px] font-extralight font-gilroy-regular mt-[30px] max-w-full lg:max-w-[60%]">
-                We place brokers at the core of everything we do. We keep you updated on any changes in policies and rates,
-                ensuring that you&apos;re always in the loop. With Lending Bridge, brokers receive Introducer Fees and Proc Fees
-                on the same day as completion, creating a seamless process from start to finish.
+          </div>
+          <div className="mt-[70px] mb-[60px]">
+            <Reveal>
+              <p className="text-[40px] lg:text-[70px] text-primary font-semibold font-league-spartan">
+                Why Partner With Lending Bridge?
               </p>
             </Reveal>
+            <div className="flex flex-col lg:flex-row items-center justify-between mt-5 lg:mt-[60px]">
+              <Reveal delay={0.2} className="w-full lg:w-[45%] mb-5 lg:mb-0">
+                <div>
+                  <p className="font-gilroy-bold text-[25px]">Exclusive Access:</p>
+                  <p className="font-gilroy-regular font-extralight mt-5 text-[25px]">
+                    Get in touch with our Underwriters and Relationship Managers directly. We respond to any inquiries within 2
+                    hours, ensuring quick, efficient service.
+                  </p>
+                </div>
+              </Reveal>
+              <Reveal delay={0.4} className="w-full lg:w-[45%]">
+                <div>
+                  <p className="font-gilroy-bold text-[25px]">Premium Benefits:</p>
+                  <p className="font-gilroy-regular font-extralight mt-5 text-[25px]">
+                    Enjoy invites to Networking Events, receive Industry Information through our newsletters, and gain exclusive
+                    access to our box at the Football Tournament.
+                  </p>
+                </div>
+              </Reveal>
+            </div>
           </div>
-          <Reveal delay={0.4} className="order-1 lg:order-2 w-[90%] 2xl:w-[70%]">
-            <Image
-              src="/svg/broker-page.svg"
-              width={360}
-              height={360}
-              alt="broker"
-              className="w-[360px] h-[360px] object-cover mx-auto"
-            />
-          </Reveal>
-        </div>
-        <div className="mt-[70px] mb-[60px]">
           <Reveal>
-            <p className="text-[40px] lg:text-[70px] text-primary font-semibold font-league-spartan">
-              Why Partner With Lending Bridge?
-            </p>
+            <div className="mt-[60px]">
+              <BrokerRegistrationForm />
+            </div>
           </Reveal>
-          <div className="flex flex-col lg:flex-row items-center justify-between mt-5 lg:mt-[60px]">
-            <Reveal delay={0.2} className="w-full lg:w-[45%] mb-5 lg:mb-0">
-              <div>
-                <p className="font-gilroy-bold text-[25px]">Exclusive Access:</p>
-                <p className="font-gilroy-regular font-extralight mt-5 text-[25px]">
-                  Get in touch with our Underwriters and Relationship Managers directly. We respond to any inquiries within 2
-                  hours, ensuring quick, efficient service.
-                </p>
-              </div>
-            </Reveal>
-            <Reveal delay={0.4} className="w-full lg:w-[45%]">
-              <div>
-                <p className="font-gilroy-bold text-[25px]">Premium Benefits:</p>
-                <p className="font-gilroy-regular font-extralight mt-5 text-[25px]">
-                  Enjoy invites to Networking Events, receive Industry Information through our newsletters, and gain exclusive
-                  access to our box at the Football Tournament.
-                </p>
-              </div>
-            </Reveal>
-          </div>
+          <Reveal>
+            <div className="mt-[86px]">
+              <BrokerInfo />
+            </div>
+          </Reveal>
         </div>
-        <Reveal>
-          <div className="mt-[60px]">
-            <BrokerRegistrationForm />
-          </div>
-        </Reveal>
-        <Reveal>
-          <div className="mt-[86px]">
-            <BrokerInfo />
-          </div>
-        </Reveal>
-      </div>
-      <LoanProcess />
-      <ContactUs />
-      <Footer />
-    </main>
+        <LoanProcess />
+        <ContactUs />
+        <Footer />
+      </main>
+    </>
   );
 };
 

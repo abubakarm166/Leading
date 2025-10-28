@@ -8,6 +8,7 @@ import Calculator from "@/components/Home/Calculator";
 import Reveal from "@/components/common/Reveal";
 
 import type { Metadata } from "next";
+import Head from "next/head";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -64,6 +65,20 @@ export default async function ProductPage({ params }: Props) {
 
   return (
     <>
+      <Head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D1MK5GB75"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-0D1MK5GB75');
+            `,
+          }}
+        />
+      </Head>
       <Navbar />
       <section className="py-16 px-4 sm:px-8 md:px-16 lg:px-24 bg-white">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 items-start">

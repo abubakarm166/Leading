@@ -4,12 +4,13 @@ import Navbar from "@/components/common/Navbar";
 import Calculator from "@/components/Home/Calculator";
 import { PRODUCTS } from "@/utils/constants";
 import { notFound } from "next/navigation";
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 import ProductPageClient from "./ProductPageClient";
+import Head from "next/head";
 
 type Props = {
-  params: Promise<{ id: string }>
-}
+  params: Promise<{ id: string }>;
+};
 
 // Generate static params for all products
 export async function generateStaticParams() {
@@ -19,17 +20,15 @@ export async function generateStaticParams() {
 }
 
 // Generate SEO metadata dynamically
-export async function generateMetadata(
-  { params }: Props
-): Promise<Metadata> {
-  const { id } = await params
-  const product = PRODUCTS.find((p) => p.slug === id)
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const product = PRODUCTS.find((p) => p.slug === id);
 
   if (!product) {
     return {
       title: "Product Not Found | Lending Bridge",
       description: "This product could not be found.",
-    }
+    };
   }
 
   return {
@@ -37,7 +36,7 @@ export async function generateMetadata(
     description: product.content,
     robots: "INDEX, FOLLOW",
     alternates: {
-      canonical: `https://www.lendingbridge.co.uk/product/${product.slug}`
+      canonical: `https://www.lendingbridge.co.uk/product/${product.slug}`,
     },
     openGraph: {
       title: product.title,
@@ -57,7 +56,7 @@ export async function generateMetadata(
       description: product.content,
       images: [`https://www.lendingbridge.co.uk${product.img}`],
     },
-  }
+  };
 }
 
 // Server Component
@@ -68,12 +67,28 @@ export default async function ProductPage({ params }: Props) {
   if (!product) return notFound();
 
   return (
-    <main className="bg-primary-bg">
-      <Navbar />
-      <ProductPageClient productSlug={id} />
-      <Calculator />
-      <ContactUs />
-      <Footer />
-    </main>
+    <>
+      <Head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D1MK5GB75"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-0D1MK5GB75');
+            `,
+          }}
+        />
+      </Head>
+      <main className="bg-primary-bg">
+        <Navbar />
+        <ProductPageClient productSlug={id} />
+        <Calculator />
+        <ContactUs />
+        <Footer />
+      </main>
+    </>
   );
 }

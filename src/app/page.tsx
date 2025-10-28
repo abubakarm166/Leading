@@ -14,6 +14,7 @@ import Highlights from "@/components/Home/Highlights";
 import LoanProcess from "@/components/Home/LoanProcess";
 import NewsLetter from "@/components/Home/NewsLetter";
 import Products from "@/components/Home/Products";
+import Head from "next/head";
 export const metadata = {
   title: "Bridging Finance Experts | Lending Bridge",
   description:
@@ -37,26 +38,42 @@ export const metadata = {
 };
 const HomePage = () => {
   return (
-    <main className="relative bg-primary-bg">
-      <Navbar />
-      <Hero />
-      <Features />
-      <About />
-      <LoanProcess />
-      <Calculator />
-      <Products />
-      <Highlights />
-      <Affiliations />
-      <CaseStudies />
-      <Awards />
-      <Blogs />
-      <NewsLetter />
-      <div className="px-5 lg:px-[80px] pt-10 lg:pt-20 bg-primary-bg">
-        <FAQ type="general" />
-      </div>
-      <ContactUs />
-      <Footer />
-    </main>
+    <>
+      <Head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D1MK5GB75"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-0D1MK5GB75');
+            `,
+          }}
+        />
+      </Head>
+      <main className="relative bg-primary-bg">
+        <Navbar />
+        <Hero />
+        <Features />
+        <About />
+        <LoanProcess />
+        <Calculator />
+        <Products />
+        <Highlights />
+        <Affiliations />
+        <CaseStudies />
+        <Awards />
+        <Blogs />
+        <NewsLetter />
+        <div className="px-5 lg:px-[80px] pt-10 lg:pt-20 bg-primary-bg">
+          <FAQ type="general" />
+        </div>
+        <ContactUs />
+        <Footer />
+      </main>
+    </>
   );
 };
 

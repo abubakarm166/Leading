@@ -57,6 +57,8 @@ const Hero = () => {
             width={680}
             height={700}
             alt="hero"
+            fetchPriority="high"
+            loading="lazy"
             className="w-[300px] sm:w-[400px] lg:w-[680px] h-auto object-contain lg:-mr-20"
           />
         </Reveal>

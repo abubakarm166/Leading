@@ -56,11 +56,13 @@ const BookAppointmentModal: React.FC<Props> = ({ isOpen, member, onClose }) => {
               value={activeDate}
               onChange={(val) => setActiveDate(new Date(val as never as string))}
               tileDisabled={({ date }) => {
-                if (moment(date).isBefore(moment())) {
+                const today = moment().startOf("day");
+                const thisDate = moment(date).startOf("day");
+                if (thisDate.isBefore(today)) {
                   return true;
                 }
 
-                if (moment(date).isBetween(availability?.from, availability?.to)) {
+                if (thisDate.isBetween(availability?.from, availability?.to)) {
                   return false;
                 }
 

@@ -8,6 +8,7 @@ import BookAppointmentModal from "@/components/Team/BookAppointmentModal";
 import { TeamMember } from "@/types";
 import { listTeam } from "@/utils/api/team";
 import { useEffectAsync } from "@/utils/hooks";
+import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 const TeamList = ({
@@ -77,86 +78,102 @@ const TeamPage = () => {
   }, []);
 
   return (
-    <main className="bg-primary-bg">
-      <Navbar />
-      <div className="px-5 lg:px-[100px] mt-[50px]">
-        <div className="flex flex-row items-center md:space-x-[10%]">
-          <h1 className="font-league-spartan font-bold text-[70px] text-primary hidden lg:block">
-            Team Lending
-            <br />
-            Bridge
-          </h1>
-          <div className="w-full lg:w-[40%]">
-            <div className="flex flex-row items-start space-x-7">
-              <div>
-                {activeMember && activeMember?.img && (
-                  <div className="w-[150px] h-[140px] rounded-[20px] overflow-hidden bg-white relative">
+    <>
+      <Head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D1MK5GB75"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-0D1MK5GB75');
+            `,
+          }}
+        />
+      </Head>
+      <main className="bg-primary-bg">
+        <Navbar />
+        <div className="px-5 lg:px-[100px] mt-[50px]">
+          <div className="flex flex-row items-center md:space-x-[10%]">
+            <h1 className="font-league-spartan font-bold text-[70px] text-primary hidden lg:block">
+              Team Lending
+              <br />
+              Bridge
+            </h1>
+            <div className="w-full lg:w-[40%]">
+              <div className="flex flex-row items-start space-x-7">
+                <div>
+                  {activeMember && activeMember?.img && (
+                    <div className="w-[150px] h-[140px] rounded-[20px] overflow-hidden bg-white relative">
+                      <Image
+                        src={activeMember.img}
+                        width={107}
+                        height={138}
+                        alt="img"
+                        className="w-[107px] h-[138px] object-contain absolute -bottom-5 left-1/2 -translate-x-1/2"
+                      />
+                    </div>
+                  )}
+                  <div className="flex flex-row items-center justify-center mt-[26px] space-x-2">
+                    <a href={`mailto:${activeMember?.email}`}>
+                      <Image
+                        src="/svg/mail-blue.svg"
+                        width={45}
+                        height={45}
+                        alt="mail"
+                        className="w-[45px] h-[45px] cursor-pointer"
+                      />
+                    </a>
                     <Image
-                      src={activeMember.img}
-                      width={107}
-                      height={138}
-                      alt="img"
-                      className="w-[107px] h-[138px] object-contain absolute -bottom-5 left-1/2 -translate-x-1/2"
-                    />
-                  </div>
-                )}
-                <div className="flex flex-row items-center justify-center mt-[26px] space-x-2">
-                  <a href={`mailto:${activeMember?.email}`}>
-                    <Image
-                      src="/svg/mail-blue.svg"
+                      src="/svg/linkedin-blue.svg"
                       width={45}
                       height={45}
-                      alt="mail"
+                      alt="linkedin"
                       className="w-[45px] h-[45px] cursor-pointer"
+                      onClick={() => window.open(activeMember?.linkedIn, "_blank")}
                     />
-                  </a>
-                  <Image
-                    src="/svg/linkedin-blue.svg"
-                    width={45}
-                    height={45}
-                    alt="linkedin"
-                    className="w-[45px] h-[45px] cursor-pointer"
-                    onClick={() => window.open(activeMember?.linkedIn, "_blank")}
-                  />
+                  </div>
+                </div>
+                <div>
+                  <p className="font-league-spartan font-semibold text-[35px] lg:text-[50px]">{activeMember?.firstName}</p>
+                  <p className="font-league-spartan font-semibold text-primary text-[25px]">{activeMember?.role}</p>
+                  <p className="mt-[10px] font-gilroy-regular font-extralight hidden md:block">{activeMember?.experience}</p>
+                  <Button
+                    className="w-[370px] lg:w-[400px] mt-[30px] hidden md:block"
+                    onClick={() => setIsBookAppointmentModalVisible(true)}
+                  >
+                    <p className="text-white font-bold uppercase text-[20px]">Book an appointment</p>
+                  </Button>
                 </div>
               </div>
-              <div>
-                <p className="font-league-spartan font-semibold text-[35px] lg:text-[50px]">{activeMember?.firstName}</p>
-                <p className="font-league-spartan font-semibold text-primary text-[25px]">{activeMember?.role}</p>
-                <p className="mt-[10px] font-gilroy-regular font-extralight hidden md:block">{activeMember?.experience}</p>
-                <Button
-                  className="w-[370px] lg:w-[400px] mt-[30px] hidden md:block"
-                  onClick={() => setIsBookAppointmentModalVisible(true)}
-                >
-                  <p className="text-white font-bold uppercase text-[20px]">Book an appointment</p>
-                </Button>
-              </div>
+              <p className="mt-[10px] font-gilroy-regular font-extralight block md:hidden">{activeMember?.experience}</p>
+              <Button
+                className="w-[370px] lg:w-[400px] mt-[30px] block md:hidden"
+                onClick={() => setIsBookAppointmentModalVisible(true)}
+              >
+                <p className="text-white font-bold uppercase text-[20px]">Book an appointment</p>
+              </Button>
             </div>
-            <p className="mt-[10px] font-gilroy-regular font-extralight block md:hidden">{activeMember?.experience}</p>
-            <Button
-              className="w-[370px] lg:w-[400px] mt-[30px] block md:hidden"
-              onClick={() => setIsBookAppointmentModalVisible(true)}
-            >
-              <p className="text-white font-bold uppercase text-[20px]">Book an appointment</p>
-            </Button>
           </div>
         </div>
-      </div>
-      <TeamList activeMember={activeMember as TeamMember} team={team} setActiveMember={(item) => setActiveMember(item)} />
-      <ContactUs />
-      <Footer />
-      <BookAppointmentModal
-        isOpen={isBookAppointmentModalVisible}
-        member={activeMember as TeamMember}
-        onClose={() => setIsBookAppointmentModalVisible(false)}
-      />
-      {/* <TeamDetailsModal */}
-      {/*   isOpen={isTeamDeatailsModalOpen} */}
-      {/*   onClose={() => setIsTeamDetailsModalOpen(false)} */}
-      {/*   member={activeMember as TeamMember} */}
-      {/*   openBookAppointmentModal={() => setIsBookAppointmentModalVisible(true)} */}
-      {/* /> */}
-    </main>
+        <TeamList activeMember={activeMember as TeamMember} team={team} setActiveMember={(item) => setActiveMember(item)} />
+        <ContactUs />
+        <Footer />
+        <BookAppointmentModal
+          isOpen={isBookAppointmentModalVisible}
+          member={activeMember as TeamMember}
+          onClose={() => setIsBookAppointmentModalVisible(false)}
+        />
+        {/* <TeamDetailsModal */}
+        {/*   isOpen={isTeamDeatailsModalOpen} */}
+        {/*   onClose={() => setIsTeamDetailsModalOpen(false)} */}
+        {/*   member={activeMember as TeamMember} */}
+        {/*   openBookAppointmentModal={() => setIsBookAppointmentModalVisible(true)} */}
+        {/* /> */}
+      </main>
+    </>
   );
 };
 
