@@ -1,14 +1,18 @@
 "use client";
 import { SOCIAL_LINKS } from "@/utils/constants";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Footer = () => {
-  const handleOnAboutClick = () => {
-    const about = document.getElementById("about");
+  const router = useRouter();
 
-    if (about) {
-      about.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleOnAboutClick = () => {
+    router.push('/#about')
+    // const about = document.getElementById("about");
+
+    // if (about) {
+    //   about.scrollIntoView({ behavior: "smooth" });
+    // }
   };
 
   return (

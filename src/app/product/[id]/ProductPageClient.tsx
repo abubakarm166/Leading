@@ -81,9 +81,9 @@ const ProductHero = ({ id }: { id: string }) => {
   };
 
   return (
-    <section className="relative w-screen xl:min-h-dvh overflow-x-hidden bg-primary-bg px-8 lg:px-[100px] pt-5 lg:pt-[100px] mb-20 xl:mb-0">
+    <section className="relative w-screen xl:min-h-dvh overflow-x-hidden bg-primary-bg px-8 xl:px-[100px] pt-5 lg:pt-[100px] mb-20 xl:mb-0">
       <div className="flex flex-col lg:flex-row items-center justify-between">
-        <div className="order-2 lg:order-1 mt-5 lg:mt-0">
+        <div className="order-2 lg:order-1 mt-5 lg:mt-0 w-full lg:w-3/4">
           <Reveal>
             <h1 className="text-[40px] lg:text-[50px] 2xl:text-[75px] font-bold text-primary font-league-spartan max-w-full lg:max-w-[60%]">
               {product?.title}
@@ -108,7 +108,7 @@ const ProductHero = ({ id }: { id: string }) => {
             </div>
           </Reveal>
         </div>
-        <Reveal delay={0.6} className="order-1 lg:order-2 w-full">
+        <Reveal delay={0.6} className="order-1 lg:order-2 w-full lg:w-2/4">
           <Image
             src={product?.img as string}
             width={200}

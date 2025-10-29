@@ -229,7 +229,7 @@ const BrokerPage = () => {
                 </p>
               </Reveal>
             </div>
-            <Reveal delay={0.4} className="order-1 lg:order-2 w-[90%] 2xl:w-[70%]">
+            <Reveal delay={0.4} className="order-1 lg:order-2 w-[200%] 2xl:w-[70%]">
               <Image
                 src="/svg/broker-page.svg"
                 width={360}

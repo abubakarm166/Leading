@@ -11,12 +11,15 @@ import toast from "react-hot-toast";
 import Modal from "react-responsive-modal";
 import Button from "../common/Button";
 import Input from "../common/Input";
+import momentTz from "moment-timezone";
 
 interface Props {
   isOpen: boolean;
   onClose: () => void;
   member: TeamMember;
 }
+
+const nowGMT = moment.tz('GMT');
 
 const BookAppointmentModal: React.FC<Props> = ({ isOpen, member, onClose }) => {
   const [activeDate, setActiveDate] = useState(new Date());
@@ -70,17 +73,25 @@ const BookAppointmentModal: React.FC<Props> = ({ isOpen, member, onClose }) => {
               }}
             />
             <div className="grid grid-cols-3 lg:grid-cols-4 mt-3 gap-3 lg:gap-5 w-[90%] lg:w-full">
-              {APPOINTMENT_TIME_SLOTS.map((item) => (
+              {APPOINTMENT_TIME_SLOTS.map((item) => {
+                const slotTimeGMT = moment.tz(item, 'h:mm A', 'GMT');
+                const isPast = slotTimeGMT.isBefore(nowGMT);
+                const today = moment().startOf("day");
+                const selectedDate = moment(activeDate).startOf("day");
+                const isFutureDate = selectedDate.isAfter(today);
+                const isDisabled = isPast && !isFutureDate;
+
+                return (
                 <div
                   key={item}
-                  className={`w-[80px] lg:w-[112px] h-[34px] flex items-center justify-center ${
+                  className={`w-[80px] lg:w-[112px] h-[34px] flex items-center justify-center ${isDisabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"} ${
                     selectedTime === item ? "bg-primary" : "bg-[#F4F9FF]"
-                  } cursor-pointer`}
-                  onClick={() => setSelectedTime(item)}
+                  }`}
+                  onClick={() => !isPast && setSelectedTime(item)}
                 >
                   <p className={`text-xs ${selectedTime === item ? "text-white" : "text-black"}`}>{item}</p>
                 </div>
-              ))}
+              )})}
             </div>
             <div className="mt-4 bg-[#FFF3EA] px-[10px] py-2 flex flex-row items-center space-x-[14px]">
               <div className="w-7 h-7 rounded-full bg-[#F9E8D7] flex items-center justify-center">

@@ -48,7 +48,7 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow = 3 }) => {
               },
             },
             {
-              breakpoint: 1000,
+              breakpoint: 1025,
               settings: {
                 slidesToShow: 2,
                 slidesToScroll: 1,
@@ -88,7 +88,7 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow = 3 }) => {
       )}
       <div className="flex flex-row items-center justify-end space-x-2 mt-5">
         <Image
-          src="/svg/chevron-left-white.svg"
+          src="/svg/chevron-left-black.svg"
           width={40}
           height={40}
           alt="chevron-left"
@@ -96,7 +96,7 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow = 3 }) => {
           onClick={() => sliderRef.current?.slickPrev()}
         />
         <Image
-          src="/svg/chevron-right-white.svg"
+          src="/svg/chevron-right-black.svg"
           width={40}
           height={40}
           alt="chevron-right"

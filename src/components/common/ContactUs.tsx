@@ -110,7 +110,7 @@ const ContactUs: React.FC<Props> = ({ noBorder }) => {
           !noBorder ? "border-t" : "border-none"
         } border-t-primary pt-5 lg:pt-[60px]`}
       >
-        <div className="w-full lg:w-auto mb-6 lg:mb-0">
+        <div className="w-full lg:w-auto mb-6 lg:mb-32">
           <p className="text-[32px] font-bold font-league-spartan">Contact Us</p>
           <div className="mt-12">
             <div className="flex flex-row items-start space-x-[10px]">
