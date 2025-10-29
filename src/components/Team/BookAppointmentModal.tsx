@@ -74,10 +74,10 @@ const BookAppointmentModal: React.FC<Props> = ({ isOpen, member, onClose }) => {
             />
             <div className="grid grid-cols-3 lg:grid-cols-4 mt-3 gap-3 lg:gap-5 w-[90%] lg:w-full">
               {APPOINTMENT_TIME_SLOTS.map((item) => {
-                const slotTimeGMT = moment.tz(item, 'h:mm A', 'GMT');
+                const slotTimeGMT = momentTz.tz(item, 'h:mm A', 'GMT');
                 const isPast = slotTimeGMT.isBefore(nowGMT);
-                const today = moment().startOf("day");
-                const selectedDate = moment(activeDate).startOf("day");
+                const today = momentTz().startOf("day");
+                const selectedDate = momentTz(activeDate).startOf("day");
                 const isFutureDate = selectedDate.isAfter(today);
                 const isDisabled = isPast && !isFutureDate;
 
