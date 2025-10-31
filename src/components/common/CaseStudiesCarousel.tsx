@@ -5,8 +5,11 @@ import Image from "next/image";
 import { useMemo, useRef, useState } from "react";
 import Slider from "react-slick";
 import CaseStudiesModal from "../CaseStudies/CaseStudiesModal";
+import { useRouter } from "next/navigation";
 
 const CastStudyItem = ({ item, openViewMoreModal }: { item: TCaseStudy; openViewMoreModal: (item: TCaseStudy) => void }) => {
+  const router = useRouter();
+
   const formattedContent = useMemo(() => {
     if (item && item?.description) {
       return item.description.replace(/<p><\/p>/g, "");
@@ -68,7 +71,8 @@ const CastStudyItem = ({ item, openViewMoreModal }: { item: TCaseStudy; openView
             />
             <button
               className="text-primary mt-auto font-gilroy-medium cursor-pointer inline"
-              onClick={() => openViewMoreModal(item)}
+              // onClick={() => openViewMoreModal(item)}
+              onClick={() => router.push(`/case-studies/${item.slug || item?.id}`)}
             >
               <p>Read More</p>
             </button>

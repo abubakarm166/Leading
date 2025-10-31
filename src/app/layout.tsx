@@ -48,12 +48,24 @@ export default function RootLayout({
           src="https://www.googletagmanager.com/gtag/js?id=G-0D1MK5GB75"
           strategy="afterInteractive"
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17576200661"
+          strategy="afterInteractive"
+        />
         <Script id="gtag-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-0D1MK5GB75');
+          `}
+        </Script>
+        <Script id="gtag-init-second" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17576200661');
           `}
         </Script>
         <Toaster position="bottom-center" />

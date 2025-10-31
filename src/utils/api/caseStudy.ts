@@ -12,3 +12,17 @@ export const listCaseStudies = async () => {
     return [];
   }
 };
+
+export const getCaseStudy = async (slug: string) => {
+  try {
+    const res = await axiosInstance.get(`/case-study/${slug}`)
+
+    if (res.data?.status === 'SUCCESS') {
+      return res.data?.data;
+    }
+
+  } catch (err) {
+    console.log('ERROR: ', err);
+    return null;
+  }
+}

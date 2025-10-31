@@ -8,6 +8,7 @@ export type TCaseStudy = {
   propertyType: string;
   dealType: string;
   createdAt: string;
+  slug: string;
 };
 
 export type TBlog = {

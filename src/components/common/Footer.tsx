@@ -8,11 +8,6 @@ const Footer = () => {
 
   const handleOnAboutClick = () => {
     router.push('/#about')
-    // const about = document.getElementById("about");
-
-    // if (about) {
-    //   about.scrollIntoView({ behavior: "smooth" });
-    // }
   };
 
   return (
@@ -50,27 +45,44 @@ const Footer = () => {
               />
             </div>
           </div>
-          <div className="flex flex-row items-center justify-between w-full mt-10 text-right">
-            <div className="flex flex-col items-start lg:items-end space-y-5 lg:w-[30%] lg:ml-auto">
+          <div className="flex flex-col space-y-3 lg:flex-row items-start lg:items-end w-full mt-10 text-right gap-x-10">
+            <div className="flex flex-col items-start lg:items-end space-y-5 lg:ml-auto">
               <p className="font-league-spartan text-[18px] text-white font-bold">Quick Links</p>
               <div className="flex flex-row lg:flex-col items-end space-x-5 lg:space-x-0 lg:space-y-5">
                 <p
-                  className="font-gilroy-regular font-extralight text-[16px] text-white cursor-pointer"
+                  className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white cursor-pointer"
                   onClick={handleOnAboutClick}
                 >
                   About Us
                 </p>
-                {/* <a className="font-gilroy-regular font-extralight text-[16px] text-white">
-                Process
-              </a> */}
-                <a href="/team" className="font-gilroy-regular font-extralight text-[16px] text-white">
+                <a href="/team" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
                   Team
                 </a>
-                <a href="/resources" className="font-gilroy-regular font-extralight text-[16px] text-white">
+                <a href="/resources" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
                   Resources
                 </a>
-                <a href="/case-studies" className="font-gilroy-regular font-extralight text-[16px] text-white">
+                <a href="/case-studies" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
                   Case Studies
+                </a>
+              </div>
+            </div>
+            <div className="flex flex-col items-start lg:items-end lg:space-y-5">
+              <p className="font-league-spartan text-[18px] text-white font-bold">Privacy</p>
+              <div className="flex flex-row lg:flex-col items-end space-x-5 lg:space-x-0 lg:space-y-5">
+                <a href="/complaints" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
+                  Complaints
+                </a>
+                <a href="/cookie-policy" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
+                  Cookie Policy
+                </a>
+                <a href="/privacy-policy" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
+                  Privacy Policy
+                </a>
+                <a href="/terms-and-conditions" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
+                  Terms & Conditions
+                </a>
+                <a href="/website-terms" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
+                  Website Terms
                 </a>
               </div>
             </div>
