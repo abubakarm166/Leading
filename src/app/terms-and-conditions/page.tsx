@@ -33,9 +33,9 @@ const TermsConditionsPage = () => {
             Bridge
           </p>
           <p>
-            These terms and conditions ("Agreement") govern your use of Lending
+            These terms and conditions (&quot;Agreement&quot;) govern your use of Lending
             Bridge Holdings Limited T/a Lending Bridge website and services
-            ("Services"). By using the Services, you agree to be bound by this
+            (&quot;Services&quot;). By using the Services, you agree to be bound by this
             Agreement. If you do not agree to this Agreement, you may not use
             the Services.
           </p>
@@ -88,7 +88,7 @@ const TermsConditionsPage = () => {
           </p>
           <p>- Disclaimer of Warranties</p>
           <p>
-            The Services are provided "as is" and without warranty of any kind,
+            The Services are provided &quot;as is&quot; and without warranty of any kind,
             express or implied. Lending Bridge Holdings Limited T/a Lending
             Bridge does not warrant that the Services will be uninterrupted or
             error-free, or that any defects in the Services will be corrected.
@@ -108,7 +108,7 @@ const TermsConditionsPage = () => {
             You agree to indemnify and hold harmless Lending Bridge Holdings
             Limited T/a Lending Bridge and its affiliates, officers, directors,
             employees, and agents from any and all claims, damages, liabilities,
-            costs, and expenses (including reasonable attorneys' fees) arising
+            costs, and expenses (including reasonable attorneys&apos; fees) arising
             out of or in connection with your use of the Services or your breach
             of this Agreement.
           </p>

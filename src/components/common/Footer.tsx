@@ -1,6 +1,7 @@
 "use client";
 import { SOCIAL_LINKS } from "@/utils/constants";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const Footer = () => {
@@ -55,35 +56,35 @@ const Footer = () => {
                 >
                   About Us
                 </p>
-                <a href="/team" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
+                <Link href="/team" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
                   Team
-                </a>
-                <a href="/resources" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
+                </Link>
+                <Link href="/resources" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
                   Resources
-                </a>
-                <a href="/case-studies" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
+                </Link>
+                <Link href="/case-studies" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
                   Case Studies
-                </a>
+                </Link>
               </div>
             </div>
             <div className="flex flex-col items-start lg:items-end lg:space-y-5">
               <p className="font-league-spartan text-[18px] text-white font-bold">Privacy</p>
               <div className="flex flex-row lg:flex-col items-end space-x-5 lg:space-x-0 lg:space-y-5">
-                <a href="/complaints" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
+                <Link href="/complaints" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
                   Complaints
-                </a>
-                <a href="/cookie-policy" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
+                </Link>
+                <Link href="/cookie-policy" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
                   Cookie Policy
-                </a>
-                <a href="/privacy-policy" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
+                </Link>
+                <Link href="/privacy-policy" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
                   Privacy Policy
-                </a>
-                <a href="/terms-and-conditions" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
+                </Link>
+                <Link href="/terms-and-conditions" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
                   Terms & Conditions
-                </a>
-                <a href="/website-terms" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
+                </Link>
+                <Link href="/website-terms" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
                   Website Terms
-                </a>
+                </Link>
               </div>
             </div>
           </div>

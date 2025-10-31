@@ -39,7 +39,7 @@ const ComplaintsPage = () => {
                 acceptable solution promptly.</p>
                 <p>If you decide to write to us, we will send you a written acknowledgement within five
                 working days of receiving your complaint.</p>
-                <p>We will fully investigate and send you a detailed response ('final response') within
+                <p>We will fully investigate and send you a detailed response (&lsquo;final response&rsquo;) within
                 eight weeks of receiving your complaint.</p>
                 <p>The Website is not intended for children and we do not knowingly collect personal
                 data relating to children. In order for us to conduct our investigations thoroughly

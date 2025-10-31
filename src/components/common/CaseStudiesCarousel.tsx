@@ -4,10 +4,9 @@ import { useEffectAsync } from "@/utils/hooks";
 import Image from "next/image";
 import { useMemo, useRef, useState } from "react";
 import Slider from "react-slick";
-import CaseStudiesModal from "../CaseStudies/CaseStudiesModal";
 import { useRouter } from "next/navigation";
 
-const CastStudyItem = ({ item, openViewMoreModal }: { item: TCaseStudy; openViewMoreModal: (item: TCaseStudy) => void }) => {
+const CastStudyItem = ({ item }: { item: TCaseStudy }) => {
   const router = useRouter();
 
   const formattedContent = useMemo(() => {
@@ -85,16 +84,9 @@ const CastStudyItem = ({ item, openViewMoreModal }: { item: TCaseStudy; openView
 
 const CaseStudiesCarousel = () => {
   const [caseStudies, setCaseStudies] = useState<TCaseStudy[]>([]);
-  const [activeCaseStudy, setActiveCaseStudy] = useState<TCaseStudy | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const sliderRef = useRef<Slider>(null);
-
-  const handleOpenViewMoreModal = (item: TCaseStudy) => {
-    setActiveCaseStudy(item);
-    setIsModalOpen(true);
-  };
 
   const slidesToShow = 3;
 
@@ -135,7 +127,7 @@ const CaseStudiesCarousel = () => {
           ]}
         >
           {caseStudies?.map((item) => (
-            <CastStudyItem key={item.id} item={item} openViewMoreModal={handleOpenViewMoreModal} />
+            <CastStudyItem key={item.id} item={item} />
           ))}
         </Slider>
       )}
@@ -157,7 +149,6 @@ const CaseStudiesCarousel = () => {
           onClick={() => sliderRef.current?.slickNext()}
         />
       </div>
-      <CaseStudiesModal isOpen={isModalOpen} activeCaseStudy={activeCaseStudy} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };
