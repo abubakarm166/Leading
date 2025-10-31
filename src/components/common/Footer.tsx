@@ -69,7 +69,7 @@ const Footer = () => {
             </div>
             <div className="flex flex-col items-start lg:items-end lg:space-y-5">
               <p className="font-league-spartan text-[18px] text-white font-bold">Privacy</p>
-              <div className="flex flex-row lg:flex-col items-end space-x-5 lg:space-x-0 lg:space-y-5">
+              <div className="flex flex-row flex-wrap items-start lg:flex-col lg:items-end space-x-5 lg:space-x-0 lg:space-y-5 space-y-1">
                 <Link href="/complaints" className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white">
                   Complaints
                 </Link>

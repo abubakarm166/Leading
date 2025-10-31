@@ -4,11 +4,8 @@ import { useEffectAsync } from "@/utils/hooks";
 import Image from "next/image";
 import { useMemo, useRef, useState } from "react";
 import Slider from "react-slick";
-import { useRouter } from "next/navigation";
 
 const CastStudyItem = ({ item }: { item: TCaseStudy }) => {
-  const router = useRouter();
-
   const formattedContent = useMemo(() => {
     if (item && item?.description) {
       return item.description.replace(/<p><\/p>/g, "");
@@ -71,7 +68,7 @@ const CastStudyItem = ({ item }: { item: TCaseStudy }) => {
             <button
               className="text-primary mt-auto font-gilroy-medium cursor-pointer inline"
               // onClick={() => openViewMoreModal(item)}
-              onClick={() => router.push(`/case-studies/${item.slug || item?.id}`)}
+              onClick={() => window.open(`/case-studies/${item.slug || item?.id}`, '_blank')}
             >
               <p>Read More</p>
             </button>
