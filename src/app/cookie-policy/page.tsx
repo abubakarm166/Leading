@@ -34,13 +34,13 @@ const CookiePolicyPage = () => {
               By using the Site, you agree to the use of cookies and similar
               technologies in accordance with this policy.
             </p>
-            <p>What are cookies?</p>
+            <h2 className="font-gilroy-bold text-[20px]">What are cookies?</h2>
             <p>
               Cookies are small text files that are placed on your device when
               you visit a website. Cookies allow the website to recognize your
               device and remember your preferences or actions over time.
             </p>
-            <p>What types of cookies do we use?</p>
+            <h2 className="font-gilroy-bold text-[20px]">What types of cookies do we use?</h2>
             <p>We use the following types of cookies on our Site:</p>
             <p>
               Strictly necessary cookies: These cookies are essential for the
@@ -65,14 +65,14 @@ const CookiePolicyPage = () => {
               used to limit the number of times you see an advertisement and to
               measure the effectiveness of advertising campaigns.
             </p>
-            <p>How can you control cookies?</p>
+            <h2 className="font-gilroy-bold text-[20px]">How can you control cookies?</h2>
             <p>
               Most web browsers allow you to control cookies through their
               settings. You can set your browser to refuse all cookies or to
               indicate when a cookie is being sent. However, some features of
               our Site may not function properly if you disable cookies.
             </p>
-            <p>Third-party cookies</p>
+            <h2 className="font-gilroy-bold text-[20px]">Third-party cookies</h2>
             <p>
               We may also use third-party cookies on our Site, including those
               provided by Google Analytics, a web analytics service provided by
@@ -88,14 +88,14 @@ const CookiePolicyPage = () => {
               by law, or where such third parties process the information on
               Google&apos;s behalf.
             </p>
-            <p>Changes to this policy</p>
+            <h2 className="font-gilroy-bold text-[20px]">Changes to this policy</h2>
             <p>
               We may update this Cookies Policy from time to time. We will
               notify you of any changes by posting the new policy on this page.
               You are advised to review this policy periodically for any
               changes.
             </p>
-            <p>Contact us</p>
+            <h2 className="font-gilroy-bold text-[20px]">Contact us</h2>
             <p>
               If you have any questions or concerns about our use of cookies and
               similar technologies, please contact us at

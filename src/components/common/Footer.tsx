@@ -46,7 +46,7 @@ const Footer = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col space-y-3 lg:flex-row items-start lg:items-end w-full mt-10 text-right gap-x-10">
+          <div className="flex flex-col space-y-3 lg:flex-row items-start w-full mt-10 text-right gap-x-10">
             <div className="flex flex-col items-start lg:items-end space-y-5 lg:ml-auto">
               <p className="font-league-spartan text-[18px] text-white font-bold">Quick Links</p>
               <div className="flex flex-row lg:flex-col items-end space-x-5 lg:space-x-0 lg:space-y-5">

@@ -33,10 +33,10 @@ const WebsiteTermsPage = () => {
             PROCEED TO USE THE WEBSITE, YOU WILL BE DEEMED TO HAVE ACCEPTED THE
             TERMS AND CONDITIONS AND WILL BE BOUND BY ITS TERMS.
           </p>
-          <p>
+          <h2 className="font-gilroy-bold text-[20px]">
             PLEASE READ THESE TERMS AND CONDITIONS CAREFULLY BEFORE USING THIS
             WEBSITE
-          </p>
+          </h2>
           <p>
             These terms and conditions (the “Terms and Conditions”) (together
             with the various documents referred to in them) sets out the terms
@@ -56,7 +56,7 @@ const WebsiteTermsPage = () => {
             the Website though your internet connection are aware of the Terms
             and Conditions, and that they comply with them.
           </p>
-          <p>Other applicable policies</p>
+          <h2 className="font-gilroy-bold text-[20px]">Other applicable policies</h2>
           <p>
             The following additional terms and policies also apply to your use
             of the Website:
@@ -73,26 +73,26 @@ const WebsiteTermsPage = () => {
             Our Cookies Policy, which sets out information about the cookies on
             the Website.
           </p>
-          <p>Information about the owner of the Website</p>
+          <h2 className="font-gilroy-bold text-[20px]">Information about the owner of the Website</h2>
           <p>
             The Website is operated by Lendhub Group Limited (“We”, “Our”, “Us”
             or “Lendhub”). You can contact us at
             <a href="mailto:info@lendhub.co.uk">info@lendhub.co.uk</a>.
           </p>
-          <p>Changes to these Terms and Conditions</p>
+          <h2 className="font-gilroy-bold text-[20px]">Changes to these Terms and Conditions</h2>
           <p>
             Please note that we reserve the right to revise or amend these terms
             at any time to reflect changes to our business or changes in law. It
             is your responsibility to check these Terms and Conditions before
             each use of the Website.
           </p>
-          <p>We may change our Website</p>
+          <h2 className="font-gilroy-bold text-[20px]">We may change our Website</h2>
           <p>
             We may update and change our Website from time to time to reflect
             changes to our products or services, our users’ needs, our business
             priorities or for any other reason.
           </p>
-          <p>We may suspend or withdraw the Website</p>
+          <h2 className="font-gilroy-bold text-[20px]">We may suspend or withdraw the Website</h2>
           <p>Our Website is made available free of charge. </p>
           <p>
             We do not guarantee that our Website, or any content on it, will
@@ -100,7 +100,7 @@ const WebsiteTermsPage = () => {
             or restrict the availability of all or any part of our Website for
             business and operational reasons.
           </p>
-          <p>Your responsibilities</p>
+          <h2 className="font-gilroy-bold text-[20px]">Your responsibilities</h2>
           <p>When using this Website, you agree:</p>
           <p>- to only use this Website for lawful purposes;</p>
           <p>
@@ -116,9 +116,9 @@ const WebsiteTermsPage = () => {
             systems for unauthorised mass-communication such as “spam” or “junk
             email”.
           </p>
-          <p>
+          <h2 className="font-gilroy-bold text-[20px]">
             We are not responsible for viruses and you must not introduce them
-          </p>
+          </h2>
           <p>
             We do not guarantee that the Website will be secure or free from
             bugs or viruses. You are responsible for configuring your
@@ -139,7 +139,7 @@ const WebsiteTermsPage = () => {
             disclosing your identity to them. In the event of such a breach,
             your right to use our Website will cease immediately.
           </p>
-          <p>How you may use material on our Website</p>
+          <h2 className="font-gilroy-bold text-[20px]">How you may use material on our Website</h2>
           <p>
             We are the owners and/or the licensees of all intellectual property
             rights inherent in the Website, and in the material published on it
@@ -182,12 +182,12 @@ const WebsiteTermsPage = () => {
             cease immediately and you must, at our option, return or destroy any
             copies of the materials you have made.
           </p>
-          <p>How we may use your personal information</p>
+          <h2 className="font-gilroy-bold text-[20px]">How we may use your personal information</h2>
           <p>
             We will use your personal information as set out in our Privacy
             Notice.
           </p>
-          <p>Uploading content to our Website</p>
+          <h2 className="font-gilroy-bold text-[20px]">Uploading content to our Website</h2>
           <p>
             Whenever you make use of a feature that allows you to upload content
             to our Website, or to make contact with us or other users of the
@@ -242,7 +242,7 @@ const WebsiteTermsPage = () => {
           <p>
             You are solely responsible for securing and backing up your content.
           </p>
-          <p>Do not rely on information on the Website</p>
+          <h2 className="font-gilroy-bold text-[20px]">Do not rely on information on the Website</h2>
           <p>
             The content on our Website is provided for general information only.
             It is not intended to amount to advice on which you should rely. You
@@ -256,7 +256,7 @@ const WebsiteTermsPage = () => {
             whether express or implied, that the content on our Website is
             accurate, complete or up to date.
           </p>
-          <p>Indemnity</p>
+          <h2 className="font-gilroy-bold text-[20px]">Indemnity</h2>
           <p>
             You acknowledge that you must comply with the responsibilities set
             out herein and that if you breach any of these Terms and Conditions
@@ -270,7 +270,7 @@ const WebsiteTermsPage = () => {
             expenses including legal fees which are reasonably incurred by us
             should you breach any of these Terms and Conditions.
           </p>
-          <p>Limitation of our liability</p>
+          <h2 className="font-gilroy-bold text-[20px]">Limitation of our liability</h2>
           <p>
             Nothing in these Terms and Conditions excludes or limits our
             liability for death or personal injury arising from our negligence,
@@ -316,7 +316,7 @@ const WebsiteTermsPage = () => {
             Website or to your downloading of any content from it, or from any
             Website linked to it.
           </p>
-          <p>Events outside our control</p>
+          <h2 className="font-gilroy-bold text-[20px]">Events outside our control</h2>
           <p>
             We will not be liable or responsible for any failure to perform, or
             delay in performance or, any of our obligations under these Terms
@@ -340,7 +340,7 @@ const WebsiteTermsPage = () => {
             for performance of our obligations will be extended for the duration
             of the Event Outside Our Control.
           </p>
-          <p>Linking to the Website</p>
+          <h2 className="font-gilroy-bold text-[20px]">Linking to the Website</h2>
           <p>
             You may link to our home page, provided you do so in a way that is
             fair and legal and does not damage our reputation or take advantage
@@ -364,7 +364,7 @@ const WebsiteTermsPage = () => {
             and you agree to take all necessary steps to remove any links to the
             Website following a request from us to do so.
           </p>
-          <p>Third party website links &amp; resources in the Website</p>
+          <h2 className="font-gilroy-bold text-[20px]">Third party website links &amp; resources in the Website</h2>
           <p>
             Where the Website contains links to other sites and resources
             provided by third parties, these links are provided for your
@@ -380,7 +380,7 @@ const WebsiteTermsPage = () => {
             from the Website. We will not be liable for any loss or damage that
             may arise from your use of them.
           </p>
-          <p>Applicable law and jurisdiction </p>
+          <h2 className="font-gilroy-bold text-[20px]">Applicable law and jurisdiction </h2>
           <p>
             Please note that the Terms and Conditions, and its subject matter
             are governed by English law. You and we both agree that the courts

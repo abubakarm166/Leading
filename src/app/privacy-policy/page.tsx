@@ -28,17 +28,17 @@ const PrivacyPolicyPage = () => {
       <Navbar />
       <div className="px-5 lg:px-[100px] mt-[50px]">
         <div className="flex flex-col gap-y-3 font-gilroy-regular text-[18px]">
-          <p>
+          <h2 className="font-gilroy-bold text-[20px]">
             Privacy Policy for Lending Bridge Holdings Limited T/a Lending
             Bridge
-          </p>
+          </h2>
           <p>
             At Lending Bridge, we are committed to protecting the privacy of our
             website visitors and customers. This privacy policy outlines the
             types of personal information we collect, how we use that
             information, and how we protect your privacy.
           </p>
-          <p>Collection of Personal Information</p>
+          <h2 className="font-gilroy-bold text-[20px]">Collection of Personal Information</h2>
           <p>
             We may collect personal information from you when you visit our
             website or use our services. The types of personal information we
@@ -46,7 +46,7 @@ const PrivacyPolicyPage = () => {
             financial information, and other information related to your use of
             our services.
           </p>
-          <p>Use of Personal Information</p>
+          <h2 className="font-gilroy-bold text-[20px]">Use of Personal Information</h2>
           <p>We may use your personal information to:</p>
           <p>- Provide and improve our services to you</p>
           <p>- Respond to your inquiries or requests</p>
@@ -60,14 +60,14 @@ const PrivacyPolicyPage = () => {
             We may also use your personal information for other purposes that
             are disclosed to you and to which you have consented.
           </p>
-          <p>Protection of Personal Information</p>
+          <h2 className="font-gilroy-bold text-[20px]">Protection of Personal Information</h2>
           <p>
             We take reasonable measures to protect your personal information
             from unauthorized access, use, or disclosure. We use
             industry-standard security measures, including physical, technical,
             and administrative safeguards, to protect your personal information.
           </p>
-          <p>Disclosure of Personal Information</p>
+          <h2 className="font-gilroy-bold text-[20px]">Disclosure of Personal Information</h2>
           <p>
             We may share your personal information with third-party service
             providers who perform services on our behalf, such as payment
@@ -82,7 +82,7 @@ const PrivacyPolicyPage = () => {
             required to do so by law or if we believe that such disclosure is
             necessary to protect our rights or the rights of others.
           </p>
-          <p>Your Rights and Choices</p>
+          <h2 className="font-gilroy-bold text-[20px]">Your Rights and Choices</h2>
           <p>
             You have the right to access and correct your personal information
             that we hold, subject to certain limitations under applicable law.
@@ -95,14 +95,14 @@ const PrivacyPolicyPage = () => {
             from us by following the instructions in the communication or by
             contacting us directly.
           </p>
-          <p>Changes to this Privacy Policy</p>
+          <h2 className="font-gilroy-bold text-[20px]">Changes to this Privacy Policy</h2>
           <p>
             We may update this privacy policy from time to time to reflect
             changes in our practices or applicable laws. We encourage you to
             review this privacy policy periodically to stay informed about how
             we are protecting your personal information.
           </p>
-          <p>Contact Us</p>
+          <h2 className="font-gilroy-bold text-[20px]">Contact Us</h2>
           <p>
             If you have any questions or concerns about this privacy policy or
             our privacy practices, please contact us at{" "}

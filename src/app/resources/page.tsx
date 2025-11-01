@@ -9,6 +9,7 @@ import { listFiles } from "@/utils/api/files";
 import { useEffectAsync } from "@/utils/hooks";
 import Image from "next/image";
 import { useState } from "react";
+import toast from "react-hot-toast";
 const ResourcesPage = () => {
   const [resources, setResources] = useState<Resource[]>([]);
 
@@ -18,6 +19,8 @@ const ResourcesPage = () => {
 
       if (item) {
         window.open(item.file, "_blank");
+      } else {
+        toast.error('No files found')
       }
     }
   };
@@ -90,6 +93,19 @@ const ResourcesPage = () => {
               />
               <p className="font-gilroy-bold font-bold text-[20px] mt-[10px] mb-[30px]">Application Form</p>
               <Button onClick={() => handleDownload("applicationForm")}>
+                <p className="text-white text-[15px]">DOWNLOAD</p>
+              </Button>
+            </div>
+            <div className="w-[350px] h-[300px] bg-white rounded-[32px] flex flex-col items-center justify-center">
+              <Image
+                src="/gif/review.gif"
+                width={120}
+                height={120}
+                alt="gif"
+                className="w-[120px] h-[120px] object-contain"
+              />
+              <p className="font-gilroy-bold font-bold text-[20px] mt-[10px] mb-[30px]">Reviews</p>
+              <Button onClick={() => handleDownload("reviews")}>
                 <p className="text-white text-[15px]">DOWNLOAD</p>
               </Button>
             </div>

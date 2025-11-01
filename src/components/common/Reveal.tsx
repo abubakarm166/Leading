@@ -43,7 +43,7 @@ const Reveal: React.FC<Props> = ({
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ duration: 0.2, delay }}
+        transition={{ duration: 0.1, delay }}
         className={motionContainerClassName}
       >
         {children}
