@@ -27,6 +27,7 @@ const ComplaintsPage = () => {
         <Navbar />
         <div className="px-5 lg:px-[100px] mt-[50px]">
             <div className="flex flex-col gap-y-3 font-gilroy-regular text-[18px]">
+                <h1 className="font-gilroy-bold text-[20px] md:text-[32px]">Complaints</h1>
                 <p>We take customer experience and feedback very seriously and aim to maintain very
                 high levels of service at all times. But occasionally, you may feel that our service has
                 not met your expectations, and you want to raise this with us.</p>

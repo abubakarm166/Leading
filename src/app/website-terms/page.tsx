@@ -28,6 +28,7 @@ const WebsiteTermsPage = () => {
       <Navbar />
       <div className="px-5 lg:px-[100px] mt-[50px]">
         <div className="flex flex-col gap-y-3 font-gilroy-regular text-[18px]">
+          <h1 className="font-gilroy-bold text-[20px] md:text-[32px]">Website Terms</h1>
           <p>
             THESE TERMS AND CONDITIONS APPLY TO ALL USE OF THE WEBSITE. IF YOU
             PROCEED TO USE THE WEBSITE, YOU WILL BE DEEMED TO HAVE ACCEPTED THE

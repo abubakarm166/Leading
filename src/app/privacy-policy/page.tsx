@@ -28,10 +28,10 @@ const PrivacyPolicyPage = () => {
       <Navbar />
       <div className="px-5 lg:px-[100px] mt-[50px]">
         <div className="flex flex-col gap-y-3 font-gilroy-regular text-[18px]">
-          <h2 className="font-gilroy-bold text-[20px]">
+          <h1 className="font-gilroy-bold text-[20px] md:text-[32px]">
             Privacy Policy for Lending Bridge Holdings Limited T/a Lending
             Bridge
-          </h2>
+          </h1>
           <p>
             At Lending Bridge, we are committed to protecting the privacy of our
             website visitors and customers. This privacy policy outlines the
