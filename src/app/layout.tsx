@@ -1,4 +1,5 @@
 import MobileNav from "@/components/common/MobileNav";
+import type { Metadata } from "next";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/zoom.css";
 import { Geist, Geist_Mono, League_Spartan, Nunito_Sans } from "next/font/google";
@@ -33,6 +34,23 @@ const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
   weight: ["900"],
 });
+
+export const metadata: Metadata = {
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
 
 export default function RootLayout({
   children,

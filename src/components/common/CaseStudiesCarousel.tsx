@@ -1,3 +1,4 @@
+"use client";
 import { TCaseStudy } from "@/types";
 import { listCaseStudies } from "@/utils/api/caseStudy";
 import { useEffectAsync } from "@/utils/hooks";
@@ -28,7 +29,9 @@ const CastStudyItem = ({ item }: { item: TCaseStudy }) => {
           <p className="font-gilroy-bold text-[18px] w-[40%]">Location</p>
           <p className="w-[15%]">:</p>
           <p className="font-gilroy-regular text-[18px] text-primary">
-            {item?.location?.length > 10 ? `${item?.location?.slice(0, 10)}...` : item?.location}
+            {item?.location?.length > 10
+              ? `${item?.location?.slice(0, 10)}...`
+              : item?.location}
           </p>
         </div>
         <div className="flex flex-row items-center">
@@ -41,20 +44,28 @@ const CastStudyItem = ({ item }: { item: TCaseStudy }) => {
         <div className="flex flex-row items-center">
           <p className="font-gilroy-bold text-[18px] w-[40%]">LTV</p>
           <p className="w-[15%]">:</p>
-          <p className="font-gilroy-regular text-[18px] text-primary">{item?.ltv}%</p>
+          <p className="font-gilroy-regular text-[18px] text-primary">
+            {item?.ltv}%
+          </p>
         </div>
         {item?.propertyType && (
           <div className="flex flex-row items-center">
-            <p className="font-gilroy-bold text-[18px] w-[40%]">Property Type</p>
+            <p className="font-gilroy-bold text-[18px] w-[40%]">
+              Property Type
+            </p>
             <p className="w-[15%]">:</p>
-            <p className="font-gilroy-regular text-[18px] text-primary">{item?.propertyType}</p>
+            <p className="font-gilroy-regular text-[18px] text-primary">
+              {item?.propertyType}
+            </p>
           </div>
         )}
         {item?.dealType && (
           <div className="flex flex-row items-center">
             <p className="font-gilroy-bold text-[18px] w-[40%]">Type of Deal</p>
             <p className="w-[15%]">:</p>
-            <p className="font-gilroy-regular text-[18px] text-primary">{item?.dealType}</p>
+            <p className="font-gilroy-regular text-[18px] text-primary">
+              {item?.dealType}
+            </p>
           </div>
         )}
         {formattedContent.length > 0 ? (
@@ -62,13 +73,17 @@ const CastStudyItem = ({ item }: { item: TCaseStudy }) => {
             <p
               className="mt-5 font-gilroy-regular text-[16px]"
               dangerouslySetInnerHTML={{
-                __html: `${item?.description?.slice(0, 160)}${item?.description?.length > 160 ? "..." : ""}`,
+                __html: `${item?.description?.slice(0, 160)}${
+                  item?.description?.length > 160 ? "..." : ""
+                }`,
               }}
             />
             <button
               className="text-primary mt-auto font-gilroy-medium cursor-pointer inline"
               // onClick={() => openViewMoreModal(item)}
-              onClick={() => window.open(`/case-studies/${item.slug || item?.id}`, '_blank')}
+              onClick={() =>
+                window.open(`/case-studies/${item.slug || item?.id}`, "_blank")
+              }
             >
               <p>Read More</p>
             </button>
@@ -134,7 +149,11 @@ const CaseStudiesCarousel = () => {
           width={40}
           height={40}
           alt="chevron-left"
-          className={`w-10 h-10 ${isAtStart ? "opacity-20 cursor-not-allowed" : "opacity-100 cursor-pointer"}`}
+          className={`w-10 h-10 ${
+            isAtStart
+              ? "opacity-20 cursor-not-allowed"
+              : "opacity-100 cursor-pointer"
+          }`}
           onClick={() => sliderRef.current?.slickPrev()}
         />
         <Image
@@ -142,7 +161,11 @@ const CaseStudiesCarousel = () => {
           width={40}
           height={40}
           alt="chevron-right"
-          className={`w-10 h-10 ${isAtEnd ? "opacity-20 cursor-not-allowed" : "opacity-100 cursor-pointer"}`}
+          className={`w-10 h-10 ${
+            isAtEnd
+              ? "opacity-20 cursor-not-allowed"
+              : "opacity-100 cursor-pointer"
+          }`}
           onClick={() => sliderRef.current?.slickNext()}
         />
       </div>

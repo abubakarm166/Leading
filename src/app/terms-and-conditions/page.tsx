@@ -3,23 +3,27 @@ import ContactUs from "@/components/common/ContactUs";
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
 
-export const generateMetadata = () => {
-  const url = "https://www.lendingbridge.co.uk/terms-and-conditions";
-
-  return {
-    title: "Terms and Conditions",
-    description: "Terms and Conditions page for lending bridge",
-    alternates: {
-      canonical: url,
-    },
-    openGraph: {
-      title: "Terms and Conditions",
-      description: "Terms and Conditions page for lending bridge",
-      url,
-      type: "article",
-      siteName: "Lending Bridge",
-    },
-  };
+export const metadata = {
+  title: "Terms & Conditions | Lending Bridge UK",
+  description:
+    "We follow strict data protection standards to ensure your details remain secure and confidential at all times.",
+  alternates: {
+    canonical: "https://www.lendingbridge.co.uk/terms-and-conditions",
+  },
+  openGraph: {
+    title: "Terms & Conditions | Lending Bridge UK",
+    description:
+      "We follow strict data protection standards to ensure your details remain secure and confidential at all times.",
+    url: "https://www.lendingbridge.co.uk/terms-and-conditions",
+    type: "website",
+    siteName: "Lending Bridge",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms & Conditions | Lending Bridge UK",
+    description:
+      "We follow strict data protection standards to ensure your details remain secure and confidential at all times.",
+  },
 };
 
 const TermsConditionsPage = () => {
@@ -33,11 +37,11 @@ const TermsConditionsPage = () => {
             Bridge
           </h1>
           <p>
-            These terms and conditions (&quot;Agreement&quot;) govern your use of Lending
-            Bridge Holdings Limited T/a Lending Bridge website and services
-            (&quot;Services&quot;). By using the Services, you agree to be bound by this
-            Agreement. If you do not agree to this Agreement, you may not use
-            the Services.
+            These terms and conditions (&quot;Agreement&quot;) govern your use
+            of Lending Bridge Holdings Limited T/a Lending Bridge website and
+            services (&quot;Services&quot;). By using the Services, you agree to
+            be bound by this Agreement. If you do not agree to this Agreement,
+            you may not use the Services.
           </p>
           <h2 className="font-gilroy-bold text-[20px]">- Use of Services</h2>
           <p>
@@ -74,7 +78,9 @@ const TermsConditionsPage = () => {
             for certain Services, such as loan application fees or late payment
             fees. You agree to pay all fees and charges in a timely manner.
           </p>
-          <h2 className="font-gilroy-bold text-[20px]">- Intellectual Property</h2>
+          <h2 className="font-gilroy-bold text-[20px]">
+            - Intellectual Property
+          </h2>
           <p>
             The Services and all content and materials on the Lending Bridge
             Holdings Limited T/a Lending Bridge website, including but not
@@ -86,14 +92,19 @@ const TermsConditionsPage = () => {
             website without the express written consent of Lending Bridge
             Holdings T/a Lending Bridge.
           </p>
-          <h2 className="font-gilroy-bold text-[20px]">- Disclaimer of Warranties</h2>
+          <h2 className="font-gilroy-bold text-[20px]">
+            - Disclaimer of Warranties
+          </h2>
           <p>
-            The Services are provided &quot;as is&quot; and without warranty of any kind,
-            express or implied. Lending Bridge Holdings Limited T/a Lending
-            Bridge does not warrant that the Services will be uninterrupted or
-            error-free, or that any defects in the Services will be corrected.
+            The Services are provided &quot;as is&quot; and without warranty of
+            any kind, express or implied. Lending Bridge Holdings Limited T/a
+            Lending Bridge does not warrant that the Services will be
+            uninterrupted or error-free, or that any defects in the Services
+            will be corrected.
           </p>
-          <h2 className="font-gilroy-bold text-[20px]">- Limitation of Liability</h2>
+          <h2 className="font-gilroy-bold text-[20px]">
+            - Limitation of Liability
+          </h2>
           <p>
             To the maximum extent permitted by law, Lending Bridge Holdings
             Limited T/a Lending Bridge and its affiliates, officers, directors,
@@ -108,9 +119,9 @@ const TermsConditionsPage = () => {
             You agree to indemnify and hold harmless Lending Bridge Holdings
             Limited T/a Lending Bridge and its affiliates, officers, directors,
             employees, and agents from any and all claims, damages, liabilities,
-            costs, and expenses (including reasonable attorneys&apos; fees) arising
-            out of or in connection with your use of the Services or your breach
-            of this Agreement.
+            costs, and expenses (including reasonable attorneys&apos; fees)
+            arising out of or in connection with your use of the Services or
+            your breach of this Agreement.
           </p>
           <h2 className="font-gilroy-bold text-[20px]">- Termination</h2>
           <p>
@@ -119,7 +130,9 @@ const TermsConditionsPage = () => {
             any reason without notice. Upon termination, you must immediately
             cease all use of the Services.
           </p>
-          <h2 className="font-gilroy-bold text-[20px]">- Governing Law and Jurisdiction</h2>
+          <h2 className="font-gilroy-bold text-[20px]">
+            - Governing Law and Jurisdiction
+          </h2>
           <p>
             This Agreement shall be governed by and construed in accordance with
             the laws of England and Wales, and any disputes arising out of or in

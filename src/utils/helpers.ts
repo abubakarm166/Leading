@@ -59,7 +59,9 @@ export const sendMail = async ({
         name,
         email,
         phone: number,
-        message: `This user has entered the following details - ${JSON.stringify(msgObject)}`,
+        message: `This user has entered the following details - ${JSON.stringify(
+          msgObject
+        )}`,
         from: process.env.NEXT_PUBLIC_MAIL_ADDRESS,
         to: process.env.NEXT_PUBLIC_MAIL_ADDRESS,
       },
@@ -75,13 +77,58 @@ export const sendMail = async ({
   }
 };
 
-export const validateFormInputs = (values: { name: string; number: string; email: string; message: string }) => {
+export const validateFormInputs = (values: {
+  name: string;
+  number: string;
+  email: string;
+  message: string;
+  propertyValue: string;
+  loanRequired: string;
+  loanPurpose: string;
+  propertyAddress: string;
+}) => {
   const errors: typeof values = {
     name: "",
     number: "",
     email: "",
     message: "",
+    propertyValue: "",
+    loanRequired: "",
+    loanPurpose: "",
+    propertyAddress: "",
   };
+
+  if (!values.name) {
+    errors.name = "Please enter your name";
+  }
+
+  if (!values.message) {
+    errors.message = "Please enter your message";
+  }
+
+  if (!values.propertyValue) {
+    errors.propertyValue = "Please enter the property value";
+  }
+
+  if (!values.loanRequired) {
+    errors.loanRequired = "Please enter the amount of loan required";
+  }
+
+  if (!values.loanPurpose) {
+    errors.loanPurpose = "Please select the purpose of the loan";
+  }
+
+  if (!values.propertyAddress) {
+    errors.propertyAddress = "Please enter the property address";
+  }
+
+  if (!/^\d+$/.test(values.propertyValue)) {
+    errors.propertyValue = "Please enter the property value";
+  }
+
+  if (!/^\d+$/.test(values.loanRequired)) {
+    errors.loanRequired = "Please enter the net loan required";
+  }
 
   if (!values.number.match(/^[+]?[1-9]\d{1,14}$/)) {
     errors.number = "Please enter a valid number";

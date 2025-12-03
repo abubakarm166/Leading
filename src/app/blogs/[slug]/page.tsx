@@ -21,20 +21,33 @@ export async function generateMetadata(props: { params: BlogPageProps }) {
   }
 
   const url = `https://www.lendingbridge.co.uk/blogs/${params.slug}`;
+  
+  // Truncate title to ensure total length (with " | Lending Bridge") is max 65 characters
+  const maxTitleLength = 45; // Leave room for " | Lending Bridge" (18 chars)
+  const truncatedTitle = blog.title.length > maxTitleLength 
+    ? `${blog.title.slice(0, maxTitleLength).trim()}...` 
+    : blog.title;
+  const pageTitle = `${truncatedTitle} | Lending Bridge`;
 
   return {
-    title: `${blog.title} | Lending Bridge`,
+    title: pageTitle,
     description: blog.metaDescription || blog.content.slice(0, 150),
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: `${blog.title} | Lending Bridge`,
+      title: pageTitle,
       description: blog.metaDescription || blog.content.slice(0, 150),
       url,
       type: "article",
       siteName: "Lending Bridge",
       images: blog.img ? [{ url: blog.img, width: 1200, height: 630 }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: truncatedTitle,
+      description: blog.metaDescription || blog.content.slice(0, 150),
+      images: blog.img ? [blog.img] : [],
     },
   };
 }

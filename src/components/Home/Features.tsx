@@ -23,9 +23,10 @@ const Features = () => {
             >
               <Image
                 src={item.img}
-                width={200}
-                height={200}
+                width={120}
+                height={120}
                 alt="feature"
+                sizes="(max-width: 1024px) 60px, 120px"
                 className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] lg:w-[80px] 2xl:w-[120px] lg:h-[80px] 2xl:h-[120px] object-contain"
               />
               <p
@@ -61,6 +62,7 @@ const Features = () => {
             width={400}
             height={300}
             alt="feature content"
+            sizes="(max-width: 640px) 280px, (max-width: 1024px) 340px, 480px"
             className="w-[280px] sm:w-[340px] lg:w-[380px] 2xl:w-[480px] h-auto object-contain"
           />
         </Reveal>

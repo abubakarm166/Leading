@@ -6,10 +6,18 @@ export const metadata = {
   title: "Contact Lending Bridge UK | Trusted Bridging Loan Experts",
   description:
     "Need help with bridging loans in the UK? Contact Lending Bridge for prompt, expert assistance and smooth financing solutions.",
-  keywords: ["bridging loan", "property finance", "latest news", "insights", "market trends", "investment opportunities"],
+  keywords: [
+    "bridging loan",
+    "property finance",
+    "latest news",
+    "insights",
+    "market trends",
+    "investment opportunities",
+  ],
 
   // ✅ Robots meta
-  robots: "INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1",
+  robots:
+    "INDEX, FOLLOW, MAX-IMAGE-PREVIEW:LARGE, MAX-SNIPPET:-1, MAX-VIDEO-PREVIEW:-1",
 
   // ✅ Canonical URL
   alternates: {
@@ -28,6 +36,11 @@ const ContactUsPage = () => {
     <>
       <main className="bg-primary-bg">
         <Navbar />
+        <div className="px-5 lg:px-[100px] pt-[50px]">
+          <h1 className="font-league-spartan font-bold text-[50px] lg:text-[70px] text-primary">
+            Enquire Now
+          </h1>
+        </div>
         <ContactUs noBorder />
         <Footer />
       </main>

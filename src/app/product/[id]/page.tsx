@@ -30,16 +30,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  // Truncate description to max 158 characters as per SEO best practices
+  // const maxDescriptionLength = 158;
+  // const truncatedDescription = product.content.length > maxDescriptionLength
+  //   ? `${product.content.slice(0, maxDescriptionLength).trim()}...`
+  //   : product.content;
+
   return {
-    title: `${product.title} | Lending Bridge`,
-    description: product.content,
+    title: product.metadata.title,
+    description: product.metadata.description,
     robots: "INDEX, FOLLOW",
     alternates: {
       canonical: `https://www.lendingbridge.co.uk/product/${product.slug}`,
     },
     openGraph: {
-      title: product.title,
-      description: product.content,
+      title: product.metadata.title,
+      description: product.metadata.description,
       images: [
         {
           url: `https://www.lendingbridge.co.uk${product.img}`,
@@ -51,8 +57,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: product.title,
-      description: product.content,
+      title: product.metadata.title,
+      description: product.metadata.description,
       images: [`https://www.lendingbridge.co.uk${product.img}`],
     },
   };

@@ -3,23 +3,27 @@ import ContactUs from "@/components/common/ContactUs";
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
 
-export const generateMetadata = () => {
-  const url = "https://www.lendingbridge.co.uk/cookie-policy";
-
-  return {
-    title: "Cookie Policy",
-    description: "Cookie policy for lending bridge",
-    alternates: {
-      canonical: url,
-    },
-    openGraph: {
-      title: "Cookie Policy",
-      description: "Cookie policy for lending bridge",
-      url,
-      type: "article",
-      siteName: "Lending Bridge",
-    },
-  };
+export const metadata = {
+  title: "Cookie Policy | Lending Bridge UK",
+  description:
+    "Learn how we use cookies to improve website performance and user experience. You can review and update your cookie preferences anytime.",
+  alternates: {
+    canonical: "https://www.lendingbridge.co.uk/cookie-policy",
+  },
+  openGraph: {
+    title: "Cookie Policy | Lending Bridge UK",
+    description:
+      "Learn how we use cookies to improve website performance and user experience. You can review and update your cookie preferences anytime.",
+    url: "https://www.lendingbridge.co.uk/cookie-policy",
+    type: "website",
+    siteName: "Lending Bridge",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cookie Policy | Lending Bridge UK",
+    description:
+      "Learn how we use cookies to improve website performance and user experience. You can review and update your cookie preferences anytime.",
+  },
 };
 
 const CookiePolicyPage = () => {

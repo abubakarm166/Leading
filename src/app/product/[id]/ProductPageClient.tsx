@@ -4,6 +4,7 @@ import Reveal from "@/components/common/Reveal";
 import { PRODUCT_KEY_INFO, PRODUCTS } from "@/utils/constants";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useMemo } from "react";
 
 const ProductKeyInfo = () => {
   return (
@@ -15,7 +16,7 @@ const ProductKeyInfo = () => {
         {PRODUCT_KEY_INFO.map((item) => (
           <Reveal key={item.id} delay={0.2 * item.id} motionContainerClassName="flex min-h-full">
             <div className={`lg:pl-10 ${item.id % 3 === 0 ? "border-none" : "lg:border-r-[0.5px]"} border-r-[#8B8B8B]`}>
-              <Image src={item.img} width={75} height={75} alt="item" className="w-[75px] h-[75px] object-contain" />
+              <Image src={item.img} width={75} height={75} alt="item" sizes="75px" className="w-[75px] h-[75px] object-contain" />
               <p className="font-league-spartan font-semibold text-[20px] text-black mt-5">{item.title}</p>
               <div className="max-w-[70%] lg:max-w-[80%] 2xl:max-w-[70%]">
                 <p className="font-gilroy-regular font-extralight text-[18px] my-5">{item.content}</p>
@@ -58,7 +59,7 @@ const ProductHighlights = ({ id }: { id: string }) => {
           product.highlights.map((el, idx) => (
             <Reveal delay={0.2} key={idx} className="lg:mt-10">
               <div className="w-[225px] h-[225px] bg-white rounded-[32px] flex items-center justify-center flex-col px-5">
-                <Image src={el.img} width={120} height={120} alt="discount" className="w-[120px] h-[120px] object-contain" />
+                <Image src={el.img} width={120} height={120} alt="discount" sizes="120px" className="w-[120px] h-[120px] object-contain" />
                 <p className="font-gilroy-regular text-[14px] font-extralight mt-[6px] text-center">{el.title}</p>
               </div>
             </Reveal>
@@ -70,7 +71,11 @@ const ProductHighlights = ({ id }: { id: string }) => {
 
 const ProductHero = ({ id }: { id: string }) => {
   const router = useRouter();
-  const product = PRODUCTS.find((p) => p.slug === id);
+  // const product = PRODUCTS.find((p) => p.slug === id);
+
+  const product = useMemo(() => {
+    return PRODUCTS.find(p => p.slug === id);
+  }, [id])
 
   const handleOnCalculatorClick = () => {
     const calc = document.getElementById("calculator");
@@ -90,9 +95,9 @@ const ProductHero = ({ id }: { id: string }) => {
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="my-[50px] text-[16px] 2xl:text-[25px] font-gilroy-regular font-extralight max-w-full lg:max-w-[60%]">
-              {product?.content}
-            </p>
+            <p className="my-[50px] text-[16px] 2xl:text-[25px] font-gilroy-regular font-extralight max-w-full lg:max-w-[60%]" dangerouslySetInnerHTML={{__html: product?.content as string}} />
+              {/* {product?.content}
+            </p> */}
           </Reveal>
           <Reveal delay={0.4}>
             <div className="flex flex-row items-center space-x-5">

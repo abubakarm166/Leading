@@ -4,16 +4,19 @@
   @font-face {
     font-family: "gilroy-bold";
     src: url("/fonts/Gilroy-Bold.woff") format("woff");
+    font-display: swap;
   }
 
   @font-face {
     font-family: "gilroy-medium";
     src: url("/fonts/Gilroy-Medium.woff") format("woff");
+    font-display: swap;
   }
 
   @font-face {
     font-family: "gilroy-regular";
     src: url("/fonts/Gilroy-Regular.woff") format("woff");
+    font-display: swap;
   }
 }
 

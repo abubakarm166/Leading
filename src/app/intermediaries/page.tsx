@@ -224,7 +224,7 @@ const BrokerPage = () => {
               <Reveal delay={0.2}>
                 <p className="text-[18px] lg:text-[25px] font-extralight font-gilroy-regular mt-[30px] max-w-full lg:max-w-[60%]">
                   We place brokers at the core of everything we do. We keep you updated on any changes in policies and rates,
-                  ensuring that you&apos;re always in the loop. With Lending Bridge, brokers receive Introducer Fees and Proc Fees
+                  ensuring that you&apos;re always in the loop. With <a href='https://lendingbridge.co.uk' target="_blank" rel="noopener noreferrer"><u>Lending Bridge</u></a>, brokers receive Introducer Fees and Proc Fees
                   on the same day as completion, creating a seamless process from start to finish.
                 </p>
               </Reveal>

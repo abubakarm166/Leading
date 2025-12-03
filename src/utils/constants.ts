@@ -79,6 +79,8 @@ export const PRODUCTS = [
       "Our Residential Bridging Product can help you provide the immediate capital you might need to secure a Residential OR BTL Property seeking assistance with an auction purchase or addressing a short-term gap in your cash shortage. Our tailored solutions are designed to meet your needs seamlessly.",
     img: "/svg/product-one.svg",
     slug: slugify("Residential Bridges & BTL Bridges".toLowerCase()),
+    metaDescription:
+      "Get up to 70% LTV residential & BTL bridging loans in the UK. Fast approvals, flexible terms, and expert support. Contact Now",
     highlights: [
       {
         title: "Up to 70% LTV",
@@ -97,14 +99,21 @@ export const PRODUCTS = [
         img: "/gif/home.gif",
       },
     ],
+    metadata: {
+      title: "Residential & BTL Bridging Loans  | Lending Bridge",
+      description:
+        "Get up to 70% LTV residential & BTL bridging loans in the UK. Fast approvals, flexible terms, and expert support. Contact Now",
+    },
   },
   {
     id: 2,
     title: "Commercial Bridge Loans",
     content:
-      "Our Bridging Loans for Commercial Properties cater to both, individuals and businesses with a versatile funding option. Whether you're acquiring property, financing redevelopment projects, navigating changes in use, or leveraging existing assets to raise capital, we're here to assist every step of the way.",
+      'Our <a href="https://www.lendingbridge.co.uk/blogs/what-is-bridging-loan-fast-flexible-finance" target="_blank" rel="noopener noreferrer"><u>Bridging Loans</u></a> for Commercial Properties cater to both, individuals and businesses with a versatile funding option. Whether you\'re acquiring property, financing redevelopment projects, navigating changes in use, or leveraging existing assets to raise capital, we\'re here to assist every step of the way.',
     img: "/svg/product-two.svg",
     slug: slugify("Commercial Bridge Loans".toLowerCase()),
+    metaDescription:
+      "Access up to 70% LTV commercial bridge loans in the UK. Quick quotes, relaxed criteria, and expert support from Lending Bridge.",
     highlights: [
       {
         title: "Up to 70% LTV",
@@ -119,6 +128,11 @@ export const PRODUCTS = [
         img: "/gif/money.gif",
       },
     ],
+    metadata: {
+      title: "Commercial Bridge Loans | Fast, Flexible Property Funding",
+      description:
+        "Access up to 70% LTV commercial bridge loans in the UK. Quick quotes, relaxed criteria, and expert support from Lending Bridge.",
+    },
   },
   {
     id: 3,
@@ -127,6 +141,8 @@ export const PRODUCTS = [
       "Our Semi-commercial Bridging Products can help you seamlessly cover purchase or refinance any semi-commercial properties. Whether you're acquiring a property, funding light refurb, or raising capital from existing assets, we're here to help every step of the way.",
     img: "/svg/product-three.svg",
     slug: slugify("Semi-Commercial Bridges".toLowerCase()),
+    metaDescription:
+      "Fast, stress-free bridging loans for semi-commercial projects. Competitive rates, expert guidance, and simple application process.",
     highlights: [
       {
         title: "Up to 70% LTV",
@@ -141,6 +157,11 @@ export const PRODUCTS = [
         img: "/gif/money.gif",
       },
     ],
+    metadata: {
+      title: "Flexible Semi-Commercial Bridge Loans |  Lending Bridge",
+      description:
+        "Fast, stress-free bridging loans for semi-commercial projects. Competitive rates, expert guidance, and simple application process.",
+    },
   },
   {
     id: 4,
@@ -149,6 +170,8 @@ export const PRODUCTS = [
       "Sometimes, small upgrades on your property is everything you need to maximise the value of your projects. Our Light Refurbs Bridging Product is the right fit to help you execute your conversion plans.",
     img: "/svg/product-four.svg",
     slug: slugify("Light Refurbs Bridges".toLowerCase()),
+    metaDescription:
+      "Efficient and stress-free light refurbishment bridge loans for UK properties. Quick quotes, relaxed lending criteria, apply today.",
     highlights: [
       {
         title: "First and Second Charges Accepted",
@@ -171,6 +194,11 @@ export const PRODUCTS = [
         img: "/gif/home.gif",
       },
     ],
+    metadata: {
+      title: "Light Refurbishment Bridging Finance | Lending Bridge",
+      description:
+        "Efficient and stress-free light refurbishment bridge loans for UK properties. Quick quotes, relaxed lending criteria, apply today.",
+    },
   },
   {
     id: 5,
@@ -179,6 +207,8 @@ export const PRODUCTS = [
       "We understand that Properties bought at an Auction requires very quick processing times because of the standard 28-day payment term. Our Specialty of Fast Processing makes us the perfect partner to handle these loans for you or your clients.",
     img: "/svg/product-five-updated.svg",
     slug: slugify("Auction Bridging Finance".toLowerCase()),
+    metaDescription:
+      "Secure quick auction bridging finance in the UK with 5-day completions. CCJ & bad credit accepted. Apply with Lending Bridge",
     highlights: [
       {
         title: "Up to 70% LTV",
@@ -197,14 +227,21 @@ export const PRODUCTS = [
         img: "/gif/calendar.gif",
       },
     ],
+    metadata: {
+      title: "Auction Bridging Finance | Fast Property Auction Loans",
+      description:
+        "Secure quick auction bridging finance in the UK with 5-day completions. CCJ & bad credit accepted. Apply with Lending Bridge",
+    },
   },
   {
     id: 6,
     title: "Refinance Bridge Loans",
     content:
-      "At Lending Bridge, we help you overcome these hurdles. Our Bridging Product for Bad Credit and CCJ's helps clients facing these issues so they can still execute their property plans without a hitch.",
+      '<p>At <a href="https://www.lendingbridge.co.uk" target="_blank" rel="noopener noreferrer"><u>Lending Bridge</u></a>, we help you overcome these hurdles. Our Bridging Product for Bad Credit and CCJs helps clients facing these issues so they can still execute their property plans without a hitch.</p>',
     img: "/svg/product-six.svg",
     slug: slugify("Refinance Bridge Loans".toLowerCase()),
+    metaDescription:
+      "Secure UK refinance bridge loans despite bad credit or CCJs. Quick decisions, simple process, and expert client support.",
     highlights: [
       {
         title: "Up to 70% LTV",
@@ -223,14 +260,23 @@ export const PRODUCTS = [
         img: "/gif/wallet.gif",
       },
     ],
+    metadata: {
+      title: "Flexible Refinance Bridge Loans | Lending Bridge",
+      description:
+        "Secure UK refinance bridge loans despite bad credit or CCJs. Quick decisions, simple process, and expert client support.",
+    },
   },
   {
     id: 7,
     title: "Bridging Finance for Complex Cases",
     content:
-      "Are you an overseas buyer who wants to buy property in the UK or you are stuck in an impossible situation that requires extremely fast turn-around times? Lending Bridge is your solution! Mastering impossible situations and creating tailored finance solutions is where we shine and our extremely easy process makes it possible for everyone to follow.",
+      'Are you an overseas buyer who wants to buy property in the UK or you are stuck in an impossible situation that requires extremely fast turn-around times? <a href="https://lendingbridge.co.uk" target="_blank"><u>Lending Bridge</u></a> is your solution! Mastering impossible situations and creating tailored finance solutions is where we shine and our extremely easy process makes it possible for everyone to follow.',
+    // content:
+    //   '<p>Are you an overseas buyer who wants to buy property in the UK or you are stuck in an impossible situation that requires extremely fast turn-around times? <a href="https://www.lendingbridge.co.uk" target="_blank" rel="noopener noreferrer>Lending Bridge</a> is your solution! Mastering impossible situations and creating tailored finance solutions is where we shine and our extremely easy process makes it possible for everyone to follow.</p>',
     img: "/svg/product-one.svg",
     slug: slugify("Bridging Finance for Complex Cases".toLowerCase()),
+    metaDescription:
+      "Flexible UK bridging loans for overseas buyers, bad credit, and complex structures. Fast 5-day completions with dedicated managers.",
     highlights: [
       {
         title: "Up to 70% LTV",
@@ -270,14 +316,23 @@ export const PRODUCTS = [
         img: "/gif/hostel.gif",
       },
     ],
+    metadata: {
+      title: "Complex Case Bridging Finance | Lending Bridge ",
+      description:
+        "Flexible UK bridging loans for overseas buyers, bad credit, and complex structures. Fast 5-day completions with dedicated managers.",
+    },
   },
   {
     id: 8,
     title: "Development Exit Finance",
     content:
-      "Looking for a Bridge Loan to help you repay your initial loan for a development project? Our Product is the right fit for your needs. We understand that to maximise the value of your projects, sometimes you require the extra time to finalise your plans.",
+      'Looking for a <a href="https://www.lendingbridge.co.uk/blogs/what-is-bridging-loan-fast-flexible-finance" target="_blank"><u>Bridge Loan</u></a> to help you repay your initial loan for a development project? Our Product is the right fit for your needs. We understand that to maximise the value of your projects, sometimes you require the extra time to finalise your plans.',
+    // content:
+    //   'Looking for a <a href="https://www.lendingbridge.co.uk/blogs/what-is-bridging-loan-fast-flexible-finance" target="_blank" rel="noopener noreferrer><u>Bridge Loan</u></a> to help you repay your initial loan for a development project? Our Product is the right fit for your needs. We understand that to maximise the value of your projects, sometimes you require the extra time to finalise your plans.',
     img: "/svg/product-eight.svg",
     slug: slugify("Development Exit Finance".toLowerCase()),
+    metaDescription:
+      "Quick, stress-free exit finance for developers. No physical valuation required, bad credit accepted, expert guidance provided.",
     highlights: [
       {
         title: "No Physical Valuation Required",
@@ -296,6 +351,11 @@ export const PRODUCTS = [
         img: "/gif/money.gif",
       },
     ],
+    metadata: {
+      title: "Development Exit Finance Specialists | Lending Bridge",
+      description:
+        "Quick, stress-free exit finance for developers. No physical valuation required, bad credit accepted, expert guidance provided.",
+    },
   },
 ];
 
@@ -556,3 +616,14 @@ export const LTV_RATES = {
   commercial: 65,
   land: 65,
 };
+
+export const LOAN_PURPOSE_OPTIONS = [
+  {
+    value: "btl",
+    label: "BTL",
+  },
+  {
+    value: "refinance",
+    label: "Refinance",
+  },
+];

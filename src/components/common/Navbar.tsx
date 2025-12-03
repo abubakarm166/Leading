@@ -46,7 +46,7 @@ const Navbar = () => {
                   { title: "Resources", href: "/resources" },
                 ]}
               />
-              <NavItem title="Contact Us" href="/contact-us" />
+              <NavItem title="Enquire Now" href="/contact-us" />
               <div>
                 <div className="flex flex-row space-x-[10px] items-center">
                   <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center">
@@ -58,7 +58,10 @@ const Navbar = () => {
                       className="w-3 h-3"
                     />
                   </div>
-                  <a href="mailto:enquiries@lendingbridge.co.uk" className="underline">
+                  <a
+                    href="mailto:enquiries@lendingbridge.co.uk"
+                    className="underline"
+                  >
                     enquiries@lendingbridge.co.uk
                   </a>
                 </div>
@@ -94,13 +97,13 @@ const Navbar = () => {
               onClick={() => router.push("/")}
             />
 
-
-
             {/* Right: Contact icons + Menu */}
             <div className="flex flex-row items-center space-x-[10px]">
               <div
                 className="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer"
-                onClick={() => window.open("mailto:enquiries@lendingbridge.co.uk")}
+                onClick={() =>
+                  window.open("mailto:enquiries@lendingbridge.co.uk")
+                }
               >
                 <Image
                   src="/svg/mail-white.svg"

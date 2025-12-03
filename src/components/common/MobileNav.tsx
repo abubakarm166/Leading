@@ -209,7 +209,7 @@ const MobileNav = () => {
                     className="font-semibold font-league-spartan text-[25px]"
                     onClick={() => handleOnClickItem("/contact-us")}
                   >
-                    Contact Us
+                    Enquire Now
                   </p>
                 </Reveal>
               </div>
