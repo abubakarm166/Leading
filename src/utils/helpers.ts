@@ -140,3 +140,17 @@ export const validateFormInputs = (values: {
 
   return errors;
 };
+
+export const convertH2ToH1 = (htmlString: string) => {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlString, "text/html");
+  const h1Elements = doc.querySelectorAll("h1");
+  h1Elements.forEach((h1) => {
+    h1.outerHTML = h1.outerHTML
+      .replace(/^<h1/, "<h2")
+      .replace(/<\/h1>$/, "</h2>");
+  });
+  const modifiedHtml = doc.body.innerHTML;
+
+  return modifiedHtml;
+};

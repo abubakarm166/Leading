@@ -1,6 +1,7 @@
 "use client";
 import { TCaseStudy } from "@/types";
 import { listCaseStudies } from "@/utils/api/caseStudy";
+import { convertH2ToH1 } from "@/utils/helpers";
 import { useEffectAsync } from "@/utils/hooks";
 import Image from "next/image";
 import { useMemo, useRef, useState } from "react";
@@ -14,6 +15,8 @@ const CastStudyItem = ({ item }: { item: TCaseStudy }) => {
 
     return "";
   }, [item]);
+
+  const modifiedDescription = convertH2ToH1(item.description);
 
   return (
     <div className="max-w-full lg:max-w-[90%] h-[535px] rounded-[10px] overflow-hidden border border-black relative mr-2">
@@ -73,8 +76,8 @@ const CastStudyItem = ({ item }: { item: TCaseStudy }) => {
             <p
               className="mt-5 font-gilroy-regular text-[16px]"
               dangerouslySetInnerHTML={{
-                __html: `${item?.description?.slice(0, 160)}${
-                  item?.description?.length > 160 ? "..." : ""
+                __html: `${modifiedDescription?.slice(0, 160)}${
+                  modifiedDescription?.length > 160 ? "..." : ""
                 }`,
               }}
             />
