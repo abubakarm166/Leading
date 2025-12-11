@@ -13,12 +13,12 @@ const Blogs = () => {
             alt="calendar"
             className="w-[100px] h-[100px] lg:w-[200px] lg:h-[200px] 2xl:w-[200px] 2xl:h-[200px] object-cover hidden lg:block"
           />
-          <h2 className="font-bold text-white mx-auto lg:mx-0 text-[70px] font-league-spartan">
+          <h2 className="font-bold text-white mx-auto lg:mx-0 text-[55px] font-league-spartan">
             Latest
             <br className="hidden lg:block" /> Insights
           </h2>
         </div>
-        <div className="w-full lg:w-[80%] ml-auto">
+        <div className="w-full lg:w-[85%] ml-auto">
           <BlogsCarousel />
         </div>
       </div>
