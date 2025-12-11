@@ -22,7 +22,7 @@ export default function BlogsClient() {
           </p>
         </Reveal>
         <Reveal delay={0.4}>
-          <BlogsCarousel slidesToShow={4} />
+          <BlogsCarousel slidesToShow={3} />
         </Reveal>
       </div>
       <Reveal delay={0.6}>

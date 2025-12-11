@@ -67,20 +67,31 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow = 3 }) => {
                 width={200}
                 height={200}
                 alt={item.title}
-                className="w-full h-[190px] object-cover object-top-right"
+                className={`w-full h-[190px] object-cover ${
+                  item.id === 14 ? "object-center" : "object-top-left"
+                }`}
               />
               <div className="p-5">
                 <p className="font-semibold text-[20px] font-league-spartan">
-                  {item.title?.length > 50 ? `${item.title?.slice(0, 50)}...` : item.title}
+                  {item.title?.length > 50
+                    ? `${item.title?.slice(0, 50)}...`
+                    : item.title}
                 </p>
-                <p className="text-[#7D7C7C] mt-[10px] mb-5 text-[16px]">{moment(item.createdAt).format("MMM-DD-YYYY")}</p>
+                <p className="text-[#7D7C7C] mt-[10px] mb-5 text-[16px]">
+                  {moment(item.createdAt).format("MMM-DD-YYYY")}
+                </p>
                 <p
                   className="font-gilroy-regular text-[16px]"
                   dangerouslySetInnerHTML={{
-                    __html: item.content.length > 80 ? `${item.content.slice(0, 80)}...` : item.content,
+                    __html:
+                      item.content.length > 80
+                        ? `${item.content.slice(0, 80)}...`
+                        : item.content,
                   }}
                 />
-                <p className="absolute bottom-5 left-5 font-gilroy-medium text-[16px]">Read More...</p>
+                <p className="absolute bottom-5 left-5 font-gilroy-medium text-[16px]">
+                  Read More...
+                </p>
               </div>
             </div>
           ))}
@@ -92,7 +103,11 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow = 3 }) => {
           width={40}
           height={40}
           alt="chevron-left"
-          className={`w-10 h-10 ${isAtStart ? "opacity-20 cursor-not-allowed" : "opacity-100 cursor-pointer"}`}
+          className={`w-10 h-10 ${
+            isAtStart
+              ? "opacity-20 cursor-not-allowed"
+              : "opacity-100 cursor-pointer"
+          }`}
           onClick={() => sliderRef.current?.slickPrev()}
         />
         <Image
@@ -100,7 +115,11 @@ const BlogsCarousel: React.FC<Props> = ({ slidesToShow = 3 }) => {
           width={40}
           height={40}
           alt="chevron-right"
-          className={`w-10 h-10 ${isAtEnd ? "opacity-20 cursor-not-allowed" : "opacity-100 cursor-pointer"}`}
+          className={`w-10 h-10 ${
+            isAtEnd
+              ? "opacity-20 cursor-not-allowed"
+              : "opacity-100 cursor-pointer"
+          }`}
           onClick={() => sliderRef.current?.slickNext()}
         />
       </div>

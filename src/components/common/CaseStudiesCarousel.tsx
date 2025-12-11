@@ -25,7 +25,8 @@ const CastStudyItem = ({ item }: { item: TCaseStudy }) => {
         width={500}
         height={500}
         alt="case-study"
-        className="w-full h-[200px] object-cover object-top-right"
+        className="w-full h-[200px] object-cover object-left-top"
+        style={{ objectPosition: "left top" }}
       />
       <div className="bg-primary-bg overflow-hidden w-full h-[65%] border-t border-t-black rounded-t-[10px] px-4 md:px-5 py-5 flex flex-col gap-y-1">
         <div className="flex flex-row items-center">

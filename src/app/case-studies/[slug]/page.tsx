@@ -59,7 +59,7 @@ const CaseStudyDetailPage = async (props: {
             width={700}
             height={700}
             alt={caseStudy?.location}
-            className="w-full h-[190px] md:h-[500px] object-cover rounded-[20px]"
+            className="w-full h-[190px] md:h-[500px] object-cover object-top-left rounded-[20px]"
           />
         )}
         <h1 className="mt-[50px] font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px]">

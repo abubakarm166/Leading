@@ -21,12 +21,13 @@ export async function generateMetadata(props: { params: BlogPageProps }) {
   }
 
   const url = `https://www.lendingbridge.co.uk/blogs/${params.slug}`;
-  
+
   // Truncate title to ensure total length (with " | Lending Bridge") is max 65 characters
   const maxTitleLength = 45; // Leave room for " | Lending Bridge" (18 chars)
-  const truncatedTitle = blog.title.length > maxTitleLength 
-    ? `${blog.title.slice(0, maxTitleLength).trim()}...` 
-    : blog.title;
+  const truncatedTitle =
+    blog.title.length > maxTitleLength
+      ? `${blog.title.slice(0, maxTitleLength).trim()}...`
+      : blog.title;
   const pageTitle = `${truncatedTitle} | Lending Bridge`;
 
   return {
@@ -73,11 +74,15 @@ export default async function BlogPage(props: { params: BlogPageProps }) {
               width={500}
               height={500}
               alt={blog.title}
-              className="w-full h-[190px] md:h-[500px] object-cover rounded-[20px]"
+              className="w-full h-[190px] md:h-[500px] object-cover object-left-top rounded-[20px]"
             />
           )}
-          <h1 className="mt-[50px] font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px]">{blog.title}</h1>
-          <p className="font-gilroy-medium text-[18px] text-primary my-5">{moment(blog.createdAt).format("MMM DD, YYYY")}</p>
+          <h1 className="mt-[50px] font-league-spartan font-semibold text-primary text-[50px] lg:text-[70px]">
+            {blog.title}
+          </h1>
+          <p className="font-gilroy-medium text-[18px] text-primary my-5">
+            {moment(blog.createdAt).format("MMM DD, YYYY")}
+          </p>
           <article
             className="font-gilroy-regular text-[20px] whitespace-pre-line"
             dangerouslySetInnerHTML={{ __html: formattedContent }}
