@@ -18,7 +18,7 @@ const Blogs = () => {
             <br className="hidden lg:block" /> Insights
           </h2>
         </div>
-        <div className="w-full lg:w-[75%] ml-auto">
+        <div className="w-full lg:w-[80%] ml-auto">
           <BlogsCarousel />
         </div>
       </div>
