@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<llms xmlns="https://schema.org/">
+  <document>
+    <loc>https://www.lendingbridge.co.uk/</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/about-us</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/case-studies</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/resources</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/team</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/product/residential-bridges-and-btl-bridges</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/product/commercial-bridge-loans</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/product/semi-commercial-bridges</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/product/light-refurbs-bridges</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/product/auction-bridging-finance</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/product/refinance-bridge-loans</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/product/bridging-finance-for-complex-cases</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/product/development-exit-finance</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/blogs</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/blog/bank-of-england-base-rate-cut-2025</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/blog/uk-stamp-duty-2025-changes-property-buyers</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/blog/funding-pathways-lending-bridge</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/blog/what-is-bridging-loan-fast-flexible-finance</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/blog/lending-bridge-renaissance-asset-finance-5-million-facility</loc>
+  </document>
+
+  <document>
+    <loc>https://www.lendingbridge.co.uk/contact-us</loc>
+  </document>
+</llms>

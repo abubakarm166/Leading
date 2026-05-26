@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@layer base {
+  @font-face {
+    font-family: "gilroy-bold";
+    src: url("/fonts/Gilroy-Bold.woff") format("woff");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "gilroy-medium";
+    src: url("/fonts/Gilroy-Medium.woff") format("woff");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "gilroy-regular";
+    src: url("/fonts/Gilroy-Regular.woff") format("woff");
+    font-display: swap;
+  }
+}
+
+@theme {
+  --color-primary: #21558a;
+  --color-primary-bg: #ebeff1;
+
+  --font-league-spartan: "League Spartan", sans-serif;
+  --font-gilroy-regular: "gilroy-regular", "Geist Mono";
+  --font-gilroy-medium: "gilroy-medium", "Geist Mono";
+  --font-gilroy-bold: "gilroy-bold", "Geist Mono";
+  --font-nunito-sans: "Nunito Sans", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.react-calendar {
+  width: 500px;
+}
+
+@media only screen and (max-width: 450px) {
+  .react-calendar {
+    width: 100%;
+  }
+}
+
+.react-calendar__navigation {
+  margin-bottom: 0px;
+}
+
+.react-calendar__viewContainer {
+  background-color: #f4f9ff;
+}
+
+strong {
+  font-weight: bold;
+}
