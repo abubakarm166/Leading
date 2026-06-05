@@ -1,9 +1,12 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import Button from "../common/Button";
 import Reveal from "../common/Reveal";
 
 const Hero = () => {
+  const router = useRouter();
+
   const handleOnCalculate = () => {
     const calculator = document.getElementById("calculator");
     if (calculator) {
@@ -54,22 +57,33 @@ const Hero = () => {
             delay={0.7}
             className="relative overflow-visible lg:pt-1"
           >
-            <Button
-              onClick={handleOnCalculate}
-              className="w-full transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 active:translate-y-0 lg:w-auto lg:px-14 lg:py-[18px] [&>p]:tracking-wide"
-            >
-              <p className="text-[18px] font-bold uppercase text-white sm:text-[20px]">
-                Calculate Now
-              </p>
-            </Button>
-            <Image
-              src="/svg/hero-arrow.svg"
-              width={98}
-              height={98}
-              alt="arrow"
-              className="absolute right-6 hidden object-cover lg:-top-12 lg:right-4 lg:block lg:h-[88px] lg:w-[88px] xl:h-[98px] xl:w-[98px]"
-              priority
-            />
+            <div className="relative flex w-full flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3 lg:w-auto">
+              <Button
+                onClick={handleOnCalculate}
+                className="w-full px-8 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 active:translate-y-0 sm:w-auto lg:px-10 lg:py-3.5 [&>p]:tracking-wide"
+              >
+                <p className="text-[14px] font-bold uppercase text-white sm:text-[15px]">
+                  Calculate Now
+                </p>
+              </Button>
+              <Button
+                onClick={() => router.push("/contact-us")}
+                className="w-full border-2 border-primary bg-white px-8 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/5 active:translate-y-0 sm:w-auto lg:px-10 lg:py-3.5 [&>p]:tracking-wide"
+              >
+                <p className="text-[14px] font-bold uppercase text-primary sm:text-[15px]">
+                  Enquire Now
+                </p>
+              </Button>
+              <Image
+                src="/svg/hero-arrow.svg"
+                width={98}
+                height={98}
+                alt=""
+                aria-hidden
+                className="pointer-events-none absolute right-0 hidden object-cover lg:-top-10 lg:block lg:h-[72px] lg:w-[72px] xl:-right-4 xl:h-[80px] xl:w-[80px]"
+                priority
+              />
+            </div>
           </Reveal>
         </div>
 

@@ -1,8 +1,27 @@
 "use client";
 import useNavStore from "@/utils/store/nav";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import NavItem from "./NavItem";
+
+const EnquireButton = ({ size = "md" }: { size?: "md" | "sm" }) => {
+  const sizeClasses =
+    size === "sm"
+      ? "h-8 w-8 text-[18px]"
+      : "h-10 w-10 text-[22px]";
+
+  return (
+    <Link
+      href="/contact-us"
+      aria-label="Enquire Now"
+      title="Enquire Now"
+      className={`flex shrink-0 items-center justify-center rounded-full bg-primary font-nunito-sans font-black leading-none text-white shadow-sm transition-all duration-200 hover:brightness-110 hover:shadow-md active:scale-95 ${sizeClasses}`}
+    >
+      !
+    </Link>
+  );
+};
 
 const Navbar = () => {
   const router = useRouter();
@@ -28,63 +47,67 @@ const Navbar = () => {
                 priority
               />
             </div>
-            <div className="flex flex-row items-center justify-between w-[70%] font-league-spartan font-medium text-[18px]">
-              <NavItem title="Our Products" href="/products" />
-              <NavItem
-                title="Our Work"
-                options={[
-                  { title: "Blogs", href: "/blogs" },
-                  { title: "Case Studies", href: "/case-studies" },
-                ]}
-              />
-              <NavItem title="Team" href="/team" />
-              <NavItem
-                title="Intermediaries"
-                options={[
-                  { title: "Intermediaries", href: "/intermediaries" },
-                  { title: "Resources", href: "/resources" },
-                ]}
-              />
-              <NavItem title="Enquire Now" href="/contact-us" />
-              <div className="ml-1 flex min-w-0 shrink-0 flex-col gap-1 border-l border-primary/15 pl-3 min-[1536px]:flex-row min-[1536px]:items-center min-[1536px]:gap-3 min-[1536px]:pl-4">
-                <a
-                  href="mailto:enquiries@lendingbridge.co.uk"
-                  className="group flex min-w-0 items-center gap-1.5 text-left transition-opacity hover:opacity-85"
-                >
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary">
-                    <Image
-                      src="/svg/mail-white.svg"
-                      width={200}
-                      height={200}
-                      alt="mail"
-                      className="h-2.5 w-2.5"
-                    />
-                  </span>
-                  <span className="font-league-spartan text-[12px] font-medium leading-none text-primary underline decoration-primary/35 underline-offset-2">
-                    enquiries@lendingbridge.co.uk
-                  </span>
-                </a>
-                <span
-                  className="hidden h-9 w-px shrink-0 bg-primary/12 min-[1536px]:block"
-                  aria-hidden
+            <div className="flex min-w-0 flex-1 flex-row items-center justify-end gap-4 xl:gap-5">
+              <div className="flex flex-row items-center gap-x-5 font-league-spartan font-medium text-[18px] xl:gap-x-7">
+                <NavItem title="Our Products" href="/products" />
+                <NavItem
+                  title="Our Work"
+                  options={[
+                    { title: "Blogs", href: "/blogs" },
+                    { title: "Case Studies", href: "/case-studies" },
+                  ]}
                 />
-                <a
-                  href="tel:02037250589"
-                  className="group flex shrink-0 items-center gap-1.5 text-left whitespace-nowrap transition-opacity hover:opacity-85"
-                >
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary">
-                    <Image
-                      src="/svg/phone-white.svg"
-                      width={200}
-                      height={200}
-                      alt="phone"
-                      className="h-2.5 w-2.5"
-                    />
-                  </span>
-                  <span className="font-league-spartan text-[12px] font-medium leading-none text-primary">
-                    020 3725 0589
-                  </span>
-                </a>
+                <NavItem title="Team" href="/team" />
+                <NavItem
+                  title="Intermediaries"
+                  options={[
+                    { title: "Intermediaries", href: "/intermediaries" },
+                    { title: "Resources", href: "/resources" },
+                  ]}
+                />
+              </div>
+              <div className="flex shrink-0 flex-row items-center gap-3 border-l border-primary/15 pl-4 xl:gap-4 xl:pl-5">
+                <div className="flex min-w-0 flex-col gap-1 min-[1536px]:flex-row min-[1536px]:items-center min-[1536px]:gap-3">
+                  <a
+                    href="mailto:enquiries@lendingbridge.co.uk"
+                    className="group flex min-w-0 items-center gap-1.5 text-left transition-opacity hover:opacity-85"
+                  >
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary">
+                      <Image
+                        src="/svg/mail-white.svg"
+                        width={200}
+                        height={200}
+                        alt="mail"
+                        className="h-2.5 w-2.5"
+                      />
+                    </span>
+                    <span className="font-league-spartan text-[12px] font-medium leading-none text-primary underline decoration-primary/35 underline-offset-2">
+                      enquiries@lendingbridge.co.uk
+                    </span>
+                  </a>
+                  <span
+                    className="hidden h-9 w-px shrink-0 bg-primary/12 min-[1536px]:block"
+                    aria-hidden
+                  />
+                  <a
+                    href="tel:02037250589"
+                    className="group flex shrink-0 items-center gap-1.5 text-left whitespace-nowrap transition-opacity hover:opacity-85"
+                  >
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary">
+                      <Image
+                        src="/svg/phone-white.svg"
+                        width={200}
+                        height={200}
+                        alt="phone"
+                        className="h-2.5 w-2.5"
+                      />
+                    </span>
+                    <span className="font-league-spartan text-[12px] font-medium leading-none text-primary">
+                      020 3725 0589
+                    </span>
+                  </a>
+                </div>
+                <EnquireButton />
               </div>
             </div>
           </div>
@@ -105,7 +128,7 @@ const Navbar = () => {
               onClick={() => router.push("/")}
             />
 
-            {/* Right: Contact icons + Menu */}
+            {/* Right: Contact icons + Enquire + Menu */}
             <div className="flex flex-row items-center space-x-[10px]">
               <div
                 className="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer"
@@ -133,6 +156,7 @@ const Navbar = () => {
                   className="w-4 h-4"
                 />
               </div>
+              <EnquireButton size="sm" />
               <Image
                 src="/svg/burger-menu.svg"
                 width={36}
@@ -190,6 +214,7 @@ const Navbar = () => {
                 onClick={() => window.open("tel:02037250589", "_blank")}
               />
             </div>
+            <EnquireButton size="sm" />
           </div>
         </div>
       </div>

@@ -623,11 +623,35 @@ export const LTV_RATES = {
 
 export const LOAN_PURPOSE_OPTIONS = [
   {
-    value: "btl",
-    label: "BTL",
+    value: "re-finance",
+    label: "Re-finance",
   },
   {
-    value: "refinance",
-    label: "Refinance",
+    value: "normal-purchase",
+    label: "Normal Purchase",
+  },
+  {
+    value: "auction-purchase",
+    label: "Auction Purchase",
+  },
+  {
+    value: "development-funds",
+    label: "Development funds",
+  },
+  {
+    value: "capital-raise",
+    label: "Capital Raise",
+  },
+  {
+    value: "re-finance-capital-raise",
+    label: "Re-Finance + Capital Raise",
+  },
+  {
+    value: "purchase-capital-raise",
+    label: "Purchase + Capital Raise",
+  },
+  {
+    value: "re-finance-development-funds",
+    label: "Re-Finance + Development Funds",
   },
 ];
