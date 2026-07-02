@@ -1,6 +1,6 @@
 import axios from "axios";
-import toast from "react-hot-toast";
 import { BASE_URL } from "../constants";
+import { API_TIMEOUT_MS } from "./config";
 
 if (process.env.NODE_ENV === "development" && !BASE_URL) {
   console.warn(
@@ -10,6 +10,7 @@ if (process.env.NODE_ENV === "development" && !BASE_URL) {
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
+  timeout: API_TIMEOUT_MS,
   headers: {
     "x-website": true,
   },
@@ -19,21 +20,19 @@ axiosInstance.interceptors.response.use(
   (response) => {
     const method = response.config.method;
 
-    if (method?.toLowerCase() === "post") {
-      if (response.data?.status === "SUCCESS") {
-        toast.success("Details submitted successfully");
-      } else {
-        toast.error("Failed to submit details");
-      }
-
-      return response;
+    if (method?.toLowerCase() === "post" && typeof window !== "undefined") {
+      void import("react-hot-toast").then(({ default: toast }) => {
+        if (response.data?.status === "SUCCESS") {
+          toast.success("Details submitted successfully");
+        } else {
+          toast.error("Failed to submit details");
+        }
+      });
     }
 
     return response;
   },
-  (err) => {
-    return err;
-  }
+  (err) => Promise.reject(err),
 );
 
 export default axiosInstance;

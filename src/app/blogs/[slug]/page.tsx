@@ -4,7 +4,8 @@ import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
 import Image from "next/image";
 import { TBlog } from "@/types";
-import { getBlog, listBlogs } from "@/utils/api/blogs";
+import { listBlogs } from "@/utils/api/blogs";
+import { getBlogCached } from "@/utils/api/cache";
 import {
   sanitizeBlogArticleHtml,
   stripHtmlToPlainText,
@@ -14,10 +15,12 @@ import moment from "moment";
 
 type BlogPageProps = Promise<{ slug: string }>;
 
+export const revalidate = 3600;
+
 // ✅ Generate SEO metadata dynamically
 export async function generateMetadata(props: { params: BlogPageProps }) {
   const params = await props.params;
-  const blog = await getBlog(params.slug);
+  const blog = await getBlogCached(params.slug);
 
   if (!blog) {
     return {
@@ -66,7 +69,7 @@ export async function generateMetadata(props: { params: BlogPageProps }) {
 
 export default async function BlogPage(props: { params: BlogPageProps }) {
   const params = await props.params;
-  const blog = await getBlog(params.slug);
+  const blog = await getBlogCached(params.slug);
 
   if (!blog) {
     return <div className="px-5 py-10 text-center">Blog not found.</div>;

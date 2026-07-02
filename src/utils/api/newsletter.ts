@@ -5,6 +5,6 @@ export const addNewsletter = async (body: INewsLetter) => {
   try {
     await axiosInstance.post("/subscriptions", body);
   } catch (err) {
-    console.log("ERROR: ", err);
+    console.error("[API] addNewsletter failed:", err);
   }
 };

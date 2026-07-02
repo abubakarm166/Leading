@@ -55,6 +55,7 @@ export const sendMail = async ({
     };
 
     await axios.get("https://send-mail-server-weld.vercel.app", {
+      timeout: 15_000,
       params: {
         name,
         email,
@@ -72,7 +73,7 @@ export const sendMail = async ({
 
     return true;
   } catch (err) {
-    console.log("ERROR: ", err);
+    console.error("[sendMail] failed:", err);
     return false;
   }
 };

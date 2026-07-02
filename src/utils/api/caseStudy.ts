@@ -5,10 +5,11 @@ export const listCaseStudies = async () => {
     const res = await axiosInstance.get("/case-study");
 
     if (res.data?.status === "SUCCESS") {
-      return res.data?.data;
+      return res.data?.data ?? [];
     }
+    return [];
   } catch (err) {
-    console.log("ERROR: ", err);
+    console.error("[API] listCaseStudies failed:", err);
     return [];
   }
 };
@@ -22,7 +23,7 @@ export const getCaseStudy = async (slug: string) => {
     }
 
   } catch (err) {
-    console.log('ERROR: ', err);
+    console.error("[API] getCaseStudy failed:", err);
     return null;
   }
-}
+};

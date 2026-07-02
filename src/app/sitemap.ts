@@ -2,24 +2,25 @@ import { MetadataRoute } from "next";
 import { PRODUCTS } from "@/utils/constants";
 import { getAllBlogs } from "@/utils/api/blogs";
 import { listCaseStudies } from "@/utils/api/caseStudy";
-import { TCaseStudy } from "@/types";
+import { TCaseStudy, TBlog } from "@/types";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://www.lendingbridge.co.uk";
 
-  // Fetch all blogs (with error handling)
-  let blogs: Awaited<ReturnType<typeof getAllBlogs>> = [];
-  let caseStudies: Awaited<ReturnType<typeof listCaseStudies>>;
+  let blogs: TBlog[] = [];
+  let caseStudies: TCaseStudy[] = [];
+
   try {
-    blogs = await getAllBlogs();
-    caseStudies = await listCaseStudies();
+    [blogs, caseStudies] = await Promise.all([
+      getAllBlogs(),
+      listCaseStudies(),
+    ]);
   } catch (error) {
-    console.error("Error fetching blogs for sitemap:", error);
+    console.error("[sitemap] upstream fetch failed:", error);
   }
 
-  // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -65,7 +66,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Dynamic product pages
   const productPages: MetadataRoute.Sitemap = PRODUCTS.map((product) => ({
     url: `${baseUrl}/product/${product.slug}`,
     lastModified: new Date(),
@@ -73,7 +73,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  // Dynamic blog pages
   const blogPages: MetadataRoute.Sitemap = blogs
     .filter((blog) => blog.slug)
     .map((blog) => ({
@@ -83,10 +82,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.6,
     }));
 
-  // Dynamic case studies pages
   const caseStudiesPages: MetadataRoute.Sitemap = caseStudies
-    .filter((caseStudy: TCaseStudy) => caseStudy.slug)
-    .map((caseStudy: TCaseStudy) => ({
+    .filter((caseStudy) => caseStudy.slug)
+    .map((caseStudy) => ({
       url: `${baseUrl}/case-studies/${caseStudy.slug}`,
       lastModified: new Date(caseStudy.createdAt),
       changeFrequency: "monthly" as const,

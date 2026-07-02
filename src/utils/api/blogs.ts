@@ -10,7 +10,7 @@ export const listBlogs = async (): Promise<TBlog[]> => {
     }
     return [];
   } catch (err) {
-    console.log("ERROR: ", err);
+    console.error("[API] listBlogs failed:", err);
     return [];
   }
 };
@@ -27,6 +27,6 @@ export const getBlog = async (slug: string) => {
       return res.data?.data;
     }
   } catch (err) {
-    console.log("ERROR: ", err);
+    console.error("[API] getBlog failed:", err);
   }
 };

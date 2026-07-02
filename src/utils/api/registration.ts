@@ -5,6 +5,6 @@ export const addRegistration = async (body: TCreateRegistration) => {
   try {
     await axiosInstance.post("/registration", body);
   } catch (err) {
-    console.log("ERROR: ", err);
+    console.error("[API] addRegistration failed:", err);
   }
 };

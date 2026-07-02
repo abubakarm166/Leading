@@ -5,6 +5,6 @@ export const addAppointment = async (body: TCreateAppointment) => {
   try {
     await axiosInstance.post("/appointments", body);
   } catch (err) {
-    console.log("ERROR: ", err);
+    console.error("[API] addAppointment failed:", err);
   }
 };

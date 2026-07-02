@@ -3,15 +3,19 @@ import ContactUs from "@/components/common/ContactUs";
 import Footer from "@/components/common/Footer";
 import CaseStudyHeroImage from "@/components/common/CaseStudyHeroImage";
 import Navbar from "@/components/common/Navbar";
-import { getCaseStudy } from "@/utils/api/caseStudy";
+import { TCaseStudy } from "@/types";
+import { getCaseStudyCached } from "@/utils/api/cache";
+import { listCaseStudies } from "@/utils/api/caseStudy";
 
 type CaseStudyDetailPageProps = Promise<{ slug: string }>;
+
+export const revalidate = 3600;
 
 export async function generateMetadata(props: {
   params: CaseStudyDetailPageProps;
 }) {
   const params = await props.params;
-  const caseStudy = await getCaseStudy(params.slug);
+  const caseStudy = await getCaseStudyCached(params.slug);
 
   if (!caseStudy) {
     return {
@@ -47,7 +51,7 @@ const CaseStudyDetailPage = async (props: {
   params: CaseStudyDetailPageProps;
 }) => {
   const params = await props.params;
-  const caseStudy = await getCaseStudy(params.slug);
+  const caseStudy = await getCaseStudyCached(params.slug);
 
   return (
     <main className="bg-primary-bg">
@@ -135,3 +139,10 @@ const CaseStudyDetailPage = async (props: {
 };
 
 export default CaseStudyDetailPage;
+
+export async function generateStaticParams() {
+  const caseStudies = await listCaseStudies();
+  return caseStudies
+    .filter((item: TCaseStudy) => item.slug)
+    .map((item: TCaseStudy) => ({ slug: item.slug }));
+}

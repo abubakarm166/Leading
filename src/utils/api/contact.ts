@@ -5,6 +5,6 @@ export const addContact = async (body: TCreateContact) => {
   try {
     await axiosInstance.post("/contacts", body);
   } catch (err) {
-    console.log("ERROR: ", err);
+    console.error("[API] addContact failed:", err);
   }
 };

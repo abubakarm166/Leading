@@ -25,13 +25,13 @@ const Reveal: React.FC<Props> = ({
   const combinedCls = cn("relative overflow-hidden", className);
 
   useEffect(() => {
-    if (isInView) {
-      const timeout = setTimeout(() => {
-        mainControls.start("visible");
-      }, 400);
+    if (!isInView) return;
 
-      return () => clearTimeout(timeout);
-    }
+    const timeout = setTimeout(() => {
+      mainControls.start("visible");
+    }, 400);
+
+    return () => clearTimeout(timeout);
   }, [isInView, mainControls]);
 
   return (
