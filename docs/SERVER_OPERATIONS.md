@@ -21,7 +21,7 @@
 
 1. **Location** — Legitimate services do not run unsigned binaries from `/tmp` or `/var/tmp`.
 2. **High CPU** — One process using ~1 full core matches cryptominer or malware behaviour.
-3. **Reappears after kill** — Indicates persistence (cron, systemd user unit, `rc.local`, shell profile, or compromised package).
+3. **Reappears after kill** — On this server, malware was re-downloaded daily via **Next.js RCE (CVE-2025-66478)**, not cron. See §1.1.
 4. **Naming** — `cpu-logind` disguises itself as a system daemon.
 
 ### Could they cause your symptoms?
@@ -36,6 +36,39 @@
 | OOM (historical) | Miners + Next.js image optimization compete for RAM |
 
 **Conclusion:** Treat this as a **security incident** until proven otherwise. Application fixes alone may not stop 504s if the host remains compromised or CPU-saturated.
+
+### 1.1 Root cause confirmed (July 2026 forensics)
+
+PM2 error logs show **remote code execution via CVE-2025-66478** (Next.js App Router / React Server Components, CVSS 10.0). This project was on **Next.js 15.2.4** (vulnerable; upgrade to **15.2.9** or latest 15.2.x).
+
+Evidence from `leading-error.log` / `pm2-error.log`:
+
+```
+⨯ [Error: x] { digest: 'L2hvbWUvdWJ1bnR1L0xlYWRpbmcK' }   # base64 → /home/ubuntu/Leading
+⨯ [Error: x] { digest: '<base64 PM2 env dump>' }            # secrets exfiltrated
+--2026-07-09 01:28:49--  http://77.90.13.20/dashboard
+Saving to: '/tmp/dashboard'  [8350992/8350992]
+--2026-07-09 01:28:49--  http://77.90.13.20/v.json
+```
+
+| Finding | Meaning |
+|---------|---------|
+| No cron/systemd persistence | Attack is **internet-facing RCE**, not local backdoor |
+| C2 server `77.90.13.20` | Downloads miner binary + config daily ~01:28 UTC |
+| `cpu-logind` in `/var/tmp` | Second stage dropped by `/tmp/dashboard` |
+| Digest leaks full `process.env` | **Rotate all secrets immediately** |
+
+**Fix:** Upgrade to `next@15.2.9` (or latest 15.2.x), rebuild, redeploy. Optionally block outbound to `77.90.13.20`. Still recommend clean EC2 rebuild + secret rotation.
+
+```bash
+# On dev machine / CI
+npm install next@15.2.9 eslint-config-next@15.2.9
+npm run build
+
+# On EC2 after deploy
+cd ~/Leading && git pull && rm -rf node_modules && npm ci && npm run build
+pm2 restart leading && pm2 save
+```
 
 ---
 
