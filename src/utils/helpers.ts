@@ -79,64 +79,43 @@ export const sendMail = async ({
 };
 
 export const validateFormInputs = (values: {
-  name: string;
+  firstName: string;
+  lastName: string;
   number: string;
   email: string;
-  message: string;
-  propertyValue: string;
-  loanRequired: string;
-  loanPurpose: string;
-  propertyAddress: string;
+  message?: string;
+  propertyValue?: string;
+  loanRequired?: string;
+  loanPurpose?: string;
+  propertyAddress?: string;
 }) => {
-  const errors: typeof values = {
-    name: "",
+  const errors = {
+    firstName: "",
+    lastName: "",
     number: "",
     email: "",
-    message: "",
-    propertyValue: "",
-    loanRequired: "",
-    loanPurpose: "",
-    propertyAddress: "",
   };
 
-  if (!values.name) {
-    errors.name = "Please enter your name";
+  if (!values.firstName?.trim()) {
+    errors.firstName = "Please enter your first name";
   }
 
-  if (!values.message) {
-    errors.message = "Please enter your message";
+  if (!values.lastName?.trim()) {
+    errors.lastName = "Please enter your last name";
   }
 
-  if (!values.propertyValue) {
-    errors.propertyValue = "Please enter the property value";
+  if (!values.number?.trim()) {
+    errors.number = "Please enter your phone number";
+  } else if (!values.number.match(/^[+]?[\d\s()-]{7,20}$/)) {
+    errors.number = "Please enter a valid phone number";
   }
 
-  if (!values.loanRequired) {
-    errors.loanRequired = "Please enter the amount of loan required";
-  }
-
-  if (!values.loanPurpose) {
-    errors.loanPurpose = "Please select the purpose of the loan";
-  }
-
-  if (!values.propertyAddress) {
-    errors.propertyAddress = "Please enter the property address";
-  }
-
-  if (!/^\d+$/.test(values.propertyValue)) {
-    errors.propertyValue = "Please enter the property value";
-  }
-
-  if (!/^\d+$/.test(values.loanRequired)) {
-    errors.loanRequired = "Please enter the net loan required";
-  }
-
-  if (!values.number.match(/^[+]?[1-9]\d{1,14}$/)) {
-    errors.number = "Please enter a valid number";
-  }
-
-  if (!values.email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
-    errors.email = "Please enter a valid email";
+  if (!values.email?.trim()) {
+    errors.email = "Please enter your email address";
+  } else if (
+    !values.email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)
+  ) {
+    errors.email = "Please enter a valid email address";
   }
 
   return errors;

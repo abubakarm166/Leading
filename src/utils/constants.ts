@@ -6,6 +6,18 @@ export const BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "") ||
   "";
 
+export const COMPANY_NAME = "Lending Bridge Holdings Limited";
+export const COMPANY_TRADING_AS = "Lending Bridge";
+export const COMPANY_ADDRESS_LINE_1 = "Ground Floor, 172 Edmund St";
+export const COMPANY_ADDRESS_LINE_2 = "Birmingham B3 2HB";
+export const COMPANY_ADDRESS_COUNTRY = "United Kingdom";
+export const COMPANY_ADDRESS_FULL = `${COMPANY_ADDRESS_LINE_1}, ${COMPANY_ADDRESS_LINE_2}, ${COMPANY_ADDRESS_COUNTRY}`;
+export const COMPANY_EMAIL = "info@lendingbridge.co.uk";
+export const COMPANY_ENQUIRIES_EMAIL = "enquiries@lendingbridge.co.uk";
+export const COMPANY_PHONE = "020 3725 0589";
+export const COMPANY_PHONE_TEL = "02037250589";
+export const COMPANY_WEBSITE = "https://www.lendingbridge.co.uk";
+
 export const ABOUT_ITEMS = [
   {
     id: 1,
@@ -17,7 +29,7 @@ export const ABOUT_ITEMS = [
     id: 2,
     img: "/svg/about-thumbs.svg",
     content:
-      "Our specialty lies in assessing each loan on its own merits and working closely with our clients and brokers to ensure deal completes without a hitch.",
+      "Our specialty lies in assessing each loan on its own merits and working closely with our clients and brokers to ensure the deal completes without a hitch.",
   },
   {
     id: 3,
@@ -33,7 +45,7 @@ export const FEATURES = [
     title: "Speak to decision makers directly",
     subTitle: "Speak to decision makers directly",
     content:
-      "Decision makers of the business at your disposal at any time to tackle any queries. Our Clients are able to talk to decision-makers of the business atany time to tackle any queries or issues they might have regarding the terms & conditions.",
+      "Decision makers of the business at your disposal at any time to tackle any queries. Our clients are able to talk to decision-makers of the business at any time to tackle any queries or issues they might have regarding the terms and conditions.",
     img: "/gif/talk.gif",
     contentImg: "/svg/feature-one.svg",
   },
@@ -51,7 +63,7 @@ export const FEATURES = [
     title: "Transparent",
     subTitle: "Transparent",
     content:
-      "We'll let you know from the start! We send indicative terms within 2 hours of inquiry. Our team's ability to act quickly helps us make instant decisions, making the process quicker. Other lenders have a longer due diligence process when authorizing a loan.",
+      "We'll let you know from the start! We send indicative terms within 2 hours of enquiry. Our team's ability to act quickly helps us make instant decisions, making the process quicker. Other lenders have a longer due diligence process when authorising a loan.",
     img: "/gif/search.gif",
     contentImg: "/svg/feature-three.svg",
   },

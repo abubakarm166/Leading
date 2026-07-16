@@ -43,7 +43,11 @@ export type TCreateContact = {
   name: string;
   number: string;
   email: string;
-  message: string;
+  message?: string;
+  propertyValue?: string;
+  loanRequired?: string;
+  loanPurpose?: string;
+  propertyAddress?: string;
 };
 
 export type TCreateRegistration = {

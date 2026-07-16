@@ -2,6 +2,12 @@ import ClientBroker from "@/components/common/ClientBroker";
 import ContactUs from "@/components/common/ContactUs";
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
+import {
+  COMPANY_EMAIL,
+  COMPANY_NAME,
+  COMPANY_TRADING_AS,
+  COMPANY_WEBSITE,
+} from "@/utils/constants";
 
 export const metadata = {
   title: "Website Terms of Use | Lending Bridge UK",
@@ -47,8 +53,8 @@ const WebsiteTermsPage = () => {
           <p>
             These terms and conditions (the “Terms and Conditions”) (together
             with the various documents referred to in them) sets out the terms
-            on which you may make use of our website
-            <a href="https://lendhub.co.uk/">https://lendhub.co.uk/</a> (the
+            on which you may make use of our website{" "}
+            <a href={COMPANY_WEBSITE}>{COMPANY_WEBSITE}</a> (the
             “Website”). Use of the Website includes accessing it, perusing it,
             or using any of the functionality offered via it.
           </p>
@@ -60,7 +66,7 @@ const WebsiteTermsPage = () => {
           </p>
           <p>
             You are also responsible for ensuring that all persons who access
-            the Website though your internet connection are aware of the Terms
+            the Website through your internet connection are aware of the Terms
             and Conditions, and that they comply with them.
           </p>
           <h2 className="font-gilroy-bold text-[20px]">
@@ -86,9 +92,10 @@ const WebsiteTermsPage = () => {
             Information about the owner of the Website
           </h2>
           <p>
-            The Website is operated by Lendhub Group Limited (“We”, “Our”, “Us”
-            or “Lendhub”). You can contact us at
-            <a href="mailto:info@lendhub.co.uk">info@lendhub.co.uk</a>.
+            The Website is operated by {COMPANY_NAME} trading as{" "}
+            {COMPANY_TRADING_AS} (“We”, “Our”, “Us” or “{COMPANY_TRADING_AS}”).
+            You can contact us at{" "}
+            <a href={`mailto:${COMPANY_EMAIL}`}>{COMPANY_EMAIL}</a>.
           </p>
           <h2 className="font-gilroy-bold text-[20px]">
             Changes to these Terms and Conditions

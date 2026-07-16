@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import Button from "./Button";
 import Input from "./Input";
 import { validateFormInputs } from "@/utils/helpers";
-import { LOAN_PURPOSE_OPTIONS } from "@/utils/constants";
+import { LOAN_PURPOSE_OPTIONS, COMPANY_ADDRESS_LINE_1, COMPANY_ADDRESS_LINE_2, COMPANY_ADDRESS_COUNTRY, COMPANY_EMAIL, COMPANY_ENQUIRIES_EMAIL, COMPANY_PHONE } from "@/utils/constants";
 
 interface Props {
   noBorder?: boolean;
@@ -18,7 +18,8 @@ const ContactUsForm = () => {
 
   const formikProps = useFormik({
     initialValues: {
-      name: "",
+      firstName: "",
+      lastName: "",
       number: "",
       email: "",
       message: "",
@@ -38,20 +39,25 @@ const ContactUsForm = () => {
         return toast.error(hasErrors?.[0]);
       }
 
-      // if (!values.name || !values.email || !values.message || !values.number) {
-      //   return toast.error("Please enter all the details");
-      // }
+      setIsLoading(true);
+      const submitted = await addContact({
+        name: `${values.firstName.trim()} ${values.lastName.trim()}`.trim(),
+        number: values.number,
+        email: values.email,
+        message: values.message,
+        propertyValue: values.propertyValue,
+        loanRequired: values.loanRequired,
+        loanPurpose: values.loanPurpose,
+        propertyAddress: values.propertyAddress,
+      });
+      setIsLoading(false);
 
-      if (errors.email.length > 0) {
-        return toast.error(errors.email);
-      } else if (errors.number.length > 0) {
-        return toast.error(errors.number);
+      if (!submitted) {
+        return toast.error("Something went wrong. Please try again or call us directly.");
       }
 
-      setIsLoading(true);
-      await addContact(values);
       helpers.resetForm();
-      setIsLoading(false);
+      toast.success("Thank you — your enquiry has been submitted.");
     },
   });
 
@@ -63,39 +69,50 @@ const ContactUsForm = () => {
       <div className="mt-8 flex flex-col space-y-5">
         <div className="flex items-center gap-x-5">
           <div className="flex-1">
-            <p className="font-gilroy-medium text-[16px] mb-[6px]">Full Name</p>
+            <p className="font-gilroy-medium text-[16px] mb-[6px]">First Name</p>
             <Input
-              placeholder="Enter Full Name"
+              placeholder="Enter first name"
               className="border border-black px-3 py-[10px]"
-              value={values.name}
-              onChange={handleChange("name")}
+              value={values.firstName}
+              onChange={handleChange("firstName")}
             />
           </div>
           <div className="flex-1">
-            <p className="font-gilroy-medium text-[16px] mb-[6px]">
-              Phone Number
-            </p>
+            <p className="font-gilroy-medium text-[16px] mb-[6px]">Last Name</p>
             <Input
-              placeholder="Enter Phone Number"
+              placeholder="Enter last name"
               className="border border-black px-3 py-[10px]"
-              value={values.number}
-              onChange={handleChange("number")}
+              value={values.lastName}
+              onChange={handleChange("lastName")}
             />
           </div>
         </div>
         <div className="flex items-center gap-x-5">
           <div className="flex-1">
-            <p className="font-gilroy-medium text-[16px] mb-[6px]">Email</p>
+            <p className="font-gilroy-medium text-[16px] mb-[6px]">
+              Phone Number
+            </p>
             <Input
-              placeholder="Enter Email"
+              placeholder="Enter phone number"
+              className="border border-black px-3 py-[10px]"
+              value={values.number}
+              onChange={handleChange("number")}
+            />
+          </div>
+          <div className="flex-1">
+            <p className="font-gilroy-medium text-[16px] mb-[6px]">Email Address</p>
+            <Input
+              placeholder="Enter email address"
               className="border border-black px-3 py-[10px]"
               value={values.email}
               onChange={handleChange("email")}
             />
           </div>
+        </div>
+        <div className="flex items-center gap-x-5">
           <div className="flex-1">
             <p className="font-gilroy-medium text-[16px] mb-[6px]">
-              Property Address
+              Property Address <span className="font-gilroy-regular text-[13px] text-[#666]">(optional)</span>
             </p>
             <Input
               // rows={5}
@@ -105,22 +122,11 @@ const ContactUsForm = () => {
               onChange={handleChange("propertyAddress")}
             />
           </div>
-          {/* <div className="flex-1">
-            <p className="font-gilroy-medium text-[16px] mb-[6px]">
-              Property Value
-            </p>
-            <Input
-              placeholder="Enter property value"
-              className="border border-black px-3 py-[10px]"
-              value={values.propertyValue}
-              onChange={handleChange("propertyValue")}
-            />
-          </div> */}
         </div>
         <div className="flex items-center gap-x-5">
           <div className="flex-1">
             <p className="font-gilroy-medium text-[16px] mb-[6px]">
-              Property Value
+              Property Value <span className="font-gilroy-regular text-[13px] text-[#666]">(optional)</span>
             </p>
             <Input
               placeholder="Enter property value"
@@ -131,7 +137,7 @@ const ContactUsForm = () => {
           </div>
           <div className="flex-1">
             <p className="font-gilroy-medium text-[16px] mb-[6px]">
-              Net Loan Required
+              Net Loan Required <span className="font-gilroy-regular text-[13px] text-[#666]">(optional)</span>
             </p>
             <Input
               placeholder="Enter net loan required"
@@ -140,33 +146,18 @@ const ContactUsForm = () => {
               onChange={handleChange("loanRequired")}
             />
           </div>
-          {/* <div className="flex-1">
-            <p className="font-gilroy-medium text-[16px] mb-[6px]">
-              Purpose of the loan
-            </p>
-            <select
-              className="border border-black py-[10px] w-full rounded-[5px]"
-              onChange={(e) => setFieldValue("loanPurpose", e.target.value)}
-            >
-              <option>Select purpose of the loan</option>
-              {LOAN_PURPOSE_OPTIONS.map((item) => (
-                <option key={item.value} value={item.value}>
-                  {item.label}
-                </option>
-              ))}
-            </select>
-          </div> */}
         </div>
         <div className="flex items-center gap-x-5">
           <div className="flex-1 -mt-1">
             <p className="font-gilroy-medium text-[16px] mb-[6px]">
-              Purpose of the loan
+              Purpose of the Loan <span className="font-gilroy-regular text-[13px] text-[#666]">(optional)</span>
             </p>
             <select
               className="border border-black py-[12px] w-full rounded-[5px]"
+              value={values.loanPurpose}
               onChange={(e) => setFieldValue("loanPurpose", e.target.value)}
             >
-              <option>Select purpose of the loan</option>
+              <option value="">Select purpose of the loan</option>
               {LOAN_PURPOSE_OPTIONS.map((item) => (
                 <option key={item.value} value={item.value}>
                   {item.label}
@@ -174,21 +165,9 @@ const ContactUsForm = () => {
               ))}
             </select>
           </div>
-          {/* <div className="flex-1">
-            <p className="font-gilroy-medium text-[16px] mb-[6px]">
-              Property Address
-            </p>
-            <textarea
-              rows={5}
-              placeholder="Enter property address"
-              className="w-full rounded-[4px] border border-black px-3 py-[10px]"
-              value={values.propertyAddress}
-              onChange={handleChange("propertyAddress")}
-            />
-          </div> */}
           <div className="flex-1">
             <p className="font-gilroy-medium text-[16px] mb-[6px]">
-              Other Information
+              Other Information <span className="font-gilroy-regular text-[13px] text-[#666]">(optional)</span>
             </p>
             <textarea
               rows={1}
@@ -240,11 +219,11 @@ const ContactUs: React.FC<Props> = ({ noBorder }) => {
               <div>
                 <p className="font-gilroy-bold text-[16px]">Location</p>
                 <p className="font-gilroy-regular text-[14px]">
-                  101-103 Branston St,
+                  {COMPANY_ADDRESS_LINE_1},
                   <br />
-                  Birmingham B18 6BA,
+                  {COMPANY_ADDRESS_LINE_2},
                   <br />
-                  United Kingdom
+                  {COMPANY_ADDRESS_COUNTRY}
                 </p>
               </div>
             </div>
@@ -258,7 +237,7 @@ const ContactUs: React.FC<Props> = ({ noBorder }) => {
               />
               <div>
                 <p className="font-gilroy-bold text-[16px]">Phone Number</p>
-                <p className="font-gilroy-regular text-[14px]">020 3725 0589</p>
+                <p className="font-gilroy-regular text-[14px]">{COMPANY_PHONE}</p>
               </div>
             </div>
             <div className="flex flex-row items-start space-x-[10px] mt-5">
@@ -272,16 +251,16 @@ const ContactUs: React.FC<Props> = ({ noBorder }) => {
               <div>
                 <p className="font-gilroy-bold text-[16px]">Mail</p>
                 <a
-                  href="mailto:info@lendingbridge.co.uk"
+                  href={`mailto:${COMPANY_EMAIL}`}
                   className="font-gilroy-regular text-[14px] underline block"
                 >
-                  info@lendingbridge.co.uk
+                  {COMPANY_EMAIL}
                 </a>
                 <a
-                  href="mailto:enquiries@lendingbridge.co.uk"
+                  href={`mailto:${COMPANY_ENQUIRIES_EMAIL}`}
                   className="font-gilroy-regular text-[14px] underline block"
                 >
-                  enquiries@lendingbridge.co.uk
+                  {COMPANY_ENQUIRIES_EMAIL}
                 </a>
               </div>
             </div>

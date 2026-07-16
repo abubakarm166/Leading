@@ -1,5 +1,10 @@
 "use client";
-import { SOCIAL_LINKS } from "@/utils/constants";
+import {
+  COMPANY_ADDRESS_LINE_1,
+  COMPANY_ADDRESS_LINE_2,
+  COMPANY_ADDRESS_COUNTRY,
+  SOCIAL_LINKS,
+} from "@/utils/constants";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -18,8 +23,15 @@ const Footer = () => {
           <div>
             <p className="font-league-spartan font-semibold text-white text-[44px]">Lending Bridge</p>
             <p className="font-gilroy-regular font-extralight text-[18px] text-white mt-5 lg:my-10 w-full lg:max-w-[60%] 2xl:max-w-[70%]">
-              At Lending Bridge we specialize in bridge loans on buy-to-let, residential, commercial and semi-commercial
-              properties.. Our fast, efficient and reliable short-term financial solutions are made simple and stress-free.
+              At Lending Bridge we specialise in bridge loans on buy-to-let, residential, commercial and semi-commercial
+              properties. Our fast, efficient and reliable short-term financial solutions are made simple and stress-free.
+            </p>
+            <p className="font-gilroy-regular font-extralight text-[14px] lg:text-[16px] text-white/90 mt-4">
+              {COMPANY_ADDRESS_LINE_1}
+              <br />
+              {COMPANY_ADDRESS_LINE_2}
+              <br />
+              {COMPANY_ADDRESS_COUNTRY}
             </p>
             <div className="flex-row space-x-5 flex mt-6 lg:mt-0">
               <Image
@@ -92,13 +104,13 @@ const Footer = () => {
       </section>
       <div className="bg-primary-bg py-5 w-full flex flex-row items-center justify-between px-5 lg:px-[100px]">
         <div className="flex-row items-center justify-between hidden lg:flex lg:w-full">
-          <p className="font-gilroy-regular font-extralight text-[18px]">© 2025 Lending Bridge all rights reserved</p>
+          <p className="font-gilroy-regular font-extralight text-[18px]">© 2026 Lending Bridge. All rights reserved.</p>
           <p className="font-gilroy-regular font-extralight text-[18px]">
             Powered by Tech<span className="text-[#FF0000]">G</span>y Innovations
           </p>
         </div>
         <p className="font-gilroy-regular mx-auto text-center font-extralight text-[18px] block lg:hidden">
-          © 2025 Lending Bridge all rights reserved <br />
+          © 2026 Lending Bridge. All rights reserved. <br />
           Powered by Tech
           <span className="text-[#FF0000]">G</span>y Innovations
         </p>

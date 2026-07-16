@@ -2,6 +2,7 @@ import ClientBroker from "@/components/common/ClientBroker";
 import ContactUs from "@/components/common/ContactUs";
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
+import { COMPANY_ADDRESS_FULL, COMPANY_EMAIL } from "@/utils/constants";
 
 export const metadata = {
   title: "Privacy Policy | Lending Bridge UK",
@@ -123,12 +124,12 @@ const PrivacyPolicyPage = () => {
             If you have any questions or concerns about this privacy policy or
             our privacy practices, please contact us at{" "}
             <a
-              href="mailto:info@lendingbridge.co.uk"
+              href={`mailto:${COMPANY_EMAIL}`}
               className="text-primary underline"
             >
-              info@lendingbridge.co.uk
+              {COMPANY_EMAIL}
             </a>
-            .
+            , or write to us at {COMPANY_ADDRESS_FULL}.
           </p>
           <p>Effective Date: 01 January 2025</p>
         </div>

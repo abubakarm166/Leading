@@ -4,21 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import NavItem from "./NavItem";
+import { COMPANY_ENQUIRIES_EMAIL, COMPANY_PHONE, COMPANY_PHONE_TEL } from "@/utils/constants";
 
 const EnquireButton = ({ size = "md" }: { size?: "md" | "sm" }) => {
   const sizeClasses =
     size === "sm"
-      ? "h-8 w-8 text-[18px]"
-      : "h-10 w-10 text-[22px]";
+      ? "px-3 py-1.5 text-[11px]"
+      : "px-4 py-2 text-[12px]";
 
   return (
     <Link
       href="/contact-us"
-      aria-label="Enquire Now"
-      title="Enquire Now"
-      className={`flex shrink-0 items-center justify-center rounded-full bg-primary font-nunito-sans font-black leading-none text-white shadow-sm transition-all duration-200 hover:brightness-110 hover:shadow-md active:scale-95 ${sizeClasses}`}
+      className={`flex shrink-0 items-center justify-center rounded-full bg-primary font-league-spartan font-semibold leading-none text-white shadow-sm transition-all duration-200 hover:brightness-110 hover:shadow-md active:scale-95 ${sizeClasses}`}
     >
-      !
+      Enquire Now
     </Link>
   );
 };
@@ -69,7 +68,7 @@ const Navbar = () => {
               <div className="flex shrink-0 flex-row items-center gap-3 border-l border-primary/15 pl-4 xl:gap-4 xl:pl-5">
                 <div className="flex min-w-0 flex-col gap-1 min-[1536px]:flex-row min-[1536px]:items-center min-[1536px]:gap-3">
                   <a
-                    href="mailto:enquiries@lendingbridge.co.uk"
+                    href={`mailto:${COMPANY_ENQUIRIES_EMAIL}`}
                     className="group flex min-w-0 items-center gap-1.5 text-left transition-opacity hover:opacity-85"
                   >
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary">
@@ -82,7 +81,7 @@ const Navbar = () => {
                       />
                     </span>
                     <span className="font-league-spartan text-[12px] font-medium leading-none text-primary underline decoration-primary/35 underline-offset-2">
-                      enquiries@lendingbridge.co.uk
+                      {COMPANY_ENQUIRIES_EMAIL}
                     </span>
                   </a>
                   <span
@@ -90,7 +89,7 @@ const Navbar = () => {
                     aria-hidden
                   />
                   <a
-                    href="tel:02037250589"
+                    href={`tel:${COMPANY_PHONE_TEL}`}
                     className="group flex shrink-0 items-center gap-1.5 text-left whitespace-nowrap transition-opacity hover:opacity-85"
                   >
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary">
@@ -103,7 +102,7 @@ const Navbar = () => {
                       />
                     </span>
                     <span className="font-league-spartan text-[12px] font-medium leading-none text-primary">
-                      020 3725 0589
+                      {COMPANY_PHONE}
                     </span>
                   </a>
                 </div>
@@ -133,7 +132,7 @@ const Navbar = () => {
               <div
                 className="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer"
                 onClick={() =>
-                  window.open("mailto:enquiries@lendingbridge.co.uk")
+                  window.open(`mailto:${COMPANY_ENQUIRIES_EMAIL}`)
                 }
               >
                 <Image
@@ -146,7 +145,7 @@ const Navbar = () => {
               </div>
               <div
                 className="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer"
-                onClick={() => window.open("tel:02037250589")}
+                onClick={() => window.open(`tel:${COMPANY_PHONE_TEL}`)}
               >
                 <Image
                   src="/svg/phone-white.svg"
@@ -200,7 +199,7 @@ const Navbar = () => {
                 alt="mail"
                 className="w-3 h-3"
                 onClick={() =>
-                  window.open("mailto:enquiries@lendingbridge.co.uk", "_blank")
+                  window.open(`mailto:${COMPANY_ENQUIRIES_EMAIL}`, "_blank")
                 }
               />
             </div>
@@ -211,7 +210,7 @@ const Navbar = () => {
                 height={200}
                 alt="phone"
                 className="w-3 h-3 object-cover"
-                onClick={() => window.open("tel:02037250589", "_blank")}
+                onClick={() => window.open(`tel:${COMPANY_PHONE_TEL}`, "_blank")}
               />
             </div>
             <EnquireButton size="sm" />

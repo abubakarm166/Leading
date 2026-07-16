@@ -2,6 +2,10 @@ import ClientBroker from "@/components/common/ClientBroker";
 import ContactUs from "@/components/common/ContactUs";
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
+import {
+  COMPANY_ADDRESS_FULL,
+  COMPANY_NAME,
+} from "@/utils/constants";
 
 export const metadata = {
   title: "Complaints Policy | Lending Bridge UK",
@@ -44,9 +48,9 @@ const ComplaintsPage = () => {
           <p>
             You can send your complaint or an expression of dissatisfaction to
             the following address: <br />
-            Lending Bridge Holdings Limited
+            {COMPANY_NAME}
             <br />
-            101 - 103 Branston St, Birmingham B18 6BA, United Kingdom
+            {COMPANY_ADDRESS_FULL}
           </p>
           <div>
             <a
