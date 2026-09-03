@@ -52,6 +52,8 @@ export const metadata: Metadata = {
   },
 };
 
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID?.trim();
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -63,30 +65,56 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} ${leagueSpartan.variable} ${nunitoSans.variable} antialiased`}
       >
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-0D1MK5GB75"
-          strategy="afterInteractive"
-        />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17576200661"
-          strategy="afterInteractive"
-        />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-0D1MK5GB75');
-          `}
-        </Script>
-        <Script id="gtag-init-second" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-17576200661');
-          `}
-        </Script>
+        {GTM_ID ? (
+          <>
+            <Script id="gtm-loader" strategy="afterInteractive">
+              {`
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','${GTM_ID}');
+              `}
+            </Script>
+            <noscript>
+              <iframe
+                src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+                height="0"
+                width="0"
+                style={{ display: "none", visibility: "hidden" }}
+                title="Google Tag Manager"
+              />
+            </noscript>
+          </>
+        ) : (
+          <>
+            {/* Fallback until NEXT_PUBLIC_GTM_ID is set — then manage GA4/Ads inside GTM */}
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-0D1MK5GB75"
+              strategy="afterInteractive"
+            />
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=AW-17576200661"
+              strategy="afterInteractive"
+            />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-0D1MK5GB75');
+              `}
+            </Script>
+            <Script id="gtag-init-second" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'AW-17576200661');
+              `}
+            </Script>
+          </>
+        )}
         <Toaster position="bottom-center" />
         {children}
         <MobileNav />

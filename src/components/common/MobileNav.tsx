@@ -11,6 +11,7 @@ import {
   COMPANY_PHONE,
   COMPANY_PHONE_TEL,
 } from "@/utils/constants";
+import { trackEmailClick, trackPhoneClick } from "@/utils/analytics";
 
 const WORK_OPTIONS = [
   { title: "Blogs", href: "/blogs" },
@@ -215,6 +216,7 @@ const MobileNav = () => {
                   <a
                     href={`mailto:${COMPANY_ENQUIRIES_EMAIL}`}
                     className="underline"
+                    onClick={() => trackEmailClick("mobile_nav")}
                   >
                     {COMPANY_ENQUIRIES_EMAIL}
                   </a>
@@ -229,7 +231,12 @@ const MobileNav = () => {
                       className="w-3 h-3"
                     />
                   </div>
-                  <a href={`tel:${COMPANY_PHONE_TEL}`}>{COMPANY_PHONE}</a>
+                  <a
+                    href={`tel:${COMPANY_PHONE_TEL}`}
+                    onClick={() => trackPhoneClick("mobile_nav")}
+                  >
+                    {COMPANY_PHONE}
+                  </a>
                 </div>
               </div>
             </div>

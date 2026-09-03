@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import NavItem from "./NavItem";
 import { COMPANY_ENQUIRIES_EMAIL, COMPANY_PHONE, COMPANY_PHONE_TEL } from "@/utils/constants";
+import { trackEmailClick, trackPhoneClick } from "@/utils/analytics";
 
 const EnquireButton = ({ size = "md" }: { size?: "md" | "sm" }) => {
   const sizeClasses =
@@ -70,6 +71,7 @@ const Navbar = () => {
                   <a
                     href={`mailto:${COMPANY_ENQUIRIES_EMAIL}`}
                     className="group flex min-w-0 items-center gap-1.5 text-left transition-opacity hover:opacity-85"
+                    onClick={() => trackEmailClick("navbar_desktop")}
                   >
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary">
                       <Image
@@ -91,6 +93,7 @@ const Navbar = () => {
                   <a
                     href={`tel:${COMPANY_PHONE_TEL}`}
                     className="group flex shrink-0 items-center gap-1.5 text-left whitespace-nowrap transition-opacity hover:opacity-85"
+                    onClick={() => trackPhoneClick("navbar_desktop")}
                   >
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary">
                       <Image
@@ -131,9 +134,10 @@ const Navbar = () => {
             <div className="flex flex-row items-center space-x-[10px]">
               <div
                 className="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer"
-                onClick={() =>
-                  window.open(`mailto:${COMPANY_ENQUIRIES_EMAIL}`)
-                }
+                onClick={() => {
+                  trackEmailClick("navbar_tablet");
+                  window.open(`mailto:${COMPANY_ENQUIRIES_EMAIL}`);
+                }}
               >
                 <Image
                   src="/svg/mail-white.svg"
@@ -145,7 +149,10 @@ const Navbar = () => {
               </div>
               <div
                 className="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer"
-                onClick={() => window.open(`tel:${COMPANY_PHONE_TEL}`)}
+                onClick={() => {
+                  trackPhoneClick("navbar_tablet");
+                  window.open(`tel:${COMPANY_PHONE_TEL}`);
+                }}
               >
                 <Image
                   src="/svg/phone-white.svg"
@@ -198,9 +205,10 @@ const Navbar = () => {
                 height={200}
                 alt="mail"
                 className="w-3 h-3"
-                onClick={() =>
-                  window.open(`mailto:${COMPANY_ENQUIRIES_EMAIL}`, "_blank")
-                }
+                onClick={() => {
+                  trackEmailClick("navbar_mobile");
+                  window.open(`mailto:${COMPANY_ENQUIRIES_EMAIL}`, "_blank");
+                }}
               />
             </div>
             <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center">
@@ -210,7 +218,10 @@ const Navbar = () => {
                 height={200}
                 alt="phone"
                 className="w-3 h-3 object-cover"
-                onClick={() => window.open(`tel:${COMPANY_PHONE_TEL}`, "_blank")}
+                onClick={() => {
+                  trackPhoneClick("navbar_mobile");
+                  window.open(`tel:${COMPANY_PHONE_TEL}`, "_blank");
+                }}
               />
             </div>
             <EnquireButton size="sm" />

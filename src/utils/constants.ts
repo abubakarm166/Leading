@@ -286,7 +286,7 @@ export const PRODUCTS = [
     id: 7,
     title: "Bridging Finance for Complex Cases",
     content:
-      'Are you an overseas buyer who wants to buy property in the UK or you are stuck in an impossible situation that requires extremely fast turn-around times? <a href="https://lendingbridge.co.uk" target="_blank"><u>Lending Bridge</u></a> is your solution! Mastering impossible situations and creating tailored finance solutions is where we shine and our extremely easy process makes it possible for everyone to follow.',
+      'Are you an overseas buyer who wants to buy property in the UK or you are stuck in an impossible situation that requires extremely fast turn-around times? <a href="https://www.lendingbridge.co.uk" target="_blank" rel="noopener noreferrer"><u>Lending Bridge</u></a> is your solution! Mastering impossible situations and creating tailored finance solutions is where we shine and our extremely easy process makes it possible for everyone to follow.',
     // content:
     //   '<p>Are you an overseas buyer who wants to buy property in the UK or you are stuck in an impossible situation that requires extremely fast turn-around times? <a href="https://www.lendingbridge.co.uk" target="_blank" rel="noopener noreferrer>Lending Bridge</a> is your solution! Mastering impossible situations and creating tailored finance solutions is where we shine and our extremely easy process makes it possible for everyone to follow.</p>',
     img: "/svg/product-one.svg",

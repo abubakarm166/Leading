@@ -98,7 +98,7 @@ const BlogsCarousel: React.FC<Props> = ({
                   {truncatePlainText(stripHtmlToPlainText(item.content), 80)}
                 </p>
                 <p className="absolute bottom-5 left-5 font-gilroy-medium text-[16px]">
-                  Read More...
+                  Read More
                 </p>
               </div>
               </div>

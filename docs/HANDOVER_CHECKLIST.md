@@ -1,7 +1,7 @@
-# Lending Bridge — Phase 1 Final QA & Handover
+# Lending Bridge — Final QA & Handover (vs client Final Website Review PDF)
 
-**Date:** 16 July 2026  
-**Purpose:** End-to-end confirmation that all agreed Phase 1 amendments are complete before client sign-off.
+**Last updated:** 3 September 2026  
+**Purpose:** Track each client item before AWS deploy and sign-off.
 
 ---
 
@@ -9,57 +9,68 @@
 
 | # | Requirement | Code status | Live / ops status |
 |---|-------------|-------------|-------------------|
-| 1 | Office address → Ground Floor, 172 Edmund St, Birmingham B3 2HB | ✅ Done (Contact, Footer, Complaints, Privacy) | ⏳ Deploy required |
-| 2 | Website Terms — remove `lendhub.co.uk` | ✅ Done → lendingbridge.co.uk + company name | ⏳ Deploy required |
-| 3 | Top bar — replace `!` with Enquire Now | ✅ Done | ⏳ Deploy required |
-| 4 | Enquiry form — only First/Last Name, Email, Phone required | ✅ Done (other fields optional) | ⏳ Deploy + live form test |
-| 5 | Final proofread | ✅ Key copy/grammar fixes applied | ⏳ Spot-check on live after deploy |
-| 6 | Consistency (caps, buttons, headings, spacing) | ✅ CTAs aligned (Enquire Now / Calculate Now / Submit Enquiry) | ⏳ Visual pass on live |
-| 7 | Links & forms | ✅ Code ready | ⏳ Live test checklist below |
-| 8 | Mobile & browser | ✅ Layout patterns unchanged / form improved | ⏳ Device pass below |
-| 9 | Stability & AWS monitoring | ✅ Next.js 15.2.9, PM2, watchdog, `/health` | ⚠️ Confirm CloudWatch + SSH lockdown |
-| 10 | Performance | ✅ Build optimised; team page heaviest | ⏳ PageSpeed after deploy |
-| 11 | Ownership & access transfer | 📄 Checklist ready | ⏳ Client action |
-| 12 | Final QA & handover | 📄 This document | ⏳ Sign-off after deploy + live QA |
-
-**Blocker for Phase 1 sign-off:** changes are complete in the local repo but **not yet committed, pushed, or deployed to production**.
+| 1 | Office address → Ground Floor, 172 Edmund St, Birmingham B3 2HB | ✅ Done | ⏳ Deploy |
+| 2 | Website Terms — remove `lendhub.co.uk` | ✅ Done | ⏳ Deploy |
+| 3 | Top bar — `!` → Enquire Now | ✅ Done | ⏳ Deploy |
+| 4 | Enquiry form — only First/Last/Email/Phone required | ✅ Done | ⏳ Deploy + live form/email test |
+| 5 | Final proofread | ✅ Key copy/CTA fixes applied | ⏳ Spot-check live |
+| 6 | Consistency + products text cutoff | ✅ Done | ⏳ Visual pass live |
+| 7 | Links, forms, `/product` → `/products`, case studies layout | ✅ Code ready (redirect + centred mockup layout) | ⏳ Live QA + CMS upload test |
+| 8 | Mobile/browsers + GTM / conversions / call tracking | ✅ GTM ready via env; enquiry + phone/email dataLayer events | ⏳ Need `NEXT_PUBLIC_GTM_ID`; device pass |
+| 9 | Stability + AWS monitoring | ✅ Next 15.2.9, `/health`, docs | ⏳ Confirm on EC2 |
+| 10 | Performance | ✅ Build optimisations in place | ⏳ PageSpeed after deploy |
+| 11 | Ownership & access | 📄 Checklist below | ⏳ Client action |
+| 12 | Pre-deploy review | 📄 This document | ⏳ Sign-off after deploy |
 
 ---
 
-## Code verification (local)
+## Google Tag Manager (item 8)
 
-| Check | Result |
-|-------|--------|
-| Old address (Branston / B18 6BA) | ❌ Not found in `src/` |
-| `lendhub` / `Lendhub` | ❌ Not found in `src/` |
-| New address constants | ✅ `COMPANY_ADDRESS_*` in `constants.ts` |
-| Navbar CTA | ✅ “Enquire Now” (no `!`) |
-| Form validation | ✅ Only firstName, lastName, email, number required |
-| Next.js version | ✅ `15.2.9` (CVE-2025-66478 patched) |
-| Build | ✅ Passes (`npm run build`) |
+**Where:** `src/app/layout.tsx`
+
+1. Create a GTM container and get the ID (`GTM-XXXXXXX`).
+2. Set on the server (and local) env:
+
+```bash
+NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
+```
+
+3. Rebuild and restart PM2. When this env is set, the site loads **only GTM** (direct GA4/Ads gtag scripts are skipped).
+4. Inside GTM, configure:
+   - GA4 (`G-0D1MK5GB75`)
+   - Google Ads (`AW-17576200661`)
+   - Custom events already fired by the site:
+     - `enquiry_submit` (form success)
+     - `phone_click` (navbar / contact / mobile nav)
+     - `email_click` (navbar / contact / mobile nav)
+5. Map those events to Ads conversions / call tracking as needed.
+
+Until `NEXT_PUBLIC_GTM_ID` is set, existing GA4 + Ads gtag continue to load as a fallback.
 
 ---
 
-## Deploy to production (required before sign-off)
+## Deploy to production
 
 ```bash
 # Local
 git add -A
-git commit -m "Phase 1 handover: address, website terms, enquire CTA, simplified enquiry form"
+git status   # do NOT commit .env.dev / secrets
+git commit -m "Final review: product redirects, case studies layout, GTM-ready tracking"
 git push origin main
 
 # EC2
 cd ~/Leading
 git pull
+# ensure NEXT_PUBLIC_GTM_ID is in production env if ready
 npm ci
 npm run build
 pm2 restart leading --update-env
 pm2 save
 
 # Verify
-npx next --version
 curl -s http://127.0.0.1:3000/health
-curl -I https://www.lendingbridge.co.uk
+curl -I https://www.lendingbridge.co.uk/product/residential-bridges-and-btl-bridges
+# Expect 308/301 → /products/residential-bridges-and-btl-bridges
 ```
 
 ---
@@ -67,56 +78,40 @@ curl -I https://www.lendingbridge.co.uk
 ## Live QA checklist (post-deploy)
 
 ### Content
-- [ ] Contact page / footer show **Ground Floor, 172 Edmund St, Birmingham B3 2HB**
-- [ ] Complaints & Privacy show the same address
-- [ ] Website Terms show **lendingbridge.co.uk** (no lendhub)
-- [ ] Header shows **Enquire Now** (not `!`)
+- [ ] Address shows **Ground Floor, 172 Edmund St, Birmingham B3 2HB**
+- [ ] Website Terms: **lendingbridge.co.uk** only
+- [ ] Header: **Enquire Now** (not `!`)
 
-### Forms
-- [ ] Enquiry submits with only First Name, Last Name, Email, Phone
+### Forms & tracking
+- [ ] Enquiry with only name/email/phone succeeds
 - [ ] Success toast appears
-- [ ] Enquiry email received by Lending Bridge
-- [ ] Broker registration still works (`/intermediaries`)
-- [ ] Calculator / newsletter still work
+- [ ] Enquiry email received
+- [ ] GTM Preview sees `enquiry_submit` / `phone_click` (if GTM ID set)
 
-### Links
-- [ ] Nav: Products, Team, Blogs, Case Studies, Resources, Intermediaries
-- [ ] Footer legal links: Complaints, Cookie, Privacy, Terms, Website Terms
-- [ ] 404 page for unknown URL
+### Products
+- [ ] `/product/...` redirects to `/products/...`
+- [ ] Product titles not cut off
+- [ ] All 8 product pages load
 
-### Mobile / browsers
-- [ ] Chrome, Safari, Firefox — no layout break
-- [ ] iPhone + Android — no horizontal scroll; Enquire Now tappable
+### Case studies / blogs
+- [ ] Detail layout matches mockup (image left, details right, story below)
+- [ ] New CMS blog + case study match templates
 
-### Stability
-- [ ] `curl http://127.0.0.1:3000/health` → `ok`
-- [ ] `pm2 status` → `leading` online
-- [ ] No `/tmp/dashboard` or `cpu-logind` processes
-- [ ] CloudWatch CPU alarm set (recommended)
-- [ ] SSH restricted to known IPs (recommended)
+### Mobile / stability
+- [ ] No horizontal scroll; buttons tappable
+- [ ] `pm2 status` online; `/health` ok; CloudWatch alarm set
 
 ---
 
 ## Ownership transfer (item 11)
 
-| Asset | Transferred to Lending Bridge? |
-|-------|--------------------------------|
+| Asset | Transferred? |
+|-------|--------------|
 | GitHub repo access | [ ] |
 | AWS / EC2 access | [ ] |
 | Domain DNS | [ ] |
 | SSL / Certbot notes | [ ] |
-| Email API (Vercel) | [ ] |
+| Email API | [ ] |
 | CMS / API admin | [ ] |
 | Production `.env` (rotated) | [ ] |
 | SSH keys (dev keys removed) | [ ] |
-
----
-
-## Sign-off
-
-| Role | Name | Date | Signed |
-|------|------|------|--------|
-| Developer — Phase 1 complete | | | |
-| Lending Bridge — Phase 1 accepted | | | |
-
-Once the deploy and live QA boxes above are ticked, Phase 1 can be closed and Phase 2 can begin.

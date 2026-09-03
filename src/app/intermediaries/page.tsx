@@ -231,7 +231,7 @@ const BrokerPage = () => {
                     We place brokers at the core of everything we do. We keep you updated on any changes in policies and rates,
                     ensuring that you&apos;re always in the loop. With{" "}
                     <a
-                      href="https://lendingbridge.co.uk"
+                      href="https://www.lendingbridge.co.uk"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary underline underline-offset-2"

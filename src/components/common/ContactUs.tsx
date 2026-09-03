@@ -7,7 +7,8 @@ import toast from "react-hot-toast";
 import Button from "./Button";
 import Input from "./Input";
 import { validateFormInputs } from "@/utils/helpers";
-import { LOAN_PURPOSE_OPTIONS, COMPANY_ADDRESS_LINE_1, COMPANY_ADDRESS_LINE_2, COMPANY_ADDRESS_COUNTRY, COMPANY_EMAIL, COMPANY_ENQUIRIES_EMAIL, COMPANY_PHONE } from "@/utils/constants";
+import { trackEmailClick, trackEnquirySubmit, trackPhoneClick } from "@/utils/analytics";
+import { LOAN_PURPOSE_OPTIONS, COMPANY_ADDRESS_LINE_1, COMPANY_ADDRESS_LINE_2, COMPANY_ADDRESS_COUNTRY, COMPANY_EMAIL, COMPANY_ENQUIRIES_EMAIL, COMPANY_PHONE, COMPANY_PHONE_TEL } from "@/utils/constants";
 
 interface Props {
   noBorder?: boolean;
@@ -57,6 +58,7 @@ const ContactUsForm = () => {
       }
 
       helpers.resetForm();
+      trackEnquirySubmit("contact_enquiry");
       toast.success("Thank you — your enquiry has been submitted.");
     },
   });
@@ -237,7 +239,13 @@ const ContactUs: React.FC<Props> = ({ noBorder }) => {
               />
               <div>
                 <p className="font-gilroy-bold text-[16px]">Phone Number</p>
-                <p className="font-gilroy-regular text-[14px]">{COMPANY_PHONE}</p>
+                <a
+                  href={`tel:${COMPANY_PHONE_TEL}`}
+                  className="font-gilroy-regular text-[14px] underline"
+                  onClick={() => trackPhoneClick("contact_section")}
+                >
+                  {COMPANY_PHONE}
+                </a>
               </div>
             </div>
             <div className="flex flex-row items-start space-x-[10px] mt-5">
@@ -253,12 +261,14 @@ const ContactUs: React.FC<Props> = ({ noBorder }) => {
                 <a
                   href={`mailto:${COMPANY_EMAIL}`}
                   className="font-gilroy-regular text-[14px] underline block"
+                  onClick={() => trackEmailClick("contact_section")}
                 >
                   {COMPANY_EMAIL}
                 </a>
                 <a
                   href={`mailto:${COMPANY_ENQUIRIES_EMAIL}`}
                   className="font-gilroy-regular text-[14px] underline block"
+                  onClick={() => trackEmailClick("contact_section")}
                 >
                   {COMPANY_ENQUIRIES_EMAIL}
                 </a>

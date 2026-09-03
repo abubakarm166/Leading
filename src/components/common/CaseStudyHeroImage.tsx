@@ -49,7 +49,7 @@ const CaseStudyHeroImage = ({
         className={cn(
           "h-auto w-full rounded-[20px] object-contain object-center",
           isCompact && "max-h-[160px] sm:max-h-[200px] md:max-h-[220px]",
-          isSidebar && "max-h-[200px] sm:max-h-[240px] lg:max-h-none"
+          isSidebar && "max-h-[280px] sm:max-h-[340px] lg:max-h-none"
         )}
       />
     </div>

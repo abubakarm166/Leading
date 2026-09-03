@@ -278,7 +278,7 @@ const Calculator = () => {
           <div className="flex items-center justify-center">
             <Button onClick={() => setIsCalcVisible((prev) => !prev)}>
               <div className="flex flex-row items-center space-x-5">
-                <p className="font-bold text-white text-[16px] lg:text-[20px] uppercase">Calculate now</p>
+                <p className="font-bold text-white text-[16px] lg:text-[20px] uppercase">Calculate Now</p>
                 <Image
                   src={isCalcVisible ? "/svg/chevron-up-white.svg" : "/svg/chevron-down-white.svg"}
                   width={20}

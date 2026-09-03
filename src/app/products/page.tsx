@@ -63,7 +63,7 @@ export default function ProductsPage() {
                     />
                   </div>
                   <div>
-                    <span className="text-primary font-medium">Read More →</span>
+                    <span className="text-primary font-medium">Read More</span>
                   </div>
                 </div>
               </Link>
