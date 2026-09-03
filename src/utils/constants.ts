@@ -54,7 +54,7 @@ export const FEATURES = [
     title: "Fast",
     subTitle: "Fast",
     content:
-      "Quick, Easy, and Stress- Free financing when you need it most. Our standard timeline to process a loan is much faster than others in the industry. We have turned around loans in less than 48 hours!",
+      "Quick, Easy, and Stress-Free financing when you need it most. Our standard timeline to process a loan is much faster than others in the industry. We have turned around loans in less than 48 hours!",
     img: "/gif/timer.gif",
     contentImg: "/svg/feature-two.svg",
   },

@@ -16,6 +16,15 @@ const nextConfig: NextConfig = {
   },
   compress: true, // Enable compression for JavaScript and CSS
   poweredByHeader: false,
+  async redirects() {
+    return [
+      {
+        source: "/product/:slug",
+        destination: "/products/:slug",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

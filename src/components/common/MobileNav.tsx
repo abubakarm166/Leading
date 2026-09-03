@@ -6,6 +6,11 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Reveal from "./Reveal";
+import {
+  COMPANY_ENQUIRIES_EMAIL,
+  COMPANY_PHONE,
+  COMPANY_PHONE_TEL,
+} from "@/utils/constants";
 
 const WORK_OPTIONS = [
   { title: "Blogs", href: "/blogs" },
@@ -208,10 +213,10 @@ const MobileNav = () => {
                     />
                   </div>
                   <a
-                    href="mailto:enquires@lendingbridge.co.uk"
+                    href={`mailto:${COMPANY_ENQUIRIES_EMAIL}`}
                     className="underline"
                   >
-                    enquires@lendingbridge.co.uk
+                    {COMPANY_ENQUIRIES_EMAIL}
                   </a>
                 </div>
                 <div className="flex flex-row space-x-[10px] items-center mt-[10px]">
@@ -224,7 +229,7 @@ const MobileNav = () => {
                       className="w-3 h-3"
                     />
                   </div>
-                  <a href="tel:02037250589">020 3725 0589</a>
+                  <a href={`tel:${COMPANY_PHONE_TEL}`}>{COMPANY_PHONE}</a>
                 </div>
               </div>
             </div>

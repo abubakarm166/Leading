@@ -56,75 +56,72 @@ const CaseStudyDetailPage = async (props: {
   return (
     <main className="bg-primary-bg">
       <Navbar />
-      <div className="mt-[50px] px-5 lg:px-[100px]">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10 xl:gap-14">
-          {caseStudy?.img && (
-            <div className="w-full shrink-0 lg:sticky lg:top-8 lg:w-[38%] lg:max-w-[440px] xl:max-w-[480px]">
-              <CaseStudyHeroImage
-                src={caseStudy.img}
-                alt={caseStudy?.location ?? "Case study"}
-                priority
-                size="sidebar"
-              />
+      <div className="mx-auto mt-[50px] w-full max-w-4xl px-5 lg:px-8">
+        {caseStudy?.img && (
+          <CaseStudyHeroImage
+            src={caseStudy.img}
+            alt={caseStudy?.location ?? "Case study"}
+            priority
+            size="compact"
+            className="mx-auto"
+          />
+        )}
+
+        <div className="mt-8 text-center sm:mt-10">
+          <h1 className="font-league-spartan text-[40px] font-semibold text-primary sm:text-[48px] lg:text-[56px] xl:text-[64px]">
+            {caseStudy?.location}
+          </h1>
+
+          <dl className="mx-auto mt-8 flex max-w-xl flex-col items-center gap-y-3 sm:mt-10">
+            <div className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1">
+              <dt className="font-gilroy-bold text-[18px]">Location</dt>
+              <span className="text-[18px] text-neutral-500">:</span>
+              <dd className="font-gilroy-regular text-[18px] text-primary">
+                {caseStudy?.location}
+              </dd>
             </div>
-          )}
-
-          <div className="min-w-0 flex-1">
-            <h1 className="font-league-spartan text-[40px] font-semibold text-primary sm:text-[48px] lg:text-[56px] xl:text-[64px]">
-              {caseStudy?.location}
-            </h1>
-
-            <dl className="mt-8 flex flex-col gap-y-3 sm:mt-10">
-              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                <dt className="font-gilroy-bold text-[18px]">Location</dt>
+            <div className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1">
+              <dt className="font-gilroy-bold text-[18px]">Value of Loan</dt>
+              <span className="text-[18px] text-neutral-500">:</span>
+              <dd className="font-gilroy-regular text-[18px] text-primary">
+                {new Intl.NumberFormat("en-us").format(
+                  Number(caseStudy?.loan || 0)
+                )}
+              </dd>
+            </div>
+            <div className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1">
+              <dt className="font-gilroy-bold text-[18px]">LTV</dt>
+              <span className="text-[18px] text-neutral-500">:</span>
+              <dd className="font-gilroy-regular text-[18px] text-primary">
+                {caseStudy?.ltv}%
+              </dd>
+            </div>
+            {caseStudy?.propertyType && (
+              <div className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1">
+                <dt className="font-gilroy-bold text-[18px]">Property Type</dt>
                 <span className="text-[18px] text-neutral-500">:</span>
                 <dd className="font-gilroy-regular text-[18px] text-primary">
-                  {caseStudy?.location}
+                  {caseStudy.propertyType}
                 </dd>
               </div>
-              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                <dt className="font-gilroy-bold text-[18px]">Value of Loan</dt>
-                <span className="text-[18px] text-neutral-500">:</span>
-                <dd className="font-gilroy-regular text-[18px] text-primary">
-                  {new Intl.NumberFormat("en-us").format(
-                    Number(caseStudy?.loan || 0)
-                  )}
-                </dd>
-              </div>
-              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                <dt className="font-gilroy-bold text-[18px]">LTV</dt>
-                <span className="text-[18px] text-neutral-500">:</span>
-                <dd className="font-gilroy-regular text-[18px] text-primary">
-                  {caseStudy?.ltv}%
-                </dd>
-              </div>
-              {caseStudy?.propertyType && (
-                <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                  <dt className="font-gilroy-bold text-[18px]">Property Type</dt>
-                  <span className="text-[18px] text-neutral-500">:</span>
-                  <dd className="font-gilroy-regular text-[18px] text-primary">
-                    {caseStudy.propertyType}
-                  </dd>
-                </div>
-              )}
-              {caseStudy?.dealType && (
-                <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                  <dt className="font-gilroy-bold text-[18px]">Type of Deal</dt>
-                  <span className="text-[18px] text-neutral-500">:</span>
-                  <dd className="font-gilroy-regular text-[18px] text-primary">
-                    {caseStudy.dealType}
-                  </dd>
-                </div>
-              )}
-            </dl>
-
-            {caseStudy?.description && (
-              <div
-                className="mt-8 font-gilroy-regular text-[16px] leading-relaxed sm:mt-10 [&_a]:text-primary [&_a]:underline [&_p+p]:mt-4"
-                dangerouslySetInnerHTML={{ __html: caseStudy.description }}
-              />
             )}
-          </div>
+            {caseStudy?.dealType && (
+              <div className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1">
+                <dt className="font-gilroy-bold text-[18px]">Type of Deal</dt>
+                <span className="text-[18px] text-neutral-500">:</span>
+                <dd className="font-gilroy-regular text-[18px] text-primary">
+                  {caseStudy.dealType}
+                </dd>
+              </div>
+            )}
+          </dl>
+
+          {caseStudy?.description && (
+            <div
+              className="mx-auto mt-8 max-w-3xl text-left font-gilroy-regular text-[16px] leading-relaxed sm:mt-10 [&_a]:text-primary [&_a]:underline [&_p+p]:mt-4"
+              dangerouslySetInnerHTML={{ __html: caseStudy.description }}
+            />
+          )}
         </div>
       </div>
       <div className="mt-[50px]">

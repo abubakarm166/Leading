@@ -70,9 +70,8 @@ const Products = () => {
           </Reveal>
           <Reveal delay={0.7}>
             <p className="text-[18px] mb-5">
-              We also want to add a point that mentions how we custom-make
-              products based on very complex situations. We are determined to
-              find the perfect solution for you!
+              We also custom-make products for complex situations. We are
+              determined to find the perfect solution for you.
             </p>
           </Reveal>
           <Reveal
@@ -93,13 +92,13 @@ const Products = () => {
               {LOOP_PRODUCTS.map((item, index) => (
                 <div
                   key={`${item.id}-${index}`}
-                  className="min-w-[350px] h-[133px] rounded-[10px] bg-white p-5 flex flex-col justify-between"
+                  className="flex min-h-[150px] w-[320px] shrink-0 flex-col justify-between gap-3 rounded-[10px] bg-white p-5 sm:w-[350px]"
                 >
-                  <p className="text-[20px] font-league-spartan font-medium">
+                  <p className="font-league-spartan text-[18px] font-medium leading-snug sm:text-[20px]">
                     {item.title}
                   </p>
                   <Button
-                    className="w-[200px] h-[50px] p-0"
+                    className="h-[50px] w-[200px] shrink-0 p-0"
                     onClick={() => router.push(`/products/${item.slug}`)}
                   >
                     <p className="uppercase text-white">Read More</p>

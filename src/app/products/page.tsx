@@ -51,12 +51,12 @@ export default function ProductsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {PRODUCTS.map((product) => (
               <Link key={product.id} href={`/products/${product.slug}`}>
-                <div className="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow h-[700px] flex flex-col justify-between">
+                <div className="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow min-h-[420px] flex flex-col justify-between">
                   <div>
                     <div className="relative aspect-square mb-4">
                       <Image src={product.img} alt={product.title} fill className="object-contain rounded-lg" />
                     </div>
-                    <h2 className="text-xl font-semibold text-gray-900 mb-2">{product.title}</h2>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-2 leading-snug">{product.title}</h2>
                     <ProductContentHtml
                       html={product.content}
                       className="text-gray-700 text-sm"
