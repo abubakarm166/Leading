@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/zoom.css";
 import { Geist, Geist_Mono, League_Spartan, Nunito_Sans } from "next/font/google";
-import Script from "next/script";
 import "rc-slider/assets/index.css";
 import "rc-tooltip/assets/bootstrap.css";
 import "react-calendar/dist/Calendar.css";
@@ -52,7 +51,9 @@ export const metadata: Metadata = {
   },
 };
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID?.trim();
+/** Google Tag Manager — present on every page via root layout */
+const GTM_ID =
+  process.env.NEXT_PUBLIC_GTM_ID?.trim() || "GTM-58DF5MRB";
 
 export default function RootLayout({
   children,
@@ -61,60 +62,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Google Tag Manager — as high in <head> as possible */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`,
+          }}
+        />
+      </head>
       <body
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} ${leagueSpartan.variable} ${nunitoSans.variable} antialiased`}
       >
-        {GTM_ID ? (
-          <>
-            <Script id="gtm-loader" strategy="afterInteractive">
-              {`
-                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','${GTM_ID}');
-              `}
-            </Script>
-            <noscript>
-              <iframe
-                src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-                height="0"
-                width="0"
-                style={{ display: "none", visibility: "hidden" }}
-                title="Google Tag Manager"
-              />
-            </noscript>
-          </>
-        ) : (
-          <>
-            {/* Fallback until NEXT_PUBLIC_GTM_ID is set — then manage GA4/Ads inside GTM */}
-            <Script
-              src="https://www.googletagmanager.com/gtag/js?id=G-0D1MK5GB75"
-              strategy="afterInteractive"
-            />
-            <Script
-              src="https://www.googletagmanager.com/gtag/js?id=AW-17576200661"
-              strategy="afterInteractive"
-            />
-            <Script id="gtag-init" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-0D1MK5GB75');
-              `}
-            </Script>
-            <Script id="gtag-init-second" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'AW-17576200661');
-              `}
-            </Script>
-          </>
-        )}
+        {/* Google Tag Manager (noscript) — immediately after opening <body> */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         <Toaster position="bottom-center" />
         {children}
         <MobileNav />

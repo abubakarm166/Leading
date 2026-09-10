@@ -28,24 +28,20 @@
 
 **Where:** `src/app/layout.tsx`
 
-1. Create a GTM container and get the ID (`GTM-XXXXXXX`).
-2. Set on the server (and local) env:
+**Installed:** `GTM-58DF5MRB` in `src/app/layout.tsx` (every page, including Auction Finance).
 
-```bash
-NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
-```
-
-3. Rebuild and restart PM2. When this env is set, the site loads **only GTM** (direct GA4/Ads gtag scripts are skipped).
-4. Inside GTM, configure:
-   - GA4 (`G-0D1MK5GB75`)
-   - Google Ads (`AW-17576200661`)
+1. Rebuild and restart PM2 on production after deploy.
+2. Optional env override: `NEXT_PUBLIC_GTM_ID=GTM-58DF5MRB` (already the code default).
+3. Inside GTM, configure:
+   - GA4 / Google Ads (move tags here — hard-coded gtag was removed once GTM went live)
    - Custom events already fired by the site:
      - `enquiry_submit` (form success)
      - `phone_click` (navbar / contact / mobile nav)
      - `email_click` (navbar / contact / mobile nav)
+4. Verify with **GTM Preview** on:
+   - `https://www.lendingbridge.co.uk/products/auction-bridging-finance`
+   - Homepage and contact page
 5. Map those events to Ads conversions / call tracking as needed.
-
-Until `NEXT_PUBLIC_GTM_ID` is set, existing GA4 + Ads gtag continue to load as a fallback.
 
 ---
 
