@@ -57,7 +57,7 @@ const Features = () => {
         </Reveal>
 
         <Reveal delay={0.3} className="order-0 lg:order-1">
-          <Image
+          <SmartImage
             src={activeItem.contentImg}
             width={400}
             height={300}
