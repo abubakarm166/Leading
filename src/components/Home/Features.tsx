@@ -1,8 +1,8 @@
 "use client";
 import { FEATURES } from "@/utils/constants";
-import Image from "next/image";
 import { useState } from "react";
 import Reveal from "../common/Reveal";
+import SmartImage from "../common/SmartImage";
 
 const Features = () => {
   const [activeItem, setActiveItem] = useState(FEATURES[0]);
@@ -21,7 +21,7 @@ const Features = () => {
               }`}
               onClick={() => setActiveItem(item)}
             >
-              <Image
+              <SmartImage
                 src={item.img}
                 width={120}
                 height={120}

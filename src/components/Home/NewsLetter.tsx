@@ -1,10 +1,10 @@
 "use client";
 import { addNewsletter } from "@/utils/api/newsletter";
-import Image from "next/image";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import Button from "../common/Button";
 import Input from "../common/Input";
+import SmartImage from "../common/SmartImage";
 import { validateEmail } from "@/utils/helpers";
 
 const NewsLetter = () => {
@@ -45,7 +45,7 @@ const NewsLetter = () => {
           </div>
         </div>
         <div className="w-[40%] 2xl:w-[30%] min-h-full bg-white items-center justify-center hidden lg:flex">
-          <Image
+          <SmartImage
             src="/gif/newsletter.gif"
             width={200}
             height={200}

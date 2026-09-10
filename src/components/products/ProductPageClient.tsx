@@ -2,8 +2,8 @@
 import Button from "@/components/common/Button";
 import ProductContentHtml from "@/components/common/ProductContentHtml";
 import Reveal from "@/components/common/Reveal";
+import SmartImage from "@/components/common/SmartImage";
 import { PRODUCT_KEY_INFO, PRODUCTS } from "@/utils/constants";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useMemo } from "react";
 
@@ -25,7 +25,7 @@ const ProductKeyInfo = () => {
             <div
               className={`lg:pl-10 ${item.id % 3 === 0 ? "border-none" : "lg:border-r-[0.5px]"} border-r-[#8B8B8B]`}
             >
-              <Image
+              <SmartImage
                 src={item.img}
                 width={75}
                 height={75}
@@ -82,11 +82,11 @@ const ProductHighlights = ({ id }: { id: string }) => {
           product.highlights.map((el, idx) => (
             <Reveal delay={0.2} key={idx} className="lg:mt-10">
               <div className="flex min-h-[225px] w-[225px] flex-col items-center justify-center rounded-[32px] bg-white px-4 py-5">
-                <Image
+                <SmartImage
                   src={el.img}
                   width={120}
                   height={120}
-                  alt="discount"
+                  alt={el.title}
                   sizes="120px"
                   className="h-[100px] w-[100px] shrink-0 object-contain"
                 />
@@ -157,7 +157,7 @@ const ProductHero = ({ id }: { id: string }) => {
           className="flex w-full shrink-0 justify-center lg:w-[46%] lg:min-w-[320px] lg:max-w-[580px] lg:justify-center"
         >
           <div className="relative w-full max-w-[min(100%,580px)] lg:max-w-none">
-            <Image
+            <SmartImage
               src={product?.img as string}
               width={640}
               height={480}

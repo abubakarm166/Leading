@@ -10,6 +10,7 @@ import Button from "../common/Button";
 import FAQ from "../common/FAQ";
 import ContactUs from "../common/ContactUs";
 import Footer from "../common/Footer";
+import SmartImage from "../common/SmartImage";
 
 const ResourcesClient = () => {
   const [resources, setResources] = useState<Resource[]>([]);
@@ -60,7 +61,7 @@ const ResourcesClient = () => {
           </div>
           <div className="flex flex-col lg:flex-row items-center justify-center lg:space-x-[50px] space-y-5 lg:space-y-0 mt-[70px] mb-[30px] lg:mb-[90px]">
             <div className="w-[350px] h-[300px] bg-white rounded-[32px] flex flex-col items-center justify-center">
-              <Image
+              <SmartImage
                 src="/gif/introducer-agreement.gif"
                 width={120}
                 height={120}
@@ -76,7 +77,7 @@ const ResourcesClient = () => {
               </Button>
             </div>
             <div className="w-[350px] h-[300px] bg-white rounded-[32px] flex flex-col items-center justify-center">
-              <Image
+              <SmartImage
                 src="/gif/introducer-guide.gif"
                 width={120}
                 height={120}
@@ -92,7 +93,7 @@ const ResourcesClient = () => {
               </Button>
             </div>
             <div className="w-[350px] h-[300px] bg-white rounded-[32px] flex flex-col items-center justify-center">
-              <Image
+              <SmartImage
                 src="/gif/introducer-form.gif"
                 width={120}
                 height={120}
@@ -108,7 +109,7 @@ const ResourcesClient = () => {
               </Button>
             </div>
             <div className="w-[350px] h-[300px] bg-white rounded-[32px] flex flex-col items-center justify-center">
-              <Image
+              <SmartImage
                 src="/gif/review.gif"
                 width={120}
                 height={120}
